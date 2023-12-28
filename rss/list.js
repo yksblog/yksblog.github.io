@@ -2,7 +2,7 @@ const ykykUrl = "https://yangk.net";
 
 const rssUrlOrigin = ykykUrl + "/api/blog_rss";
 
-function updateRss(){
+function ykykRssUpdateRss(){
 
     const url = rssUrlOrigin + "/sync_rss"
     const xhr=new XMLHttpRequest()
@@ -15,18 +15,18 @@ function updateRss(){
 
 }
 
-    function showOrHideRssUpdateDiv(){
+function ykykRssShowOrHideRssUpdateDiv(){
 
-	if("none" == $("#rss-add-update-div-id").css("display")){
-	    $("#rss-add-update-div-id").show();
-	}else{
-	    $("#rss-add-update-div-id").hide();
-	}
+    if("none" == $("#rss-add-update-div-id").css("display")){
+	$("#rss-add-update-div-id").show();
+    }else{
+	$("#rss-add-update-div-id").hide();
     }
+}
 
 
 
-function addRss(){
+function ykykRssAddRss(){
 
     const url = rssUrlOrigin;
 
@@ -57,7 +57,7 @@ function addRss(){
 }
 
 
-function findPage(){
+function ykykRssFindPage(){
     const result=document.getElementById("rss-result");
     const rssTotalNumber=document.getElementById("rss-total-number");
     const rssId=document.getElementById("rssId").value;
@@ -101,7 +101,7 @@ function findPage(){
     }
 }
 
-function rssMenuItem(){
+function ykykRssMenuItem(){
 
     const rssId=document.getElementById("rssId");
     const rssUpdateTime=document.getElementById("rss-update-time");
@@ -131,7 +131,7 @@ function rssMenuItem(){
 		}
 
 		rssId.innerHTML=resultHtml;
-		rssUpdateTime.innerHTML="<p><span onclick='showOrHideRssUpdateDiv()' class='rss-list-timestamp'>上次更新时间：</span><b>"+updateTime+"</b></p>";
+		rssUpdateTime.innerHTML="<p><span onclick='ykykRssShowOrHideRssUpdateDiv()' class='rss-list-timestamp'>上次更新时间：</span><b>"+updateTime+"</b></p>";
 	    }
 	}
     }
@@ -139,8 +139,8 @@ function rssMenuItem(){
 
 window.onload = function (){
 
-    rssMenuItem();
-    findPage();
+    ykykRssMenuItem();
+    ykykRssFindPage();
 
     if(window.location.host != ''){
 	let opt={"title": location.pathname}

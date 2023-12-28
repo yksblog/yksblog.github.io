@@ -8,8 +8,7 @@
 <link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
            <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
            <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
-<meta name="card" content="">
-<meta name="card" content=""><link rel="stylesheet" href="https://ywxttxs.github.io/themes/style.css" type="text/css" /><script type="module" src="./list.js" defer></script>
+<meta name="card" content=""><script src="./list.js" defer></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -18,8 +17,8 @@
   <p>
   <input type="text" id="rssTitle" value="" placeholder="标题" />
   <input type="text" id="rssUrl" value="" placeholder="地址"/>
-  <button onclick="addRss()">新增</button>
-  <button id="update-rss-id" onclick="updateRss()">更新订阅</button>
+  <button onclick="ykykRssAddRss()">新增</button>
+  <button id="update-rss-id" onclick="ykykRssUpdateRss()">更新订阅</button>
   </p>
   <div id="addRssResult"></div>
 </div>
@@ -28,7 +27,7 @@
 <div id="rss-update-time" class="org-center"></div>
 <div class="org-center">
 <b>作者:</b>
-<select id="rssId" onchange="findPage()">
+<select id="rssId" onchange="ykykRssFindPage()">
   <Option value="0">所有</option>
 </select>
 &nbsp;&nbsp;&nbsp;&nbsp;<span id="rss-total-number">共0条</span>

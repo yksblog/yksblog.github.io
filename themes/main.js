@@ -73,6 +73,15 @@ function toggleColor(e) {
     }
 }
 
+// 备案
+function initBeiAnInfo(){
+$(`<div class="bei-an-info">
+<ul>
+<li><a href=\"http://www.beian.gov.cn/portal/index.do\" target=\"_blank\"><img src=\"https://yangk.net/org_themes/bei-an.png\" style=\"vertical-align: middle; width: 21px; height: 21px;\">鄂公网安备 42011102003318号</a></li>
+<li><a href=\"https://beian.miit.gov.cn\" target=\"_blank\"><img src=\"https://yangk.net/org_themes/bei-an-icon.svg\" style=\"vertical-align: middle; width: 21px; height: 21px;\">鄂ICP备18026947号-3</a></li>
+</ul></div>`).insertAfter('#postamble');
+}
+
 // insertWordCountInfo
 function insertWordCountInfo(){
 
@@ -328,6 +337,7 @@ window.onload = function (){
 	return;
     }
     let opt={"title": location.pathname}
+    // let url= window.location.origin + "/api/blog_record"
     let url= "https://yangk.net/api/blog_record"
     $.ajax({
 	type: "post",
@@ -345,6 +355,8 @@ window.onload = function (){
 if(![indexHtml, "/"].includes(currentPath)){
     insertWordCountInfo();
 }
+
+// initBeiAnInfo();
 
 // 挂灯笼
 if(!nullHost){

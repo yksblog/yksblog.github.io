@@ -17,11 +17,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org332491f">快捷键</a></li>
+<li><a href="#orgbc98e33">快捷键</a></li>
 <li><a href="#orgdcaca7b">eww</a>
 <ul>
 <li><a href="#org99db692">Emacs浏览器及快捷键</a></li>
-<li><a href="#orgbc98e33">快捷键</a></li>
+<li><a href="#org905c0c8">快捷键</a></li>
 <li><a href="#org4d5e265">设置eww搜索引擎</a></li>
 <li><a href="#org979f603">加载外部el文件并执行el的方法</a></li>
 <li><a href="#orgcbf39f1">关于导出html缓存</a>
@@ -37,9 +37,9 @@
 </div>
 
 
-<div id="outline-container-org332491f" class="outline-2">
-<h2 id="org332491f">快捷键</h2>
-<div class="outline-text-2" id="text-org332491f">
+<div id="outline-container-orgbc98e33" class="outline-2">
+<h2 id="orgbc98e33">快捷键</h2>
+<div class="outline-text-2" id="text-orgbc98e33">
 <table>
 
 
@@ -386,9 +386,9 @@
 </div>
 
 
-<div id="outline-container-orgbc98e33" class="outline-3">
-<h3 id="orgbc98e33">快捷键</h3>
-<div class="outline-text-3" id="text-orgbc98e33">
+<div id="outline-container-org905c0c8" class="outline-3">
+<h3 id="org905c0c8">快捷键</h3>
+<div class="outline-text-3" id="text-org905c0c8">
 <pre class="example">
 按键	函数	作用
 q	eww-quit	退出eww
@@ -430,7 +430,7 @@ C-h e //查看emacs回显
 <h3 id="org979f603">加载外部el文件并执行el的方法</h3>
 <div class="outline-text-3" id="text-org979f603">
 <div class="org-src-container">
-<pre class="src src-lisp">emacsclient -n --eval <span style="color: #ffa07a;">"(load-file \"publish-config.el\")"</span>
+<pre class="src src-lisp">emacsclient -n --eval <span style="color: #E6DB74;">"(load-file \"publish-config.el\")"</span>
 </pre>
 </div>
 
@@ -438,36 +438,36 @@ C-h e //查看emacs回显
 <b>publish-config.el</b>
 </p>
 <div class="org-src-container">
-<pre class="src src-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">require</span> '<span style="color: #7fffd4;">ox-publish</span><span style="color: #8c8c8c;">)</span>
-<span style="color: #8c8c8c;">(</span>setq org-publish-project-alist
-      '<span style="color: #93a8c6;">(</span><span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"orgfiles"</span>
-         <span style="color: #b0c4de;">:base-directory</span> <span style="color: #ffa07a;">"~/www/orgs/"</span>
-         <span style="color: #b0c4de;">:publishing-directory</span> <span style="color: #ffa07a;">"~/www/htmls/"</span>
-         <span style="color: #b0c4de;">:base-extension</span> <span style="color: #ffa07a;">"org"</span>
-         <span style="color: #b0c4de;">:exclude</span> <span style="color: #ffa07a;">"^_[[:word:]-]*.org"</span>
-         <span style="color: #b0c4de;">:recursive</span> t
-         <span style="color: #b0c4de;">:publishing-function</span> org-html-publish-to-html
-         <span style="color: #b0c4de;">:headline-levels</span> 6    <span style="color: #808080;">;; </span><span style="color: #808080;">org-export-headline-levels</span>
-         <span style="color: #b0c4de;">:language</span> <span style="color: #ffa07a;">"zh"</span>        <span style="color: #808080;">;; </span><span style="color: #808080;">org-export-default-language</span>
-         <span style="color: #b0c4de;">:section-numbers</span> nil  <span style="color: #808080;">;; </span><span style="color: #808080;">org-export-with-section-numbers</span>
-         <span style="color: #b0c4de;">:with-planning</span> t      <span style="color: #808080;">;; </span><span style="color: #808080;">org-export-with-planning</span>
-         <span style="color: #b0c4de;">:with-priority</span> t      <span style="color: #808080;">;; </span><span style="color: #808080;">org-export-with-priority ;</span>
-         <span style="color: #808080;">;;  </span><span style="color: #808080;">:with-tags not-in-toc ;; org-export-with-tags</span>
-         <span style="color: #b0c4de;">:with-toc</span> t           <span style="color: #808080;">;; </span><span style="color: #808080;">org-export-with-toc</span>
-         <span style="color: #b0c4de;">:html-doctype</span> <span style="color: #ffa07a;">"html5"</span>
-         <span style="color: #b0c4de;">:html-head-include-default-style</span> nil <span style="color: #808080;">;; </span><span style="color: #808080;">org-html-head-include-default-style</span>
-         <span style="color: #b0c4de;">:html-head-include-scripts</span> nil <span style="color: #808080;">;; </span><span style="color: #808080;">org-html-head-include-scripts</span>
-         <span style="color: #b0c4de;">:html-checkbox-type</span> unicode  <span style="color: #808080;">;; </span><span style="color: #808080;">org-html-checkbox-type</span>
-         <span style="color: #808080;">;; </span><span style="color: #808080;">:html-link-home "index.html"  ;; org-html-link-home</span>
-         <span style="color: #808080;">;; </span><span style="color: #808080;">:html-link-up "uUP"          ;; org-html-link-up</span>
-         <span style="color: #b0c4de;">:html-validation-link</span> <span style="color: #ffa07a;">"&lt;a href=\"http://beian.miit.gov.cn/\"&gt;hello-world&lt;/a&gt;"</span>
-         <span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<pre class="src src-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">require</span> '<span style="color: #AE81FF;">ox-publish</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">(</span>setq org-publish-project-alist
+      '<span style="color: #66D9EF;">(</span><span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"orgfiles"</span>
+         <span style="color: #F92672;">:base-directory</span> <span style="color: #E6DB74;">"~/www/orgs/"</span>
+         <span style="color: #F92672;">:publishing-directory</span> <span style="color: #E6DB74;">"~/www/htmls/"</span>
+         <span style="color: #F92672;">:base-extension</span> <span style="color: #E6DB74;">"org"</span>
+         <span style="color: #F92672;">:exclude</span> <span style="color: #E6DB74;">"^_[[:word:]-]*.org"</span>
+         <span style="color: #F92672;">:recursive</span> t
+         <span style="color: #F92672;">:publishing-function</span> org-html-publish-to-html
+         <span style="color: #F92672;">:headline-levels</span> 6    <span style="color: #75715E;">;; </span><span style="color: #75715E;">org-export-headline-levels</span>
+         <span style="color: #F92672;">:language</span> <span style="color: #E6DB74;">"zh"</span>        <span style="color: #75715E;">;; </span><span style="color: #75715E;">org-export-default-language</span>
+         <span style="color: #F92672;">:section-numbers</span> nil  <span style="color: #75715E;">;; </span><span style="color: #75715E;">org-export-with-section-numbers</span>
+         <span style="color: #F92672;">:with-planning</span> t      <span style="color: #75715E;">;; </span><span style="color: #75715E;">org-export-with-planning</span>
+         <span style="color: #F92672;">:with-priority</span> t      <span style="color: #75715E;">;; </span><span style="color: #75715E;">org-export-with-priority ;</span>
+         <span style="color: #75715E;">;;  </span><span style="color: #75715E;">:with-tags not-in-toc ;; org-export-with-tags</span>
+         <span style="color: #F92672;">:with-toc</span> t           <span style="color: #75715E;">;; </span><span style="color: #75715E;">org-export-with-toc</span>
+         <span style="color: #F92672;">:html-doctype</span> <span style="color: #E6DB74;">"html5"</span>
+         <span style="color: #F92672;">:html-head-include-default-style</span> nil <span style="color: #75715E;">;; </span><span style="color: #75715E;">org-html-head-include-default-style</span>
+         <span style="color: #F92672;">:html-head-include-scripts</span> nil <span style="color: #75715E;">;; </span><span style="color: #75715E;">org-html-head-include-scripts</span>
+         <span style="color: #F92672;">:html-checkbox-type</span> unicode  <span style="color: #75715E;">;; </span><span style="color: #75715E;">org-html-checkbox-type</span>
+         <span style="color: #75715E;">;; </span><span style="color: #75715E;">:html-link-home "index.html"  ;; org-html-link-home</span>
+         <span style="color: #75715E;">;; </span><span style="color: #75715E;">:html-link-up "uUP"          ;; org-html-link-up</span>
+         <span style="color: #F92672;">:html-validation-link</span> <span style="color: #E6DB74;">"&lt;a href=\"http://beian.miit.gov.cn/\"&gt;hello-world&lt;/a&gt;"</span>
+         <span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 
-<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">ykyk-site-html</span><span style="color: #93a8c6;">()</span>
-  <span style="color: #93a8c6;">(</span>interactive<span style="color: #93a8c6;">)</span>
-  <span style="color: #93a8c6;">(</span>org-publish-all<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">ykyk-site-html</span><span style="color: #66D9EF;">()</span>
+  <span style="color: #66D9EF;">(</span>interactive<span style="color: #66D9EF;">)</span>
+  <span style="color: #66D9EF;">(</span>org-publish-all<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 
-<span style="color: #8c8c8c;">(</span>ykyk-site-html<span style="color: #8c8c8c;">)</span>
+<span style="color: #AE81FF;">(</span>ykyk-site-html<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 </div>
@@ -486,21 +486,21 @@ C-h e //查看emacs回显
 <h4 id="orgd4ef12f">eg</h4>
 <div class="outline-text-4" id="text-orgd4ef12f">
 <div class="org-src-container">
-<pre class="src src-elisp"><span class="linenr"> 1: </span><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">ykyk-site-html-local</span><span style="color: #93a8c6;">()</span>
-<span class="linenr"> 2: </span>  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">interactive</span><span style="color: #93a8c6;">)</span>
-<span class="linenr"> 3: </span>  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">progn</span>
-<span class="linenr"> 4: </span>    <span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">setq</span> org-publish-use-timestamps-flag t<span style="color: #b0b1a3;">)</span>
-<span class="linenr"> 5: </span>    <span style="color: #b0b1a3;">(</span>ykyk-jobs-menu <span style="color: #ffa07a;">"1"</span><span style="color: #b0b1a3;">)</span>
-<span class="linenr"> 6: </span>    <span style="color: #b0b1a3;">(</span>org-publish-all<span style="color: #b0b1a3;">)</span>
-<span class="linenr"> 7: </span>    <span style="color: #b0b1a3;">(</span>message <span style="color: #ffa07a;">"local-ok"</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<pre class="src src-elisp"><span class="linenr"> 1: </span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">ykyk-site-html-local</span><span style="color: #66D9EF;">()</span>
+<span class="linenr"> 2: </span>  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">interactive</span><span style="color: #66D9EF;">)</span>
+<span class="linenr"> 3: </span>  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">progn</span>
+<span class="linenr"> 4: </span>    <span style="color: #A6E22E;">(</span><span style="color: #F92672;">setq</span> org-publish-use-timestamps-flag t<span style="color: #A6E22E;">)</span>
+<span class="linenr"> 5: </span>    <span style="color: #A6E22E;">(</span>ykyk-jobs-menu <span style="color: #E6DB74;">"1"</span><span style="color: #A6E22E;">)</span>
+<span class="linenr"> 6: </span>    <span style="color: #A6E22E;">(</span>org-publish-all<span style="color: #A6E22E;">)</span>
+<span class="linenr"> 7: </span>    <span style="color: #A6E22E;">(</span>message <span style="color: #E6DB74;">"local-ok"</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 <span class="linenr"> 8: </span>
-<span class="linenr"> 9: </span><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">ykyk-site-html-local-force</span><span style="color: #93a8c6;">()</span>
-<span class="linenr">10: </span>  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">interactive</span><span style="color: #93a8c6;">)</span>
-<span class="linenr">11: </span>  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">progn</span>
-<span class="linenr">12: </span>    <span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">setq</span> org-publish-use-timestamps-flag nil<span style="color: #b0b1a3;">)</span>
-<span class="linenr">13: </span>    <span style="color: #b0b1a3;">(</span>ykyk-jobs-menu <span style="color: #ffa07a;">"1"</span><span style="color: #b0b1a3;">)</span>
-<span class="linenr">14: </span>    <span style="color: #b0b1a3;">(</span>org-publish-all<span style="color: #b0b1a3;">)</span>
-<span class="linenr">15: </span>    <span style="color: #b0b1a3;">(</span>message <span style="color: #ffa07a;">"local-ok"</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span class="linenr"> 9: </span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">ykyk-site-html-local-force</span><span style="color: #66D9EF;">()</span>
+<span class="linenr">10: </span>  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">interactive</span><span style="color: #66D9EF;">)</span>
+<span class="linenr">11: </span>  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">progn</span>
+<span class="linenr">12: </span>    <span style="color: #A6E22E;">(</span><span style="color: #F92672;">setq</span> org-publish-use-timestamps-flag nil<span style="color: #A6E22E;">)</span>
+<span class="linenr">13: </span>    <span style="color: #A6E22E;">(</span>ykyk-jobs-menu <span style="color: #E6DB74;">"1"</span><span style="color: #A6E22E;">)</span>
+<span class="linenr">14: </span>    <span style="color: #A6E22E;">(</span>org-publish-all<span style="color: #A6E22E;">)</span>
+<span class="linenr">15: </span>    <span style="color: #A6E22E;">(</span>message <span style="color: #E6DB74;">"local-ok"</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 </div>

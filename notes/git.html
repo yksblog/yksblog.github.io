@@ -82,14 +82,14 @@ ssh -T git@git.coding.net   *&#33150;&#35759;&#20113;
 <div class="org-src-container">
 <pre class="src src-bash">
 $ ssh-add  ~/.ssh/itgo
-Identity added: /Users/yangceo/.ssh/itgo <span style="color: #8c8c8c;">(</span>/Users/yangceo/.ssh/itgo<span style="color: #8c8c8c;">)</span>
+Identity added: /Users/yangceo/.ssh/itgo <span style="color: #AE81FF;">(</span>/Users/yangceo/.ssh/itgo<span style="color: #AE81FF;">)</span>
 
 $ ssh-add -l
-2048 SHA256:JNAht5MeaDsS4yymb15gwWHFB7YXB1e8/U/W4gGMLF4 /Users/yangceo/.ssh/itgo <span style="color: #8c8c8c;">(</span>RSA<span style="color: #8c8c8c;">)</span>
+2048 SHA256:JNAht5MeaDsS4yymb15gwWHFB7YXB1e8/U/W4gGMLF4 /Users/yangceo/.ssh/itgo <span style="color: #AE81FF;">(</span>RSA<span style="color: #AE81FF;">)</span>
 
 $ ssh -T git@github.com
 
-Hi maniyaserverdeploy! You<span style="color: #ffa07a;">'ve successfully authenticated, but GitHub does not provide shell access.</span>
+Hi maniyaserverdeploy! You<span style="color: #E6DB74;">'ve successfully authenticated, but GitHub does not provide shell access.</span>
 
 </pre>
 </div>
@@ -111,18 +111,18 @@ Hi maniyaserverdeploy! You<span style="color: #ffa07a;">'ve successfully authent
 <h2 id="org1192fbb">配置别名</h2>
 <div class="outline-text-2" id="text-org1192fbb">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #b0c4de;">alias</span> <span style="color: #eedd82;">git</span>=<span style="color: #ffa07a;">'git --no-pager'</span>
+<pre class="src src-bash"><span style="color: #F92672;">alias</span> <span style="color: #FD971F;">git</span>=<span style="color: #E6DB74;">'git --no-pager'</span>
 *&#26597;&#30475;&#37197;&#32622;
 git config --list
 
 *&#35774;&#32622;&#40664;&#35748;user&#21644;email
- git config --global user.name <span style="color: #ffa07a;">"&#36755;&#20837;&#20320;&#30340;&#29992;&#25143;&#21517;"</span>
- git config --global user.email <span style="color: #ffa07a;">"&#36755;&#20837;&#20320;&#30340;&#37038;&#31665;"</span>
+ git config --global user.name <span style="color: #E6DB74;">"&#36755;&#20837;&#20320;&#30340;&#29992;&#25143;&#21517;"</span>
+ git config --global user.email <span style="color: #E6DB74;">"&#36755;&#20837;&#20320;&#30340;&#37038;&#31665;"</span>
 *&#26367;&#25442;&#40664;&#35748;&#30340;user&#21644;email
- git config --global --replace-all user.email <span style="color: #ffa07a;">"&#36755;&#20837;&#20320;&#30340;&#37038;&#31665;"</span>
- git config --global --replace-all user.name <span style="color: #ffa07a;">"&#36755;&#20837;&#20320;&#30340;&#29992;&#25143;&#21517;"</span>
+ git config --global --replace-all user.email <span style="color: #E6DB74;">"&#36755;&#20837;&#20320;&#30340;&#37038;&#31665;"</span>
+ git config --global --replace-all user.name <span style="color: #E6DB74;">"&#36755;&#20837;&#20320;&#30340;&#29992;&#25143;&#21517;"</span>
 
-git config --global alias.lg <span style="color: #ffa07a;">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span>
+git config --global alias.lg <span style="color: #E6DB74;">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span>
 
 </pre>
 </div>
@@ -139,8 +139,8 @@ git config --global alias.st status
 git config --global alias.co checkout
 git config --global alias.ci commit
 git config --global alias.br branch
-git config --global alias.unstage <span style="color: #ffa07a;">'reset HEAD'</span>
-git config --global alias.last <span style="color: #ffa07a;">'log -1'</span>
+git config --global alias.unstage <span style="color: #E6DB74;">'reset HEAD'</span>
+git config --global alias.last <span style="color: #E6DB74;">'log -1'</span>
 </pre>
 </div>
 </div>
@@ -166,7 +166,7 @@ $ git remote -v
 <div class="org-src-container">
 <pre class="src src-bash">git init
 git add README.md
-git commit -m <span style="color: #ffa07a;">"first commit"</span>
+git commit -m <span style="color: #E6DB74;">"first commit"</span>
 git remote add origin https://github.com/Itgo666/evhcApi.git
 git push -u origin master
 
@@ -283,7 +283,7 @@ git pull //&#21487;&#20197;&#30465;&#30053;
 <div class="outline-text-3" id="text-org9e9193f">
 <div class="org-src-container">
 <pre class="src src-bash">git rm -r --cached target
-git commit -m <span style="color: #ffa07a;">"delete target/"</span>
+git commit -m <span style="color: #E6DB74;">"delete target/"</span>
 git push origin master
 </pre>
 </div>
@@ -322,14 +322,14 @@ $ cat abc.text
 dev_0101
 
 $ git co n
-Note: checking out <span style="color: #ffa07a;">'n'</span>.
+Note: checking out <span style="color: #E6DB74;">'n'</span>.
 
-You are<span style="color: #00ffff;"> in</span> <span style="color: #ffa07a;">'detached HEAD'</span> state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make<span style="color: #00ffff;"> in</span> this
+You are<span style="color: #F92672;"> in</span> <span style="color: #E6DB74;">'detached HEAD'</span> state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make<span style="color: #F92672;"> in</span> this
 state without impacting any branches by performing another checkout.
 
 If you want to create a new branch to retain commits you create, you may
-<span style="color: #00ffff;">do</span> so <span style="color: #8c8c8c;">(</span>now or later<span style="color: #8c8c8c;">)</span> by using -b with the checkout command again. Example:
+<span style="color: #F92672;">do</span> so <span style="color: #AE81FF;">(</span>now or later<span style="color: #AE81FF;">)</span> by using -b with the checkout command again. Example:
 
   git checkout -b &lt;new-branch-name&gt;
 
@@ -341,7 +341,7 @@ n
 v1.0.0
 
 $ git br
-*<span style="color: #8c8c8c;">(</span>HEAD detached at n<span style="color: #8c8c8c;">)</span>
+*<span style="color: #AE81FF;">(</span>HEAD detached at n<span style="color: #AE81FF;">)</span>
   dev
   dev_0101
   master

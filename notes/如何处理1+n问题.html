@@ -55,7 +55,7 @@
 <h3 id="orgec4a371">外链接</h3>
 <div class="outline-text-3" id="text-orgec4a371">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #00ffff;">left</span> <span style="color: #00ffff;">join</span> <span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">select</span> * <span style="color: #00ffff;">from</span> users u <span style="color: #00ffff;">left</span> <span style="color: #00ffff;">join</span> department d <span style="color: #00ffff;">where</span> u.department_id = d.id<span style="color: #8c8c8c;">)</span>
+<pre class="src src-sql"><span style="color: #F92672;">left</span> <span style="color: #F92672;">join</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">select</span> * <span style="color: #F92672;">from</span> users u <span style="color: #F92672;">left</span> <span style="color: #F92672;">join</span> department d <span style="color: #F92672;">where</span> u.department_id = d.id<span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 </div>
@@ -74,7 +74,7 @@
 // 这样就在读取users的时候也一次性的把departments都取出了
 </p>
 <div class="org-src-container">
-<pre class="src src-ruby"><span style="color: #98fb98;">User</span>.all.includes<span style="color: #8c8c8c;">(</span><span style="color: #7fffd4;">:departments</span><span style="color: #8c8c8c;">)</span>
+<pre class="src src-ruby"><span style="color: #66D9EF;">User</span>.all.includes<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">:departments</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 </div>
@@ -84,8 +84,8 @@
 <h3 id="orga8a3c83">生成的sql语句：</h3>
 <div class="outline-text-3" id="text-orga8a3c83">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #00ffff;">SELECT</span> `users`.* <span style="color: #00ffff;">FROM</span> `users` <span style="color: #00ffff;">ORDER</span> <span style="color: #00ffff;">BY</span> `users`.`id` <span style="color: #00ffff;">DESC</span>
-<span style="color: #00ffff;">SELECT</span> `departments`.* <span style="color: #00ffff;">FROM</span> `departments` <span style="color: #00ffff;">WHERE</span> `departments`.`user_id` <span style="color: #00ffff;">IN</span> <span style="color: #8c8c8c;">(</span>2, 1<span style="color: #8c8c8c;">)</span> <span style="color: #00ffff;">ORDER</span> <span style="color: #00ffff;">BY</span> `plans`.`id` <span style="color: #00ffff;">DESC</span>
+<pre class="src src-sql"><span style="color: #F92672;">SELECT</span> `users`.* <span style="color: #F92672;">FROM</span> `users` <span style="color: #F92672;">ORDER</span> <span style="color: #F92672;">BY</span> `users`.`id` <span style="color: #F92672;">DESC</span>
+<span style="color: #F92672;">SELECT</span> `departments`.* <span style="color: #F92672;">FROM</span> `departments` <span style="color: #F92672;">WHERE</span> `departments`.`user_id` <span style="color: #F92672;">IN</span> <span style="color: #AE81FF;">(</span>2, 1<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">ORDER</span> <span style="color: #F92672;">BY</span> `plans`.`id` <span style="color: #F92672;">DESC</span>
 </pre>
 </div>
 </div>

@@ -37,7 +37,7 @@
 <h3 id="org12e21e8">一、查询需要替换的文件在jar中的位置</h3>
 <div class="outline-text-3" id="text-org12e21e8">
 <div class="org-src-container">
-<pre class="src src-bash">jar tvf *****.jar | grep <span style="color: #8c8c8c;">{</span>fileName<span style="color: #8c8c8c;">}</span>
+<pre class="src src-bash">jar tvf *****.jar | grep <span style="color: #AE81FF;">{</span>fileName<span style="color: #AE81FF;">}</span>
 
 jar tvf fapiao.jar| grep logback-spring.xml
 </pre>
@@ -49,9 +49,9 @@ jar tvf fapiao.jar| grep logback-spring.xml
 <h3 id="org490b073">二、将文件解压到当前目录(以及文件所在目录)</h3>
 <div class="outline-text-3" id="text-org490b073">
 <div class="org-src-container">
-<pre class="src src-bash">jar xvf ****.jar <span style="color: #8c8c8c;">{</span>filePath<span style="color: #8c8c8c;">}</span>
+<pre class="src src-bash">jar xvf ****.jar <span style="color: #AE81FF;">{</span>filePath<span style="color: #AE81FF;">}</span>
 
-// &#27492;&#21629;&#20196;&#23558;&#25991;&#20214;&#25152;&#22312;&#30446;&#24405;&#35299;&#21387;&#20986;&#26469;&#65292;&#20250;&#22312;&#24403;&#21069;&#30446;&#24405;&#29983;&#25104;&#19968;&#20010;&#26032;&#30340;&#25991;&#20214;&#22841;&#65292;&#30446;&#24405;&#32467;&#26500;&#21516;&#65306;<span style="color: #8c8c8c;">{</span>filePath<span style="color: #8c8c8c;">}</span>
+// &#27492;&#21629;&#20196;&#23558;&#25991;&#20214;&#25152;&#22312;&#30446;&#24405;&#35299;&#21387;&#20986;&#26469;&#65292;&#20250;&#22312;&#24403;&#21069;&#30446;&#24405;&#29983;&#25104;&#19968;&#20010;&#26032;&#30340;&#25991;&#20214;&#22841;&#65292;&#30446;&#24405;&#32467;&#26500;&#21516;&#65306;<span style="color: #AE81FF;">{</span>filePath<span style="color: #AE81FF;">}</span>
 
 jar xvf fapiao.jar BOOT-INF/classes/logback-spring.xml
 </pre>
@@ -69,7 +69,7 @@ jar xvf fapiao.jar BOOT-INF/classes/logback-spring.xml
 <div class="outline-text-3" id="text-org26f2d24">
 <div class="org-src-container">
 <pre class="src src-bash">
-jar uvf ***.jar <span style="color: #8c8c8c;">{</span>filePath<span style="color: #8c8c8c;">}</span>
+jar uvf ***.jar <span style="color: #AE81FF;">{</span>filePath<span style="color: #AE81FF;">}</span>
 
 jar uvf fapiao.jar BOOT-INF/classes/logback-spring.xml
 </pre>

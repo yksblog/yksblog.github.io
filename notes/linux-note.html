@@ -84,7 +84,7 @@
 <pre class="src src-bash">//&#26597;&#30475;&#29992;&#25143;
 cat /etc/passwd
 or
-cat /etc/passwd|grep -v nologin|grep -v halt|grep -v shutdown|awk -F<span style="color: #ffa07a;">":"</span> <span style="color: #ffa07a;">'{ print $1"|"$3"|"$4 }'</span>|more
+cat /etc/passwd|grep -v nologin|grep -v halt|grep -v shutdown|awk -F<span style="color: #E6DB74;">":"</span> <span style="color: #E6DB74;">'{ print $1"|"$3"|"$4 }'</span>|more
 or
 cat /etc/passwd | cut -f 1 -d :
 
@@ -106,7 +106,7 @@ w
 <li><a href="https://zhuanlan.zhihu.com/p/343709343">https://zhuanlan.zhihu.com/p/343709343</a></li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #808080;">##</span><span style="color: #808080;">&#33258;&#34892;&#35774;&#32622;&#31471;&#21475;&#33539;&#22260;&#36827;&#34892;&#25195;&#25551;</span>
+<pre class="src src-bash"><span style="color: #75715E;">##</span><span style="color: #75715E;">&#33258;&#34892;&#35774;&#32622;&#31471;&#21475;&#33539;&#22260;&#36827;&#34892;&#25195;&#25551;</span>
 nmap -p22,80,7771 192.168.34.90
 nmap -p1-9999 192.168.34.90
 
@@ -125,7 +125,7 @@ RSAAuthentication yes
 PubkeyAuthentication yes
 AuthorizedKeysFile      .ssh/authorized_keys
 
-<span style="color: #808080;">#</span><span style="color: #808080;">&#40664;&#35748;PasswordAuthentication &#20026;yes,&#21363;&#20801;&#35768;&#23494;&#30721;&#30331;&#24405;&#65292;&#25913;&#20026;no&#21518;&#65292;&#31105;&#27490;&#23494;&#30721;&#30331;&#24405;</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">&#40664;&#35748;PasswordAuthentication &#20026;yes,&#21363;&#20801;&#35768;&#23494;&#30721;&#30331;&#24405;&#65292;&#25913;&#20026;no&#21518;&#65292;&#31105;&#27490;&#23494;&#30721;&#30331;&#24405;</span>
 PasswordAuthentication no
 
 &#37325;&#21551;&#26381;&#21153; service sshd restart
@@ -177,12 +177,12 @@ ServerAliveInterval 30 //&#27599;&#38548; 30 &#31186;&#21521;&#26381;&#21153;&#2
 <h2 id="org3c40808">bashrc 里 alias 加参数如何做？</h2>
 <div class="outline-text-2" id="text-org3c40808">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #b0c4de;">alias</span> <span style="color: #eedd82;">ttt</span>=<span style="color: #ffa07a;">'test() { echo $1;}; test'</span>
+<pre class="src src-bash"><span style="color: #F92672;">alias</span> <span style="color: #FD971F;">ttt</span>=<span style="color: #E6DB74;">'test() { echo $1;}; test'</span>
 
 &#28982;&#21518;&#32456;&#31471;&#36755;&#20837;&#65306;ttt 33&#65292;&#23601;&#20250;&#36755;&#20986; 33
 
 eg:
-<span style="color: #b0c4de;">alias</span> <span style="color: #eedd82;">lg</span>=<span style="color: #ffa07a;">'log() { git lg -$1; echo -e "\n";}; log'</span>
+<span style="color: #F92672;">alias</span> <span style="color: #FD971F;">lg</span>=<span style="color: #E6DB74;">'log() { git lg -$1; echo -e "\n";}; log'</span>
 </pre>
 </div>
 </div>
@@ -204,15 +204,15 @@ eg:
 <b>修改自己用户目录下的.bashrc 文件，加上</b>
 </p>
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #b0c4de;">export</span> <span style="color: #eedd82;">TMOUT</span>=1000000 <span style="color: #8c8c8c;">(</span>&#20197;&#31186;&#20026;&#21333;&#20301;<span style="color: #8c8c8c;">)</span>
+<pre class="src src-bash"><span style="color: #F92672;">export</span> <span style="color: #FD971F;">TMOUT</span>=1000000 <span style="color: #AE81FF;">(</span>&#20197;&#31186;&#20026;&#21333;&#20301;<span style="color: #AE81FF;">)</span>
 
 &#28982;&#21518;&#36816;&#34892;&#65306;
 
-<span style="color: #b0c4de;">source</span> ~/.bashrc
+<span style="color: #F92672;">source</span> ~/.bashrc
 
 &#22312;/etc/ssh/sshd_config &#20013;&#21152;&#20837;&#65306;
 
-<span style="color: #eedd82;">ClientAliveInterval</span>=60
+<span style="color: #FD971F;">ClientAliveInterval</span>=60
 </pre>
 </div>
 
@@ -237,15 +237,15 @@ eg:
 <h3 id="orgf1f18b3">chown</h3>
 <div class="outline-text-3" id="text-orgf1f18b3">
 <div class="org-src-container">
-<pre class="src src-bash">chown <span style="color: #8c8c8c;">[</span>-R<span style="color: #8c8c8c;">]</span> &#36134;&#21495;&#21517;&#31216; &#25991;&#20214;&#25110;&#30446;&#24405;
-chown <span style="color: #8c8c8c;">[</span>-R<span style="color: #8c8c8c;">]</span> &#36134;&#21495;&#21517;&#31216;:&#29992;&#25143;&#32452;&#21517;&#31216; &#25991;&#20214;&#25110;&#30446;&#24405;
+<pre class="src src-bash">chown <span style="color: #AE81FF;">[</span>-R<span style="color: #AE81FF;">]</span> &#36134;&#21495;&#21517;&#31216; &#25991;&#20214;&#25110;&#30446;&#24405;
+chown <span style="color: #AE81FF;">[</span>-R<span style="color: #AE81FF;">]</span> &#36134;&#21495;&#21517;&#31216;:&#29992;&#25143;&#32452;&#21517;&#31216; &#25991;&#20214;&#25110;&#30446;&#24405;
 
 &#31034;&#20363; 1&#65306;
-<span style="color: #8c8c8c;">[</span>root@localhost home<span style="color: #8c8c8c;">]</span># touch testfile //&#30001; root &#29992;&#25143;&#21019;&#24314;&#25991;&#20214;
-<span style="color: #8c8c8c;">[</span>root@localhost home<span style="color: #8c8c8c;">]</span># ls testfile &#8211;l
+<span style="color: #AE81FF;">[</span>root@localhost home<span style="color: #AE81FF;">]</span># touch testfile //&#30001; root &#29992;&#25143;&#21019;&#24314;&#25991;&#20214;
+<span style="color: #AE81FF;">[</span>root@localhost home<span style="color: #AE81FF;">]</span># ls testfile &#8211;l
 -rw--w--w- 1 root root 0 Jun 7 19:35 testfile //&#25991;&#20214;&#30340;&#25317;&#26377;&#32773;&#21450;&#25317;&#26377;&#32773;&#32423;&#22343;&#20026; root
-<span style="color: #8c8c8c;">[</span>root@localhost home<span style="color: #8c8c8c;">]</span># chown yangzongde testfile //&#20462;&#25913;&#25991;&#20214;&#25317;&#26377;&#32773;&#20026; yangzongde
-<span style="color: #8c8c8c;">[</span>root@localhost home<span style="color: #8c8c8c;">]</span># ls testfile -l
+<span style="color: #AE81FF;">[</span>root@localhost home<span style="color: #AE81FF;">]</span># chown yangzongde testfile //&#20462;&#25913;&#25991;&#20214;&#25317;&#26377;&#32773;&#20026; yangzongde
+<span style="color: #AE81FF;">[</span>root@localhost home<span style="color: #AE81FF;">]</span># ls testfile -l
 -rw--w--w- 1 yangzongde root 0 Jun 7 19:35 testfile //&#26597;&#30475;&#25991;&#20214;&#25317;&#26377;&#32773;&#20026; yangzongde&#65292;&#20294;&#32452;&#20173;&#20026; root
 &#31034;&#20363; 2&#65306;
 chown bin install.log
@@ -262,25 +262,25 @@ ls -l
 <h3 id="org4b9577a">chgrp</h3>
 <div class="outline-text-3" id="text-org4b9577a">
 <div class="org-src-container">
-<pre class="src src-bash">chgrp <span style="color: #8c8c8c;">[</span>-R<span style="color: #8c8c8c;">]</span> &#29992;&#25143;&#32452;&#21517;&#31216; dirname/filename ...
+<pre class="src src-bash">chgrp <span style="color: #AE81FF;">[</span>-R<span style="color: #AE81FF;">]</span> &#29992;&#25143;&#32452;&#21517;&#31216; dirname/filename ...
 
 &#31034;&#20363; 3
-<span style="color: #8c8c8c;">[</span>root@localhost home<span style="color: #8c8c8c;">]</span># ls testfile -l
+<span style="color: #AE81FF;">[</span>root@localhost home<span style="color: #AE81FF;">]</span># ls testfile -l
 -rw--w--w- 1 yangzongde root 0 Jun 7 19:35 testfile //&#26597;&#30475;&#25991;&#20214;&#25317;&#26377;&#32773;&#20026; yangzongde&#65292;&#20294;&#32452;&#20026; root
-<span style="color: #8c8c8c;">[</span>root@localhost home<span style="color: #8c8c8c;">]</span># chgrp yangzongde testfile //&#20462;&#25913;&#25317;&#26377;&#32773;&#32452;&#20026; yangzongde
-<span style="color: #8c8c8c;">[</span>root@localhost home<span style="color: #8c8c8c;">]</span># ls testfile -l
+<span style="color: #AE81FF;">[</span>root@localhost home<span style="color: #AE81FF;">]</span># chgrp yangzongde testfile //&#20462;&#25913;&#25317;&#26377;&#32773;&#32452;&#20026; yangzongde
+<span style="color: #AE81FF;">[</span>root@localhost home<span style="color: #AE81FF;">]</span># ls testfile -l
 -rw--w--w- 1 yangzongde yangzongde 0 Jun 7 19:35 testfile
-<span style="color: #8c8c8c;">[</span>root@localhost home<span style="color: #8c8c8c;">]</span># chown root:root testfile // &#20351;&#29992; chown &#19968;&#27425;&#24615;&#20462;&#25913;&#25317;&#26377;&#32773;&#21450;&#32452;
-<span style="color: #8c8c8c;">[</span>root@localhost home<span style="color: #8c8c8c;">]</span># ls testfile -l
+<span style="color: #AE81FF;">[</span>root@localhost home<span style="color: #AE81FF;">]</span># chown root:root testfile // &#20351;&#29992; chown &#19968;&#27425;&#24615;&#20462;&#25913;&#25317;&#26377;&#32773;&#21450;&#32452;
+<span style="color: #AE81FF;">[</span>root@localhost home<span style="color: #AE81FF;">]</span># ls testfile -l
 -rw--w--w- 1 root root 0 Jun 7 19:35 testfile
 &#31034;&#20363; 4
-<span style="color: #8c8c8c;">[</span>root@linux ~<span style="color: #8c8c8c;">]</span># chgrp users install.log
-<span style="color: #8c8c8c;">[</span>root@linux ~<span style="color: #8c8c8c;">]</span># ls -l
+<span style="color: #AE81FF;">[</span>root@linux ~<span style="color: #AE81FF;">]</span># chgrp users install.log
+<span style="color: #AE81FF;">[</span>root@linux ~<span style="color: #AE81FF;">]</span># ls -l
 -rw-r--r--  1 root users 68495 Jun 25 08:53 install.log
 &#31034;&#20363; 5
 &#26356;&#25913;&#20026;&#19968;&#20010; /etc/group &#37324;&#19981;&#23384;&#22312;&#30340;&#29992;&#25143;&#32452;
-<span style="color: #8c8c8c;">[</span>root@linux ~<span style="color: #8c8c8c;">]</span># chgrp testing install.log
-chgrp: invalid group name <span style="color: #fa8072;">`testing' &lt;== &#20986;&#29616;&#38169;&#35823;&#20449;&#24687;&#65374;&#25214;&#19981;&#21040;&#36825;&#20010;&#29992;&#25143;&#32452;&#21517;&#65374;</span>
+<span style="color: #AE81FF;">[</span>root@linux ~<span style="color: #AE81FF;">]</span># chgrp testing install.log
+chgrp: invalid group name <span style="color: #AE81FF; font-weight: bold;">`testing' &lt;== &#20986;&#29616;&#38169;&#35823;&#20449;&#24687;&#65374;&#25214;&#19981;&#21040;&#36825;&#20010;&#29992;&#25143;&#32452;&#21517;&#65374;</span>
 
 </pre>
 </div>
@@ -321,8 +321,8 @@ cat tw_4083_* &gt; tw_4083_all.zip
 <h2 id="orgcf9e58a">less 乱码</h2>
 <div class="outline-text-2" id="text-orgcf9e58a">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #b0c4de;">export</span> <span style="color: #eedd82;">LESSCHARSET</span>=utf-8
-<span style="color: #b0c4de;">export</span> <span style="color: #eedd82;">LESS</span>=Mrf
+<pre class="src src-bash"><span style="color: #F92672;">export</span> <span style="color: #FD971F;">LESSCHARSET</span>=utf-8
+<span style="color: #F92672;">export</span> <span style="color: #FD971F;">LESS</span>=Mrf
 </pre>
 </div>
 </div>
@@ -333,11 +333,11 @@ cat tw_4083_* &gt; tw_4083_all.zip
 <div class="outline-text-2" id="text-org5be60e2">
 <div class="org-src-container">
 <pre class="src src-bash">
-hostname yk <span style="color: #808080;">#</span><span style="color: #808080;">&#20020;&#26102;&#29983;&#25928;</span>
+hostname yk <span style="color: #75715E;">#</span><span style="color: #75715E;">&#20020;&#26102;&#29983;&#25928;</span>
 
-hostnamectl set-hostname yk <span style="color: #808080;">#</span><span style="color: #808080;">&#27704;&#20037;&#29983;&#25928;</span>
+hostnamectl set-hostname yk <span style="color: #75715E;">#</span><span style="color: #75715E;">&#27704;&#20037;&#29983;&#25928;</span>
 
-vi /etc/hostname <span style="color: #808080;">#</span><span style="color: #808080;">&#27704;&#20037;&#29983;&#25928;</span>
+vi /etc/hostname <span style="color: #75715E;">#</span><span style="color: #75715E;">&#27704;&#20037;&#29983;&#25928;</span>
 
 </pre>
 </div>
@@ -353,21 +353,21 @@ vi /etc/hostname <span style="color: #808080;">#</span><span style="color: #8080
 </ul>
 <div class="org-src-container">
 <pre class="src src-bash">adduser yk
-passwd yk<span style="color: #8c8c8c;">(</span>q123456<span style="color: #8c8c8c;">)</span>
+passwd yk<span style="color: #AE81FF;">(</span>q123456<span style="color: #AE81FF;">)</span>
 whereis sudoers
 ll /etc/sudoers
 chmod +w /etc/sudoers
 vi /etc/sudoers
-- &#22312; root <span style="color: #eedd82;">ALL</span>=<span style="color: #8c8c8c;">(</span>ALL<span style="color: #8c8c8c;">)</span> ALL &#19979;&#38754;&#22686;&#21152;
-- yk <span style="color: #eedd82;">ALL</span>=<span style="color: #8c8c8c;">(</span>ALL<span style="color: #8c8c8c;">)</span> NOPASSWD: ALL
+- &#22312; root <span style="color: #FD971F;">ALL</span>=<span style="color: #AE81FF;">(</span>ALL<span style="color: #AE81FF;">)</span> ALL &#19979;&#38754;&#22686;&#21152;
+- yk <span style="color: #FD971F;">ALL</span>=<span style="color: #AE81FF;">(</span>ALL<span style="color: #AE81FF;">)</span> NOPASSWD: ALL
 chmod -w /etc/sudoers
 su yk
 
-<span style="color: #808080;"># </span><span style="color: #808080;">&#23436;&#20840;&#21024;&#38500;&#29992;&#25143;</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#23436;&#20840;&#21024;&#38500;&#29992;&#25143;</span>
 userdel -r yk
 
-<span style="color: #808080;"># </span><span style="color: #808080;">&#26597;&#30475;&#26159;&#21542;&#21024;&#38500;&#24178;&#20928;</span>
-find / -name <span style="color: #ffa07a;">"*yk*"</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#26597;&#30475;&#26159;&#21542;&#21024;&#38500;&#24178;&#20928;</span>
+find / -name <span style="color: #E6DB74;">"*yk*"</span>
 
 
 </pre>
@@ -379,7 +379,7 @@ find / -name <span style="color: #ffa07a;">"*yk*"</span>
 <h2 id="orgf8fffb8">禁用 ping</h2>
 <div class="outline-text-2" id="text-orgf8fffb8">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #b0c4de;">echo</span> <span style="color: #ffa07a;">"1"</span> &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all
+<pre class="src src-bash"><span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"1"</span> &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all
 </pre>
 </div>
 </div>
@@ -406,11 +406,11 @@ netstat -antlp
 <h2 id="org3fec357">mac osx 终端批量删除文件</h2>
 <div class="outline-text-2" id="text-org3fec357">
 <div class="org-src-container">
-<pre class="src src-bash">find ./ -name <span style="color: #ffa07a;">"*.html"</span> -exec rm -rf <span style="color: #8c8c8c;">{}</span> <span style="color: #ffa07a;">\;</span>  <span style="color: #808080;"># </span><span style="color: #808080;">&#27880;&#24847; {}&#21644;\;&#20043;&#38388;&#26377;&#31354;&#26684;</span>
-find <span style="color: #8c8c8c;">[</span>&#30446;&#24405;&#21517;<span style="color: #8c8c8c;">]</span> -name <span style="color: #ffa07a;">"&#25991;&#20214;&#21517;"</span> -exec rm -rf <span style="color: #8c8c8c;">{}</span> <span style="color: #ffa07a;">\;</span>
+<pre class="src src-bash">find ./ -name <span style="color: #E6DB74;">"*.html"</span> -exec rm -rf <span style="color: #AE81FF;">{}</span> <span style="color: #E6DB74;">\;</span>  <span style="color: #75715E;"># </span><span style="color: #75715E;">&#27880;&#24847; {}&#21644;\;&#20043;&#38388;&#26377;&#31354;&#26684;</span>
+find <span style="color: #AE81FF;">[</span>&#30446;&#24405;&#21517;<span style="color: #AE81FF;">]</span> -name <span style="color: #E6DB74;">"&#25991;&#20214;&#21517;"</span> -exec rm -rf <span style="color: #AE81FF;">{}</span> <span style="color: #E6DB74;">\;</span>
 
-<span style="color: #808080;"># </span><span style="color: #808080;">&#25628;&#32034;&#21024;&#38500;&#25991;&#20214;&#65292;&#20363;&#22914;&#65306;</span>
-find / -name *.raw -exe c rm -rf <span style="color: #8c8c8c;">{}</span> <span style="color: #ffa07a;">\;</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#25628;&#32034;&#21024;&#38500;&#25991;&#20214;&#65292;&#20363;&#22914;&#65306;</span>
+find / -name *.raw -exe c rm -rf <span style="color: #AE81FF;">{}</span> <span style="color: #E6DB74;">\;</span>
 
 </pre>
 </div>
@@ -438,25 +438,25 @@ find / -name *.raw -exe c rm -rf <span style="color: #8c8c8c;">{}</span> <span s
 <h2 id="org8dfdb2a">ls 命令</h2>
 <div class="outline-text-2" id="text-org8dfdb2a">
 <div class="org-src-container">
-<pre class="src src-bash">ls -lt <span style="color: #808080;"># </span><span style="color: #808080;">&#25353;&#26102;&#38388;&#25490;&#24207;(&#40664;&#35748;&#20498;&#24207;)</span>
-ls -lt | tac <span style="color: #808080;"># </span><span style="color: #808080;">&#25353;&#26102;&#38388;&#21319;&#24207;&#25490;&#24207;</span>
-ls -lSh <span style="color: #808080;">#</span><span style="color: #808080;">&#25353;&#22823;&#23567;&#25490;&#24207;(&#40664;&#35748;&#20498;&#24207;)</span>
+<pre class="src src-bash">ls -lt <span style="color: #75715E;"># </span><span style="color: #75715E;">&#25353;&#26102;&#38388;&#25490;&#24207;(&#40664;&#35748;&#20498;&#24207;)</span>
+ls -lt | tac <span style="color: #75715E;"># </span><span style="color: #75715E;">&#25353;&#26102;&#38388;&#21319;&#24207;&#25490;&#24207;</span>
+ls -lSh <span style="color: #75715E;">#</span><span style="color: #75715E;">&#25353;&#22823;&#23567;&#25490;&#24207;(&#40664;&#35748;&#20498;&#24207;)</span>
 
-ls -lh  <span style="color: #808080;">#</span><span style="color: #808080;">&#25353; M &#26174;&#31034;&#25991;&#20214;&#22823;&#23567;</span>
+ls -lh  <span style="color: #75715E;">#</span><span style="color: #75715E;">&#25353; M &#26174;&#31034;&#25991;&#20214;&#22823;&#23567;</span>
 
-ls | wc -w  <span style="color: #808080;">#</span><span style="color: #808080;">&#26597;&#30475;&#25991;&#20214;&#25968;&#37327;</span>
+ls | wc -w  <span style="color: #75715E;">#</span><span style="color: #75715E;">&#26597;&#30475;&#25991;&#20214;&#25968;&#37327;</span>
 
-ls -F | grep <span style="color: #ffa07a;">"/$"</span>   <span style="color: #808080;">#</span><span style="color: #808080;">&#21482;&#26174;&#31034;&#30446;&#24405;</span>
+ls -F | grep <span style="color: #E6DB74;">"/$"</span>   <span style="color: #75715E;">#</span><span style="color: #75715E;">&#21482;&#26174;&#31034;&#30446;&#24405;</span>
 
-ls -al | grep <span style="color: #ffa07a;">"^d"</span>  <span style="color: #808080;">#</span><span style="color: #808080;">&#21482;&#26174;&#31034;&#30446;&#24405;</span>
+ls -al | grep <span style="color: #E6DB74;">"^d"</span>  <span style="color: #75715E;">#</span><span style="color: #75715E;">&#21482;&#26174;&#31034;&#30446;&#24405;</span>
 
-ls -al | grep <span style="color: #ffa07a;">"^-"</span>  <span style="color: #808080;">#</span><span style="color: #808080;">&#21482;&#26174;&#31034;&#25991;&#20214;</span>
+ls -al | grep <span style="color: #E6DB74;">"^-"</span>  <span style="color: #75715E;">#</span><span style="color: #75715E;">&#21482;&#26174;&#31034;&#25991;&#20214;</span>
 
-ls -l | grep <span style="color: #ffa07a;">"^-"</span> | wc -l <span style="color: #808080;">#</span><span style="color: #808080;">&#26597;&#30475;&#25991;&#20214;&#20010;&#25968;</span>
+ls -l | grep <span style="color: #E6DB74;">"^-"</span> | wc -l <span style="color: #75715E;">#</span><span style="color: #75715E;">&#26597;&#30475;&#25991;&#20214;&#20010;&#25968;</span>
 
-ls -l | grep <span style="color: #ffa07a;">"^d"</span> | wc -l <span style="color: #808080;">#</span><span style="color: #808080;">&#26597;&#30475;&#30446;&#24405;&#20010;&#25968;</span>
+ls -l | grep <span style="color: #E6DB74;">"^d"</span> | wc -l <span style="color: #75715E;">#</span><span style="color: #75715E;">&#26597;&#30475;&#30446;&#24405;&#20010;&#25968;</span>
 
-ls -Rl | grep <span style="color: #ffa07a;">"^-"</span> | wc -l <span style="color: #808080;"># </span><span style="color: #808080;">&#36882;&#24402;&#26597;&#30475;&#30446;&#24405;&#37324;&#38754;&#25152;&#26377;&#25991;&#20214;&#25991;&#20214;&#20010;&#25968;</span>
+ls -Rl | grep <span style="color: #E6DB74;">"^-"</span> | wc -l <span style="color: #75715E;"># </span><span style="color: #75715E;">&#36882;&#24402;&#26597;&#30475;&#30446;&#24405;&#37324;&#38754;&#25152;&#26377;&#25991;&#20214;&#25991;&#20214;&#20010;&#25968;</span>
 </pre>
 </div>
 </div>
@@ -466,22 +466,22 @@ ls -Rl | grep <span style="color: #ffa07a;">"^-"</span> | wc -l <span style="col
 <h2 id="org5af32b4">du / df 命令</h2>
 <div class="outline-text-2" id="text-org5af32b4">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #808080;">#</span><span style="color: #808080;">&#25353;&#25991;&#20214;&#22823;&#23567;&#25490;&#24207;&#24182;&#25343;&#20986;&#26368;&#22823;&#30340; 20 &#20010;</span>
+<pre class="src src-bash"><span style="color: #75715E;">#</span><span style="color: #75715E;">&#25353;&#25991;&#20214;&#22823;&#23567;&#25490;&#24207;&#24182;&#25343;&#20986;&#26368;&#22823;&#30340; 20 &#20010;</span>
 du -h ./* | sort -hr | head -20
 
-<span style="color: #808080;">#</span><span style="color: #808080;">&#26597;&#30475;&#27599;&#20010;&#25991;&#20214;&#22841;&#30340;&#22823;&#23567;</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">&#26597;&#30475;&#27599;&#20010;&#25991;&#20214;&#22841;&#30340;&#22823;&#23567;</span>
 du   -sh    /*
 
-<span style="color: #808080;">#</span><span style="color: #808080;">&#21482;&#26174;&#31034; 1 &#23618;&#30446;&#24405;</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">&#21482;&#26174;&#31034; 1 &#23618;&#30446;&#24405;</span>
 du -d 1 -h
 
-<span style="color: #808080;">#</span><span style="color: #808080;">&#21482;&#26174;&#31034; 2 &#23618;&#30446;&#24405;</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">&#21482;&#26174;&#31034; 2 &#23618;&#30446;&#24405;</span>
 du -d 2 -h
 
-<span style="color: #808080;"># </span><span style="color: #808080;">&#26597;&#30475;&#30828;&#30424;&#20351;&#29992;&#24773;&#20917;</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#26597;&#30475;&#30828;&#30424;&#20351;&#29992;&#24773;&#20917;</span>
 df -h
 
-<span style="color: #808080;"># </span><span style="color: #808080;">&#26597;&#30475;&#20869;&#23384;</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#26597;&#30475;&#20869;&#23384;</span>
 free -h
 </pre>
 </div>
@@ -538,10 +538,10 @@ free -h
 <h2 id="orgbf1e4ac">pbcopy</h2>
 <div class="outline-text-2" id="text-orgbf1e4ac">
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #808080;">#</span><span style="color: #808080;">copy id_rsa.pub &#25991;&#20214;&#30340;&#20869;&#23481;&#21040;&#21098;&#36148;&#26495;&#65306;</span>
+<pre class="src src-bash"><span style="color: #75715E;">#</span><span style="color: #75715E;">copy id_rsa.pub &#25991;&#20214;&#30340;&#20869;&#23481;&#21040;&#21098;&#36148;&#26495;&#65306;</span>
 pbcopy &lt; ~/.ssh/id_rsa.pub
 
-<span style="color: #808080;">#</span><span style="color: #808080;">&#31896;&#36148;&#21098;&#36148;&#26495;&#30340;&#20869;&#23481;</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">&#31896;&#36148;&#21098;&#36148;&#26495;&#30340;&#20869;&#23481;</span>
 pbpaste
 
 </pre>
@@ -593,8 +593,8 @@ eg: sudo hostname Yangk
 <h2 id="org325e716">扩展属性@</h2>
 <div class="outline-text-2" id="text-org325e716">
 <div class="org-src-container">
-<pre class="src src-bash">xattr -c filename <span style="color: #808080;">#</span><span style="color: #808080;">&#21435;&#38500;&#25991;&#20214;&#30340;&#25193;&#23637;&#23646;&#24615;@</span>
-xattr -c -r * <span style="color: #808080;">#</span><span style="color: #808080;">&#21435;&#38500;&#25991;&#20214;&#22841;&#19979;&#25152;&#26377;&#25991;&#20214;&#30340;&#25193;&#23637;&#23646;&#24615;@</span>
+<pre class="src src-bash">xattr -c filename <span style="color: #75715E;">#</span><span style="color: #75715E;">&#21435;&#38500;&#25991;&#20214;&#30340;&#25193;&#23637;&#23646;&#24615;@</span>
+xattr -c -r * <span style="color: #75715E;">#</span><span style="color: #75715E;">&#21435;&#38500;&#25991;&#20214;&#22841;&#19979;&#25152;&#26377;&#25991;&#20214;&#30340;&#25193;&#23637;&#23646;&#24615;@</span>
 </pre>
 </div>
 </div>

@@ -42,7 +42,7 @@ processlist
 <h2 id="orgd1ecfdb">慢sql排序</h2>
 <div class="outline-text-2" id="text-orgd1ecfdb">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #00ffff;">select</span> * <span style="color: #00ffff;">from</span> information_schema.processlist <span style="color: #00ffff;">where</span> Command != <span style="color: #ffa07a;">'Sleep'</span> <span style="color: #00ffff;">order</span> <span style="color: #00ffff;">by</span> <span style="color: #98fb98;">Time</span> <span style="color: #00ffff;">desc</span>;
+<pre class="src src-sql"><span style="color: #F92672;">select</span> * <span style="color: #F92672;">from</span> information_schema.processlist <span style="color: #F92672;">where</span> Command != <span style="color: #E6DB74;">'Sleep'</span> <span style="color: #F92672;">order</span> <span style="color: #F92672;">by</span> <span style="color: #66D9EF;">Time</span> <span style="color: #F92672;">desc</span>;
 </pre>
 </div>
 </div>
@@ -52,7 +52,7 @@ processlist
 <h2 id="orga70abef">kill 慢sql线程</h2>
 <div class="outline-text-2" id="text-orga70abef">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #00ffff;">select</span> concat<span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">'kill '</span>, id, <span style="color: #ffa07a;">';'</span><span style="color: #8c8c8c;">)</span> <span style="color: #00ffff;">from</span> information_schema.processlist <span style="color: #00ffff;">where</span> Command != <span style="color: #ffa07a;">'Sleep'</span> <span style="color: #00ffff;">and</span> <span style="color: #98fb98;">Time</span> &gt; 300 <span style="color: #00ffff;">order</span> <span style="color: #00ffff;">by</span> <span style="color: #98fb98;">Time</span> <span style="color: #00ffff;">desc</span>;
+<pre class="src src-sql"><span style="color: #F92672;">select</span> concat<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'kill '</span>, id, <span style="color: #E6DB74;">';'</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">from</span> information_schema.processlist <span style="color: #F92672;">where</span> Command != <span style="color: #E6DB74;">'Sleep'</span> <span style="color: #F92672;">and</span> <span style="color: #66D9EF;">Time</span> &gt; 300 <span style="color: #F92672;">order</span> <span style="color: #F92672;">by</span> <span style="color: #66D9EF;">Time</span> <span style="color: #F92672;">desc</span>;
 </pre>
 </div>
 </div>
@@ -65,7 +65,7 @@ processlist
 <li>按客户端 IP 分组，看哪个客户端的链接数最多</li>
 </ol>
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #00ffff;">select</span> client_ip,<span style="color: #b0c4de;">count</span><span style="color: #8c8c8c;">(</span>client_ip<span style="color: #8c8c8c;">)</span> <span style="color: #00ffff;">as</span> client_num <span style="color: #00ffff;">from</span> <span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">select</span> substring_index<span style="color: #93a8c6;">(</span><span style="color: #00ffff;">host</span>,<span style="color: #ffa07a;">':'</span> ,1<span style="color: #93a8c6;">)</span> <span style="color: #00ffff;">as</span> client_ip <span style="color: #00ffff;">from</span> information_schema.processlist <span style="color: #8c8c8c;">)</span> <span style="color: #00ffff;">as</span> connect_info <span style="color: #00ffff;">group</span> <span style="color: #00ffff;">by</span> client_ip <span style="color: #00ffff;">order</span> <span style="color: #00ffff;">by</span> client_num <span style="color: #00ffff;">desc</span>;
+<pre class="src src-sql"><span style="color: #F92672;">select</span> client_ip,<span style="color: #F92672;">count</span><span style="color: #AE81FF;">(</span>client_ip<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> client_num <span style="color: #F92672;">from</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">select</span> substring_index<span style="color: #66D9EF;">(</span><span style="color: #F92672;">host</span>,<span style="color: #E6DB74;">':'</span> ,1<span style="color: #66D9EF;">)</span> <span style="color: #F92672;">as</span> client_ip <span style="color: #F92672;">from</span> information_schema.processlist <span style="color: #AE81FF;">)</span> <span style="color: #F92672;">as</span> connect_info <span style="color: #F92672;">group</span> <span style="color: #F92672;">by</span> client_ip <span style="color: #F92672;">order</span> <span style="color: #F92672;">by</span> client_num <span style="color: #F92672;">desc</span>;
 
 </pre>
 </div>
@@ -73,7 +73,7 @@ processlist
 <li>查看正在执行的线程，并按 Time 倒排序，看看有没有执行时间特别长的线程</li>
 </ol>
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #00ffff;">select</span> * <span style="color: #00ffff;">from</span> information_schema.processlist <span style="color: #00ffff;">where</span> Command != <span style="color: #ffa07a;">'Sleep'</span> <span style="color: #00ffff;">order</span> <span style="color: #00ffff;">by</span> <span style="color: #98fb98;">Time</span> <span style="color: #00ffff;">desc</span>;
+<pre class="src src-sql"><span style="color: #F92672;">select</span> * <span style="color: #F92672;">from</span> information_schema.processlist <span style="color: #F92672;">where</span> Command != <span style="color: #E6DB74;">'Sleep'</span> <span style="color: #F92672;">order</span> <span style="color: #F92672;">by</span> <span style="color: #66D9EF;">Time</span> <span style="color: #F92672;">desc</span>;
 
 </pre>
 </div>
@@ -84,7 +84,7 @@ processlist
 可复制查询结果到控制台，直接执行，杀死堵塞进程
 </p>
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #00ffff;">select</span> concat<span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">'kill '</span>, id, <span style="color: #ffa07a;">';'</span><span style="color: #8c8c8c;">)</span> <span style="color: #00ffff;">from</span> information_schema.processlist <span style="color: #00ffff;">where</span> Command != <span style="color: #ffa07a;">'Sleep'</span> <span style="color: #00ffff;">and</span> <span style="color: #98fb98;">Time</span> &gt; 300 <span style="color: #00ffff;">order</span> <span style="color: #00ffff;">by</span> <span style="color: #98fb98;">Time</span> <span style="color: #00ffff;">desc</span>;
+<pre class="src src-sql"><span style="color: #F92672;">select</span> concat<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'kill '</span>, id, <span style="color: #E6DB74;">';'</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">from</span> information_schema.processlist <span style="color: #F92672;">where</span> Command != <span style="color: #E6DB74;">'Sleep'</span> <span style="color: #F92672;">and</span> <span style="color: #66D9EF;">Time</span> &gt; 300 <span style="color: #F92672;">order</span> <span style="color: #F92672;">by</span> <span style="color: #66D9EF;">Time</span> <span style="color: #F92672;">desc</span>;
 
 </pre>
 </div>
@@ -93,7 +93,7 @@ processlist
 <li>查询线程及相关信息</li>
 </ol>
 <div class="org-src-container">
-<pre class="src src-sql">show <span style="color: #00ffff;">full</span> processlist
+<pre class="src src-sql">show <span style="color: #F92672;">full</span> processlist
 
 </pre>
 </div>
@@ -117,7 +117,7 @@ root用户，可以看到全部线程运行情况，普通的activiti用户只�
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #00ffff;">select</span> * <span style="color: #00ffff;">from</span> information_schema.processlist
+<pre class="src src-sql"><span style="color: #F92672;">select</span> * <span style="color: #F92672;">from</span> information_schema.processlist
 </pre>
 </div>
 

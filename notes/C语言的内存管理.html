@@ -68,10 +68,10 @@ C 语言的内存管理，分成两部分。一部分是系统管理的，另一
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span> <span style="color: #eedd82;">x</span> = 10;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">x</span> = 10;
 
-<span style="color: #98fb98;">void</span>* <span style="color: #eedd82;">p</span> = &amp;x; <span style="color: #808080;">// </span><span style="color: #808080;">&#25972;&#25968;&#25351;&#38024;&#36716;&#20026; void &#25351;&#38024;</span>
-<span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">q</span> = p; <span style="color: #808080;">// </span><span style="color: #808080;">void &#25351;&#38024;&#36716;&#20026;&#25972;&#25968;&#25351;&#38024;</span>
+<span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">p</span> = &amp;x; <span style="color: #75715E;">// </span><span style="color: #75715E;">&#25972;&#25968;&#25351;&#38024;&#36716;&#20026; void &#25351;&#38024;</span>
+<span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">q</span> = p; <span style="color: #75715E;">// </span><span style="color: #75715E;">void &#25351;&#38024;&#36716;&#20026;&#25972;&#25968;&#25351;&#38024;</span>
 </pre>
 </div>
 
@@ -83,10 +83,10 @@ C 语言的内存管理，分成两部分。一部分是系统管理的，另一
 注意，由于不知道 void 指针指向什么类型的值，所以不能用*运算符取出它指向的值。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">char</span> <span style="color: #eedd82;">a</span> = <span style="color: #ffa07a;">'X'</span>;
-<span style="color: #98fb98;">void</span>* <span style="color: #eedd82;">p</span> = &amp;a;
+<pre class="src src-c"><span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">a</span> = <span style="color: #E6DB74;">'X'</span>;
+<span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">p</span> = &amp;a;
 
-printf<span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">"%c\n"</span>, *p<span style="color: #8c8c8c;">)</span>; <span style="color: #808080;">// </span><span style="color: #808080;">&#25253;&#38169;</span>
+printf<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"%c\n"</span>, *p<span style="color: #AE81FF;">)</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">&#25253;&#38169;</span>
 
 </pre>
 </div>
@@ -107,7 +107,7 @@ void 指针的重要之处在于，很多内存相关函数的返回值就是 vo
 malloc()函数用于分配内存，该函数向系统要求一段内存，系统就在“堆”里面分配一段连续的内存块给它。它的原型定义在头文件stdlib.h。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">void</span>* <span style="color: #87cefa;">malloc</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">size</span><span style="color: #8c8c8c;">)</span>
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">malloc</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">size</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 <p>
@@ -118,10 +118,10 @@ malloc()函数用于分配内存，该函数向系统要求一段内存，系统
 可以使用malloc()为任意类型的数据分配内存，常见的做法是先使用sizeof()函数，算出某种数据类型所需的字节长度，然后再将这个长度传给malloc()。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">p</span> = malloc<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
 
 *p = 12;
-printf<span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">"%d\n"</span>, *p<span style="color: #8c8c8c;">)</span>; <span style="color: #808080;">// </span><span style="color: #808080;">12</span>
+printf<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"%d\n"</span>, *p<span style="color: #AE81FF;">)</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">12</span>
 
 </pre>
 </div>
@@ -134,7 +134,7 @@ printf<span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">"%d\n"
 有时候为了增加代码的可读性，可以对malloc()返回的指针进行一次强制类型转换。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">p</span> = <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">int</span>*<span style="color: #8c8c8c;">)</span> malloc<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>*<span style="color: #AE81FF;">)</span> malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 
@@ -146,23 +146,23 @@ printf<span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">"%d\n"
 由于sizeof()的参数可以是变量，所以上面的例子也可以写成下面这样。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">p</span> = <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">int</span>*<span style="color: #8c8c8c;">)</span> malloc<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span>*p<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>*<span style="color: #AE81FF;">)</span> malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span>*p<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 <p>
 malloc()分配内存有可能分配失败，这时返回常量 NULL。Null 的值为0，是一个无法读写的内存地址，可以理解成一个不指向任何地方的指针。它在包括stdlib.h等多个头文件里面都有定义，所以只要可以使用malloc()，就可以使用NULL。由于存在分配失败的可能，所以最好在使用malloc()之后检查一下，是否分配成功。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">p</span> = malloc<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
 
-<span style="color: #00ffff;">if</span> <span style="color: #8c8c8c;">(</span>p == <span style="color: #7fffd4;">NULL</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-  <span style="color: #808080;">// </span><span style="color: #808080;">&#20869;&#23384;&#20998;&#37197;&#22833;&#36133;</span>
-<span style="color: #8c8c8c;">}</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>p == <span style="color: #AE81FF;">NULL</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">&#20869;&#23384;&#20998;&#37197;&#22833;&#36133;</span>
+<span style="color: #AE81FF;">}</span>
 
-<span style="color: #808080;">// </span><span style="color: #808080;">or</span>
-<span style="color: #00ffff;">if</span> <span style="color: #8c8c8c;">(</span>!p<span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-  <span style="color: #808080;">//</span><span style="color: #808080;">...</span>
-<span style="color: #8c8c8c;">}</span>
+<span style="color: #75715E;">// </span><span style="color: #75715E;">or</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span><span style="color: #E6DB74; font-weight: bold;">!</span>p<span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #75715E;">//</span><span style="color: #75715E;">...</span>
+<span style="color: #AE81FF;">}</span>
 
 </pre>
 </div>
@@ -176,10 +176,10 @@ malloc()分配内存有可能分配失败，这时返回常量 NULL。Null 的�
 <h3 id="org1251127">malloc()最常用的场合，就是为数组和自定义数据结构分配内存。</h3>
 <div class="outline-text-3" id="text-org1251127">
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">p</span> = <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">int</span>*<span style="color: #8c8c8c;">)</span> malloc<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span> * 10<span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>*<span style="color: #AE81FF;">)</span> malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span> * 10<span style="color: #AE81FF;">)</span>;
 
-<span style="color: #00ffff;">for</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">int</span> <span style="color: #eedd82;">i</span> = 0; i &lt; 10; i++<span style="color: #8c8c8c;">)</span>
-  <span style="color: #98fb98;">p</span><span style="color: #8c8c8c;">[</span>i<span style="color: #8c8c8c;">]</span> = i * 5;
+<span style="color: #F92672;">for</span> <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i</span> = 0; i &lt; 10; i++<span style="color: #AE81FF;">)</span>
+  <span style="color: #66D9EF;">p</span><span style="color: #AE81FF;">[</span>i<span style="color: #AE81FF;">]</span> = i * 5;
 
 </pre>
 </div>
@@ -192,7 +192,7 @@ malloc()分配内存有可能分配失败，这时返回常量 NULL。Null 的�
 malloc()用来创建数组，有一个好处，就是它可以创建动态数组，即根据成员数量的不同，而创建长度不同的数组。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">p</span> = <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">int</span>*<span style="color: #8c8c8c;">)</span> <span style="color: #87cefa;">malloc</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">n</span> * <span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>*<span style="color: #AE81FF;">)</span> <span style="color: #A6E22E;">malloc</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">n</span> * <span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 
@@ -204,11 +204,11 @@ malloc()用来创建数组，有一个好处，就是它可以创建动态数组
 注意，malloc()不会对所分配的内存进行初始化，里面还保存着原来的值。如果没有初始化，就使用这段内存，可能从里面读到以前的值。程序员要自己负责初始化，比如，字符串初始化可以使用strcpy()函数。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">p</span> = malloc<span style="color: #8c8c8c;">(</span>4<span style="color: #8c8c8c;">)</span>;
-<span style="color: #87cefa;">strcpy</span><span style="color: #8c8c8c;">(</span>p, <span style="color: #ffa07a;">"abc"</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">p</span> = malloc<span style="color: #AE81FF;">(</span>4<span style="color: #AE81FF;">)</span>;
+<span style="color: #A6E22E;">strcpy</span><span style="color: #AE81FF;">(</span>p, <span style="color: #E6DB74;">"abc"</span><span style="color: #AE81FF;">)</span>;
 
-<span style="color: #808080;">// </span><span style="color: #808080;">or</span>
-p = <span style="color: #ffa07a;">"abc"</span>;
+<span style="color: #75715E;">// </span><span style="color: #75715E;">or</span>
+p = <span style="color: #E6DB74;">"abc"</span>;
 </pre>
 </div>
 
@@ -225,7 +225,7 @@ p = <span style="color: #ffa07a;">"abc"</span>;
 free()用于释放malloc()函数分配的内存，将这块内存还给系统以便重新使用，否则这个内存块会一直占用到程序运行结束。该函数的原型定义在头文件stdlib.h里面。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">void</span> <span style="color: #87cefa;">free</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">void</span>* <span style="color: #eedd82;">block</span><span style="color: #8c8c8c;">)</span>
+<pre class="src src-c"><span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">free</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">block</span><span style="color: #AE81FF;">)</span>
 </pre>
 </div>
 
@@ -233,10 +233,10 @@ free()用于释放malloc()函数分配的内存，将这块内存还给系统以
 上面代码中，free()的参数是malloc()返回的内存地址。下面就是用法实例。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">p</span> = <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">int</span>*<span style="color: #8c8c8c;">)</span> malloc<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>*<span style="color: #AE81FF;">)</span> malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
 
 *p = 12;
-<span style="color: #87cefa;">free</span><span style="color: #8c8c8c;">(</span>p<span style="color: #8c8c8c;">)</span>;
+<span style="color: #A6E22E;">free</span><span style="color: #AE81FF;">(</span>p<span style="color: #AE81FF;">)</span>;
 
 </pre>
 </div>
@@ -250,10 +250,10 @@ free()用于释放malloc()函数分配的内存，将这块内存还给系统以
 </p>
 <div class="org-src-container">
 <pre class="src src-c">
-<span style="color: #98fb98;">void</span> <span style="color: #87cefa;">gobble</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">double</span> <span style="color: #eedd82;">arr</span><span style="color: #93a8c6;">[]</span>, <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">n</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-  <span style="color: #98fb98;">double</span>* <span style="color: #eedd82;">temp</span> = <span style="color: #93a8c6;">(</span><span style="color: #98fb98;">double</span>*<span style="color: #93a8c6;">)</span> malloc<span style="color: #93a8c6;">(</span>n * <span style="color: #00ffff;">sizeof</span><span style="color: #b0b1a3;">(</span><span style="color: #98fb98;">double</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span>;
-  <span style="color: #808080;">// </span><span style="color: #808080;">...</span>
-<span style="color: #8c8c8c;">}</span>
+<span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">gobble</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">double</span> <span style="color: #FD971F;">arr</span><span style="color: #66D9EF;">[]</span>, <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">n</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">double</span>* <span style="color: #FD971F;">temp</span> = <span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">double</span>*<span style="color: #66D9EF;">)</span> malloc<span style="color: #66D9EF;">(</span>n * <span style="color: #F92672;">sizeof</span><span style="color: #A6E22E;">(</span><span style="color: #66D9EF;">double</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>;
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">...</span>
+<span style="color: #AE81FF;">}</span>
 </pre>
 </div>
 <p>
@@ -276,7 +276,7 @@ calloc()函数的作用与malloc()相似，也是分配内存块。该函数的�
 （1）calloc()接受两个参数，第一个参数是某种数据类型的值的数量，第二个是该数据类型的单位字节长度。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">void</span>* <span style="color: #87cefa;">calloc</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">n</span>, <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">size</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">calloc</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">n</span>, <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">size</span><span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 
@@ -288,11 +288,11 @@ calloc()的返回值也是一个 void 指针。分配失败时，返回 NULL。
 （2）calloc()会将所分配的内存全部初始化为0。malloc()不会对内存进行初始化，如果想要初始化为0，还要额外调用memset()函数。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">p</span> = calloc<span style="color: #8c8c8c;">(</span>10, <span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = calloc<span style="color: #AE81FF;">(</span>10, <span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
 
-<span style="color: #808080;">// </span><span style="color: #808080;">&#31561;&#21516;&#20110;</span>
-<span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">p</span> = malloc<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span> * 10<span style="color: #8c8c8c;">)</span>;
-<span style="color: #87cefa;">memset</span><span style="color: #8c8c8c;">(</span>p, 0, <span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span> * 10<span style="color: #8c8c8c;">)</span>;
+<span style="color: #75715E;">// </span><span style="color: #75715E;">&#31561;&#21516;&#20110;</span>
+<span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span> * 10<span style="color: #AE81FF;">)</span>;
+<span style="color: #A6E22E;">memset</span><span style="color: #AE81FF;">(</span>p, 0, <span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span> * 10<span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 
@@ -312,7 +312,7 @@ calloc()分配的内存块，也要使用free()释放。
 realloc()函数用于修改已经分配的内存块的大小，可以放大也可以缩小，返回一个指向新的内存块的指针。如果分配不成功，返回 NULL。该函数的原型定义在头文件stdlib.h。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">void</span>* <span style="color: #87cefa;">realloc</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">void</span>* <span style="color: #eedd82;">block</span>, <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">size</span><span style="color: #8c8c8c;">)</span>
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">realloc</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">block</span>, <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">size</span><span style="color: #AE81FF;">)</span>
 
 </pre>
 </div>
@@ -334,10 +334,10 @@ realloc()可能返回一个全新的地址（数据也会自动复制过去）�
 下面是一个例子，b是数组指针，realloc()动态调整它的大小。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">b</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">b</span>;
 
-b = malloc<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span> * 10<span style="color: #8c8c8c;">)</span>;
-b = realloc<span style="color: #8c8c8c;">(</span>b, <span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span> * 2000<span style="color: #8c8c8c;">)</span>;
+b = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span> * 10<span style="color: #AE81FF;">)</span>;
+b = realloc<span style="color: #AE81FF;">(</span>b, <span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span> * 2000<span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 <p>
@@ -348,9 +348,9 @@ b = realloc<span style="color: #8c8c8c;">(</span>b, <span style="color: #00ffff;
 realloc()的第一个参数可以是 NULL，这时就相当于新建一个指针。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">p</span> = realloc<span style="color: #8c8c8c;">(</span><span style="color: #7fffd4;">NULL</span>, 3490<span style="color: #8c8c8c;">)</span>;
-<span style="color: #808080;">// </span><span style="color: #808080;">&#31561;&#21516;&#20110;</span>
-<span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">p</span> = malloc<span style="color: #8c8c8c;">(</span>3490<span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">p</span> = realloc<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">NULL</span>, 3490<span style="color: #AE81FF;">)</span>;
+<span style="color: #75715E;">// </span><span style="color: #75715E;">&#31561;&#21516;&#20110;</span>
+<span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">p</span> = malloc<span style="color: #AE81FF;">(</span>3490<span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 <p>
@@ -361,12 +361,12 @@ realloc()的第一个参数可以是 NULL，这时就相当于新建一个指针
 由于有分配失败的可能，所以调用realloc()以后，最好检查一下它的返回值是否为 NULL。分配失败时，原有内存块中的数据不会发生改变。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">float</span>* <span style="color: #eedd82;">new_p</span> = realloc<span style="color: #8c8c8c;">(</span>p, <span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span>*p * 40<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">float</span>* <span style="color: #FD971F;">new_p</span> = realloc<span style="color: #AE81FF;">(</span>p, <span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span>*p * 40<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
 
-<span style="color: #00ffff;">if</span> <span style="color: #8c8c8c;">(</span>new_p == <span style="color: #7fffd4;">NULL</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-  printf<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">"Error reallocing\n"</span><span style="color: #93a8c6;">)</span>;
-  <span style="color: #00ffff;">return</span> 1;
-<span style="color: #8c8c8c;">}</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>new_p == <span style="color: #AE81FF;">NULL</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"Error reallocing\n"</span><span style="color: #66D9EF;">)</span>;
+  <span style="color: #F92672;">return</span> 1;
+<span style="color: #AE81FF;">}</span>
 </pre>
 </div>
 <p>
@@ -381,19 +381,19 @@ realloc()的第一个参数可以是 NULL，这时就相当于新建一个指针
 声明指针变量时，可以使用restrict说明符，告诉编译器，该块内存区域只有当前指针一种访问方式，其他指针不能读写该块内存。这种指针称为“受限指针”（restrict pointer）。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span>* <span style="color: #00ffff;">restrict</span> <span style="color: #eedd82;">p</span>;
-p = malloc<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #F92672;">restrict</span> <span style="color: #FD971F;">p</span>;
+p = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 <p>
 上面示例中，声明指针变量p时，加入了restrict说明符，使得p变成了受限指针。后面，当p指向malloc()函数返回的一块内存区域，就味着，该区域只有通过p来访问，不存在其他访问方式。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span>* <span style="color: #00ffff;">restrict</span> <span style="color: #eedd82;">p</span>;
-p = malloc<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">sizeof</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #F92672;">restrict</span> <span style="color: #FD971F;">p</span>;
+p = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
 
-<span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">q</span> = p;
-*q = 0; <span style="color: #808080;">// </span><span style="color: #808080;">&#26410;&#23450;&#20041;&#34892;&#20026;</span>
+<span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">q</span> = p;
+*q = 0; <span style="color: #75715E;">// </span><span style="color: #75715E;">&#26410;&#23450;&#20041;&#34892;&#20026;</span>
 </pre>
 </div>
 <p>
@@ -408,11 +408,11 @@ p = malloc<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">si
 memcpy()用于将一块内存拷贝到另一块内存。该函数的原型定义在头文件string.h。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">void</span>* <span style="color: #87cefa;">memcpy</span><span style="color: #8c8c8c;">(</span>
-  <span style="color: #98fb98;">void</span>* <span style="color: #00ffff;">restrict</span> <span style="color: #eedd82;">dest</span>,
-  <span style="color: #98fb98;">void</span>* <span style="color: #00ffff;">restrict</span> <span style="color: #eedd82;">source</span>,
-  <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">n</span>
-<span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">memcpy</span><span style="color: #AE81FF;">(</span>
+  <span style="color: #66D9EF;">void</span>* <span style="color: #F92672;">restrict</span> <span style="color: #FD971F;">dest</span>,
+  <span style="color: #66D9EF;">void</span>* <span style="color: #F92672;">restrict</span> <span style="color: #FD971F;">source</span>,
+  <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">n</span>
+<span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 <p>
@@ -431,19 +431,19 @@ memcpy()的返回值是第一个参数，即目标地址的指针。
 因为memcpy()只是将一段内存的值，复制到另一段内存，所以不需要知道内存里面的数据是什么类型。下面是复制字符串的例子。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #b0c4de;">#include</span> <span style="color: #8c8c8c;">&lt;</span><span style="color: #ffa07a;">stdio.h</span><span style="color: #8c8c8c;">&gt;</span>
-<span style="color: #b0c4de;">#include</span> <span style="color: #8c8c8c;">&lt;</span><span style="color: #ffa07a;">string.h</span><span style="color: #8c8c8c;">&gt;</span>
+<pre class="src src-c"><span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">stdio.h</span><span style="color: #AE81FF;">&gt;</span>
+<span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">string.h</span><span style="color: #AE81FF;">&gt;</span>
 
-<span style="color: #98fb98;">int</span> <span style="color: #87cefa;">main</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">void</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-  <span style="color: #98fb98;">char</span> <span style="color: #eedd82;">s</span><span style="color: #93a8c6;">[]</span> = <span style="color: #ffa07a;">"Goats!"</span>;
-  <span style="color: #98fb98;">char</span> <span style="color: #eedd82;">t</span><span style="color: #93a8c6;">[</span>100<span style="color: #93a8c6;">]</span>;
+<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">void</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">s</span><span style="color: #66D9EF;">[]</span> = <span style="color: #E6DB74;">"Goats!"</span>;
+  <span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">t</span><span style="color: #66D9EF;">[</span>100<span style="color: #66D9EF;">]</span>;
 
-  memcpy<span style="color: #93a8c6;">(</span>t, s, <span style="color: #00ffff;">sizeof</span><span style="color: #b0b1a3;">(</span>s<span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span>;  <span style="color: #808080;">// </span><span style="color: #808080;">&#25335;&#36125;7&#20010;&#23383;&#33410;&#65292;&#21253;&#25324;&#32456;&#27490;&#31526;</span>
+  memcpy<span style="color: #66D9EF;">(</span>t, s, <span style="color: #F92672;">sizeof</span><span style="color: #A6E22E;">(</span>s<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>;  <span style="color: #75715E;">// </span><span style="color: #75715E;">&#25335;&#36125;7&#20010;&#23383;&#33410;&#65292;&#21253;&#25324;&#32456;&#27490;&#31526;</span>
 
-  printf<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">"%s\n"</span>, t<span style="color: #93a8c6;">)</span>;  <span style="color: #808080;">// </span><span style="color: #808080;">"Goats!"</span>
+  printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"%s\n"</span>, t<span style="color: #66D9EF;">)</span>;  <span style="color: #75715E;">// </span><span style="color: #75715E;">"Goats!"</span>
 
-  <span style="color: #00ffff;">return</span> 0;
-<span style="color: #8c8c8c;">}</span>
+  <span style="color: #F92672;">return</span> 0;
+<span style="color: #AE81FF;">}</span>
 </pre>
 </div>
 <p>
@@ -454,18 +454,18 @@ memcpy()的返回值是第一个参数，即目标地址的指针。
 memcpy()可以取代strcpy()进行字符串拷贝，而且是更好的方法，不仅更安全，速度也更快，它不检查字符串尾部的\0字符。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s</span> = <span style="color: #ffa07a;">"hello world"</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">s</span> = <span style="color: #E6DB74;">"hello world"</span>;
 
-<span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">len</span> = strlen<span style="color: #8c8c8c;">(</span>s<span style="color: #8c8c8c;">)</span> + 1;
-<span style="color: #98fb98;">char</span> *<span style="color: #eedd82;">c</span> = malloc<span style="color: #8c8c8c;">(</span>len<span style="color: #8c8c8c;">)</span>;
+<span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">len</span> = strlen<span style="color: #AE81FF;">(</span>s<span style="color: #AE81FF;">)</span> + 1;
+<span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">c</span> = malloc<span style="color: #AE81FF;">(</span>len<span style="color: #AE81FF;">)</span>;
 
-<span style="color: #00ffff;">if</span> <span style="color: #8c8c8c;">(</span>c<span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-  <span style="color: #808080;">// </span><span style="color: #808080;">strcpy() &#30340;&#20889;&#27861;</span>
-  strcpy<span style="color: #93a8c6;">(</span>c, s<span style="color: #93a8c6;">)</span>;
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>c<span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">strcpy() &#30340;&#20889;&#27861;</span>
+  strcpy<span style="color: #66D9EF;">(</span>c, s<span style="color: #66D9EF;">)</span>;
 
-  <span style="color: #808080;">// </span><span style="color: #808080;">memcpy() &#30340;&#20889;&#27861;</span>
-  memcpy<span style="color: #93a8c6;">(</span>c, s, len<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">memcpy() &#30340;&#20889;&#27861;</span>
+  memcpy<span style="color: #66D9EF;">(</span>c, s, len<span style="color: #66D9EF;">)</span>;
+<span style="color: #AE81FF;">}</span>
 </pre>
 </div>
 <p>
@@ -476,17 +476,17 @@ memcpy()可以取代strcpy()进行字符串拷贝，而且是更好的方法，�
 使用 void 指针，也可以自定义一个复制内存的函数。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">void</span>* <span style="color: #87cefa;">my_memcpy</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">void</span>* <span style="color: #eedd82;">dest</span>, <span style="color: #98fb98;">void</span>* <span style="color: #eedd82;">src</span>, <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">byte_count</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-  <span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s</span> = src;
-  <span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">d</span> = dest;
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">my_memcpy</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">dest</span>, <span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">src</span>, <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">byte_count</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">s</span> = src;
+  <span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">d</span> = dest;
 
-  <span style="color: #00ffff;">while</span> <span style="color: #93a8c6;">(</span>byte_count--<span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
+  <span style="color: #F92672;">while</span> <span style="color: #66D9EF;">(</span>byte_count--<span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
     *d++ = *s++;
-  <span style="color: #93a8c6;">}</span>
+  <span style="color: #66D9EF;">}</span>
 
-  <span style="color: #00ffff;">return</span> dest;
+  <span style="color: #F92672;">return</span> dest;
 
-<span style="color: #8c8c8c;">}</span>
+<span style="color: #AE81FF;">}</span>
 </pre>
 </div>
 <p>
@@ -505,11 +505,11 @@ memmove()函数用于将一段内存数据复制到另一段内存。它跟memcp
 该函数的原型定义在头文件string.h。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">void</span>* <span style="color: #87cefa;">memmove</span><span style="color: #8c8c8c;">(</span>
-  <span style="color: #98fb98;">void</span>* <span style="color: #eedd82;">dest</span>,
-  <span style="color: #98fb98;">void</span>* <span style="color: #eedd82;">source</span>,
-  <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">n</span>
-<span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">memmove</span><span style="color: #AE81FF;">(</span>
+  <span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">dest</span>,
+  <span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">source</span>,
+  <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">n</span>
+<span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 <p>
@@ -537,9 +537,9 @@ memmove(&amp;a[0], &amp;a[1], 99 * sizeof(int));
 下面是另一个例子。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">char</span> <span style="color: #eedd82;">x</span><span style="color: #8c8c8c;">[]</span> = <span style="color: #ffa07a;">"Home Sweet Home"</span>;
-<span style="color: #808080;">// </span><span style="color: #808080;">&#36755;&#20986; Sweet Home Home</span>
-printf<span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">"%s\n"</span>, <span style="color: #93a8c6;">(</span><span style="color: #98fb98;">char</span> *<span style="color: #93a8c6;">)</span> <span style="color: #87cefa;">memmove</span><span style="color: #93a8c6;">(</span>x, &amp;x<span style="color: #b0b1a3;">[</span>5<span style="color: #b0b1a3;">]</span>, 10<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">x</span><span style="color: #AE81FF;">[]</span> = <span style="color: #E6DB74;">"Home Sweet Home"</span>;
+<span style="color: #75715E;">// </span><span style="color: #75715E;">&#36755;&#20986; Sweet Home Home</span>
+printf<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"%s\n"</span>, <span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">char</span> *<span style="color: #66D9EF;">)</span> <span style="color: #A6E22E;">memmove</span><span style="color: #66D9EF;">(</span>x, &amp;x<span style="color: #A6E22E;">[</span>5<span style="color: #A6E22E;">]</span>, 10<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 <p>
@@ -554,11 +554,11 @@ printf<span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">"%s\n"
 memcmp()函数用来比较两个内存区域。它的原型定义在string.h。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span> <span style="color: #87cefa;">memcmp</span><span style="color: #8c8c8c;">(</span>
-  <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">void</span>* <span style="color: #eedd82;">s1</span>,
-  <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">void</span>* <span style="color: #eedd82;">s2</span>,
-  <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">n</span>
-<span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">memcmp</span><span style="color: #AE81FF;">(</span>
+  <span style="color: #F92672;">const</span> <span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">s1</span>,
+  <span style="color: #F92672;">const</span> <span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">s2</span>,
+  <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">n</span>
+<span style="color: #AE81FF;">)</span>;
 </pre>
 </div>
 <p>
@@ -569,9 +569,9 @@ memcmp()函数用来比较两个内存区域。它的原型定义在string.h。
 它的返回值是一个整数。两块内存区域的每个字节以字符形式解读，按照字典顺序进行比较，如果两者相同，返回0；如果s1大于s2，返回大于0的整数；如果s1小于s2，返回小于0的整数。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s1</span> = <span style="color: #ffa07a;">"abc"</span>;
-<span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s2</span> = <span style="color: #ffa07a;">"acd"</span>;
-<span style="color: #98fb98;">int</span> <span style="color: #eedd82;">r</span> = memcmp<span style="color: #8c8c8c;">(</span>s1, s2, 3<span style="color: #8c8c8c;">)</span>; <span style="color: #808080;">// </span><span style="color: #808080;">&#23567;&#20110; 0</span>
+<pre class="src src-c"><span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">s1</span> = <span style="color: #E6DB74;">"abc"</span>;
+<span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">s2</span> = <span style="color: #E6DB74;">"acd"</span>;
+<span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">r</span> = memcmp<span style="color: #AE81FF;">(</span>s1, s2, 3<span style="color: #AE81FF;">)</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">&#23567;&#20110; 0</span>
 </pre>
 </div>
 <p>
@@ -582,12 +582,12 @@ memcmp()函数用来比较两个内存区域。它的原型定义在string.h。
 下面是另一个例子。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">char</span> <span style="color: #eedd82;">s1</span><span style="color: #8c8c8c;">[]</span> = <span style="color: #8c8c8c;">{</span><span style="color: #ffa07a;">'b'</span>, <span style="color: #ffa07a;">'i'</span>, <span style="color: #ffa07a;">'g'</span>, <span style="color: #ffa07a;">'\0'</span>, <span style="color: #ffa07a;">'c'</span>, <span style="color: #ffa07a;">'a'</span>, <span style="color: #ffa07a;">'r'</span><span style="color: #8c8c8c;">}</span>;
-<span style="color: #98fb98;">char</span> <span style="color: #eedd82;">s2</span><span style="color: #8c8c8c;">[]</span> = <span style="color: #8c8c8c;">{</span><span style="color: #ffa07a;">'b'</span>, <span style="color: #ffa07a;">'i'</span>, <span style="color: #ffa07a;">'g'</span>, <span style="color: #ffa07a;">'\0'</span>, <span style="color: #ffa07a;">'c'</span>, <span style="color: #ffa07a;">'a'</span>, <span style="color: #ffa07a;">'t'</span><span style="color: #8c8c8c;">}</span>;
+<pre class="src src-c"><span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">s1</span><span style="color: #AE81FF;">[]</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'b'</span>, <span style="color: #E6DB74;">'i'</span>, <span style="color: #E6DB74;">'g'</span>, <span style="color: #E6DB74;">'\0'</span>, <span style="color: #E6DB74;">'c'</span>, <span style="color: #E6DB74;">'a'</span>, <span style="color: #E6DB74;">'r'</span><span style="color: #AE81FF;">}</span>;
+<span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">s2</span><span style="color: #AE81FF;">[]</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'b'</span>, <span style="color: #E6DB74;">'i'</span>, <span style="color: #E6DB74;">'g'</span>, <span style="color: #E6DB74;">'\0'</span>, <span style="color: #E6DB74;">'c'</span>, <span style="color: #E6DB74;">'a'</span>, <span style="color: #E6DB74;">'t'</span><span style="color: #AE81FF;">}</span>;
 
-<span style="color: #00ffff;">if</span> <span style="color: #8c8c8c;">(</span>memcmp<span style="color: #93a8c6;">(</span>s1, s2, 3<span style="color: #93a8c6;">)</span> == 0<span style="color: #8c8c8c;">)</span> <span style="color: #808080;">// </span><span style="color: #808080;">true</span>
-<span style="color: #00ffff;">if</span> <span style="color: #8c8c8c;">(</span>memcmp<span style="color: #93a8c6;">(</span>s1, s2, 4<span style="color: #93a8c6;">)</span> == 0<span style="color: #8c8c8c;">)</span> <span style="color: #808080;">// </span><span style="color: #808080;">true</span>
-<span style="color: #00ffff;">if</span> <span style="color: #8c8c8c;">(</span>memcmp<span style="color: #93a8c6;">(</span>s1, s2, 7<span style="color: #93a8c6;">)</span> == 0<span style="color: #8c8c8c;">)</span> <span style="color: #808080;">// </span><span style="color: #808080;">false</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>memcmp<span style="color: #66D9EF;">(</span>s1, s2, 3<span style="color: #66D9EF;">)</span> == 0<span style="color: #AE81FF;">)</span> <span style="color: #75715E;">// </span><span style="color: #75715E;">true</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>memcmp<span style="color: #66D9EF;">(</span>s1, s2, 4<span style="color: #66D9EF;">)</span> == 0<span style="color: #AE81FF;">)</span> <span style="color: #75715E;">// </span><span style="color: #75715E;">true</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>memcmp<span style="color: #66D9EF;">(</span>s1, s2, 7<span style="color: #66D9EF;">)</span> == 0<span style="color: #AE81FF;">)</span> <span style="color: #75715E;">// </span><span style="color: #75715E;">false</span>
 </pre>
 </div>
 <p>

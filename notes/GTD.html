@@ -42,51 +42,51 @@
 <h2 id="orge651112">配置</h2>
 <div class="outline-text-2" id="text-orge651112">
 <div class="org-src-container">
-<pre class="src src-elisp"><span style="color: #808080;">;; </span><span style="color: #808080;">org-agenda config</span>
-<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> org-agenda-files '<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">"~/ykyk-note/emacs/ykyk-org-gtd"</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span> <span style="color: #808080;">;; </span><span style="color: #808080;">&#35774;&#32622;org-agenda&#30340;&#30446;&#24405;</span>
-<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> org-default-notes-file <span style="color: #ffa07a;">"~/ykyk-note/emacs/ykyk-org-gtd/todo.org"</span><span style="color: #8c8c8c;">)</span> <span style="color: #808080;">;; </span><span style="color: #808080;">todo&#25991;&#20214;&#23384;&#25918;&#22320;&#22336;&#30340;&#21464;&#37327;&#65292;&#20197;&#20415;&#21518;&#32493;&#24341;&#29992;</span>
-<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> org-default-quick-note-file <span style="color: #ffa07a;">"~/ykyk-note/emacs/ykyk-org-gtd/quick-note.org"</span><span style="color: #8c8c8c;">)</span> <span style="color: #808080;">;; </span><span style="color: #808080;">&#36895;&#35760;&#25991;&#20214;&#23384;&#25918;&#22320;&#22336;&#30340;&#21464;&#37327;&#65292;&#20197;&#20415;&#21518;&#32493;&#24341;&#29992;</span>
+<pre class="src src-elisp"><span style="color: #75715E;">;; </span><span style="color: #75715E;">org-agenda config</span>
+<span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> org-agenda-files '<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"~/ykyk-note/emacs/ykyk-org-gtd"</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;">;; </span><span style="color: #75715E;">&#35774;&#32622;org-agenda&#30340;&#30446;&#24405;</span>
+<span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> org-default-notes-file <span style="color: #E6DB74;">"~/ykyk-note/emacs/ykyk-org-gtd/todo.org"</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;">;; </span><span style="color: #75715E;">todo&#25991;&#20214;&#23384;&#25918;&#22320;&#22336;&#30340;&#21464;&#37327;&#65292;&#20197;&#20415;&#21518;&#32493;&#24341;&#29992;</span>
+<span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> org-default-quick-note-file <span style="color: #E6DB74;">"~/ykyk-note/emacs/ykyk-org-gtd/quick-note.org"</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;">;; </span><span style="color: #75715E;">&#36895;&#35760;&#25991;&#20214;&#23384;&#25918;&#22320;&#22336;&#30340;&#21464;&#37327;&#65292;&#20197;&#20415;&#21518;&#32493;&#24341;&#29992;</span>
 
-<span style="color: #808080;">;; </span><span style="color: #808080;">capture templates</span>
-<span style="color: #808080;">;; </span><span style="color: #808080;">%U: &#26102;&#38388;&#25139;</span>
-<span style="color: #808080;">;; </span><span style="color: #808080;">\n: &#25442;&#34892;</span>
-<span style="color: #808080;">;; </span><span style="color: #808080;">%?: &#20809;&#26631;&#21344;&#20301;</span>
-<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> org-capture-templates
-      <span style="color: #808080;">;; </span><span style="color: #808080;">Capital char means that with ANCHOR.</span>
-      '<span style="color: #93a8c6;">(</span>
-        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"t"</span> <span style="color: #ffa07a;">"&#24453;&#21150;"</span> entry <span style="color: #97b098;">(</span>file+headline org-default-notes-file <span style="color: #ffa07a;">"Todo"</span><span style="color: #97b098;">)</span>
-         <span style="color: #ffa07a;">"** %U\n\n*** TODO %?"</span>
-         <span style="color: #b0c4de;">:prepend</span> 1
-         <span style="color: #b0c4de;">:empty-lines</span> 1<span style="color: #b0b1a3;">)</span>
+<span style="color: #75715E;">;; </span><span style="color: #75715E;">capture templates</span>
+<span style="color: #75715E;">;; </span><span style="color: #75715E;">%U: &#26102;&#38388;&#25139;</span>
+<span style="color: #75715E;">;; </span><span style="color: #75715E;">\n: &#25442;&#34892;</span>
+<span style="color: #75715E;">;; </span><span style="color: #75715E;">%?: &#20809;&#26631;&#21344;&#20301;</span>
+<span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> org-capture-templates
+      <span style="color: #75715E;">;; </span><span style="color: #75715E;">Capital char means that with ANCHOR.</span>
+      '<span style="color: #66D9EF;">(</span>
+        <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"t"</span> <span style="color: #E6DB74;">"&#24453;&#21150;"</span> entry <span style="color: #E6DB74;">(</span>file+headline org-default-notes-file <span style="color: #E6DB74;">"Todo"</span><span style="color: #E6DB74;">)</span>
+         <span style="color: #E6DB74;">"** %U\n\n*** TODO %?"</span>
+         <span style="color: #F92672;">:prepend</span> 1
+         <span style="color: #F92672;">:empty-lines</span> 1<span style="color: #A6E22E;">)</span>
 
-        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"d"</span> <span style="color: #ffa07a;">"&#36895;&#35760;"</span> entry <span style="color: #97b098;">(</span>file+headline org-default-quick-note-file <span style="color: #ffa07a;">"Quick notes"</span><span style="color: #97b098;">)</span>
-         <span style="color: #ffa07a;">"** %U\n\n%?\n"</span>
-         <span style="color: #b0c4de;">:prepend</span> 1
-         <span style="color: #b0c4de;">:empty-lines</span> 1<span style="color: #b0b1a3;">)</span>
+        <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"d"</span> <span style="color: #E6DB74;">"&#36895;&#35760;"</span> entry <span style="color: #E6DB74;">(</span>file+headline org-default-quick-note-file <span style="color: #E6DB74;">"Quick notes"</span><span style="color: #E6DB74;">)</span>
+         <span style="color: #E6DB74;">"** %U\n\n%?\n"</span>
+         <span style="color: #F92672;">:prepend</span> 1
+         <span style="color: #F92672;">:empty-lines</span> 1<span style="color: #A6E22E;">)</span>
 
-        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"c"</span> <span style="color: #ffa07a;">"capture-everything"</span> entry <span style="color: #97b098;">(</span>file+headline org-default-quick-note-file <span style="color: #ffa07a;">"IBX"</span><span style="color: #97b098;">)</span>
-         <span style="color: #ffa07a;">"** %U\n\n%?\n"</span>
-         <span style="color: #b0c4de;">:empty-lines</span> 1<span style="color: #b0b1a3;">)</span>
+        <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"c"</span> <span style="color: #E6DB74;">"capture-everything"</span> entry <span style="color: #E6DB74;">(</span>file+headline org-default-quick-note-file <span style="color: #E6DB74;">"IBX"</span><span style="color: #E6DB74;">)</span>
+         <span style="color: #E6DB74;">"** %U\n\n%?\n"</span>
+         <span style="color: #F92672;">:empty-lines</span> 1<span style="color: #A6E22E;">)</span>
 
-        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"C"</span> <span style="color: #ffa07a;">"CAPTURE-EVERYTHING"</span> entry <span style="color: #97b098;">(</span>file+headline org-default-quick-note-file <span style="color: #ffa07a;">"IBX"</span><span style="color: #97b098;">)</span>
-         <span style="color: #ffa07a;">"** %U\n\n%?\n"</span>
-         <span style="color: #b0c4de;">:empty-lines</span> 1<span style="color: #b0b1a3;">)</span>
+        <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"C"</span> <span style="color: #E6DB74;">"CAPTURE-EVERYTHING"</span> entry <span style="color: #E6DB74;">(</span>file+headline org-default-quick-note-file <span style="color: #E6DB74;">"IBX"</span><span style="color: #E6DB74;">)</span>
+         <span style="color: #E6DB74;">"** %U\n\n%?\n"</span>
+         <span style="color: #F92672;">:empty-lines</span> 1<span style="color: #A6E22E;">)</span>
 
-        <span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
-<span style="color: #808080;">;; </span><span style="color: #808080;">tag</span>
-<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> org-tag-alist
-      '<span style="color: #93a8c6;">(</span>
-        <span style="color: #b0b1a3;">(</span><span style="color: #b0c4de;">:startgroup</span> . gtd<span style="color: #b0b1a3;">)</span>
-        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"@work"</span> . ?w<span style="color: #b0b1a3;">)</span>
-        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"@life"</span> . ?l<span style="color: #b0b1a3;">)</span>
-        <span style="color: #b0b1a3;">(</span><span style="color: #b0c4de;">:endgroup</span> . gtd<span style="color: #b0b1a3;">)</span>
-        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"@misc"</span> . ?m<span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+        <span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;">;; </span><span style="color: #75715E;">tag</span>
+<span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> org-tag-alist
+      '<span style="color: #66D9EF;">(</span>
+        <span style="color: #A6E22E;">(</span><span style="color: #F92672;">:startgroup</span> . gtd<span style="color: #A6E22E;">)</span>
+        <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"@work"</span> . ?w<span style="color: #A6E22E;">)</span>
+        <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"@life"</span> . ?l<span style="color: #A6E22E;">)</span>
+        <span style="color: #A6E22E;">(</span><span style="color: #F92672;">:endgroup</span> . gtd<span style="color: #A6E22E;">)</span>
+        <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"@misc"</span> . ?m<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 
-<span style="color: #808080;">;; </span><span style="color: #808080;">agenda&#32465;&#23450;&#24555;&#25463;&#38190;</span>
-<span style="color: #8c8c8c;">(</span>global-set-key <span style="color: #93a8c6;">(</span>kbd <span style="color: #ffa07a;">"C-c a"</span><span style="color: #93a8c6;">)</span> 'org-agenda<span style="color: #8c8c8c;">)</span>
-<span style="color: #808080;">;; </span><span style="color: #808080;">&#23450;&#20041;&#35201;&#25429;&#33719;&#21040;&#29305;&#23450;&#27169;&#26495;&#30340;&#29305;&#27530;&#38190; &#36890;&#36807;&#20132;&#20114;&#24335;&#27169;&#26495;&#36873;&#25321;&#65292;&#24744;&#21487;&#20197;&#21019;&#24314;&#24744;&#30340; &#38190;&#32465;&#23450;&#22914;&#19979;&#25152;&#31034;&#65306;</span>
-<span style="color: #8c8c8c;">(</span>define-key global-map <span style="color: #93a8c6;">(</span>kbd <span style="color: #ffa07a;">"C-c d"</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">lambda</span> <span style="color: #b0b1a3;">()</span> <span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">interactive</span><span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">(</span>org-capture nil <span style="color: #ffa07a;">"d"</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
-<span style="color: #8c8c8c;">(</span>define-key global-map <span style="color: #93a8c6;">(</span>kbd <span style="color: #ffa07a;">"C-c t"</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">lambda</span> <span style="color: #b0b1a3;">()</span> <span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">interactive</span><span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">(</span>org-capture nil <span style="color: #ffa07a;">"t"</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #75715E;">;; </span><span style="color: #75715E;">agenda&#32465;&#23450;&#24555;&#25463;&#38190;</span>
+<span style="color: #AE81FF;">(</span>global-set-key <span style="color: #66D9EF;">(</span>kbd <span style="color: #E6DB74;">"C-c a"</span><span style="color: #66D9EF;">)</span> 'org-agenda<span style="color: #AE81FF;">)</span>
+<span style="color: #75715E;">;; </span><span style="color: #75715E;">&#23450;&#20041;&#35201;&#25429;&#33719;&#21040;&#29305;&#23450;&#27169;&#26495;&#30340;&#29305;&#27530;&#38190; &#36890;&#36807;&#20132;&#20114;&#24335;&#27169;&#26495;&#36873;&#25321;&#65292;&#24744;&#21487;&#20197;&#21019;&#24314;&#24744;&#30340; &#38190;&#32465;&#23450;&#22914;&#19979;&#25152;&#31034;&#65306;</span>
+<span style="color: #AE81FF;">(</span>define-key global-map <span style="color: #66D9EF;">(</span>kbd <span style="color: #E6DB74;">"C-c d"</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">(</span><span style="color: #F92672;">lambda</span> <span style="color: #A6E22E;">()</span> <span style="color: #A6E22E;">(</span><span style="color: #F92672;">interactive</span><span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">(</span>org-capture nil <span style="color: #E6DB74;">"d"</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<span style="color: #AE81FF;">(</span>define-key global-map <span style="color: #66D9EF;">(</span>kbd <span style="color: #E6DB74;">"C-c t"</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">(</span><span style="color: #F92672;">lambda</span> <span style="color: #A6E22E;">()</span> <span style="color: #A6E22E;">(</span><span style="color: #F92672;">interactive</span><span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">(</span>org-capture nil <span style="color: #E6DB74;">"t"</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
 
 </pre>
 </div>

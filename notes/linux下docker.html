@@ -64,22 +64,22 @@
 <div class="outline-text-2" id="text-orgb49172d">
 <div class="org-src-container">
 <pre class="src src-shell">
-<span style="color: #808080;"># </span><span style="color: #808080;">github</span>
-$ sudo curl -L <span style="color: #ffa07a;">"https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)"</span> -o /usr/local/bin/docker-compose
+<span style="color: #75715E;"># </span><span style="color: #75715E;">github</span>
+$ sudo curl -L <span style="color: #E6DB74;">"https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)"</span> -o /usr/local/bin/docker-compose
 
-<span style="color: #808080;"># </span><span style="color: #808080;">&#22269;&#20869;</span>
-$ curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-<span style="color: #fa8072;">`uname -s`</span>-<span style="color: #fa8072;">`uname -m`</span> &gt; /usr/local/bin/docker-compose
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#22269;&#20869;</span>
+$ curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-<span style="color: #AE81FF; font-weight: bold;">`uname -s`</span>-<span style="color: #AE81FF; font-weight: bold;">`uname -m`</span> &gt; /usr/local/bin/docker-compose
 
 
-<span style="color: #808080;"># </span><span style="color: #808080;">&#23558;&#21487;&#25191;&#34892;&#26435;&#38480;&#24212;&#29992;&#20110;&#20108;&#36827;&#21046;&#25991;&#20214;&#65306;</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#23558;&#21487;&#25191;&#34892;&#26435;&#38480;&#24212;&#29992;&#20110;&#20108;&#36827;&#21046;&#25991;&#20214;&#65306;</span>
 
 $ sudo chmod +x /usr/local/bin/docker-compose
 
-<span style="color: #808080;"># </span><span style="color: #808080;">&#21019;&#24314;&#36719;&#38142;&#65306;</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#21019;&#24314;&#36719;&#38142;&#65306;</span>
 
 $ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
-<span style="color: #808080;"># </span><span style="color: #808080;">&#27979;&#35797;&#26159;&#21542;&#23433;&#35013;&#25104;&#21151;&#65306;</span>
+<span style="color: #75715E;"># </span><span style="color: #75715E;">&#27979;&#35797;&#26159;&#21542;&#23433;&#35013;&#25104;&#21151;&#65306;</span>
 
 $ docker-compose version
 cker-compose version 1.24.1, build 4667896b
@@ -148,9 +148,9 @@ $ docker commond -h
 <h3 id="orgbba8ed6">通过Dockfile构建docker镜像</h3>
 <div class="outline-text-3" id="text-orgbba8ed6">
 <div class="org-src-container">
-<pre class="src src-shell">$ docker build -t &lt;&#38236;&#20687;&#21517;&gt; &lt;Dockerfile&#36335;&#24452;&gt;  <span style="color: #808080;">#</span><span style="color: #808080;">&#36890;&#36807;Dockfile&#26500;&#24314;docker&#38236;&#20687;</span>
+<pre class="src src-shell">$ docker build -t &lt;&#38236;&#20687;&#21517;&gt; &lt;Dockerfile&#36335;&#24452;&gt;  <span style="color: #75715E;">#</span><span style="color: #75715E;">&#36890;&#36807;Dockfile&#26500;&#24314;docker&#38236;&#20687;</span>
 
-$ docker build -t xx/gitlab .                <span style="color: #808080;">#</span><span style="color: #808080;">&#22914;Dockerfile&#22312;&#24403;&#21069;&#36335;&#24452;&#65306;</span>
+$ docker build -t xx/gitlab .                <span style="color: #75715E;">#</span><span style="color: #75715E;">&#22914;Dockerfile&#22312;&#24403;&#21069;&#36335;&#24452;&#65306;</span>
 </pre>
 </div>
 </div>
@@ -260,7 +260,7 @@ dk tag 03b5ab5bcd91 tw:4.0
 <h3 id="org6985503">docker search 报错</h3>
 <div class="outline-text-3" id="text-org6985503">
 <div class="org-src-container">
-<pre class="src src-shell">Error response from daemon: Get https://index.docker.io/v1/search?<span style="color: #eedd82;">q</span>=mysql&amp;<span style="color: #eedd82;">n</span>=25: Service Unavailable
+<pre class="src src-shell">Error response from daemon: Get https://index.docker.io/v1/search?<span style="color: #FD971F;">q</span>=mysql&amp;<span style="color: #FD971F;">n</span>=25: Service Unavailable
 </pre>
 </div>
 
@@ -315,16 +315,16 @@ Ubuntu 16.04+、Debian 8+、CentOS 7+<br>
 
 <div class="org-src-container">
 <pre class="src src-sh">sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json &lt;&lt;-<span style="color: #ffa07a;">'EOF'</span>
-<span style="color: #ffff00; font-weight: bold;">{</span>
-<span style="color: #ffff00; font-weight: bold;">    "registry-mirrors": [</span>
-<span style="color: #ffff00; font-weight: bold;">        "https://1nj0zren.mirror.aliyuncs.com",</span>
-<span style="color: #ffff00; font-weight: bold;">        "https://docker.mirrors.ustc.edu.cn",</span>
-<span style="color: #ffff00; font-weight: bold;">        "http://f1361db2.m.daocloud.io",</span>
-<span style="color: #ffff00; font-weight: bold;">        "https://registry.docker-cn.com"</span>
-<span style="color: #ffff00; font-weight: bold;">    ]</span>
-<span style="color: #ffff00; font-weight: bold;">}</span>
-<span style="color: #ffff00; font-weight: bold;">EOF</span>
+sudo tee /etc/docker/daemon.json &lt;&lt;-<span style="color: #E6DB74;">'EOF'</span>
+<span style="color: #E6DB74; font-weight: bold;">{</span>
+<span style="color: #E6DB74; font-weight: bold;">    "registry-mirrors": [</span>
+<span style="color: #E6DB74; font-weight: bold;">        "https://1nj0zren.mirror.aliyuncs.com",</span>
+<span style="color: #E6DB74; font-weight: bold;">        "https://docker.mirrors.ustc.edu.cn",</span>
+<span style="color: #E6DB74; font-weight: bold;">        "http://f1361db2.m.daocloud.io",</span>
+<span style="color: #E6DB74; font-weight: bold;">        "https://registry.docker-cn.com"</span>
+<span style="color: #E6DB74; font-weight: bold;">    ]</span>
+<span style="color: #E6DB74; font-weight: bold;">}</span>
+<span style="color: #E6DB74; font-weight: bold;">EOF</span>
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 

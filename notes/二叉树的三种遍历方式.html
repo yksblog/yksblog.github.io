@@ -71,100 +71,100 @@ alt=""
 <h3 id="org248a189">BinaryTreeTraversalDemo.java</h3>
 <div class="outline-text-3" id="text-org248a189">
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #00ffff;">package</span> com.leetcode.editor.<span style="color: #7fffd4;">tree</span>;
+<pre class="src src-java"><span style="color: #F92672;">package</span> com.leetcode.editor.<span style="color: #AE81FF;">tree</span>;
 
-<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">com</span>.<span style="color: #7fffd4;">leetcode</span>.<span style="color: #7fffd4;">utils</span>.<span style="color: #98fb98;">TreeNode</span>;
+<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">com</span>.<span style="color: #AE81FF;">leetcode</span>.<span style="color: #AE81FF;">utils</span>.<span style="color: #66D9EF;">TreeNode</span>;
 
-<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">java</span>.<span style="color: #7fffd4;">util</span>.<span style="color: #98fb98;">ArrayList</span>;
-<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">java</span>.<span style="color: #7fffd4;">util</span>.<span style="color: #98fb98;">List</span>;
+<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">java</span>.<span style="color: #AE81FF;">util</span>.<span style="color: #66D9EF;">ArrayList</span>;
+<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">java</span>.<span style="color: #AE81FF;">util</span>.<span style="color: #66D9EF;">List</span>;
 
-<span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;"> * &#20108;&#21449;&#26641;&#36941;&#21382;</span>
-<span style="color: #ffa07a;"> */</span>
-<span style="color: #00ffff;">public</span> <span style="color: #00ffff;">class</span> <span style="color: #98fb98;">BinaryTreeTraversalDemo</span> <span style="color: #8c8c8c;">{</span>
+<span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;"> * &#20108;&#21449;&#26641;&#36941;&#21382;</span>
+<span style="color: #E6DB74;"> */</span>
+<span style="color: #F92672;">public</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">BinaryTreeTraversalDemo</span> <span style="color: #AE81FF;">{</span>
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     * &#21069;&#24207;</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">List</span><span style="color: #93a8c6;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #87cefa;">preorderTraversal</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">root</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #98fb98;">List</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #b0b1a3;">&gt;</span> <span style="color: #eedd82;">res</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">ArrayList</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #b0b1a3;">&gt;()</span>;
-        preorder<span style="color: #b0b1a3;">(</span>root, res<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #00ffff;">return</span> res;
-    <span style="color: #93a8c6;">}</span>
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     * &#21069;&#24207;</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">List</span><span style="color: #66D9EF;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #66D9EF;">&gt;</span> <span style="color: #A6E22E;">preorderTraversal</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">root</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #66D9EF;">List</span><span style="color: #A6E22E;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #A6E22E;">&gt;</span> <span style="color: #FD971F;">res</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">ArrayList</span><span style="color: #A6E22E;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #A6E22E;">&gt;()</span>;
+        preorder<span style="color: #A6E22E;">(</span>root, res<span style="color: #A6E22E;">)</span>;
+        <span style="color: #F92672;">return</span> res;
+    <span style="color: #66D9EF;">}</span>
 
-    <span style="color: #00ffff;">public</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">preorder</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">root</span>, <span style="color: #98fb98;">List</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #b0b1a3;">&gt;</span> <span style="color: #eedd82;">res</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #00ffff;">if</span> <span style="color: #b0b1a3;">(</span>root == <span style="color: #7fffd4;">null</span><span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">{</span>
-            <span style="color: #00ffff;">return</span>;
-        <span style="color: #b0b1a3;">}</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#21069;&#24207;&#36941;&#21382;&#65292;&#26681;-&gt;&#24038;-&gt;&#21491;&#30340;&#39034;&#24207;</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#25226;&#24403;&#21069;&#33410;&#28857;&#30340;&#20540;&#28155;&#21152;&#21040;&#38598;&#21512;</span>
-        res.add<span style="color: #b0b1a3;">(</span>root.val<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#36882;&#24402;&#36941;&#21382;&#24038;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#24038;&#23376;&#26641;</span>
-        preorder<span style="color: #b0b1a3;">(</span>root.left, res<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#36882;&#24402;&#36941;&#21382;&#21491;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#21491;&#23376;&#26641;</span>
-        preorder<span style="color: #b0b1a3;">(</span>root.right, res<span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
+    <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">preorder</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">root</span>, <span style="color: #66D9EF;">List</span><span style="color: #A6E22E;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #A6E22E;">&gt;</span> <span style="color: #FD971F;">res</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #F92672;">if</span> <span style="color: #A6E22E;">(</span>root == <span style="color: #AE81FF;">null</span><span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">{</span>
+            <span style="color: #F92672;">return</span>;
+        <span style="color: #A6E22E;">}</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#21069;&#24207;&#36941;&#21382;&#65292;&#26681;-&gt;&#24038;-&gt;&#21491;&#30340;&#39034;&#24207;</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#25226;&#24403;&#21069;&#33410;&#28857;&#30340;&#20540;&#28155;&#21152;&#21040;&#38598;&#21512;</span>
+        res.add<span style="color: #A6E22E;">(</span>root.val<span style="color: #A6E22E;">)</span>;
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#36882;&#24402;&#36941;&#21382;&#24038;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#24038;&#23376;&#26641;</span>
+        preorder<span style="color: #A6E22E;">(</span>root.left, res<span style="color: #A6E22E;">)</span>;
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#36882;&#24402;&#36941;&#21382;&#21491;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#21491;&#23376;&#26641;</span>
+        preorder<span style="color: #A6E22E;">(</span>root.right, res<span style="color: #A6E22E;">)</span>;
+    <span style="color: #66D9EF;">}</span>
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     * &#20013;&#24207;</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">List</span><span style="color: #93a8c6;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #87cefa;">inorderTraversal</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">root</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #98fb98;">List</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #b0b1a3;">&gt;</span> <span style="color: #eedd82;">res</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">ArrayList</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #b0b1a3;">&gt;()</span>;
-        inorder<span style="color: #b0b1a3;">(</span>root, res<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #00ffff;">return</span> res;
-    <span style="color: #93a8c6;">}</span>
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     * &#20013;&#24207;</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">List</span><span style="color: #66D9EF;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #66D9EF;">&gt;</span> <span style="color: #A6E22E;">inorderTraversal</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">root</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #66D9EF;">List</span><span style="color: #A6E22E;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #A6E22E;">&gt;</span> <span style="color: #FD971F;">res</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">ArrayList</span><span style="color: #A6E22E;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #A6E22E;">&gt;()</span>;
+        inorder<span style="color: #A6E22E;">(</span>root, res<span style="color: #A6E22E;">)</span>;
+        <span style="color: #F92672;">return</span> res;
+    <span style="color: #66D9EF;">}</span>
 
-    <span style="color: #00ffff;">public</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">inorder</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">root</span>, <span style="color: #98fb98;">List</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #b0b1a3;">&gt;</span> <span style="color: #eedd82;">res</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #00ffff;">if</span> <span style="color: #b0b1a3;">(</span>root == <span style="color: #7fffd4;">null</span><span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">{</span>
-            <span style="color: #808080;">// </span><span style="color: #808080;">&#36882;&#24402;&#32467;&#26463;&#26465;&#20214;&#65292;&#31354;&#21017;&#36820;&#22238;</span>
-            <span style="color: #00ffff;">return</span>;
-        <span style="color: #b0b1a3;">}</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#20013;&#24207;&#36941;&#21382;&#65292;&#24038;-&gt;&#26681;-&gt;&#21491;&#30340;&#39034;&#24207;</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#36882;&#24402;&#36941;&#21382;&#24038;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#24038;&#23376;&#26641;</span>
-        inorder<span style="color: #b0b1a3;">(</span>root.left, res<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#25226;&#24403;&#21069;&#33410;&#28857;&#30340;&#20540;&#28155;&#21152;&#21040;&#38598;&#21512;</span>
-        res.add<span style="color: #b0b1a3;">(</span>root.val<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#36882;&#24402;&#36941;&#21382;&#21491;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#21491;&#23376;&#26641;</span>
-        inorder<span style="color: #b0b1a3;">(</span>root.right, res<span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
+    <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">inorder</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">root</span>, <span style="color: #66D9EF;">List</span><span style="color: #A6E22E;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #A6E22E;">&gt;</span> <span style="color: #FD971F;">res</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #F92672;">if</span> <span style="color: #A6E22E;">(</span>root == <span style="color: #AE81FF;">null</span><span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">{</span>
+            <span style="color: #75715E;">// </span><span style="color: #75715E;">&#36882;&#24402;&#32467;&#26463;&#26465;&#20214;&#65292;&#31354;&#21017;&#36820;&#22238;</span>
+            <span style="color: #F92672;">return</span>;
+        <span style="color: #A6E22E;">}</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#20013;&#24207;&#36941;&#21382;&#65292;&#24038;-&gt;&#26681;-&gt;&#21491;&#30340;&#39034;&#24207;</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#36882;&#24402;&#36941;&#21382;&#24038;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#24038;&#23376;&#26641;</span>
+        inorder<span style="color: #A6E22E;">(</span>root.left, res<span style="color: #A6E22E;">)</span>;
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#25226;&#24403;&#21069;&#33410;&#28857;&#30340;&#20540;&#28155;&#21152;&#21040;&#38598;&#21512;</span>
+        res.add<span style="color: #A6E22E;">(</span>root.val<span style="color: #A6E22E;">)</span>;
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#36882;&#24402;&#36941;&#21382;&#21491;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#21491;&#23376;&#26641;</span>
+        inorder<span style="color: #A6E22E;">(</span>root.right, res<span style="color: #A6E22E;">)</span>;
+    <span style="color: #66D9EF;">}</span>
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     * &#21518;&#24207;</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">List</span><span style="color: #93a8c6;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #87cefa;">postorderTraversal</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">root</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #98fb98;">List</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #b0b1a3;">&gt;</span> <span style="color: #eedd82;">res</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">ArrayList</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #b0b1a3;">&gt;()</span>;
-        postorder<span style="color: #b0b1a3;">(</span>root, res<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #00ffff;">return</span> res;
-    <span style="color: #93a8c6;">}</span>
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     * &#21518;&#24207;</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">List</span><span style="color: #66D9EF;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #66D9EF;">&gt;</span> <span style="color: #A6E22E;">postorderTraversal</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">root</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #66D9EF;">List</span><span style="color: #A6E22E;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #A6E22E;">&gt;</span> <span style="color: #FD971F;">res</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">ArrayList</span><span style="color: #A6E22E;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #A6E22E;">&gt;()</span>;
+        postorder<span style="color: #A6E22E;">(</span>root, res<span style="color: #A6E22E;">)</span>;
+        <span style="color: #F92672;">return</span> res;
+    <span style="color: #66D9EF;">}</span>
 
-    <span style="color: #00ffff;">public</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">postorder</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">root</span>, <span style="color: #98fb98;">List</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #b0b1a3;">&gt;</span> <span style="color: #eedd82;">res</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #00ffff;">if</span> <span style="color: #b0b1a3;">(</span>root == <span style="color: #7fffd4;">null</span><span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">{</span>
-            <span style="color: #00ffff;">return</span>;
-        <span style="color: #b0b1a3;">}</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#21518;&#24207;&#36941;&#21382;&#65292;&#24038;-&gt;&#21491;-&gt;&#26681;&#30340;&#39034;&#24207;</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#36882;&#24402;&#36941;&#21382;&#24038;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#24038;&#23376;&#26641;</span>
-        postorder<span style="color: #b0b1a3;">(</span>root.left, res<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#36882;&#24402;&#36941;&#21382;&#21491;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#21491;&#23376;&#26641;</span>
-        postorder<span style="color: #b0b1a3;">(</span>root.right, res<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#25226;&#24403;&#21069;&#33410;&#28857;&#30340;&#20540;&#28155;&#21152;&#21040;&#38598;&#21512;</span>
-        res.add<span style="color: #b0b1a3;">(</span>root.val<span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
+    <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">postorder</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">root</span>, <span style="color: #66D9EF;">List</span><span style="color: #A6E22E;">&lt;</span><span style="color: #66D9EF;">Integer</span><span style="color: #A6E22E;">&gt;</span> <span style="color: #FD971F;">res</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #F92672;">if</span> <span style="color: #A6E22E;">(</span>root == <span style="color: #AE81FF;">null</span><span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">{</span>
+            <span style="color: #F92672;">return</span>;
+        <span style="color: #A6E22E;">}</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#21518;&#24207;&#36941;&#21382;&#65292;&#24038;-&gt;&#21491;-&gt;&#26681;&#30340;&#39034;&#24207;</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#36882;&#24402;&#36941;&#21382;&#24038;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#24038;&#23376;&#26641;</span>
+        postorder<span style="color: #A6E22E;">(</span>root.left, res<span style="color: #A6E22E;">)</span>;
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#36882;&#24402;&#36941;&#21382;&#21491;&#23376;&#26641;&#65292;&#30452;&#21040;&#27809;&#26377;&#21491;&#23376;&#26641;</span>
+        postorder<span style="color: #A6E22E;">(</span>root.right, res<span style="color: #A6E22E;">)</span>;
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#25226;&#24403;&#21069;&#33410;&#28857;&#30340;&#20540;&#28155;&#21152;&#21040;&#38598;&#21512;</span>
+        res.add<span style="color: #A6E22E;">(</span>root.val<span style="color: #A6E22E;">)</span>;
+    <span style="color: #66D9EF;">}</span>
 
-    <span style="color: #00ffff;">public</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">main</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">String</span><span style="color: #b0b1a3;">[]</span> <span style="color: #eedd82;">args</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">treeNode</span> = TreeNode.simpleTree<span style="color: #b0b1a3;">()</span>;
-        TreeNode.show<span style="color: #b0b1a3;">(</span>treeNode<span style="color: #b0b1a3;">)</span>;
+    <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">main</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">String</span><span style="color: #A6E22E;">[]</span> <span style="color: #FD971F;">args</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">treeNode</span> = TreeNode.simpleTree<span style="color: #A6E22E;">()</span>;
+        TreeNode.show<span style="color: #A6E22E;">(</span>treeNode<span style="color: #A6E22E;">)</span>;
 
-        System.out.println<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"\n&#21069;&#24207;"</span><span style="color: #b0b1a3;">)</span>;
-        preorderTraversal<span style="color: #b0b1a3;">(</span>treeNode<span style="color: #b0b1a3;">)</span>.forEach<span style="color: #b0b1a3;">(</span>System.out::println<span style="color: #b0b1a3;">)</span>;
+        System.out.println<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"\n&#21069;&#24207;"</span><span style="color: #A6E22E;">)</span>;
+        preorderTraversal<span style="color: #A6E22E;">(</span>treeNode<span style="color: #A6E22E;">)</span>.forEach<span style="color: #A6E22E;">(</span>System.out::println<span style="color: #A6E22E;">)</span>;
 
-        System.out.println<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"\n&#20013;&#24207;"</span><span style="color: #b0b1a3;">)</span>;
-        inorderTraversal<span style="color: #b0b1a3;">(</span>treeNode<span style="color: #b0b1a3;">)</span>.forEach<span style="color: #b0b1a3;">(</span>System.out::println<span style="color: #b0b1a3;">)</span>;
+        System.out.println<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"\n&#20013;&#24207;"</span><span style="color: #A6E22E;">)</span>;
+        inorderTraversal<span style="color: #A6E22E;">(</span>treeNode<span style="color: #A6E22E;">)</span>.forEach<span style="color: #A6E22E;">(</span>System.out::println<span style="color: #A6E22E;">)</span>;
 
-        System.out.println<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"\n&#21518;&#24207;"</span><span style="color: #b0b1a3;">)</span>;
-        postorderTraversal<span style="color: #b0b1a3;">(</span>treeNode<span style="color: #b0b1a3;">)</span>.forEach<span style="color: #b0b1a3;">(</span>System.out::println<span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
+        System.out.println<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"\n&#21518;&#24207;"</span><span style="color: #A6E22E;">)</span>;
+        postorderTraversal<span style="color: #A6E22E;">(</span>treeNode<span style="color: #A6E22E;">)</span>.forEach<span style="color: #A6E22E;">(</span>System.out::println<span style="color: #A6E22E;">)</span>;
+    <span style="color: #66D9EF;">}</span>
 
-<span style="color: #8c8c8c;">}</span>
+<span style="color: #AE81FF;">}</span>
 
 
 </pre>
@@ -215,169 +215,169 @@ alt=""
 <h3 id="org03b747a">TreeNode.java</h3>
 <div class="outline-text-3" id="text-org03b747a">
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #00ffff;">package</span> com.leetcode.<span style="color: #7fffd4;">utils</span>;
+<pre class="src src-java"><span style="color: #F92672;">package</span> com.leetcode.<span style="color: #AE81FF;">utils</span>;
 
-<span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;"> * &#26641;</span>
-<span style="color: #ffa07a;"> *</span>
-<span style="color: #ffa07a;"> * </span><span style="color: #7fffd4;">@author</span><span style="color: #ffa07a;"> loquy</span>
-<span style="color: #ffa07a;"> * </span><span style="color: #7fffd4;">@date</span><span style="color: #ffa07a;"> 2021 /12/06 10:21</span>
-<span style="color: #ffa07a;"> */</span>
-<span style="color: #00ffff;">public</span> <span style="color: #00ffff;">class</span> <span style="color: #98fb98;">TreeNode</span> <span style="color: #8c8c8c;">{</span>
+<span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;"> * &#26641;</span>
+<span style="color: #E6DB74;"> *</span>
+<span style="color: #E6DB74;"> * </span><span style="color: #AE81FF;">@author</span><span style="color: #E6DB74;"> loquy</span>
+<span style="color: #E6DB74;"> * </span><span style="color: #AE81FF;">@date</span><span style="color: #E6DB74;"> 2021 /12/06 10:21</span>
+<span style="color: #E6DB74;"> */</span>
+<span style="color: #F92672;">public</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">TreeNode</span> <span style="color: #AE81FF;">{</span>
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     * The Val.</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">val</span>;
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     * The Val.</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">val</span>;
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     * The Left.</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> <span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">left</span>;
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     * The Left.</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> <span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">left</span>;
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     * The Right.</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> <span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">right</span>;
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     * The Right.</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> <span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">right</span>;
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     * Instantiates a new Tree node.</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> TreeNode<span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{</span>
-    <span style="color: #93a8c6;">}</span>
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     * Instantiates a new Tree node.</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> TreeNode<span style="color: #66D9EF;">()</span> <span style="color: #66D9EF;">{</span>
+    <span style="color: #66D9EF;">}</span>
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     * Instantiates a new Tree node.</span>
-<span style="color: #ffa07a;">     *</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@param</span><span style="color: #ffa07a;"> val the val</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> TreeNode<span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span> <span style="color: #eedd82;">val</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #00ffff;">this</span>.val = val;
-    <span style="color: #93a8c6;">}</span>
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     * Instantiates a new Tree node.</span>
+<span style="color: #E6DB74;">     *</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@param</span><span style="color: #E6DB74;"> val the val</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> TreeNode<span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">val</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #F92672;">this</span>.val = val;
+    <span style="color: #66D9EF;">}</span>
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     * Instantiates a new Tree node.</span>
-<span style="color: #ffa07a;">     *</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@param</span><span style="color: #ffa07a;"> val   the val</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@param</span><span style="color: #ffa07a;"> left  the left</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@param</span><span style="color: #ffa07a;"> right the right</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> TreeNode<span style="color: #93a8c6;">(</span><span style="color: #98fb98;">int</span> <span style="color: #eedd82;">val</span>, <span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">left</span>, <span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">right</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #00ffff;">this</span>.val = val;
-        <span style="color: #00ffff;">this</span>.left = left;
-        <span style="color: #00ffff;">this</span>.right = right;
-    <span style="color: #93a8c6;">}</span>
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     * Instantiates a new Tree node.</span>
+<span style="color: #E6DB74;">     *</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@param</span><span style="color: #E6DB74;"> val   the val</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@param</span><span style="color: #E6DB74;"> left  the left</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@param</span><span style="color: #E6DB74;"> right the right</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> TreeNode<span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">val</span>, <span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">left</span>, <span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">right</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #F92672;">this</span>.val = val;
+        <span style="color: #F92672;">this</span>.left = left;
+        <span style="color: #F92672;">this</span>.right = right;
+    <span style="color: #66D9EF;">}</span>
 
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     * Gets tree depth.</span>
-<span style="color: #ffa07a;">     *</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@param</span><span style="color: #ffa07a;"> root the root</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@return</span><span style="color: #ffa07a;"> the tree depth</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">int</span> <span style="color: #87cefa;">getTreeDepth</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">root</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #00ffff;">return</span> root == <span style="color: #7fffd4;">null</span> ? 0 : <span style="color: #b0b1a3;">(</span>1 + Math.max<span style="color: #97b098;">(</span>getTreeDepth<span style="color: #aebed8;">(</span>root.left<span style="color: #aebed8;">)</span>, getTreeDepth<span style="color: #aebed8;">(</span>root.right<span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     * Gets tree depth.</span>
+<span style="color: #E6DB74;">     *</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@param</span><span style="color: #E6DB74;"> root the root</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@return</span><span style="color: #E6DB74;"> the tree depth</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">getTreeDepth</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">root</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #F92672;">return</span> root == <span style="color: #AE81FF;">null</span> ? 0 : <span style="color: #A6E22E;">(</span>1 + Math.max<span style="color: #E6DB74;">(</span>getTreeDepth<span style="color: #FD971F;">(</span>root.left<span style="color: #FD971F;">)</span>, getTreeDepth<span style="color: #FD971F;">(</span>root.right<span style="color: #FD971F;">)</span><span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span>;
+    <span style="color: #66D9EF;">}</span>
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     *  Write Array</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@param</span><span style="color: #ffa07a;"> currNode</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@param</span><span style="color: #ffa07a;"> rowIndex</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@param</span><span style="color: #ffa07a;"> columnIndex</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@param</span><span style="color: #ffa07a;"> res</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@param</span><span style="color: #ffa07a;"> treeDepth</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@return</span><span style="color: #ffa07a;"> void</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">private</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">writeArray</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">currNode</span>, <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">rowIndex</span>, <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">columnIndex</span>, <span style="color: #98fb98;">String</span><span style="color: #b0b1a3;">[][]</span> <span style="color: #eedd82;">res</span>, <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">treeDepth</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#20445;&#35777;&#36755;&#20837;&#30340;&#26641;&#19981;&#20026;&#31354;</span>
-        <span style="color: #00ffff;">if</span> <span style="color: #b0b1a3;">(</span>currNode == <span style="color: #7fffd4;">null</span><span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">{</span>
-            <span style="color: #00ffff;">return</span>;
-        <span style="color: #b0b1a3;">}</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#20808;&#23558;&#24403;&#21069;&#33410;&#28857;&#20445;&#23384;&#21040;&#20108;&#32500;&#25968;&#32452;&#20013;</span>
-        res<span style="color: #b0b1a3;">[</span>rowIndex<span style="color: #b0b1a3;">][</span>columnIndex<span style="color: #b0b1a3;">]</span> = String.valueOf<span style="color: #b0b1a3;">(</span>currNode.val<span style="color: #b0b1a3;">)</span>;
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     *  Write Array</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@param</span><span style="color: #E6DB74;"> currNode</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@param</span><span style="color: #E6DB74;"> rowIndex</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@param</span><span style="color: #E6DB74;"> columnIndex</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@param</span><span style="color: #E6DB74;"> res</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@param</span><span style="color: #E6DB74;"> treeDepth</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@return</span><span style="color: #E6DB74;"> void</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">private</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">writeArray</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">currNode</span>, <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">rowIndex</span>, <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">columnIndex</span>, <span style="color: #66D9EF;">String</span><span style="color: #A6E22E;">[][]</span> <span style="color: #FD971F;">res</span>, <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">treeDepth</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#20445;&#35777;&#36755;&#20837;&#30340;&#26641;&#19981;&#20026;&#31354;</span>
+        <span style="color: #F92672;">if</span> <span style="color: #A6E22E;">(</span>currNode == <span style="color: #AE81FF;">null</span><span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">{</span>
+            <span style="color: #F92672;">return</span>;
+        <span style="color: #A6E22E;">}</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#20808;&#23558;&#24403;&#21069;&#33410;&#28857;&#20445;&#23384;&#21040;&#20108;&#32500;&#25968;&#32452;&#20013;</span>
+        res<span style="color: #A6E22E;">[</span>rowIndex<span style="color: #A6E22E;">][</span>columnIndex<span style="color: #A6E22E;">]</span> = String.valueOf<span style="color: #A6E22E;">(</span>currNode.val<span style="color: #A6E22E;">)</span>;
 
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#35745;&#31639;&#24403;&#21069;&#20301;&#20110;&#26641;&#30340;&#31532;&#20960;&#23618;</span>
-        <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">currLevel</span> = <span style="color: #b0b1a3;">(</span><span style="color: #97b098;">(</span>rowIndex + 1<span style="color: #97b098;">)</span> / 2<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#33509;&#21040;&#20102;&#26368;&#21518;&#19968;&#23618;&#65292;&#21017;&#36820;&#22238;</span>
-        <span style="color: #00ffff;">if</span> <span style="color: #b0b1a3;">(</span>currLevel == treeDepth<span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">{</span>
-            <span style="color: #00ffff;">return</span>;
-        <span style="color: #b0b1a3;">}</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#35745;&#31639;&#24403;&#21069;&#34892;&#21040;&#19979;&#19968;&#34892;&#65292;&#27599;&#20010;&#20803;&#32032;&#20043;&#38388;&#30340;&#38388;&#38548;&#65288;&#19979;&#19968;&#34892;&#30340;&#21015;&#32034;&#24341;&#19982;&#24403;&#21069;&#20803;&#32032;&#30340;&#21015;&#32034;&#24341;&#20043;&#38388;&#30340;&#38388;&#38548;&#65289;</span>
-        <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">gap</span> = treeDepth - currLevel - 1;
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#35745;&#31639;&#24403;&#21069;&#20301;&#20110;&#26641;&#30340;&#31532;&#20960;&#23618;</span>
+        <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">currLevel</span> = <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">(</span>rowIndex + 1<span style="color: #E6DB74;">)</span> / 2<span style="color: #A6E22E;">)</span>;
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#33509;&#21040;&#20102;&#26368;&#21518;&#19968;&#23618;&#65292;&#21017;&#36820;&#22238;</span>
+        <span style="color: #F92672;">if</span> <span style="color: #A6E22E;">(</span>currLevel == treeDepth<span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">{</span>
+            <span style="color: #F92672;">return</span>;
+        <span style="color: #A6E22E;">}</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#35745;&#31639;&#24403;&#21069;&#34892;&#21040;&#19979;&#19968;&#34892;&#65292;&#27599;&#20010;&#20803;&#32032;&#20043;&#38388;&#30340;&#38388;&#38548;&#65288;&#19979;&#19968;&#34892;&#30340;&#21015;&#32034;&#24341;&#19982;&#24403;&#21069;&#20803;&#32032;&#30340;&#21015;&#32034;&#24341;&#20043;&#38388;&#30340;&#38388;&#38548;&#65289;</span>
+        <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">gap</span> = treeDepth - currLevel - 1;
 
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#23545;&#24038;&#20799;&#23376;&#36827;&#34892;&#21028;&#26029;&#65292;&#33509;&#26377;&#24038;&#20799;&#23376;&#65292;&#21017;&#35760;&#24405;&#30456;&#24212;&#30340;"/"&#19982;&#24038;&#20799;&#23376;&#30340;&#20540;</span>
-        <span style="color: #00ffff;">if</span> <span style="color: #b0b1a3;">(</span>currNode.left != <span style="color: #7fffd4;">null</span><span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">{</span>
-            res<span style="color: #97b098;">[</span>rowIndex + 1<span style="color: #97b098;">][</span>columnIndex - gap<span style="color: #97b098;">]</span> = <span style="color: #ffa07a;">"/"</span>;
-            writeArray<span style="color: #97b098;">(</span>currNode.left, rowIndex + 2, columnIndex - gap * 2, res, treeDepth<span style="color: #97b098;">)</span>;
-        <span style="color: #b0b1a3;">}</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#23545;&#24038;&#20799;&#23376;&#36827;&#34892;&#21028;&#26029;&#65292;&#33509;&#26377;&#24038;&#20799;&#23376;&#65292;&#21017;&#35760;&#24405;&#30456;&#24212;&#30340;"/"&#19982;&#24038;&#20799;&#23376;&#30340;&#20540;</span>
+        <span style="color: #F92672;">if</span> <span style="color: #A6E22E;">(</span>currNode.left != <span style="color: #AE81FF;">null</span><span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">{</span>
+            res<span style="color: #E6DB74;">[</span>rowIndex + 1<span style="color: #E6DB74;">][</span>columnIndex - gap<span style="color: #E6DB74;">]</span> = <span style="color: #E6DB74;">"/"</span>;
+            writeArray<span style="color: #E6DB74;">(</span>currNode.left, rowIndex + 2, columnIndex - gap * 2, res, treeDepth<span style="color: #E6DB74;">)</span>;
+        <span style="color: #A6E22E;">}</span>
 
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#23545;&#21491;&#20799;&#23376;&#36827;&#34892;&#21028;&#26029;&#65292;&#33509;&#26377;&#21491;&#20799;&#23376;&#65292;&#21017;&#35760;&#24405;&#30456;&#24212;&#30340;"\"&#19982;&#21491;&#20799;&#23376;&#30340;&#20540;</span>
-        <span style="color: #00ffff;">if</span> <span style="color: #b0b1a3;">(</span>currNode.right != <span style="color: #7fffd4;">null</span><span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">{</span>
-            res<span style="color: #97b098;">[</span>rowIndex + 1<span style="color: #97b098;">][</span>columnIndex + gap<span style="color: #97b098;">]</span> = <span style="color: #ffa07a;">"\\"</span>;
-            writeArray<span style="color: #97b098;">(</span>currNode.right, rowIndex + 2, columnIndex + gap * 2, res, treeDepth<span style="color: #97b098;">)</span>;
-        <span style="color: #b0b1a3;">}</span>
-    <span style="color: #93a8c6;">}</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#23545;&#21491;&#20799;&#23376;&#36827;&#34892;&#21028;&#26029;&#65292;&#33509;&#26377;&#21491;&#20799;&#23376;&#65292;&#21017;&#35760;&#24405;&#30456;&#24212;&#30340;"\"&#19982;&#21491;&#20799;&#23376;&#30340;&#20540;</span>
+        <span style="color: #F92672;">if</span> <span style="color: #A6E22E;">(</span>currNode.right != <span style="color: #AE81FF;">null</span><span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">{</span>
+            res<span style="color: #E6DB74;">[</span>rowIndex + 1<span style="color: #E6DB74;">][</span>columnIndex + gap<span style="color: #E6DB74;">]</span> = <span style="color: #E6DB74;">"\\"</span>;
+            writeArray<span style="color: #E6DB74;">(</span>currNode.right, rowIndex + 2, columnIndex + gap * 2, res, treeDepth<span style="color: #E6DB74;">)</span>;
+        <span style="color: #A6E22E;">}</span>
+    <span style="color: #66D9EF;">}</span>
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     * Show.</span>
-<span style="color: #ffa07a;">     *</span>
-<span style="color: #ffa07a;">     * </span><span style="color: #7fffd4;">@param</span><span style="color: #ffa07a;"> root the root</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">show</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">root</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #00ffff;">if</span> <span style="color: #b0b1a3;">(</span>root == <span style="color: #7fffd4;">null</span><span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">{</span>
-            System.out.println<span style="color: #97b098;">(</span><span style="color: #ffa07a;">"EMPTY!"</span><span style="color: #97b098;">)</span>;
-        <span style="color: #b0b1a3;">}</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#24471;&#21040;&#26641;&#30340;&#28145;&#24230;</span>
-        <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">treeDepth</span> = getTreeDepth<span style="color: #b0b1a3;">(</span>root<span style="color: #b0b1a3;">)</span>;
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     * Show.</span>
+<span style="color: #E6DB74;">     *</span>
+<span style="color: #E6DB74;">     * </span><span style="color: #AE81FF;">@param</span><span style="color: #E6DB74;"> root the root</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">show</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">root</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+        <span style="color: #F92672;">if</span> <span style="color: #A6E22E;">(</span>root == <span style="color: #AE81FF;">null</span><span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">{</span>
+            System.out.println<span style="color: #E6DB74;">(</span><span style="color: #E6DB74;">"EMPTY!"</span><span style="color: #E6DB74;">)</span>;
+        <span style="color: #A6E22E;">}</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#24471;&#21040;&#26641;&#30340;&#28145;&#24230;</span>
+        <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">treeDepth</span> = getTreeDepth<span style="color: #A6E22E;">(</span>root<span style="color: #A6E22E;">)</span>;
 
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#26368;&#21518;&#19968;&#34892;&#30340;&#23485;&#24230;&#20026;2&#30340;&#65288;n - 1&#65289;&#27425;&#26041;&#20056;3&#65292;&#20877;&#21152;1</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#20316;&#20026;&#25972;&#20010;&#20108;&#32500;&#25968;&#32452;&#30340;&#23485;&#24230;</span>
-        <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">arrayHeight</span> = treeDepth * 2 - 1;
-        <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">arrayWidth</span> = <span style="color: #b0b1a3;">(</span>2 &lt;&lt; <span style="color: #97b098;">(</span>treeDepth - 2<span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span> * 3 + 1;
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#29992;&#19968;&#20010;&#23383;&#31526;&#20018;&#25968;&#32452;&#26469;&#23384;&#20648;&#27599;&#20010;&#20301;&#32622;&#24212;&#26174;&#31034;&#30340;&#20803;&#32032;</span>
-        <span style="color: #98fb98;">String</span><span style="color: #b0b1a3;">[][]</span> <span style="color: #eedd82;">res</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">String</span><span style="color: #b0b1a3;">[</span>arrayHeight<span style="color: #b0b1a3;">][</span>arrayWidth<span style="color: #b0b1a3;">]</span>;
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#23545;&#25968;&#32452;&#36827;&#34892;&#21021;&#22987;&#21270;&#65292;&#40664;&#35748;&#20026;&#19968;&#20010;&#31354;&#26684;</span>
-        <span style="color: #00ffff;">for</span> <span style="color: #b0b1a3;">(</span><span style="color: #98fb98;">int</span> <span style="color: #eedd82;">i</span> = 0; i &lt; <span style="color: #98fb98;">arrayHeight</span>; i ++<span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">{</span>
-            <span style="color: #00ffff;">for</span> <span style="color: #97b098;">(</span><span style="color: #98fb98;">int</span> <span style="color: #eedd82;">j</span> = 0; j &lt; <span style="color: #98fb98;">arrayWidth</span>; j ++<span style="color: #97b098;">)</span> <span style="color: #97b098;">{</span>
-                res<span style="color: #aebed8;">[</span>i<span style="color: #aebed8;">][</span>j<span style="color: #aebed8;">]</span> = <span style="color: #ffa07a;">" "</span>;
-            <span style="color: #97b098;">}</span>
-        <span style="color: #b0b1a3;">}</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#26368;&#21518;&#19968;&#34892;&#30340;&#23485;&#24230;&#20026;2&#30340;&#65288;n - 1&#65289;&#27425;&#26041;&#20056;3&#65292;&#20877;&#21152;1</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#20316;&#20026;&#25972;&#20010;&#20108;&#32500;&#25968;&#32452;&#30340;&#23485;&#24230;</span>
+        <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">arrayHeight</span> = treeDepth * 2 - 1;
+        <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">arrayWidth</span> = <span style="color: #A6E22E;">(</span>2 &lt;&lt; <span style="color: #E6DB74;">(</span>treeDepth - 2<span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span> * 3 + 1;
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#29992;&#19968;&#20010;&#23383;&#31526;&#20018;&#25968;&#32452;&#26469;&#23384;&#20648;&#27599;&#20010;&#20301;&#32622;&#24212;&#26174;&#31034;&#30340;&#20803;&#32032;</span>
+        <span style="color: #66D9EF;">String</span><span style="color: #A6E22E;">[][]</span> <span style="color: #FD971F;">res</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">String</span><span style="color: #A6E22E;">[</span>arrayHeight<span style="color: #A6E22E;">][</span>arrayWidth<span style="color: #A6E22E;">]</span>;
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#23545;&#25968;&#32452;&#36827;&#34892;&#21021;&#22987;&#21270;&#65292;&#40664;&#35748;&#20026;&#19968;&#20010;&#31354;&#26684;</span>
+        <span style="color: #F92672;">for</span> <span style="color: #A6E22E;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i</span> = 0; i &lt; <span style="color: #66D9EF;">arrayHeight</span>; i ++<span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">{</span>
+            <span style="color: #F92672;">for</span> <span style="color: #E6DB74;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">j</span> = 0; j &lt; <span style="color: #66D9EF;">arrayWidth</span>; j ++<span style="color: #E6DB74;">)</span> <span style="color: #E6DB74;">{</span>
+                res<span style="color: #FD971F;">[</span>i<span style="color: #FD971F;">][</span>j<span style="color: #FD971F;">]</span> = <span style="color: #E6DB74;">" "</span>;
+            <span style="color: #E6DB74;">}</span>
+        <span style="color: #A6E22E;">}</span>
 
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#20174;&#26681;&#33410;&#28857;&#24320;&#22987;&#65292;&#36882;&#24402;&#22788;&#29702;&#25972;&#20010;&#26641;</span>
-        <span style="color: #808080;">// </span><span style="color: #808080;">res[0][(arrayWidth + 1)/ 2] = (char)(root.val + '0');</span>
-        writeArray<span style="color: #b0b1a3;">(</span>root, 0, arrayWidth/ 2, res, treeDepth<span style="color: #b0b1a3;">)</span>;
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#20174;&#26681;&#33410;&#28857;&#24320;&#22987;&#65292;&#36882;&#24402;&#22788;&#29702;&#25972;&#20010;&#26641;</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">res[0][(arrayWidth + 1)/ 2] = (char)(root.val + '0');</span>
+        writeArray<span style="color: #A6E22E;">(</span>root, 0, arrayWidth/ 2, res, treeDepth<span style="color: #A6E22E;">)</span>;
 
-        <span style="color: #808080;">// </span><span style="color: #808080;">&#27492;&#26102;&#65292;&#24050;&#32463;&#23558;&#25152;&#26377;&#38656;&#35201;&#26174;&#31034;&#30340;&#20803;&#32032;&#20648;&#23384;&#21040;&#20102;&#20108;&#32500;&#25968;&#32452;&#20013;&#65292;&#23558;&#20854;&#25340;&#25509;&#24182;&#25171;&#21360;&#21363;&#21487;</span>
-        <span style="color: #00ffff;">for</span> <span style="color: #b0b1a3;">(</span><span style="color: #98fb98;">String</span><span style="color: #97b098;">[]</span> <span style="color: #eedd82;">line</span>: res<span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">{</span>
-            <span style="color: #98fb98;">StringBuilder</span> <span style="color: #eedd82;">sb</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">StringBuilder</span><span style="color: #97b098;">()</span>;
-            <span style="color: #00ffff;">for</span> <span style="color: #97b098;">(</span><span style="color: #98fb98;">int</span> <span style="color: #eedd82;">i</span> = 0; i &lt; line.<span style="color: #98fb98;">length</span>; i ++<span style="color: #97b098;">)</span> <span style="color: #97b098;">{</span>
-                sb.append<span style="color: #aebed8;">(</span>line<span style="color: #b0b0b3;">[</span>i<span style="color: #b0b0b3;">]</span><span style="color: #aebed8;">)</span>;
-                <span style="color: #00ffff;">if</span> <span style="color: #aebed8;">(</span>line<span style="color: #b0b0b3;">[</span>i<span style="color: #b0b0b3;">]</span>.length<span style="color: #b0b0b3;">()</span> &gt; 1 &amp;&amp; i &lt;= line.length - 1<span style="color: #aebed8;">)</span> <span style="color: #aebed8;">{</span>
-                    i += line<span style="color: #b0b0b3;">[</span>i<span style="color: #b0b0b3;">]</span>.length<span style="color: #b0b0b3;">()</span> &gt; 4 ? 2: line<span style="color: #b0b0b3;">[</span>i<span style="color: #b0b0b3;">]</span>.length<span style="color: #b0b0b3;">()</span> - 1;
-                <span style="color: #aebed8;">}</span>
-            <span style="color: #97b098;">}</span>
-            System.out.println<span style="color: #97b098;">(</span>sb<span style="color: #97b098;">)</span>;
-        <span style="color: #b0b1a3;">}</span>
-    <span style="color: #93a8c6;">}</span>
+        <span style="color: #75715E;">// </span><span style="color: #75715E;">&#27492;&#26102;&#65292;&#24050;&#32463;&#23558;&#25152;&#26377;&#38656;&#35201;&#26174;&#31034;&#30340;&#20803;&#32032;&#20648;&#23384;&#21040;&#20102;&#20108;&#32500;&#25968;&#32452;&#20013;&#65292;&#23558;&#20854;&#25340;&#25509;&#24182;&#25171;&#21360;&#21363;&#21487;</span>
+        <span style="color: #F92672;">for</span> <span style="color: #A6E22E;">(</span><span style="color: #66D9EF;">String</span><span style="color: #E6DB74;">[]</span> <span style="color: #FD971F;">line</span>: res<span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">{</span>
+            <span style="color: #66D9EF;">StringBuilder</span> <span style="color: #FD971F;">sb</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">StringBuilder</span><span style="color: #E6DB74;">()</span>;
+            <span style="color: #F92672;">for</span> <span style="color: #E6DB74;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i</span> = 0; i &lt; line.<span style="color: #66D9EF;">length</span>; i ++<span style="color: #E6DB74;">)</span> <span style="color: #E6DB74;">{</span>
+                sb.append<span style="color: #FD971F;">(</span>line<span style="color: #F92672;">[</span>i<span style="color: #F92672;">]</span><span style="color: #FD971F;">)</span>;
+                <span style="color: #F92672;">if</span> <span style="color: #FD971F;">(</span>line<span style="color: #F92672;">[</span>i<span style="color: #F92672;">]</span>.length<span style="color: #F92672;">()</span> &gt; 1 &amp;&amp; i &lt;= line.length - 1<span style="color: #FD971F;">)</span> <span style="color: #FD971F;">{</span>
+                    i += line<span style="color: #F92672;">[</span>i<span style="color: #F92672;">]</span>.length<span style="color: #F92672;">()</span> &gt; 4 ? 2: line<span style="color: #F92672;">[</span>i<span style="color: #F92672;">]</span>.length<span style="color: #F92672;">()</span> - 1;
+                <span style="color: #FD971F;">}</span>
+            <span style="color: #E6DB74;">}</span>
+            System.out.println<span style="color: #E6DB74;">(</span>sb<span style="color: #E6DB74;">)</span>;
+        <span style="color: #A6E22E;">}</span>
+    <span style="color: #66D9EF;">}</span>
 
-    <span style="color: #ffa07a;">/**</span>
-<span style="color: #ffa07a;">     *</span>
-<span style="color: #ffa07a;">     *       1</span>
-<span style="color: #ffa07a;">     *     /   \</span>
-<span style="color: #ffa07a;">     *   2       3</span>
-<span style="color: #ffa07a;">     *  / \       \</span>
-<span style="color: #ffa07a;">     * 4   5       6</span>
-<span style="color: #ffa07a;">     *</span>
-<span style="color: #ffa07a;">     */</span>
-    <span style="color: #00ffff;">public</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">TreeNode</span> <span style="color: #87cefa;">simpleTree</span><span style="color: #93a8c6;">(){</span>
-        <span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">left2</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">TreeNode</span><span style="color: #b0b1a3;">(</span>4<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">right2</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">TreeNode</span><span style="color: #b0b1a3;">(</span>5<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">left</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">TreeNode</span><span style="color: #b0b1a3;">(</span>2, left2, right2<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">right3</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">TreeNode</span><span style="color: #b0b1a3;">(</span>6<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #98fb98;">TreeNode</span> <span style="color: #eedd82;">right</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">TreeNode</span><span style="color: #b0b1a3;">(</span>3, <span style="color: #7fffd4;">null</span>, right3<span style="color: #b0b1a3;">)</span>;
-        <span style="color: #00ffff;">return</span> <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">TreeNode</span><span style="color: #b0b1a3;">(</span>1, left, right<span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
-<span style="color: #8c8c8c;">}</span>
+    <span style="color: #E6DB74;">/**</span>
+<span style="color: #E6DB74;">     *</span>
+<span style="color: #E6DB74;">     *       1</span>
+<span style="color: #E6DB74;">     *     /   \</span>
+<span style="color: #E6DB74;">     *   2       3</span>
+<span style="color: #E6DB74;">     *  / \       \</span>
+<span style="color: #E6DB74;">     * 4   5       6</span>
+<span style="color: #E6DB74;">     *</span>
+<span style="color: #E6DB74;">     */</span>
+    <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">TreeNode</span> <span style="color: #A6E22E;">simpleTree</span><span style="color: #66D9EF;">(){</span>
+        <span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">left2</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">TreeNode</span><span style="color: #A6E22E;">(</span>4<span style="color: #A6E22E;">)</span>;
+        <span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">right2</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">TreeNode</span><span style="color: #A6E22E;">(</span>5<span style="color: #A6E22E;">)</span>;
+        <span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">left</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">TreeNode</span><span style="color: #A6E22E;">(</span>2, left2, right2<span style="color: #A6E22E;">)</span>;
+        <span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">right3</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">TreeNode</span><span style="color: #A6E22E;">(</span>6<span style="color: #A6E22E;">)</span>;
+        <span style="color: #66D9EF;">TreeNode</span> <span style="color: #FD971F;">right</span> = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">TreeNode</span><span style="color: #A6E22E;">(</span>3, <span style="color: #AE81FF;">null</span>, right3<span style="color: #A6E22E;">)</span>;
+        <span style="color: #F92672;">return</span> <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">TreeNode</span><span style="color: #A6E22E;">(</span>1, left, right<span style="color: #A6E22E;">)</span>;
+    <span style="color: #66D9EF;">}</span>
+<span style="color: #AE81FF;">}</span>
 
 </pre>
 </div>

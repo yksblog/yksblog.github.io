@@ -161,10 +161,10 @@ ESP
 请看下面的例子。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span> <span style="color: #87cefa;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-   <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">a</span> = 2;
-   <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">b</span> = 3;
-<span style="color: #8c8c8c;">}</span>
+<pre class="src src-c"><span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
+   <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">a</span> = 2;
+   <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">b</span> = 3;
+<span style="color: #AE81FF;">}</span>
 </pre>
 </div>
 
@@ -176,11 +176,11 @@ ESP
 如果函数内部调用了其他函数，会发生什么情况？
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span> <span style="color: #87cefa;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-       <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">a</span> = 2;
-       <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">b</span> = 3;
-       <span style="color: #00ffff;">return</span> add_a_and_b<span style="color: #93a8c6;">(</span>a, b<span style="color: #93a8c6;">)</span>;
-    <span style="color: #8c8c8c;">}</span>
+<pre class="src src-c"><span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
+       <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">a</span> = 2;
+       <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">b</span> = 3;
+       <span style="color: #F92672;">return</span> add_a_and_b<span style="color: #66D9EF;">(</span>a, b<span style="color: #66D9EF;">)</span>;
+    <span style="color: #AE81FF;">}</span>
 </pre>
 </div>
 <p>
@@ -212,13 +212,13 @@ Stack 是由内存区域的结束地址开始，从高位（地址）向低位�
 了解寄存器和内存模型以后，就可以来看汇编语言到底是什么了。下面是一个简单的程序example.c。
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #98fb98;">int</span> <span style="color: #87cefa;">add_a_and_b</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">int</span> <span style="color: #eedd82;">a</span>, <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">b</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-  <span style="color: #00ffff;">return</span> a + b;
-<span style="color: #8c8c8c;">}</span>
+<pre class="src src-c"><span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">add_a_and_b</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">a</span>, <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">b</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #F92672;">return</span> a + b;
+<span style="color: #AE81FF;">}</span>
 
-<span style="color: #98fb98;">int</span> <span style="color: #87cefa;">main</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
-  <span style="color: #00ffff;">return</span> add_a_and_b<span style="color: #93a8c6;">(</span>2, 3<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #F92672;">return</span> add_a_and_b<span style="color: #66D9EF;">(</span>2, 3<span style="color: #66D9EF;">)</span>;
+<span style="color: #AE81FF;">}</span>
 </pre>
 </div>
 <p>
@@ -237,20 +237,20 @@ gcc 将这个程序转成汇编语言。
 example.s经过简化以后，大概是下面的样子。
 </p>
 <div class="org-src-container">
-<pre class="src src-ruby"><span style="color: #7fffd4;">_add_a_and_b:</span>
+<pre class="src src-ruby"><span style="color: #AE81FF;">_add_a_and_b:</span>
    push   %ebx
-   mov    %eax, <span style="color: #8c8c8c;">[</span>%esp+8<span style="color: #8c8c8c;">]</span> <span style="color: #808080;"># </span><span style="color: #808080;">&#20808;&#23558; ESP &#23492;&#23384;&#22120;&#37324;&#38754;&#30340;&#22320;&#22336;&#21152;&#19978;8&#20010;&#23383;&#33410;&#65292;&#24471;&#21040;&#19968;&#20010;&#26032;&#30340;&#22320;&#22336;&#65292;&#28982;&#21518;&#25353;&#29031;&#36825;&#20010;&#22320;&#22336;&#22312; Stack &#21462;&#20986;&#25968;&#25454;&#12290;&#26681;&#25454;&#21069;&#38754;&#30340;&#27493;&#39588;&#65292;&#21487;&#20197;&#25512;&#31639;&#20986;&#36825;&#37324;&#21462;&#20986;&#30340;&#26159;2&#65292;&#20877;&#23558;2&#20889;&#20837; EAX &#23492;&#23384;&#22120;&#12290;</span>
-   mov    %ebx, <span style="color: #8c8c8c;">[</span>%esp+12<span style="color: #8c8c8c;">]</span> <span style="color: #808080;"># </span><span style="color: #808080;">&#23558; ESP &#23492;&#23384;&#22120;&#30340;&#20540;&#21152;12&#20010;&#23383;&#33410;&#65292;&#20877;&#25353;&#29031;&#36825;&#20010;&#22320;&#22336;&#22312; Stack &#21462;&#20986;&#25968;&#25454;&#65292;&#36825;&#27425;&#21462;&#20986;&#30340;&#26159;3&#65292;&#23558;&#20854;&#20889;&#20837; EBX &#23492;&#23384;&#22120;&#12290;</span>
-   add    %eax, %ebx <span style="color: #808080;"># </span><span style="color: #808080;">&#23558; EAX &#23492;&#23384;&#22120;&#30340;&#20540;&#65288;&#21363;2&#65289;&#21152;&#19978; EBX &#23492;&#23384;&#22120;&#30340;&#20540;&#65288;&#21363;3&#65289;&#65292;&#24471;&#21040;&#32467;&#26524;5&#65292;&#20877;&#23558;&#36825;&#20010;&#32467;&#26524;&#20889;&#20837;&#31532;&#19968;&#20010;&#36816;&#31639;&#23376; EAX &#23492;&#23384;&#22120;&#12290;</span>
-   pop    %ebx <span style="color: #808080;"># </span><span style="color: #808080;">&#21462;&#20986; Stack &#26368;&#36817;&#20889;&#20837;&#30340;&#20540;&#65288;&#21363; EBX &#23492;&#23384;&#22120;&#30340;&#21407;&#22987;&#20540;&#65289;&#65292;&#20877;&#23558;&#36825;&#20010;&#20540;&#20889;&#22238; EBX &#23492;&#23384;&#22120;</span>
+   mov    %eax, <span style="color: #AE81FF;">[</span>%esp+8<span style="color: #AE81FF;">]</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">&#20808;&#23558; ESP &#23492;&#23384;&#22120;&#37324;&#38754;&#30340;&#22320;&#22336;&#21152;&#19978;8&#20010;&#23383;&#33410;&#65292;&#24471;&#21040;&#19968;&#20010;&#26032;&#30340;&#22320;&#22336;&#65292;&#28982;&#21518;&#25353;&#29031;&#36825;&#20010;&#22320;&#22336;&#22312; Stack &#21462;&#20986;&#25968;&#25454;&#12290;&#26681;&#25454;&#21069;&#38754;&#30340;&#27493;&#39588;&#65292;&#21487;&#20197;&#25512;&#31639;&#20986;&#36825;&#37324;&#21462;&#20986;&#30340;&#26159;2&#65292;&#20877;&#23558;2&#20889;&#20837; EAX &#23492;&#23384;&#22120;&#12290;</span>
+   mov    %ebx, <span style="color: #AE81FF;">[</span>%esp+12<span style="color: #AE81FF;">]</span> <span style="color: #75715E;"># </span><span style="color: #75715E;">&#23558; ESP &#23492;&#23384;&#22120;&#30340;&#20540;&#21152;12&#20010;&#23383;&#33410;&#65292;&#20877;&#25353;&#29031;&#36825;&#20010;&#22320;&#22336;&#22312; Stack &#21462;&#20986;&#25968;&#25454;&#65292;&#36825;&#27425;&#21462;&#20986;&#30340;&#26159;3&#65292;&#23558;&#20854;&#20889;&#20837; EBX &#23492;&#23384;&#22120;&#12290;</span>
+   add    %eax, %ebx <span style="color: #75715E;"># </span><span style="color: #75715E;">&#23558; EAX &#23492;&#23384;&#22120;&#30340;&#20540;&#65288;&#21363;2&#65289;&#21152;&#19978; EBX &#23492;&#23384;&#22120;&#30340;&#20540;&#65288;&#21363;3&#65289;&#65292;&#24471;&#21040;&#32467;&#26524;5&#65292;&#20877;&#23558;&#36825;&#20010;&#32467;&#26524;&#20889;&#20837;&#31532;&#19968;&#20010;&#36816;&#31639;&#23376; EAX &#23492;&#23384;&#22120;&#12290;</span>
+   pop    %ebx <span style="color: #75715E;"># </span><span style="color: #75715E;">&#21462;&#20986; Stack &#26368;&#36817;&#20889;&#20837;&#30340;&#20540;&#65288;&#21363; EBX &#23492;&#23384;&#22120;&#30340;&#21407;&#22987;&#20540;&#65289;&#65292;&#20877;&#23558;&#36825;&#20010;&#20540;&#20889;&#22238; EBX &#23492;&#23384;&#22120;</span>
    ret
 
-<span style="color: #7fffd4;">_main:</span>      <span style="color: #808080;"># </span><span style="color: #808080;">&#31243;&#24207;&#20174;_main&#26631;&#31614;&#24320;&#22987;&#25191;&#34892;&#65292;&#36825;&#26102;&#20250;&#22312; Stack &#19978;&#20026;main&#24314;&#31435;&#19968;&#20010;&#24103;&#65292;&#24182;&#23558; Stack &#25152;&#25351;&#21521;&#30340;&#22320;&#22336;&#65292;&#20889;&#20837; ESP &#23492;&#23384;&#22120;&#12290;</span>
-   push   3 <span style="color: #808080;"># </span><span style="color: #808080;">push&#25351;&#20196;&#29992;&#20110;&#23558;&#36816;&#31639;&#23376;&#25918;&#20837; Stack&#65292;&#36825;&#37324;&#23601;&#26159;&#23558;3&#20889;&#20837;main&#36825;&#20010;&#24103;&#12290;</span>
-   push   2 <span style="color: #808080;"># </span><span style="color: #808080;">push&#25351;&#20196;&#23558;2&#20889;&#20837;main&#36825;&#20010;&#24103;&#65292;&#20301;&#32622;&#32039;&#36148;&#30528;&#21069;&#38754;&#20889;&#20837;&#30340;3&#12290;</span>
-   call   _add_a_and_b  <span style="color: #808080;"># </span><span style="color: #808080;">&#31243;&#24207;&#23601;&#20250;&#21435;&#25214;_add_a_and_b&#26631;&#31614;&#65292;&#24182;&#20026;&#35813;&#20989;&#25968;&#24314;&#31435;&#19968;&#20010;&#26032;&#30340;&#24103;&#12290;</span>
-   add    %esp, 8       <span style="color: #808080;"># </span><span style="color: #808080;">&#23558; EBX &#23492;&#23384;&#22120;&#37324;&#38754;&#30340;&#20540;&#65292;&#20889;&#20837;_add_a_and_b&#36825;&#20010;&#24103;&#12290;</span>
-   ret                  <span style="color: #808080;"># </span><span style="color: #808080;">&#32456;&#27490;&#24403;&#21069;&#20989;&#25968;&#30340;&#25191;&#34892;&#65292;&#23558;&#36816;&#34892;&#26435;&#20132;&#36824;&#32473;&#19978;&#23618;&#20989;&#25968;&#12290;&#20063;&#23601;&#26159;&#65292;&#24403;&#21069;&#20989;&#25968;&#30340;&#24103;&#23558;&#34987;&#22238;&#25910;&#12290;</span>
+<span style="color: #AE81FF;">_main:</span>      <span style="color: #75715E;"># </span><span style="color: #75715E;">&#31243;&#24207;&#20174;_main&#26631;&#31614;&#24320;&#22987;&#25191;&#34892;&#65292;&#36825;&#26102;&#20250;&#22312; Stack &#19978;&#20026;main&#24314;&#31435;&#19968;&#20010;&#24103;&#65292;&#24182;&#23558; Stack &#25152;&#25351;&#21521;&#30340;&#22320;&#22336;&#65292;&#20889;&#20837; ESP &#23492;&#23384;&#22120;&#12290;</span>
+   push   3 <span style="color: #75715E;"># </span><span style="color: #75715E;">push&#25351;&#20196;&#29992;&#20110;&#23558;&#36816;&#31639;&#23376;&#25918;&#20837; Stack&#65292;&#36825;&#37324;&#23601;&#26159;&#23558;3&#20889;&#20837;main&#36825;&#20010;&#24103;&#12290;</span>
+   push   2 <span style="color: #75715E;"># </span><span style="color: #75715E;">push&#25351;&#20196;&#23558;2&#20889;&#20837;main&#36825;&#20010;&#24103;&#65292;&#20301;&#32622;&#32039;&#36148;&#30528;&#21069;&#38754;&#20889;&#20837;&#30340;3&#12290;</span>
+   call   _add_a_and_b  <span style="color: #75715E;"># </span><span style="color: #75715E;">&#31243;&#24207;&#23601;&#20250;&#21435;&#25214;_add_a_and_b&#26631;&#31614;&#65292;&#24182;&#20026;&#35813;&#20989;&#25968;&#24314;&#31435;&#19968;&#20010;&#26032;&#30340;&#24103;&#12290;</span>
+   add    %esp, 8       <span style="color: #75715E;"># </span><span style="color: #75715E;">&#23558; EBX &#23492;&#23384;&#22120;&#37324;&#38754;&#30340;&#20540;&#65292;&#20889;&#20837;_add_a_and_b&#36825;&#20010;&#24103;&#12290;</span>
+   ret                  <span style="color: #75715E;"># </span><span style="color: #75715E;">&#32456;&#27490;&#24403;&#21069;&#20989;&#25968;&#30340;&#25191;&#34892;&#65292;&#23558;&#36816;&#34892;&#26435;&#20132;&#36824;&#32473;&#19978;&#23618;&#20989;&#25968;&#12290;&#20063;&#23601;&#26159;&#65292;&#24403;&#21069;&#20989;&#25968;&#30340;&#24103;&#23558;&#34987;&#22238;&#25910;&#12290;</span>
 </pre>
 </div>
 </div>

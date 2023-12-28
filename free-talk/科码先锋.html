@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>科码先锋</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://ywxttxs.github.io/themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://ywxttxs.github.io/themes/style.css' type='text/css'  />
+           <script type='module' src='https://ywxttxs.github.io/themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">科码先锋</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org506a921">gr3.0复盘（2021-11-22）</a>
+<ul>
+<li><a href="#org27525f4">内因:</a></li>
+<li><a href="#org69bb27a">外因:</a></li>
+<li><a href="#org3027395">小结:</a></li>
+</ul>
+</li>
+<li><a href="#orgf374eb2">离职（2021-11-30）</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org506a921" class="outline-2">
+<h2 id="org506a921">gr3.0复盘（2021-11-22）</h2>
+<div class="outline-text-2" id="text-org506a921">
+</div>
+<div id="outline-container-org27525f4" class="outline-3">
+<h3 id="org27525f4">内因:</h3>
+<div class="outline-text-3" id="text-org27525f4">
+<ol class="org-ol">
+<li>低估了用户系统调试: 主要卡在security 创建token，因为不熟悉TokenStore机制</li>
+<li>未预估重构SA底层调用okta时间，花费2天时间，把所有okta相关配置重构</li>
+<li>html转pdf，调研任务，和前端调适配样式，处理html模版</li>
+<li>和前端联调，接口未考虑边际问题，使前端卡顿，同时阻塞了中台正常使用</li>
+<li>导数据，导4个端3个环境用户相关数据，一开始用错方法，采用查数据库，自己聚合结果，加之，生产环境只能导出csv格式文件，并且会在文件中自带&lt;FEFF&gt;标识，导致解析csv取不到第一列的值，手工转码解决。第二次导数据，发现可以调用中台已有api，并且api返回结果已作聚合，只需作简单取值即可。</li>
+<li>okta数据，批量，进行中</li>
+<li>PO控制一下需求入口，如果控制不了需求变更，那么请尽量严谨一点儿，毕竟PO一句话，开发忙断腿</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org69bb27a" class="outline-3">
+<h3 id="org69bb27a">外因:</h3>
+<div class="outline-text-3" id="text-org69bb27a">
+<ol class="org-ol">
+<li>okta会议是真多，并且效率不高</li>
+<li>搬家，周末回家，浅浅上户，生病，打疫苗，家庭矛盾，让人心累</li>
+<li>和前端妹子联调，真是个情商活儿，心累+1</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org3027395" class="outline-3">
+<h3 id="org3027395">小结:</h3>
+<div class="outline-text-3" id="text-org3027395">
+<p>
+工作技能固然重要，但可以积累，工作方式更重要。
+</p>
+<ol class="org-ol">
+<li>不要低估导数据的任务</li>
+<li>不要义务揽活</li>
+<li>凡事有规划，当事情发展不在规划内时，及时调整，若仍不能解决，把问题抛出来让团队知道。</li>
+<li>如果条件允许，尽量用自己顺手的装备</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf374eb2" class="outline-2">
+<h2 id="orgf374eb2">离职（2021-11-30）</h2>
+<div class="outline-text-2" id="text-orgf374eb2">
+<p>
+　　各位同事，我即将离职，今天是我在科码的最后一天。 我的工作都己交接完成。感谢大家对我工作上的支持与帮助。有做的不好的请大家原谅。祝福科码蓬勃发展，蒸蒸日上！祝福大家前程似锦，幸福美满，天天都有好心情。最后，「青山不改，绿水长流，江湖再见！」
+</p>
+
+<div class="org-center">
+<img
+src="https://yangk.net/pics/blogs/orgs/na-xie-ren/ke-ma-xian-feng-li-zhi.jpeg"
+width="60%"
+style=""
+alt=""
+/>
+<img
+src="https://yangk.net/pics/blogs/orgs/na-xie-ren/ke-ma-xian-feng-li-zhi-b.jpeg"
+width="60%"
+style=""
+alt=""
+/></div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-11-30 Tue 21:20</p>
+</div>
+</body>
+</html>

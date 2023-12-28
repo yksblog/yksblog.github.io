@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>一些docker实例</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://ywxttxs.github.io/themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://ywxttxs.github.io/themes/style.css' type='text/css'  />
+           <script type='module' src='https://ywxttxs.github.io/themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">一些docker实例</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb793a04">redis</a></li>
+<li><a href="#orgf67c1be">rabbitmq</a></li>
+<li><a href="#org60696e8">nginx</a></li>
+<li><a href="#org1162e95">mysql</a>
+<ul>
+<li><a href="#org9bdc3ad">5.7.52</a></li>
+<li><a href="#org5e674f1">8.0.19</a></li>
+</ul>
+</li>
+<li><a href="#org2e1dfb7">mongodb</a></li>
+<li><a href="#org58cb290">memcached</a></li>
+<li><a href="#orgd54dfbf">kfk</a>
+<ul>
+<li><a href="#org369bc52">kfk-manager</a></li>
+<li><a href="#orgf81b063">kfk</a></li>
+</ul>
+</li>
+<li><a href="#orgf0762c8">eureka</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb793a04" class="outline-2">
+<h2 id="orgb793a04">redis</h2>
+<div class="outline-text-2" id="text-orgb793a04">
+<div class="org-src-container">
+<pre class="src src-yml">version: '3'
+services:
+  redis:
+    image: redis:latest
+    container_name: docker_redis
+    volumes:
+      - ./data:/data
+      - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./logs:/logs
+    command:
+      "redis-server /usr/local/etc/redis/redis.conf"
+    ports:
+      - 6379:6379
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf67c1be" class="outline-2">
+<h2 id="orgf67c1be">rabbitmq</h2>
+<div class="outline-text-2" id="text-orgf67c1be">
+<div class="org-src-container">
+<pre class="src src-yml">version: "2"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org60696e8" class="outline-2">
+<h2 id="org60696e8">nginx</h2>
+<div class="outline-text-2" id="text-org60696e8">
+<div class="org-src-container">
+<pre class="src src-yml">version: "2"
+services:
+  docker_nginx:
+    image: nginx:latest
+    container_name: docker_nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./conf.d:/etc/nginx/conf.d
+    ports:
+      - 80:80
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1162e95" class="outline-2">
+<h2 id="org1162e95">mysql</h2>
+<div class="outline-text-2" id="text-org1162e95">
+</div>
+<div id="outline-container-org9bdc3ad" class="outline-3">
+<h3 id="org9bdc3ad">5.7.52</h3>
+<div class="outline-text-3" id="text-org9bdc3ad">
+<div class="org-src-container">
+<pre class="src src-yml">version: "2"
+services:
+  mysql:
+    image: mysql:5.7.32
+    container_name: docker_mysql_local
+    ports:
+      - 3306:3306
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./mysql57/conf:/etc/mysql/conf.d
+      - ./mysql57/logs:/logs
+      - ./data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Asdf1234
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5e674f1" class="outline-3">
+<h3 id="org5e674f1">8.0.19</h3>
+<div class="outline-text-3" id="text-org5e674f1">
+<div class="org-src-container">
+<pre class="src src-yml">version: "2"
+services:
+  mysql:
+    image: mysql:8.0.19
+    container_name: docker_mysql_8019
+    ports:
+      - 3406:3306
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./mysql8019/conf:/etc/mysql/conf.d
+      - ./mysql8019/logs:/logs
+      - ./mysql8019/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Asdf1234
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2e1dfb7" class="outline-2">
+<h2 id="org2e1dfb7">mongodb</h2>
+<div class="outline-text-2" id="text-org2e1dfb7">
+<div class="org-src-container">
+<pre class="src src-yml"># Use root/example as user/password credentials
+version: '3.6'
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+      - ./custom:/etc/mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org58cb290" class="outline-2">
+<h2 id="org58cb290">memcached</h2>
+<div class="outline-text-2" id="text-org58cb290">
+<div class="org-src-container">
+<pre class="src src-yml">version: "2"
+services:
+  rabbitmq:
+    image: memcached:latest
+    container_name: memcached
+    ports:
+      - 11211:11211
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd54dfbf" class="outline-2">
+<h2 id="orgd54dfbf">kfk</h2>
+<div class="outline-text-2" id="text-orgd54dfbf">
+</div>
+<div id="outline-container-org369bc52" class="outline-3">
+<h3 id="org369bc52">kfk-manager</h3>
+<div class="outline-text-3" id="text-org369bc52">
+<div class="org-src-container">
+<pre class="src src-yml">version: '3'
+services:
+  kafkamanager:
+    image: sheepkiller/kafka-manager
+    container_name: sheepkiller_kafka_manager
+    ports:
+      - "9000:9000"
+    environment:
+      ZK_HOSTS: 172.16.0.46:2181
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf81b063" class="outline-3">
+<h3 id="orgf81b063">kfk</h3>
+<div class="outline-text-3" id="text-orgf81b063">
+<div class="org-src-container">
+<pre class="src src-yml">  version: '3'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: wurstmeister_zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka
+    container_name: wurstmeister_kafka
+    depends_on: [ zookeeper ]
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 172.16.0.46
+      KAFKA_CREATE_TOPICS: "test:1:1"
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - ~/docker_workspace/docker_kfk/data/kafka/docker.sock:/var/run/docker.sock
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf0762c8" class="outline-2">
+<h2 id="orgf0762c8">eureka</h2>
+<div class="outline-text-2" id="text-orgf0762c8">
+<div class="org-src-container">
+<pre class="src src-yml">version: '3'
+services:
+  eureka:
+    image: springcloud/eureka:latest
+    container_name: springcloud_eureka
+    ports:
+      - "8761:8761"
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-08-24 Tue 23:59</p>
+</div>
+</body>
+</html>

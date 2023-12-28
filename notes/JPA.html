@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jpa</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://ywxttxs.github.io/themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://ywxttxs.github.io/themes/style.css' type='text/css'  />
+           <script type='module' src='https://ywxttxs.github.io/themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Jpa</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org3c1fb52">1.什么是jpa</a></li>
+<li><a href="#orge8a3574">JPA拥有哪些注解</a></li>
+<li><a href="#org4021901">命名策略</a></li>
+<li><a href="#org866b7fc">资源</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3c1fb52" class="outline-2">
+<h2 id="org3c1fb52">1.什么是jpa</h2>
+<div class="outline-text-2" id="text-org3c1fb52">
+<p>
+JPA顾名思义就是Java Persistence API的意思，是JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge8a3574" class="outline-2">
+<h2 id="orge8a3574">JPA拥有哪些注解</h2>
+<div class="outline-text-2" id="text-orge8a3574">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">注解</th>
+<th scope="col" class="org-left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">@Entity</td>
+<td class="org-left">声明类为实体或表。</td>
+</tr>
+
+<tr>
+<td class="org-left">@Table</td>
+<td class="org-left">声明表名。</td>
+</tr>
+
+<tr>
+<td class="org-left">@Basic</td>
+<td class="org-left">指定非约束明确的各个字段。</td>
+</tr>
+
+<tr>
+<td class="org-left">@Embedded</td>
+<td class="org-left">指定类或它的值是一个可嵌入的类的实例的实体的属性。</td>
+</tr>
+
+<tr>
+<td class="org-left">@Id</td>
+<td class="org-left">指定的类的属性，用于识别（一个表中的主键）。</td>
+</tr>
+
+<tr>
+<td class="org-left">@GeneratedValue</td>
+<td class="org-left">指定如何标识属性可以被初始化，例如自动、手动、或从序列表中获得的值。</td>
+</tr>
+
+<tr>
+<td class="org-left">@Transient</td>
+<td class="org-left">指定的属性，它是不持久的，即：该值永远不会存储在数据库中。</td>
+</tr>
+
+<tr>
+<td class="org-left">@Column</td>
+<td class="org-left">指定持久属性栏属性。</td>
+</tr>
+
+<tr>
+<td class="org-left">@SequenceGenerator</td>
+<td class="org-left">指定在@GeneratedValue注解中指定的属性的值。它创建了一个序列。</td>
+</tr>
+
+<tr>
+<td class="org-left">@TableGenerator</td>
+<td class="org-left">指定在@GeneratedValue批注指定属性的值发生器。它创造了的值生成的表。</td>
+</tr>
+
+<tr>
+<td class="org-left">@AccessType</td>
+<td class="org-left">这种类型的注释用于设置访问类型。如果设置@AccessType（FIELD），则可以直接访问变量并且不需要getter和setter，但必须为public。如果设置@AccessType（PROPERTY），通过getter和setter方法访问Entity的变量。</td>
+</tr>
+
+<tr>
+<td class="org-left">@JoinColumn</td>
+<td class="org-left">指定一个实体组织或实体的集合。这是用在多对一和一对多关联。</td>
+</tr>
+
+<tr>
+<td class="org-left">@UniqueConstraint</td>
+<td class="org-left">指定的字段和用于主要或辅助表的唯一约束。</td>
+</tr>
+
+<tr>
+<td class="org-left">@ColumnResult</td>
+<td class="org-left">参考使用select子句的SQL查询中的列名。</td>
+</tr>
+
+<tr>
+<td class="org-left">@ManyToMany</td>
+<td class="org-left">定义了连接表之间的多对多一对多的关系。</td>
+</tr>
+
+<tr>
+<td class="org-left">@ManyToOne</td>
+<td class="org-left">定义了连接表之间的多对一的关系。</td>
+</tr>
+
+<tr>
+<td class="org-left">@OneToMany</td>
+<td class="org-left">定义了连接表之间存在一个一对多的关系。</td>
+</tr>
+
+<tr>
+<td class="org-left">@OneToOne</td>
+<td class="org-left">定义了连接表之间有一个一对一的关系。</td>
+</tr>
+
+<tr>
+<td class="org-left">@NamedQueries</td>
+<td class="org-left">指定命名查询的列表。</td>
+</tr>
+
+<tr>
+<td class="org-left">@NamedQuery</td>
+<td class="org-left">指定使用静态名称的查询。</td>
+</tr>
+</tbody>
+</table>
+
+<img
+src="https://yangk.net/pics/blogs/orgs/technology/jpa-yu-fa.png"
+width=""
+style=""
+alt=""
+/>
+
+<div class="org-src-container">
+<pre class="src src-java">
+<span style="color: #7fffd4;">@Repository</span>
+<span style="color: #7fffd4;">@Qualifier</span><span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">"mcUserDao"</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #00ffff;">public</span> <span style="color: #00ffff;">interface</span> <span style="color: #98fb98;">McUserDao</span> <span style="color: #00ffff;">extends</span> <span style="color: #98fb98;">ComBaseDao</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #98fb98;">McUser</span>,<span style="color: #98fb98;">Integer</span><span style="color: #8c8c8c;">&gt;</span> <span style="color: #8c8c8c;">{</span>
+
+    <span style="color: #98fb98;">List</span><span style="color: #93a8c6;">&lt;</span><span style="color: #98fb98;">McUser</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #87cefa;">findByIdIn</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">Collection</span><span style="color: #b0b1a3;">&lt;</span><span style="color: #98fb98;">Integer</span><span style="color: #b0b1a3;">&gt;</span> <span style="color: #eedd82;">ids</span><span style="color: #93a8c6;">)</span>;
+
+    <span style="color: #98fb98;">Page</span><span style="color: #93a8c6;">&lt;</span><span style="color: #98fb98;">McUser</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #87cefa;">findByRoleId</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">Integer</span> <span style="color: #eedd82;">roleId</span>, <span style="color: #98fb98;">Pageable</span> <span style="color: #eedd82;">prt</span><span style="color: #93a8c6;">)</span>;
+
+    <span style="color: #98fb98;">Page</span><span style="color: #93a8c6;">&lt;</span><span style="color: #98fb98;">McUser</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #87cefa;">findByRoleIdNot</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">Integer</span> <span style="color: #eedd82;">roleId</span>, <span style="color: #98fb98;">Pageable</span> <span style="color: #eedd82;">prt</span><span style="color: #93a8c6;">)</span>;
+
+    <span style="color: #98fb98;">Page</span><span style="color: #93a8c6;">&lt;</span><span style="color: #98fb98;">McUser</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #87cefa;">findByRoleIdNotAndQueryStrLike</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">Integer</span> <span style="color: #eedd82;">roleId</span>,<span style="color: #98fb98;">String</span> <span style="color: #eedd82;">queryStr</span>, <span style="color: #98fb98;">Pageable</span> <span style="color: #eedd82;">prt</span><span style="color: #93a8c6;">)</span>;
+
+    <span style="color: #98fb98;">Page</span><span style="color: #93a8c6;">&lt;</span><span style="color: #98fb98;">McUser</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #87cefa;">findByRoleIdAndQueryStrLike</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">Integer</span> <span style="color: #eedd82;">roleId</span>,<span style="color: #98fb98;">String</span> <span style="color: #eedd82;">queryStr</span>, <span style="color: #98fb98;">Pageable</span> <span style="color: #eedd82;">prt</span><span style="color: #93a8c6;">)</span>;
+<span style="color: #8c8c8c;">}</span>
+
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4021901" class="outline-2">
+<h2 id="org4021901">命名策略</h2>
+<div class="outline-text-2" id="text-org4021901">
+<ul class="org-ul">
+<li>1.PhysicalNamingStrategyStandardImpl：不做修改，直接映射</li>
+</ul>
+<pre class="example">
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+</pre>
+
+<ul class="org-ul">
+<li>2.SpringPhysicalNamingStrategy:在进行领域映射时,首字母小写，大写字母变为下划线加小写</li>
+</ul>
+<pre class="example">
+//ex: LoginName --&gt; login_name
+spring.jpa.hibernate.naming.physical-strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org866b7fc" class="outline-2">
+<h2 id="org866b7fc">资源</h2>
+<div class="outline-text-2" id="text-org866b7fc">
+<ul class="org-ul">
+<li><a href="https://blog.csdn.net/qq_40016813/article/details/103204419">csdn</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-01-04 Fri 09:53</p>
+</div>
+</body>
+</html>

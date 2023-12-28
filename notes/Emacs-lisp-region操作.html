@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emacs Lisp Region操作</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://ywxttxs.github.io/themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://ywxttxs.github.io/themes/style.css' type='text/css'  />
+           <script type='module' src='https://ywxttxs.github.io/themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Emacs Lisp Region操作</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org6dd79eb">上代码</a></li>
+<li><a href="#orgac6b44f">关键点</a></li>
+<li><a href="#org7d85a30">资源</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6dd79eb" class="outline-2">
+<h2 id="org6dd79eb">上代码</h2>
+<div class="outline-text-2" id="text-org6dd79eb">
+<div class="org-src-container">
+<pre class="src src-lisp"><span class="linenr"> 1: </span><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">ykyk-org-insert-str-to-head-tail</span> <span style="color: #93a8c6;">(</span>flag<span style="color: #93a8c6;">)</span>
+<span class="linenr"> 2: </span>  <span style="color: #ffa07a;">"&#25805;&#20316;&#19968;&#20010;region&#65292;&#25110;&#20809;&#26631;&#25152;&#22312;&#22788;&#30340;&#21333;&#35789;&#65292;&#22312;&#20854;&#39318;&#12289;&#23614;&#21508;&#25554;&#20837;&#19968;&#20010;&#23383;&#31526;&#12290;</span>
+<span class="linenr"> 3: </span><span style="color: #ffa07a;">&#22914;&#26524;flag&#20026;`</span><span style="color: #7fffd4;">b</span><span style="color: #ffa07a;">'&#65292;&#21017;&#22312;&#25805;&#20316;&#21306;&#22495;&#30340;&#39318;&#12289;&#23614;&#21508;&#25554;&#20837;&#19968;&#20010;`</span><span style="color: #7fffd4;">*</span><span style="color: #ffa07a;">'&#23383;&#31526;&#65292;&#29992;&#20110;org-mode&#21152;&#31895;&#23383;&#31526;&#20018;&#65307;</span>
+<span class="linenr"> 4: </span><span style="color: #ffa07a;">&#22914;&#26524;flag&#20026;`</span><span style="color: #7fffd4;">y</span><span style="color: #ffa07a;">'&#65292;&#21017;&#22312;&#25805;&#20316;&#21306;&#22495;&#30340;&#39318;&#12289;&#23614;&#21508;&#25554;&#20837;&#19968;&#20010;`&#12300;&#12301;'&#23383;&#31526;&#65292;&#29992;&#20110;org-mode&#21152;&#31895;&#23383;&#31526;&#20018;&#65307;</span>
+<span class="linenr"> 5: </span><span style="color: #ffa07a;">&#22914;&#26524;flag&#20026;`</span><span style="color: #7fffd4;">d</span><span style="color: #ffa07a;">'&#65292;&#21017;&#22312;&#25805;&#20316;&#21306;&#22495;&#30340;&#39318;&#12289;&#23614;&#21508;&#25554;&#20837;&#19968;&#20010;`</span><span style="color: #7fffd4;">+</span><span style="color: #ffa07a;">'&#23383;&#31526;&#65292;&#29992;&#20110;org-mode&#21024;&#38500;&#23383;&#31526;&#20018;&#65307;</span>
+<span class="linenr"> 6: </span><span style="color: #ffa07a;">&#22914;&#26524;flag&#23614;`</span><span style="color: #7fffd4;">q</span><span style="color: #ffa07a;">'&#65292;&#21017;&#22312;&#25805;&#20316;&#21306;&#22495;&#30340;&#39318;&#12289;&#23614;&#21508;&#25554;&#20837;&#19968;&#20010;`</span><span style="color: #7fffd4;">~</span><span style="color: #ffa07a;">'&#23383;&#31526;&#65292;&#29992;&#20110;org-mode&#24341;&#29992;&#19968;&#27573;&#20195;&#30721;&#12290;"</span>
+<span class="linenr"> 7: </span>  <span style="color: #93a8c6;">(</span>interactive <span style="color: #ffa07a;">"sb(*)/y(&#12300;&#12301;)/d(+)/q(~): "</span><span style="color: #93a8c6;">)</span>
+<span class="linenr"> 8: </span>  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">let</span> <span style="color: #b0b1a3;">(</span>from to input-str output-str<span style="color: #b0b1a3;">)</span>
+<span class="linenr"> 9: </span>    <span style="color: #808080;">;; </span><span style="color: #808080;">&#22914;&#26524;&#24403;&#21069;&#36873;&#20013;&#20102;region&#65292;&#21017;&#25805;&#20316;region</span>
+<span class="linenr">10: </span>    <span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">if</span> <span style="color: #97b098;">(</span>use-region-p<span style="color: #97b098;">)</span>
+<span class="linenr">11: </span>        <span style="color: #97b098;">(</span><span style="color: #00ffff;">progn</span>
+<span class="linenr">12: </span>          <span style="color: #aebed8;">(</span>setq from <span style="color: #b0b0b3;">(</span>region-beginning<span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span>
+<span class="linenr">13: </span>          <span style="color: #aebed8;">(</span>setq to <span style="color: #b0b0b3;">(</span>region-end<span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span>
+<span class="linenr">14: </span>          <span style="color: #aebed8;">(</span>setq input-str <span style="color: #b0b0b3;">(</span>buffer-substring-no-properties from to<span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span>
+<span class="linenr">15: </span>        <span style="color: #808080;">;; </span><span style="color: #808080;">&#22914;&#26524;&#24403;&#21069;&#27809;&#26377;&#36873;&#20013;region&#65292;&#21017;&#25805;&#20316;&#20809;&#26631;&#25152;&#22312;&#22788;&#30340;&#21333;&#35789;</span>
+<span class="linenr">16: </span>        <span style="color: #97b098;">(</span><span style="color: #00ffff;">progn</span>
+<span class="linenr">17: </span>          <span style="color: #aebed8;">(</span>setq bounds <span style="color: #b0b0b3;">(</span>bounds-of-thing-at-point 'word<span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span>
+<span class="linenr">18: </span>          <span style="color: #aebed8;">(</span>setq from <span style="color: #b0b0b3;">(</span>car bounds<span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span>
+<span class="linenr">19: </span>          <span style="color: #aebed8;">(</span>setq to <span style="color: #b0b0b3;">(</span>cdr bounds<span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span>
+<span class="linenr">20: </span>          <span style="color: #aebed8;">(</span>setq input-str <span style="color: #b0b0b3;">(</span>buffer-substring-no-properties from to<span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span>
+<span class="linenr">21: </span>    <span style="color: #808080;">;; </span><span style="color: #808080;">&#26681;&#25454;&#21629;&#20196;&#26631;&#24535;flag&#20540;&#30340;&#19981;&#21516;&#65292;&#25554;&#20837;&#19981;&#21516;&#30340;&#23383;&#31526;&#20018;</span>
+<span class="linenr">22: </span>    <span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">cond</span>
+<span class="linenr">23: </span>      <span style="color: #97b098;">(</span><span style="color: #aebed8;">(</span>string-equal flag <span style="color: #ffa07a;">"b"</span><span style="color: #aebed8;">)</span> <span style="color: #aebed8;">(</span>setq output-str <span style="color: #b0b0b3;">(</span>concat <span style="color: #ffa07a;">" *"</span> input-str <span style="color: #ffa07a;">"* "</span><span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span>
+<span class="linenr">24: </span>      <span style="color: #97b098;">(</span><span style="color: #aebed8;">(</span>string-equal flag <span style="color: #ffa07a;">"y"</span><span style="color: #aebed8;">)</span> <span style="color: #aebed8;">(</span>setq output-str <span style="color: #b0b0b3;">(</span>concat <span style="color: #ffa07a;">"&#12300;"</span> input-str <span style="color: #ffa07a;">"&#12301;"</span><span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span>
+<span class="linenr">25: </span>      <span style="color: #97b098;">(</span><span style="color: #aebed8;">(</span>string-equal flag <span style="color: #ffa07a;">"d"</span><span style="color: #aebed8;">)</span> <span style="color: #aebed8;">(</span>setq output-str <span style="color: #b0b0b3;">(</span>concat <span style="color: #ffa07a;">" +"</span> input-str <span style="color: #ffa07a;">"+ "</span><span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span>
+<span class="linenr">26: </span>      <span style="color: #97b098;">(</span><span style="color: #aebed8;">(</span>string-equal flag <span style="color: #ffa07a;">"q"</span><span style="color: #aebed8;">)</span> <span style="color: #aebed8;">(</span>setq output-str <span style="color: #b0b0b3;">(</span>concat <span style="color: #ffa07a;">" ~"</span> input-str <span style="color: #ffa07a;">"~ "</span><span style="color: #b0b0b3;">)</span><span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span>
+<span class="linenr">27: </span>    <span style="color: #808080;">;; </span><span style="color: #808080;">&#25805;&#20316;&#23383;&#31526;&#20018;&#21306;&#22495;</span>
+<span class="linenr">28: </span>    <span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">progn</span>
+<span class="linenr">29: </span>      <span style="color: #97b098;">(</span>delete-region from to<span style="color: #97b098;">)</span>
+<span class="linenr">30: </span>      <span style="color: #97b098;">(</span>goto-char from<span style="color: #97b098;">)</span>
+<span class="linenr">31: </span>      <span style="color: #97b098;">(</span>insert output-str<span style="color: #97b098;">)</span>
+<span class="linenr">32: </span>      <span style="color: #97b098;">(</span>goto-char <span style="color: #aebed8;">(</span>+ to 4<span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span class="linenr">33: </span>
+<span class="linenr">34: </span><span style="color: #808080;">;; </span><span style="color: #808080;">&#32465;&#23450;my-org-insert-str-to-head-tail&#20989;&#25968;&#21040;org-mode-hook&#24182;&#35774;&#32622;&#24555;&#25463;&#38190;</span>
+<span class="linenr">35: </span><span style="color: #8c8c8c;">(</span>add-hook 'org-mode-hook
+<span class="linenr">36: </span>          <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">lambda</span> <span style="color: #b0b1a3;">()</span>
+<span class="linenr">37: </span>            <span style="color: #b0b1a3;">(</span>local-set-key <span style="color: #97b098;">(</span>kbd <span style="color: #ffa07a;">"&lt;f3&gt;"</span><span style="color: #97b098;">)</span> 'ykyk-org-insert-str-to-head-tail<span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span class="linenr">38: </span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgac6b44f" class="outline-2">
+<h2 id="orgac6b44f">关键点</h2>
+<div class="outline-text-2" id="text-orgac6b44f">
+<ul class="org-ul">
+<li>(<code>interactive "s"</code> ): 获取交互输入的内容</li>
+<li>(<code>use-region-p</code> ): 是否选中了区域</li>
+<li>(<code>buffer-substring-no-properties</code> from to): 返回区域开始和结束位置的内容</li>
+<li>(<code>delete-region</code> from to)：删除区域开始和结束位置的内容</li>
+<li>(<code>goto-char</code> from): 跳转到区域开始的位置</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7d85a30" class="outline-2">
+<h2 id="org7d85a30">资源</h2>
+<div class="outline-text-2" id="text-org7d85a30">
+<ul class="org-ul">
+<li><a href="https://www.jianshu.com/p/68494aa44861">简书</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-05-25 Thu 11:28</p>
+</div>
+</body>
+</html>

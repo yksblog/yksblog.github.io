@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Go Interface</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://ywxttxs.github.io/themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://ywxttxs.github.io/themes/style.css' type='text/css'  />
+           <script type='module' src='https://ywxttxs.github.io/themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Go Interface</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org00d5507">程序抽象的基本原则</a></li>
+<li><a href="#org950eb2f">Golang 中的 interface特点</a></li>
+<li><a href="#orgb1023dd">例子</a></li>
+<li><a href="#org8ec58e5">小结</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org00d5507" class="outline-2">
+<h2 id="org00d5507">程序抽象的基本原则</h2>
+<div class="outline-text-2" id="text-org00d5507">
+<p>
+依赖于接口而不是实现，优先使用组合而不是继承。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org950eb2f" class="outline-2">
+<h2 id="org950eb2f">Golang 中的 interface特点</h2>
+<div class="outline-text-2" id="text-org950eb2f">
+<ul class="org-ul">
+<li>接口是方法声明的集合</li>
+<li>任何类型的对象实现了在接口中声明的全部方法，则表明该类型实现了对应接口。</li>
+<li>可以作为一种数据类型，实现了该接口的任何对象都可以给对应的接口类型变量赋值。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb1023dd" class="outline-2">
+<h2 id="orgb1023dd">例子</h2>
+<div class="outline-text-2" id="text-orgb1023dd">
+<pre class="example">
+package main
+import "fmt"
+import "math"
+// 几何图形的接口(interface)
+type geometry interface {
+    area() float64
+    perim() float64
+}
+// rect 和 circle 实现 geometry 接口
+type rect struct {
+    width, height float64
+}
+type circle struct {
+    radius float64
+}
+
+// 实现了接口中声明的所有方法即实现了该接口，这里 rects 实现了 geometry 接口
+func (r rect) area() float64 {
+    return r.width * r.height
+}
+func (r rect) perim() float64 {
+    return 2*r.width + 2*r.height
+}
+// circles 实现 geometry 接口
+func (c circle) area() float64 {
+    return math.Pi * c.radius * c.radius
+}
+func (c circle) perim() float64 {
+    return 2 * math.Pi * c.radius
+}
+// 定义的接口可以作为一种数据类型，当一个变量的类型为一个接口类型时，这个变量可以调用接口中定义的方法。
+// 这里定义一个函数，接收一个类型为 geometry 的参数变量
+func measure(g geometry) {
+    fmt.Println(g)
+    fmt.Println(g.area())
+    fmt.Println(g.perim())
+}
+func main() {
+    r := rect{width: 3, height: 4}
+    c := circle{radius: 5}
+    // The circle and rect struct types both implement the geometry interface so we can use instances of these structs as arguments to measure.
+    // rect 和 circle 结构类型都实现了 geometry 接口，所以我们能够把它们的对象作为参数传给 measure 函数
+    // 在 measure 函数内部，参数对象调用了所属类型实现的接口方法。
+    measure(r)
+    measure(c)
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8ec58e5" class="outline-2">
+<h2 id="org8ec58e5">小结</h2>
+<div class="outline-text-2" id="text-org8ec58e5">
+<ul class="org-ul">
+<li>一种类型只要实现接口声明的方法就算实现了接口；</li>
+<li>一种类型能同时支持实现多个接口了，一个接口也能被多种类型实现。</li>
+<li>如果一种类型实现了某个接口，那么这种类型的对象能够赋值给这个接口类型的变量。</li>
+</ul>
+
+<pre class="example">
+package main
+
+import "fmt"
+type I interface {
+  method1()
+}
+
+type T struct{}
+
+func (T) method1()  {}
+
+func main()  {
+  var i I = T{}
+  fmt.Println(i)
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-11-27 Wed 09:14</p>
+</div>
+</body>
+</html>

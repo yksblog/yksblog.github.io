@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gtd</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://ywxttxs.github.io/themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://ywxttxs.github.io/themes/style.css' type='text/css'  />
+           <script type='module' src='https://ywxttxs.github.io/themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Gtd</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge651112">配置</a></li>
+<li><a href="#org59e016c">操作</a>
+<ul>
+<li><a href="#orgdee4492">设置任务开始时间和截止时间</a></li>
+<li><a href="#org16da930">设置循环任务</a></li>
+<li><a href="#orgabcfa6b">设置任务优先级</a></li>
+<li><a href="#org123f446">速记</a></li>
+</ul>
+</li>
+<li><a href="#org72e236e">资源</a></li>
+</ul>
+</div>
+</div>
+<p>
+　　GTD,全称是: <b>Getting Things Done.</b> 是一种时间规划的方法。
+</p>
+
+<p>
+　　一直知道Emacs的org功能很强大，也可以用来做GTD。只不过，之前对emacs不熟，对GTD也不熟，所以，就一直搁浅了。最近，对GTD有点需要，同时，对emacs也基本算是熟手了，于是就研究了一下，顺便就用起来了。
+</p>
+
+<div id="outline-container-orge651112" class="outline-2">
+<h2 id="orge651112">配置</h2>
+<div class="outline-text-2" id="text-orge651112">
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #808080;">;; </span><span style="color: #808080;">org-agenda config</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> org-agenda-files '<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">"~/ykyk-note/emacs/ykyk-org-gtd"</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span> <span style="color: #808080;">;; </span><span style="color: #808080;">&#35774;&#32622;org-agenda&#30340;&#30446;&#24405;</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> org-default-notes-file <span style="color: #ffa07a;">"~/ykyk-note/emacs/ykyk-org-gtd/todo.org"</span><span style="color: #8c8c8c;">)</span> <span style="color: #808080;">;; </span><span style="color: #808080;">todo&#25991;&#20214;&#23384;&#25918;&#22320;&#22336;&#30340;&#21464;&#37327;&#65292;&#20197;&#20415;&#21518;&#32493;&#24341;&#29992;</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> org-default-quick-note-file <span style="color: #ffa07a;">"~/ykyk-note/emacs/ykyk-org-gtd/quick-note.org"</span><span style="color: #8c8c8c;">)</span> <span style="color: #808080;">;; </span><span style="color: #808080;">&#36895;&#35760;&#25991;&#20214;&#23384;&#25918;&#22320;&#22336;&#30340;&#21464;&#37327;&#65292;&#20197;&#20415;&#21518;&#32493;&#24341;&#29992;</span>
+
+<span style="color: #808080;">;; </span><span style="color: #808080;">capture templates</span>
+<span style="color: #808080;">;; </span><span style="color: #808080;">%U: &#26102;&#38388;&#25139;</span>
+<span style="color: #808080;">;; </span><span style="color: #808080;">\n: &#25442;&#34892;</span>
+<span style="color: #808080;">;; </span><span style="color: #808080;">%?: &#20809;&#26631;&#21344;&#20301;</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> org-capture-templates
+      <span style="color: #808080;">;; </span><span style="color: #808080;">Capital char means that with ANCHOR.</span>
+      '<span style="color: #93a8c6;">(</span>
+        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"t"</span> <span style="color: #ffa07a;">"&#24453;&#21150;"</span> entry <span style="color: #97b098;">(</span>file+headline org-default-notes-file <span style="color: #ffa07a;">"Todo"</span><span style="color: #97b098;">)</span>
+         <span style="color: #ffa07a;">"** %U\n\n*** TODO %?"</span>
+         <span style="color: #b0c4de;">:prepend</span> 1
+         <span style="color: #b0c4de;">:empty-lines</span> 1<span style="color: #b0b1a3;">)</span>
+
+        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"d"</span> <span style="color: #ffa07a;">"&#36895;&#35760;"</span> entry <span style="color: #97b098;">(</span>file+headline org-default-quick-note-file <span style="color: #ffa07a;">"Quick notes"</span><span style="color: #97b098;">)</span>
+         <span style="color: #ffa07a;">"** %U\n\n%?\n"</span>
+         <span style="color: #b0c4de;">:prepend</span> 1
+         <span style="color: #b0c4de;">:empty-lines</span> 1<span style="color: #b0b1a3;">)</span>
+
+        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"c"</span> <span style="color: #ffa07a;">"capture-everything"</span> entry <span style="color: #97b098;">(</span>file+headline org-default-quick-note-file <span style="color: #ffa07a;">"IBX"</span><span style="color: #97b098;">)</span>
+         <span style="color: #ffa07a;">"** %U\n\n%?\n"</span>
+         <span style="color: #b0c4de;">:empty-lines</span> 1<span style="color: #b0b1a3;">)</span>
+
+        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"C"</span> <span style="color: #ffa07a;">"CAPTURE-EVERYTHING"</span> entry <span style="color: #97b098;">(</span>file+headline org-default-quick-note-file <span style="color: #ffa07a;">"IBX"</span><span style="color: #97b098;">)</span>
+         <span style="color: #ffa07a;">"** %U\n\n%?\n"</span>
+         <span style="color: #b0c4de;">:empty-lines</span> 1<span style="color: #b0b1a3;">)</span>
+
+        <span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #808080;">;; </span><span style="color: #808080;">tag</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> org-tag-alist
+      '<span style="color: #93a8c6;">(</span>
+        <span style="color: #b0b1a3;">(</span><span style="color: #b0c4de;">:startgroup</span> . gtd<span style="color: #b0b1a3;">)</span>
+        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"@work"</span> . ?w<span style="color: #b0b1a3;">)</span>
+        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"@life"</span> . ?l<span style="color: #b0b1a3;">)</span>
+        <span style="color: #b0b1a3;">(</span><span style="color: #b0c4de;">:endgroup</span> . gtd<span style="color: #b0b1a3;">)</span>
+        <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"@misc"</span> . ?m<span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+
+<span style="color: #808080;">;; </span><span style="color: #808080;">agenda&#32465;&#23450;&#24555;&#25463;&#38190;</span>
+<span style="color: #8c8c8c;">(</span>global-set-key <span style="color: #93a8c6;">(</span>kbd <span style="color: #ffa07a;">"C-c a"</span><span style="color: #93a8c6;">)</span> 'org-agenda<span style="color: #8c8c8c;">)</span>
+<span style="color: #808080;">;; </span><span style="color: #808080;">&#23450;&#20041;&#35201;&#25429;&#33719;&#21040;&#29305;&#23450;&#27169;&#26495;&#30340;&#29305;&#27530;&#38190; &#36890;&#36807;&#20132;&#20114;&#24335;&#27169;&#26495;&#36873;&#25321;&#65292;&#24744;&#21487;&#20197;&#21019;&#24314;&#24744;&#30340; &#38190;&#32465;&#23450;&#22914;&#19979;&#25152;&#31034;&#65306;</span>
+<span style="color: #8c8c8c;">(</span>define-key global-map <span style="color: #93a8c6;">(</span>kbd <span style="color: #ffa07a;">"C-c d"</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">lambda</span> <span style="color: #b0b1a3;">()</span> <span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">interactive</span><span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">(</span>org-capture nil <span style="color: #ffa07a;">"d"</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span>define-key global-map <span style="color: #93a8c6;">(</span>kbd <span style="color: #ffa07a;">"C-c t"</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">lambda</span> <span style="color: #b0b1a3;">()</span> <span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">interactive</span><span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">(</span>org-capture nil <span style="color: #ffa07a;">"t"</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org59e016c" class="outline-2">
+<h2 id="org59e016c">操作</h2>
+<div class="outline-text-2" id="text-org59e016c">
+<ul class="org-ul">
+<li>通过快捷键: <code>C-c t</code> , 打开todo页面，书写待办事项</li>
+<li>通过快捷键: <code>C-c a</code> , 打开agenda选择页面，接着选择「n」,到达每周视图，和待办事项大纲页面</li>
+</ul>
+</div>
+
+<div id="outline-container-orgdee4492" class="outline-3">
+<h3 id="orgdee4492">设置任务开始时间和截止时间</h3>
+<div class="outline-text-3" id="text-orgdee4492">
+<ul class="org-ul">
+<li>在待办事项页面，光标放到某一项待办事项，通过快捷键 <code>C-c C-s</code> 设置开始时间, 快捷键 <code>C-c C-d</code> 设置截止时间；</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org16da930" class="outline-3">
+<h3 id="org16da930">设置循环任务</h3>
+<div class="outline-text-3" id="text-org16da930">
+<ul class="org-ul">
+<li>在待办事项页面，光标放到某一项已经设置开始时间或是截止时间的待办事项，在其时间之后加上 <code>+1d</code> ，就是每天循环， <code>+2d</code> 就是每两天循环；</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgabcfa6b" class="outline-3">
+<h3 id="orgabcfa6b">设置任务优先级</h3>
+<div class="outline-text-3" id="text-orgabcfa6b">
+<ul class="org-ul">
+<li>在agenda每周视图页面，光标放到某一项待办事项后面，通过快捷键 <code>Shift+方向键上/下</code> ，切换优先级（默认C级，可以切换到A，B）</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org123f446" class="outline-3">
+<h3 id="org123f446">速记</h3>
+<div class="outline-text-3" id="text-org123f446">
+<ul class="org-ul">
+<li>通过快捷键 <code>C-c d</code> ，可以随时打开速记页面，内容会保存在设置的文件: <code>org-default-quick-note-file</code> 中</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org72e236e" class="outline-2">
+<h2 id="org72e236e">资源</h2>
+<div class="outline-text-2" id="text-org72e236e">
+<ul class="org-ul">
+<li><a href="https://zhuanlan.zhihu.com/p/392279466">知乎</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-08-11 Fri 08:28</p>
+</div>
+</body>
+</html>

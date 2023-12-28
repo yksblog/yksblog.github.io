@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>摆脱域名烦恼</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://ywxttxs.github.io/themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://ywxttxs.github.io/themes/style.css' type='text/css'  />
+           <script type='module' src='https://ywxttxs.github.io/themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">摆脱域名烦恼</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgfbb2a94">域名的优点主要有5点</a></li>
+<li><a href="#org5edb918">http 和 https 对比主要有3点区别</a></li>
+<li><a href="#org75325ac">自由</a></li>
+</ul>
+</li>
+<li><a href="#org7ef6b51">2023-08-30补充</a></li>
+<li><a href="#org73ca941">2023-10-27补充</a></div>
+</div>
+
+<div id="outline-container-orgfbb2a94" class="outline-3">
+<h3 id="orgfbb2a94">域名的优点主要有5点</h3>
+<div class="outline-text-3" id="text-orgfbb2a94">
+<ul class="org-ul">
+<li>可记忆性</li>
+<li>网站迁移和负载均衡</li>
+<li>品牌建设和专业形象</li>
+<li>灵活性和可扩展性</li>
+<li>SEO（搜索引擎优化）</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5edb918" class="outline-3">
+<h3 id="org5edb918">http 和 https 对比主要有3点区别</h3>
+<div class="outline-text-3" id="text-org5edb918">
+<ul class="org-ul">
+<li>安全性：HTTP不对数据进行加密；而HTTPS使用SSL或TLS加密数据传输，提供更高的安全性。</li>
+<li>证书：HTTP不需要证书；而HTTPS需要使用SSL证书来验证服务器的身份，并确保数据的安全性。这些证书由受信任的第三方机构颁发。</li>
+<li>性能：由于加密和解密数据需要额外的计算资源，HTTPS通常比HTTP更消耗服务器和客户端的性能。</li>
+</ul>
+
+<p>
+　　作为我个人的博客而言，域名的这5条优点都不重要，到最后，反正也就是复制一个链接访问。由于我的博客全是静态网页，同时也没什么机密信息，对安全性没要求。这么来看，简单的http反而更适合我。所以，我的博客最终选择以 <b>http加ip</b> 的方式访问。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org75325ac" class="outline-3">
+<h3 id="org75325ac">自由</h3>
+<div class="outline-text-3" id="text-org75325ac">
+<p>
+　　所以，从今天（2023-08-25）起：
+</p>
+<ul class="org-ul">
+<li>我再也不用因为看到一个喜欢的域名，而纠结买不买了</li>
+<li>我再也不必担心域名续费问题了</li>
+<li>我再也不用定期更换SSL证书了</li>
+<li>再也用网站备案了</li>
+<li>再也不用公安备案了</li>
+</ul>
+
+<p>
+　　断舍离使我自由，自由万岁！
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7ef6b51" class="outline-2">
+<h2 id="org7ef6b51">2023-08-30补充</h2>
+<div class="outline-text-2" id="text-org7ef6b51">
+<p>
+　　高兴得有点快，http注定是要被https拍死在沙滩上的。
+</p>
+
+<p>
+　　2019年12月开始测试的 Chrome 79开始，Chrome将会逐步阻止所有混合内容。到2020年1月，Chrome 80会将所有混合音频和视频资源自动升级为HTTPS，如果无法通过HTTPS加载，则将自动被阻止。最终，在2020年2月，Chrome 81将所有混合图像、音频与视频自动升级为HTTPS，并且阻止那些无法通过HTTPS加载的图像。
+</p>
+
+<p>
+　　所以，2020年2月之后，在浏览器中访问https页面时，如果该https页面中有一些http资源，我们可以把这些http资源，叫做混合内容（Mixed Content）。htpps页面在显示“混合内容”时候，会出现以下问题：
+</p>
+<ul class="org-ul">
+<li>加载了混合内容，但会出现警告；</li>
+<li>不加载混合内容，直接会显示空白内容；</li>
+<li>在加载混合内容之前，会出现类似是否“显示”，或存在不安全风险而被“阻止”的提示！</li>
+<li>甚至，HTTPS页面里动态的引入HTTP资源，比如引入一个js文件，会被直接block掉的。在HTTPS页面里通过AJAX的方式请求HTTP资源，也会被直接block掉的。</li>
+</ul>
+
+<p>
+　　如果我的网站继续使用http协议，那么我的网站
+</p>
+<ul class="org-ul">
+<li>在浏览器网址栏上，将显示为不安全，很大可能性是，以后直接被禁止访问</li>
+<li>我的网站不能被https的网站引用，比如在微信里面打不开</li>
+</ul>
+
+<p>
+　　这两点基本就不可忍受了&#x2026;自由果然是相对的:(
+</p>
+</div>
+</div>
+
+<div id="outline-container-org73ca941" class="outline-2">
+<h2 id="org73ca941">2023-10-27补充</h2>
+<div class="outline-text-2" id="text-org73ca941">
+<p>
+　　今天我在CloudCone上买了一台云服务器，顺便把博客放上去了。终于再次呼吸到了自由的风，享受到了之前的 <b>断舍离</b> 和 <b>自由</b> 。
+</p>
+
+<ul class="org-ul">
+<li>使用 http + ip 访问</li>
+<li>不能在微笑打开就不能呗，大不了我在浏览器打开</li>
+<li>浏览器识别网址为不安全就不安全吧，反正能看就可以了</li>
+<li>反正我的观众没那么多，所以我只取悦自己</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-08-25 Fri 14:52</p>
+</div>
+</body>
+</html>

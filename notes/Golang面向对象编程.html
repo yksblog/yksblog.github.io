@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Golang面向对象编程</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://ywxttxs.github.io/themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://ywxttxs.github.io/themes/style.css' type='text/css'  />
+           <script type='module' src='https://ywxttxs.github.io/themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Golang面向对象编程</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org4038898">介绍</a>
+<ul>
+<li><a href="#orgf122613">Go 基于 Go 技术栈的微服务构建</a></li>
+<li><a href="#org66060fd">下面这张简表比较了http rpc框架与gRPC的特性：</a></li>
+<li><a href="#org01748e6">Go语言 vs. 其它语言</a></li>
+<li><a href="#orgc0a4d22">Go面向对象语言特性</a></li>
+<li><a href="#org1b83b2d">go交叉编译</a>
+<ul>
+<li><a href="#org632d2b5">Mac 下编译 Linux 和 Windows 64位可执行程序</a></li>
+<li><a href="#orgcae72b2">Linux 下编译 Mac 和 Windows 64位可执行程序</a></li>
+<li><a href="#orge6468b7">Windows 下编译 Mac 和 Linux 64位可执行程序</a></li>
+</ul>
+</li>
+<li><a href="#org349709c">注意：</a></li>
+<li><a href="#org4aae0eb">发布</a></li>
+<li><a href="#orgee598be">我的go环境配置</a></li>
+<li><a href="#org8189ba7">资料</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4038898" class="outline-2">
+<h2 id="org4038898">介绍</h2>
+<div class="outline-text-2" id="text-org4038898">
+</div>
+<div id="outline-container-orgf122613" class="outline-3">
+<h3 id="orgf122613">Go 基于 Go 技术栈的微服务构建</h3>
+<div class="outline-text-3" id="text-orgf122613">
+<p>
+传统的微服务通常基于http协议来进行模块间的调用，而在我们的微服务构建中，选用了Google推出的gRPC框架来进行调用。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org66060fd" class="outline-3">
+<h3 id="org66060fd">下面这张简表比较了http rpc框架与gRPC的特性：</h3>
+<div class="outline-text-3" id="text-org66060fd">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">HTTP</th>
+<th scope="col" class="org-left">RPC</th>
+<th scope="col" class="org-left">gRPC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">传输协议</td>
+<td class="org-left">HTTP 1.1</td>
+<td class="org-left">HTTP/2</td>
+</tr>
+
+<tr>
+<td class="org-left">传输协议</td>
+<td class="org-left">JSON</td>
+<td class="org-left">Protobuf 3</td>
+</tr>
+
+<tr>
+<td class="org-left">接口定义</td>
+<td class="org-left">基于文档，轻约束</td>
+<td class="org-left">静态编译，强约束</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>gRPC的接口需要使用Protobuf3定义，通过静态编译后才能成功调用。</li>
+<li>在性能方面，gRPC相比传统的http rpc协议有非常大的改善（根据这个评测，gRPC要快10倍）。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org01748e6" class="outline-3">
+<h3 id="org01748e6">Go语言 vs. 其它语言</h3>
+<div class="outline-text-3" id="text-org01748e6">
+<ul class="org-ul">
+<li>Go语言没有类，没有对象，没有异常和模板。</li>
+<li>它支持垃圾回收和内建的并发。</li>
+<li>有关面向对象方面的最显著的遗漏是Go语言中没有类型层次结构。</li>
+<li>这与大多数面向对象语言如C++，Java，C＃，Scala甚至动态语言（如Python和Ruby）形成对比。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc0a4d22" class="outline-3">
+<h3 id="orgc0a4d22">Go面向对象语言特性</h3>
+<div class="outline-text-3" id="text-orgc0a4d22">
+<ul class="org-ul">
+<li>Go语言没有类，但它支持类型。</li>
+<li>特别是， 它支持structs。 Structs是用户定义的类型。</li>
+<li>nStruct类型(含方法)提供类似于其它语言中类的服务。</li>
+<li>Structs只保存状态，不保存行为。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1b83b2d" class="outline-3">
+<h3 id="org1b83b2d">go交叉编译</h3>
+<div class="outline-text-3" id="text-org1b83b2d">
+</div>
+<div id="outline-container-org632d2b5" class="outline-4">
+<h4 id="org632d2b5">Mac 下编译 Linux 和 Windows 64位可执行程序</h4>
+<div class="outline-text-4" id="text-org632d2b5">
+<pre class="example">
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgcae72b2" class="outline-4">
+<h4 id="orgcae72b2">Linux 下编译 Mac 和 Windows 64位可执行程序</h4>
+<div class="outline-text-4" id="text-orgcae72b2">
+<pre class="example">
+CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orge6468b7" class="outline-4">
+<h4 id="orge6468b7">Windows 下编译 Mac 和 Linux 64位可执行程序</h4>
+<div class="outline-text-4" id="text-orge6468b7">
+<pre class="example">
+SET CGO_ENABLED=0
+SET GOOS=darwin
+SET GOARCH=amd64
+go build main.go
+
+SET CGO_ENABLED=0
+SET GOOS=linux
+SET GOARCH=amd64
+go build main.go
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org349709c" class="outline-3">
+<h3 id="org349709c">注意：</h3>
+<div class="outline-text-3" id="text-org349709c">
+<ul class="org-ul">
+<li>需要注意的是我发现golang在支持cgo的时候是没法交叉编译的</li>
+<li>GOOS：目标平台的操作系统（darwin、freebsd、linux、windows）</li>
+<li>GOARCH：目标平台的体系架构（386、amd64、arm）</li>
+<li>交叉编译不支持 CGO 所以要禁用它</li>
+<li>上面的命令编译 64 位可执行程序，你当然应该也会使用 386 编译 32 位可执行程序</li>
+<li>windows下面 powershell不行，要cmd</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4aae0eb" class="outline-3">
+<h3 id="org4aae0eb">发布</h3>
+<div class="outline-text-3" id="text-org4aae0eb">
+<pre class="example">
+nohup ./birthday &gt;&gt; log.out &amp;
+
+GOPATH
+C:\Go    &lt;&lt;--- GOROOT 指向的位置
+    --src                 &lt;&lt;--- Go 语言自带的源代码
+    --pkg                 &lt;&lt;--- 编译的中间文件放在此文件夹
+    --bin                 &lt;&lt;--- 编译的目标文件放在此文件夹
+D:\MyWorks  &lt;&lt;--- GOPATH 指向的位置
+    --src                 &lt;&lt;--- 项目源代码放置在此文件夹。!!!警告：一个常犯的错误是把 GOPATH 指向此处!!!
+	--HelloWorld      &lt;&lt;--- 我们项目源代码所在的文件夹。!!!警告：一个常犯的错误是把 GOPATH 指向此处!!!
+	--vendor          &lt;&lt;--- 第三方开源代码文件夹
+	    --github.com
+		--...
+    --pkg                 &lt;&lt;--- 编译的中间文件放在此文件夹，Go编译器自动生成此文件夹
+    --bin                 &lt;&lt;--- 编译的目标文件放在此文件夹，Go编译器自动生成此文件夹
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgee598be" class="outline-3">
+<h3 id="orgee598be">我的go环境配置</h3>
+<div class="outline-text-3" id="text-orgee598be">
+<pre class="example">
+~/.bash_profile
+#go
+export GOROOT=/usr/local/go
+export GOPATH=/Users/yk/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export GO111MODULE=on
+export GOPROXY=https://goproxy.io
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8189ba7" class="outline-3">
+<h3 id="org8189ba7">资料</h3>
+<div class="outline-text-3" id="text-org8189ba7">
+<ul class="org-ul">
+<li><a href="https://code.tutsplus.com/zh-hans/tutorials/lets-go-object-oriented-programming-in-golang--cms-26540">code.tutsplus</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-09-25 Wed 10:02</p>
+</div>
+</body>
+</html>

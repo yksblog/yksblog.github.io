@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>使用ffmpeg处理音视频</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://ywxttxs.github.io/themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://ywxttxs.github.io/themes/style.css' type='text/css'  />
+           <script type='module' src='https://ywxttxs.github.io/themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">使用ffmpeg处理音视频</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org183c55f">安装ffmpeg</a></li>
+<li><a href="#orgd2eb6f3">视频处理</a>
+<ul>
+<li><a href="#org82403c1">1. 剪辑</a></li>
+<li><a href="#org9c3387e">2. 缩放</a></li>
+<li><a href="#org9dbc372">3. 裁剪</a></li>
+<li><a href="#org39bb524">4. 旋转</a></li>
+<li><a href="#org2948179">5. 调节帧率</a></li>
+<li><a href="#org9c4b99e">6. 格式转换</a></li>
+<li><a href="#org7c259b5">7. 查看视频的详细信息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org826e711">格式转化</a></li>
+<li><a href="#orgf94aa96">调节帧率压缩体积</a></div>
+</div>
+
+<div id="outline-container-org183c55f" class="outline-3">
+<h3 id="org183c55f">安装ffmpeg</h3>
+<div class="outline-text-3" id="text-org183c55f">
+<p>
+brew install ffmpeg
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd2eb6f3" class="outline-3">
+<h3 id="orgd2eb6f3">视频处理</h3>
+<div class="outline-text-3" id="text-orgd2eb6f3">
+</div>
+<div id="outline-container-org82403c1" class="outline-4">
+<h4 id="org82403c1">1. 剪辑</h4>
+<div class="outline-text-4" id="text-org82403c1">
+<p>
+有时候我们需要截取一个长视频的其中某一段内容，比如从一个视频的第10秒开始，截取6秒的内容，也就是10~16秒的内容，输入一个out.mp4文件
+</p>
+
+<p>
+$ ffmpeg -i in.mp4 -ss 00:00:10 -t 00:00:06 -acodec aac -vcodec h264 -strict -2 out.mp4   //从00:00:10开始，截取的长度为00:00:06
+</p>
+
+<p>
+参数解释：
+</p>
+
+<p>
+-i 代表输入待处理的文件
+</p>
+
+<p>
+-ss 代表开始的时间
+</p>
+
+<p>
+-t 代表截取的长度。
+</p>
+
+<p>
+-acodec 音频编解码器，这个不懂的话也没关系，直接照抄就行。。
+</p>
+
+<p>
+-vcodec 音频编解码器，这个不懂的话也没关系，直接照抄就行。。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9c3387e" class="outline-4">
+<h4 id="org9c3387e">2. 缩放</h4>
+<div class="outline-text-4" id="text-org9c3387e">
+<p>
+很多时候我们需要把一个高分辨率的视频处理成一个低分辨率的视频，以达到减小视频体积的目的。举个例子：把一个10801920的视频缩小到360640
+</p>
+
+<p>
+ffmpeg -i in.mp4 -vf scale=360:640 -acodec aac -vcodec h264 out.mp4  // 1080*1920&#x2013;&gt;360*640
+</p>
+
+<p>
+参数解释：
+</p>
+
+<p>
+-i 代表输入，
+</p>
+
+<p>
+-vf 的全称是video filter，即：视频滤镜，缩放其实就是给视频添加一个滤镜。
+</p>
+
+<p>
+scale=360:640 scale是一种滤镜，缩放滤镜，格式是：scale=width:height，其中，width和height分别是处理后的宽和高
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9dbc372" class="outline-4">
+<h4 id="org9dbc372">3. 裁剪</h4>
+<div class="outline-text-4" id="text-org9dbc372">
+<p>
+有时候我们想截取一个大视频的中间一部分画面，比如一个10801920的视频，我们想截取中间的10801080的部分，这个也可以实现的：
+</p>
+
+<p>
+ffmpeg -i in.mp4 -strict -2 -vf crop=1080:1080:0:420 out.mp4
+</p>
+
+<p>
+参数解释：
+</p>
+
+<ul class="org-ul">
+<li>crop 和上面的scale一样，也是视频滤镜的一种</li>
+<li>crop是裁剪滤镜。</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgc667568"></a>四个参数分别是 `width:height:x:y`，<br>
+<div class="outline-text-5" id="text-orgc667568">
+<ul class="org-ul">
+<li>width 宽</li>
+<li>height 高</li>
+<li>x和y代表裁剪的区域的左上角的坐标，坐标系原点为原视频的左上角。</li>
+<li>比如 0:0就代表原视频的左上角，50:50就代表以原视频的左上角为原点的坐标系的50:50位置</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-org39bb524" class="outline-4">
+<h4 id="org39bb524">4. 旋转</h4>
+<div class="outline-text-4" id="text-org39bb524">
+<p>
+使用ffmpeg可以轻松地旋转视频。举个例子：将一个视频顺时针旋转90度
+</p>
+
+<p>
+ffmpeg -i in.mp4 -vf rotate=PI/2:ow=1080:oh=1920 out.mp4
+</p>
+
+<p>
+参数解释：
+</p>
+
+<p>
+视频旋转其实也是一直滤镜。
+</p>
+
+<p>
+rotate=PI/2 rotate是旋转滤镜，后面的“PI/2”旋转角度（正数代表顺时针），这里是90度
+</p>
+
+<p>
+rotate除了指定旋转角度的参数外，还有其他一些参数：
+</p>
+
+<p>
+ow 全称是out width，输出视频的宽度，如果不指定，默认是输入视频的宽度
+</p>
+
+<p>
+oh 全称是out height，输出视频的高度，如果不指定，默认是输入视频的高度
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2948179" class="outline-4">
+<h4 id="org2948179">5. 调节帧率</h4>
+<div class="outline-text-4" id="text-org2948179">
+<p>
+帧率会很大程度上影响画面的流畅度和视频的体积，帧率越大，画面越流畅，同时视频体积越大。
+</p>
+
+<p>
+我们有时候需要通过降低帧率来减小视频的体积。
+</p>
+
+<p>
+举个例子：将一个视频的帧率降到15
+</p>
+
+<p>
+ffmpeg -i in.mp4 -r 15 out.mp4
+</p>
+
+<p>
+参数解释：
+</p>
+
+<p>
+-r 帧率
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9c4b99e" class="outline-4">
+<h4 id="org9c4b99e">6. 格式转换</h4>
+<div class="outline-text-4" id="text-org9c4b99e">
+<p>
+ffmpeg具备强大的格式转换功能，这里举几个常用的例子。
+</p>
+<pre class="example">
+
+ffmpeg -i in.mov -vcodec copy -acodec copy out.mp4  // mov --&gt; mp4
+ffmpeg -i in.flv -vcodec copy -acodec copy out.mp4 // flv --&gt; mp4
+ffmpeg -i in.gif -vf scale=420:-2,format=yuv420p out.mp4  // gif --&gt; mp4
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7c259b5" class="outline-4">
+<h4 id="org7c259b5">7. 查看视频的详细信息</h4>
+<div class="outline-text-4" id="text-org7c259b5">
+<p>
+有的时候我们需要在处理之前先了解一下视频的参数信息，比如分辨率、比特率等等。可以使用下面的命令：
+</p>
+
+<p>
+ffmpeg -i in.mp4 // 不加任何参数，只指定输入的视频
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org826e711" class="outline-2">
+<h2 id="org826e711">格式转化</h2>
+<div class="outline-text-2" id="text-org826e711">
+<pre class="example">
+ffmpeg -i gfc.mp4 gfc.gif
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgf94aa96" class="outline-2">
+<h2 id="orgf94aa96">调节帧率压缩体积</h2>
+<div class="outline-text-2" id="text-orgf94aa96">
+<pre class="example">
+
+ffmpeg -i gfc.gif -r 15 gfc15.gif
+ffmpeg -i gfc.gif -r 10 gfc10.gif
+ffmpeg -i gfc.gif -r 5 gfc5.gif
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-04-18 Thu 21:32</p>
+</div>
+</body>
+</html>

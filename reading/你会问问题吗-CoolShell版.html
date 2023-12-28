@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>你会问问题吗 Coolshell版</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://ywxttxs.github.io/themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://ywxttxs.github.io/themes/style.css' type='text/css'  />
+           <script type='module' src='https://ywxttxs.github.io/themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">你会问问题吗 Coolshell版</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org7ca5cc4">什么是 X-Y Problem</a></li>
+<li><a href="#org7536673">示例</a>
+<ul>
+<li><a href="#orgcf4cdcf">Shell</a></li>
+<li><a href="#org96bdc28">rsync</a></li>
+</ul>
+</li>
+<li><a href="#org2df8bd5">一些变种</a></li>
+<li><a href="#org84df46c">资源</a></li>
+</ul>
+</div>
+</div>
+<p>
+　　无意间看到<a href="https://coolshell.cn">陈皓</a>前辈10年前的一篇文章，结合到自己目前工作、生活中来看，依然很有借鉴意义，遂摘录过来。
+</p>
+
+<div id="outline-container-org7ca5cc4" class="outline-2">
+<h2 id="org7ca5cc4">什么是 X-Y Problem</h2>
+<div class="outline-text-2" id="text-org7ca5cc4">
+<blockquote>
+<p class="verse">
+1）有人想解决问题X<br>
+2）他觉得Y可能是解决X问题的方法<br>
+3）但是他不知道Y应该怎么做<br>
+4）于是他去问别人Y应该怎么做？<br>
+</p>
+</blockquote>
+
+<p>
+简而言之，没有去问怎么解决问题X，而是去问解决方案Y应该怎么去实现和操作。于是乎：
+</p>
+
+<blockquote>
+<p class="verse">
+1）热心的人们帮助并告诉这个人Y应该怎么搞，但是大家都觉得Y这个方案有点怪异。<br>
+2）在经过大量地讨论和浪费了大量的时间后，热心的人终于明白了原始的问题X是怎么一回事。<br>
+3）于是大家都发现，Y根本就不是用来解决X的合适的方案。<br>
+</p>
+</blockquote>
+
+<p>
+X-Y Problem最大的严重的问题就是： <b>在一个根本错误的方向上浪费他人大量的时间和精力！</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7536673" class="outline-2">
+<h2 id="org7536673">示例</h2>
+<div class="outline-text-2" id="text-org7536673">
+</div>
+<div id="outline-container-orgcf4cdcf" class="outline-3">
+<h3 id="orgcf4cdcf">Shell</h3>
+<div class="outline-text-3" id="text-orgcf4cdcf">
+<blockquote>
+<p class="verse">
+👩‍💼：Q) 我怎么用Shell取得一个字符串的后3位字符？<br>
+👨‍💻：A1) 如果这个字符的变量是$foo，你可以这样来 echo ${foo:-3}<br>
+👨‍💻：A2) 为什么你要取后3位？你想干什么？<br>
+👩‍💼：Q) 其实我就想取文件的扩展名<br>
+👨‍💻：A1) 我靠，原来你要干这事，那我的方法不对，文件的扩展名并不保证一定有3位啊。<br>
+👨‍💻：A1) 如果你的文件必然有扩展名的话，你可以这来样来：echo ${foo##*.}<br>
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org96bdc28" class="outline-3">
+<h3 id="org96bdc28">rsync</h3>
+<div class="outline-text-3" id="text-org96bdc28">
+<blockquote>
+<p class="verse">
+👩‍💼：Q）问一下大家，我如何得到一个文件的大小<br>
+👨‍💻：A1)  size = ls -l $file  | awk '{print $5}'<br>
+👩‍💼：Q) 哦，要是这个文件名是个目录呢？<br>
+👨‍💻：A2) 用du吧<br>
+👨‍💻：A3) 不好意思，你到底是要文件的大小还是目录的大小？你到底要干什么？<br>
+👩‍💼：Q)  我想把一个目录下的每个文件的每个块（第一个块有512个字节）拿出来做md5，并且计算他们的大小 ……<br>
+👨‍💻：A1) 哦，你可以使用dd吧。<br>
+👨‍💻：A2) dd不行吧。<br>
+👨‍💻：A3) 你用md5来计算这些块的目的是什么？你究竟想干什么啊？<br>
+👩‍💼：Q) 其实，我想写一个网盘，对于小文件就直接传输了，对于大文件我想分块做增量同步。<br>
+👨‍💻：A2) 用rsync啊，你妹！<br>
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2df8bd5" class="outline-2">
+<h2 id="org2df8bd5">一些变种</h2>
+<div class="outline-text-2" id="text-org2df8bd5">
+<p>
+　　我们不要以为X-Y Problem就像上面那样的简单，我们不会出现，其实我们生活的这个世界有有各种X-Y Problem的变种。下面我个人觉得非常像XY Problem的总是：
+</p>
+
+<ol class="org-ol">
+<li>大多数人有时候，非常容易 <b>把手段当目的</b> ，他们会用自己所喜欢的技术和方法来反推用户的需求，于是很有可能就会出现X-Y Problem – 也许解决用户需求最适合的技术方案是PC，但是我们要让他们用手机。</li>
+
+<li><b>产品经理有时候并不清楚他想解决的用户需求是什么</b> ，于是他觉得可能开发Y的功能能够满足用户，于是他提出了Y的需求让技术人员去做，但那根本不是解决X问题的最佳方案。</li>
+
+<li>因为公司或部门的一些战略安排，业务部门设计了相关的业务规划，然后这些业务规划更多的是公司想要的Y，而不是解决用户的X问题。</li>
+
+<li>对于个人的职业发展，X是成长为有更强的技能和能力，这个可以拥有比别人更强的竞争力，从而可以有更好的报酬，但确走向了Y： <b>全身心地追逐KPI。</b></li>
+
+<li>本来我们想达成的X是做出更好和更有价值的产品，但最终走到了Y：通过各种手段提升安装量，点击量，在线量，用户量来衡量。</li>
+
+<li>很多团队 <b>Leader都喜欢制造信息不平等</b> ，并不告诉团队某个事情的来由，掩盖X，而直接把要做的Y告诉团队，导致团队并不真正地理解，而产生了很多时间和经历的浪费。</li>
+</ol>
+
+<p>
+所有的这些，在我心中都是X-Y Problem的变种，这是不是一种 <b>刻舟求剑</b> 的表现？
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org84df46c" class="outline-2">
+<h2 id="org84df46c">资源</h2>
+<div class="outline-text-2" id="text-org84df46c">
+<ul class="org-ul">
+<li><a href="https://coolshell.cn/articles/10804.html">X-Y PROBLEM</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-11-13 Mon 11:55</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: url("./wang-ge-bg.png");
+    line-height: 1.8;
+    margin: 10px 13px 10px 13px;
+    animation: fadeIn;
+    animation-duration: 3s;
+}
+table {
+    margin: 10px 0 15px 0;
+    border-collapse: collapse;
+}
+td,th {
+    border: 1px solid #ddd;
+    padding: 3px 10px;
+}
+th {
+    padding: 5px 10px;
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #0050a3;
+    line-height: 1.5rem;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    font-family:georgia,serif;
+    font-style: italic;
+    color: #0069d6;
+}
+blockquote:before {
+    content:"➣";
+    font-size:20px;
+    margin-left:-20px;
+    font-family:georgia,serif;
+    color:#0069d6;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5rem;
+    margin-bottom: 0;
+    font-style: italic;
+    display: contents;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 14px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 1.5rem;
+    font-size: 14px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: #fee9cc;
+}
+pre code {
+    background-color: #fff;
+    font-size: 14px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+.org-left {
+    text-align: left;
+}
+.org-center {
+    text-align: center;
+}
+.org-right {
+    text-align: right;
+}
+
+#postamble {
+    color: #666;
+    text-align: center;
+    font-size: 0.12rem;
+    letter-spacing: 0;
+    line-height: 1.0;
+    font-weight: bold;
+}
+
+
+*{
+    -webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 90%;
+        margin:10px auto;
+    }
+}
+@media print {
+    body,code,pre code,h1,h2,h3,h4,h5,h6 {
+        color: black;
+    }
+    table, pre {
+        page-break-inside: avoid;
+    }
+}

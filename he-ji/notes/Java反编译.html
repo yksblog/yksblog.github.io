@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Java反编译</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
+           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Java反编译</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org84d8ff6">场景描述：fapiao.jar 包中替换文件logback-spring.xml的内容</a>
+<ul>
+<li><a href="#org63d90ce">一、查询需要替换的文件在jar中的位置</a></li>
+<li><a href="#orgbb92b40">二、将文件解压到当前目录(以及文件所在目录)</a></li>
+<li><a href="#orga5b3143">三、进入目录修改文件内容</a></li>
+<li><a href="#org4f9c62b">四、将替换后的目录打包进jar文件 实现替换</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org84d8ff6" class="outline-2">
+<h2 id="org84d8ff6">场景描述：fapiao.jar 包中替换文件logback-spring.xml的内容</h2>
+<div class="outline-text-2" id="text-org84d8ff6">
+</div>
+<div id="outline-container-org63d90ce" class="outline-3">
+<h3 id="org63d90ce">一、查询需要替换的文件在jar中的位置</h3>
+<div class="outline-text-3" id="text-org63d90ce">
+<div class="org-src-container">
+<pre class="src src-bash">jar tvf *****.jar | grep <span style="color: #AE81FF;">{</span>fileName<span style="color: #AE81FF;">}</span>
+
+jar tvf fapiao.jar| grep logback-spring.xml
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbb92b40" class="outline-3">
+<h3 id="orgbb92b40">二、将文件解压到当前目录(以及文件所在目录)</h3>
+<div class="outline-text-3" id="text-orgbb92b40">
+<div class="org-src-container">
+<pre class="src src-bash">jar xvf ****.jar <span style="color: #AE81FF;">{</span>filePath<span style="color: #AE81FF;">}</span>
+
+// &#27492;&#21629;&#20196;&#23558;&#25991;&#20214;&#25152;&#22312;&#30446;&#24405;&#35299;&#21387;&#20986;&#26469;&#65292;&#20250;&#22312;&#24403;&#21069;&#30446;&#24405;&#29983;&#25104;&#19968;&#20010;&#26032;&#30340;&#25991;&#20214;&#22841;&#65292;&#30446;&#24405;&#32467;&#26500;&#21516;&#65306;<span style="color: #AE81FF;">{</span>filePath<span style="color: #AE81FF;">}</span>
+
+jar xvf fapiao.jar BOOT-INF/classes/logback-spring.xml
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga5b3143" class="outline-3">
+<h3 id="orga5b3143">三、进入目录修改文件内容</h3>
+</div>
+
+<div id="outline-container-org4f9c62b" class="outline-3">
+<h3 id="org4f9c62b">四、将替换后的目录打包进jar文件 实现替换</h3>
+<div class="outline-text-3" id="text-org4f9c62b">
+<div class="org-src-container">
+<pre class="src src-bash">
+jar uvf ***.jar <span style="color: #AE81FF;">{</span>filePath<span style="color: #AE81FF;">}</span>
+
+jar uvf fapiao.jar BOOT-INF/classes/logback-spring.xml
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-12-24 Fri 18:08</p>
+</div>
+</body>
+</html>

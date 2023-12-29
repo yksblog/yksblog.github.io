@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Imagemagick</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
+           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Imagemagick</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org0fc3fc9">得到一个图片的尺寸</a>
+<ul>
+<li><a href="#orgdf0f782">例子</a></li>
+<li><a href="#orgdc83ecb">quality 质量压缩</a></li>
+<li><a href="#org1cd1fac">sample 参数结合</a></li>
+<li><a href="#orge7c1e71">resize 缩放</a>
+<ul>
+<li><a href="#org7a1d9c8">convert 也支持限高或限宽缩放</a></li>
+<li><a href="#orgb7e800d">convert 格式转化</a></li>
+<li><a href="#orgf90d61b">裁剪</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0fc3fc9" class="outline-2">
+<h2 id="org0fc3fc9">得到一个图片的尺寸</h2>
+<div class="outline-text-2" id="text-org0fc3fc9">
+<p>
+<code>identify test.png</code>
+</p>
+
+<p>
+=&gt; test.png PNG 559x559 559x559+0+0 8-bit sRGB 467KB 0.000u 0:00.008
+</p>
+
+<blockquote>
+<p class="verse">
+test.png 图片文件名称<br>
+PNG 图片格式<br>
+559x559 图片的宽高<br>
+559x559+0+0 图片的宽x高+x轴+y轴<br>
+8-bit 每个像素点的最小单位，也决定了它是否是一个高清图，如8位，最高可以是256个色值<br>
+sRGB 图片的色彩格式<br>
+476KB 文件大小<br>
+</p>
+</blockquote>
+</div>
+
+
+<div id="outline-container-orgdf0f782" class="outline-3">
+<h3 id="orgdf0f782">例子</h3>
+<div class="outline-text-3" id="text-orgdf0f782">
+<blockquote>
+<p class="verse">
+<br>
+convert  xxx.jpg  xxx.png      将jpeg转成png文件<br>
+<br>
+convert  xxx.gif   xxx.bmp     将gif转换成bmp图像<br>
+<br>
+convert  xxx.tiff  xxx.pcx   将tiff转换成pcx图像<br>
+<br>
+convert 对图片进行压缩、裁剪、缩放、图片格式转化<br>
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgdc83ecb" class="outline-3">
+<h3 id="orgdc83ecb">quality 质量压缩</h3>
+<div class="outline-text-3" id="text-orgdc83ecb">
+<p>
+图片质量压缩，可以降低图片的存储空间，质量92一般为无损压缩，例子如下：
+</p>
+
+<p>
+<code>$convert test.jpg -quality 92 test.jpg_92.jpg</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1cd1fac" class="outline-3">
+<h3 id="org1cd1fac">sample 参数结合</h3>
+<div class="outline-text-3" id="text-org1cd1fac">
+<p>
+与risize 区别在与-sample 只进行了采样，没有进行插值，所有用来生成缩略图最合适
+</p>
+
+<p>
+<code>$convert test.jpg -sample 50% test_sample_50%.png</code>
+</p>
+
+<p>
+使用-sample 放大一张图，由于没有进行插值，放大倍数到一定程度会出现马赛克，例如：
+</p>
+
+<p>
+<code>$convet test.jpg -sample 1000% test_sample.jpg</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge7c1e71" class="outline-3">
+<h3 id="orge7c1e71">resize 缩放</h3>
+<div class="outline-text-3" id="text-orge7c1e71">
+<p>
+<code>$convert test.jpg -resize 1000% test_resize.jpg (无马赛克现象)</code>
+</p>
+
+<p>
+原因是由于 -resize 与找就近的像素进行采样插值
+</p>
+
+<p>
+-resize 与 -sample 参数也支持 宽x高的裁剪
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">$<span style="color: #FD971F;">convert</span> test.jpg -resize 330x170 test_330x170.jpg
+$<span style="color: #FD971F;">convert</span> test.jpg -sample 200x110 test_200x110.jpg
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7a1d9c8" class="outline-4">
+<h4 id="org7a1d9c8">convert 也支持限高或限宽缩放</h4>
+<div class="outline-text-4" id="text-org7a1d9c8">
+<div class="org-src-container">
+<pre class="src src-bash">$<span style="color: #FD971F;">convert</span> test.jpg -resize 330x test_330x.jpg <span style="color: #AE81FF;">&#65288;</span>&#38480;&#23485;330<span style="color: #AE81FF;">&#65289;</span>
+$<span style="color: #FD971F;">convert</span> test.jpg -resize x170 test_x170.jpg <span style="color: #AE81FF;">&#65288;</span>&#38480;&#39640;170<span style="color: #AE81FF;">&#65289;</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb7e800d" class="outline-4">
+<h4 id="orgb7e800d">convert 格式转化</h4>
+<div class="outline-text-4" id="text-orgb7e800d">
+<p>
+<code>$convert test.png -quality 92 test.jpg</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf90d61b" class="outline-4">
+<h4 id="orgf90d61b">裁剪</h4>
+<div class="outline-text-4" id="text-orgf90d61b">
+<ul class="org-ul">
+<li>crop 裁剪</li>
+<li>按比例裁剪</li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org35b8dce"></a>-crop参数是从一个图片截取一个指定区域的子图片.<br>
+<div class="outline-text-5" id="text-org35b8dce">
+<p>
+格式如下:convert -crop {width}x{height}{x}{y}
+</p>
+
+<ul class="org-ul">
+<li>width 子图片宽度</li>
+<li>height 子图片高度</li>
+<li>x 为正数时为从区域左上角的x坐标,为负数时,左上角坐标为0,然后从截出的子图片右边减去x象素宽度.</li>
+<li>y 为正数时为从区域左上角的y坐标,为负数时,左上角坐标为0,然后从截出的子图片上边减去y象素高度.</li>
+</ul>
+
+<p>
+例1：
+</p>
+<ul class="org-ul">
+<li>从src.jpg 坐标为x:10 y:10截取300x400的图片存为dest.jpg</li>
+<li>$convert -crop 300x400+10+10 src.jpg dest.jpg</li>
+</ul>
+
+<p>
+例2：
+</p>
+<ul class="org-ul">
+<li>从src.jpg坐标为x:0 y:10截取290x400的图片存为dest.jpg</li>
+<li>$convert -crop 300x400-10+10 src.jpg dest.jpg</li>
+</ul>
+
+<p>
+当然不止可以从图片的左上角开始截图，可以从中心位置来截图，参数 -gravity
+从图片中心位置向四周裁剪大小为 300x400的区域
+<code>$convert -gravity center -crop 300x400+0+0 src.jpg dest.jpg</code>
+</p>
+
+<p>
+crop参数也可以使用百分比，例如：
+</p>
+
+<p>
+<code>$convert src.jpg -crop 50% dest.jpg</code>
+</p>
+</div>
+</li>
+
+<li><a id="org19d8ce3"></a>生成dest-[0-3].jpg的图<br>
+<div class="outline-text-5" id="text-org19d8ce3">
+<ul class="org-ul">
+<li>其实全命令可以理解为： -crop 50%x50%+0+0</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org0f75606"></a>设原图大小为200x100，则将原图从上到下平均裁剪成4份，如：<br>
+<div class="outline-text-5" id="text-org0f75606">
+<p>
+$convert src.jpg -crop 100%x25%  dest.jpg
+</p>
+
+<p>
+#dest-0.jpg 为src.jpg的200x25+0+0，大小为200x25
+</p>
+
+<p>
+#dest-1.jpg 为src.jpg的200x25+0+25，大小为200x25
+</p>
+
+<p>
+#dest-2.jpg 为src.jpg的200x25+0+50，大小为200x25
+</p>
+
+<p>
+#dest-3.jpg 为src.jpg的200x25+0+75，大小为200x25
+</p>
+</div>
+</li>
+
+<li><a id="org1a7cdf2"></a>只裁剪中心区域的50%<br>
+<div class="outline-text-5" id="text-org1a7cdf2">
+<p>
+$convert src.jpg -gravity center -crop 50%  dest.jpg
+</p>
+</div>
+</li>
+
+<li><a id="orgb945180"></a>此时只会出现一张图片 dest.jpg<br>
+<div class="outline-text-5" id="text-orgb945180">
+<p>
+若src.jpg(200x100)，则dest.jpg为从src中心位置向四周扩展50%的区域,即与执行下边命令的结果相同
+</p>
+
+<p>
+$convert src.jpg -gravity center -corp 100x50+40+25  dest.jpg
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-04-09 Tue 21:28</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>C语言的内存管理</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
+           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">C语言的内存管理</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org352088a">简介</a></li>
+<li><a href="#org1e677a5">void 指针</a></li>
+<li><a href="#org641990d">malloc()</a>
+<ul>
+<li><a href="#org7cd1df2">malloc()最常用的场合，就是为数组和自定义数据结构分配内存。</a></li>
+</ul>
+</li>
+<li><a href="#org2963d11">free()</a></li>
+<li><a href="#org7d350ac">calloc()</a></li>
+<li><a href="#org9bcfd3c">realloc()</a></li>
+<li><a href="#org74e64e5">restrict 说明符</a></li>
+<li><a href="#org9265ddd">memcpy()</a></li>
+<li><a href="#orgb5a873c">memmove()</a></li>
+<li><a href="#org3e79f91">memcmp()</a></li>
+<li><a href="#org9e8db15">资源</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org352088a" class="outline-2">
+<h2 id="org352088a">简介</h2>
+<div class="outline-text-2" id="text-org352088a">
+<p>
+C 语言的内存管理，分成两部分。一部分是系统管理的，另一部分是用户手动管理的。
+</p>
+
+<p>
+系统管理的内存，主要是函数内部的变量（局部变量）。这部分变量在函数运行时进入内存，函数运行结束后自动从内存卸载。这些变量存放的区域称为”栈“（stack）， <b>”栈“所在的内存是系统自动管理的。</b>
+</p>
+
+<p>
+用户手动管理的内存，主要是程序运行的整个过程中都存在的变量（全局变量），这些变量需要用户手动从内存释放。如果使用后忘记释放，它就一直占用内存，直到程序退出，这种情况称为”内存泄漏“（memory leak）。这些变量所在的内存称为”堆“（heap）， <b>”堆“所在的内存是用户手动管理的。</b>
+</p>
+</div>
+</div>
+<div id="outline-container-org1e677a5" class="outline-2">
+<h2 id="org1e677a5">void 指针</h2>
+<div class="outline-text-2" id="text-org1e677a5">
+<p>
+前面章节已经说过了，每一块内存都有地址，通过指针变量可以获取指定地址的内存块。指针变量必须有类型，否则编译器无法知道，如何解读内存块保存的二进制数据。但是，向系统请求内存的时候，有时不确定会有什么样的数据写入内存，需要先获得内存块，稍后再确定写入的数据类型。
+</p>
+
+<p>
+为了满足这种需求，C 语言提供了一种不定类型的指针，叫做 void 指针。它只有内存块的地址信息，没有类型信息，等到使用该块内存的时候，再向编译器补充说明，里面的数据类型是什么。
+</p>
+
+<p>
+另一方面，void 指针等同于无类型指针，可以指向任意类型的数据，但是不能解读数据。void 指针与其他所有类型指针之间是互相转换关系，任一类型的指针都可以转为 void 指针，而 void 指针也可以转为任一类型的指针。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">x</span> = 10;
+
+<span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">p</span> = &amp;x; <span style="color: #75715E;">// </span><span style="color: #75715E;">&#25972;&#25968;&#25351;&#38024;&#36716;&#20026; void &#25351;&#38024;</span>
+<span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">q</span> = p; <span style="color: #75715E;">// </span><span style="color: #75715E;">void &#25351;&#38024;&#36716;&#20026;&#25972;&#25968;&#25351;&#38024;</span>
+</pre>
+</div>
+
+<p>
+上面示例演示了，整数指针和 void 指针如何互相转换。&amp;x是一个整数指针，p是 void 指针，赋值时&amp;x的地址会自动解释为 void 类型。同样的，p再赋值给整数指针q时，p的地址会自动解释为整数指针。
+</p>
+
+<p>
+注意，由于不知道 void 指针指向什么类型的值，所以不能用*运算符取出它指向的值。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">a</span> = <span style="color: #E6DB74;">'X'</span>;
+<span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">p</span> = &amp;a;
+
+printf<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"%c\n"</span>, *p<span style="color: #AE81FF;">)</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">&#25253;&#38169;</span>
+
+</pre>
+</div>
+
+<p>
+上面示例中，p是一个 void 指针，所以这时无法用*p取出指针指向的值。
+</p>
+
+<p>
+void 指针的重要之处在于，很多内存相关函数的返回值就是 void 指针，只给出内存块的地址信息，所以放在最前面进行介绍。
+</p>
+</div>
+</div>
+<div id="outline-container-org641990d" class="outline-2">
+<h2 id="org641990d">malloc()</h2>
+<div class="outline-text-2" id="text-org641990d">
+<p>
+malloc()函数用于分配内存，该函数向系统要求一段内存，系统就在“堆”里面分配一段连续的内存块给它。它的原型定义在头文件stdlib.h。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">malloc</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">size</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+<p>
+它接受一个非负整数作为参数，表示所要分配的内存字节数，返回一个 void 指针，指向分配好的内存块。这是非常合理的，因为malloc()函数不知道，将要存储在该块内存的数据是什么类型，所以只能返回一个无类型的 void 指针。
+</p>
+
+<p>
+可以使用malloc()为任意类型的数据分配内存，常见的做法是先使用sizeof()函数，算出某种数据类型所需的字节长度，然后再将这个长度传给malloc()。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+
+*p = 12;
+printf<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"%d\n"</span>, *p<span style="color: #AE81FF;">)</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">12</span>
+
+</pre>
+</div>
+
+<p>
+上面示例中，先为整数类型分配一段内存，然后将整数12放入这段内存里面。这个例子其实不需要使用malloc()，因为 C 语言会自动为整数（本例是12）提供内存。
+</p>
+
+<p>
+有时候为了增加代码的可读性，可以对malloc()返回的指针进行一次强制类型转换。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>*<span style="color: #AE81FF;">)</span> malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+
+<p>
+上面代码将malloc()返回的 void 指针，强制转换成了整数指针。
+</p>
+
+<p>
+由于sizeof()的参数可以是变量，所以上面的例子也可以写成下面这样。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>*<span style="color: #AE81FF;">)</span> malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span>*p<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+<p>
+malloc()分配内存有可能分配失败，这时返回常量 NULL。Null 的值为0，是一个无法读写的内存地址，可以理解成一个不指向任何地方的指针。它在包括stdlib.h等多个头文件里面都有定义，所以只要可以使用malloc()，就可以使用NULL。由于存在分配失败的可能，所以最好在使用malloc()之后检查一下，是否分配成功。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>p == <span style="color: #AE81FF;">NULL</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">&#20869;&#23384;&#20998;&#37197;&#22833;&#36133;</span>
+<span style="color: #AE81FF;">}</span>
+
+<span style="color: #75715E;">// </span><span style="color: #75715E;">or</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span><span style="color: #E6DB74; font-weight: bold;">!</span>p<span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #75715E;">//</span><span style="color: #75715E;">...</span>
+<span style="color: #AE81FF;">}</span>
+
+</pre>
+</div>
+
+<p>
+上面示例中，通过判断返回的指针p是否为NULL，确定malloc()是否分配成功。
+</p>
+</div>
+
+<div id="outline-container-org7cd1df2" class="outline-3">
+<h3 id="org7cd1df2">malloc()最常用的场合，就是为数组和自定义数据结构分配内存。</h3>
+<div class="outline-text-3" id="text-org7cd1df2">
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>*<span style="color: #AE81FF;">)</span> malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span> * 10<span style="color: #AE81FF;">)</span>;
+
+<span style="color: #F92672;">for</span> <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i</span> = 0; i &lt; 10; i++<span style="color: #AE81FF;">)</span>
+  <span style="color: #66D9EF;">p</span><span style="color: #AE81FF;">[</span>i<span style="color: #AE81FF;">]</span> = i * 5;
+
+</pre>
+</div>
+
+<p>
+上面示例中，p是一个整数指针，指向一段可以放置10个整数的内存，所以可以用作数组。
+</p>
+
+<p>
+malloc()用来创建数组，有一个好处，就是它可以创建动态数组，即根据成员数量的不同，而创建长度不同的数组。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>*<span style="color: #AE81FF;">)</span> <span style="color: #A6E22E;">malloc</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">n</span> * <span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+
+<p>
+上面示例中，malloc()可以根据变量n的不同，动态为数组分配不同的大小。
+</p>
+
+<p>
+注意，malloc()不会对所分配的内存进行初始化，里面还保存着原来的值。如果没有初始化，就使用这段内存，可能从里面读到以前的值。程序员要自己负责初始化，比如，字符串初始化可以使用strcpy()函数。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">p</span> = malloc<span style="color: #AE81FF;">(</span>4<span style="color: #AE81FF;">)</span>;
+<span style="color: #A6E22E;">strcpy</span><span style="color: #AE81FF;">(</span>p, <span style="color: #E6DB74;">"abc"</span><span style="color: #AE81FF;">)</span>;
+
+<span style="color: #75715E;">// </span><span style="color: #75715E;">or</span>
+p = <span style="color: #E6DB74;">"abc"</span>;
+</pre>
+</div>
+
+<p>
+上面示例中，字符指针p指向一段4个字节的内存，strcpy()将字符串“abc”拷贝放入这段内存，完成了这段内存的初始化。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org2963d11" class="outline-2">
+<h2 id="org2963d11">free()</h2>
+<div class="outline-text-2" id="text-org2963d11">
+<p>
+free()用于释放malloc()函数分配的内存，将这块内存还给系统以便重新使用，否则这个内存块会一直占用到程序运行结束。该函数的原型定义在头文件stdlib.h里面。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">free</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">block</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+
+<p>
+上面代码中，free()的参数是malloc()返回的内存地址。下面就是用法实例。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>*<span style="color: #AE81FF;">)</span> malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+
+*p = 12;
+<span style="color: #A6E22E;">free</span><span style="color: #AE81FF;">(</span>p<span style="color: #AE81FF;">)</span>;
+
+</pre>
+</div>
+
+<p>
+注意，分配的内存块一旦释放，就不应该再次操作已经释放的地址，也不应该再次使用free()对该地址释放第二次。
+</p>
+
+<p>
+一个很常见的错误是，在函数内部分配了内存，但是函数调用结束时，没有使用free()释放内存。
+</p>
+<div class="org-src-container">
+<pre class="src src-c">
+<span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">gobble</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">double</span> <span style="color: #FD971F;">arr</span><span style="color: #66D9EF;">[]</span>, <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">n</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">double</span>* <span style="color: #FD971F;">temp</span> = <span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">double</span>*<span style="color: #66D9EF;">)</span> malloc<span style="color: #66D9EF;">(</span>n * <span style="color: #F92672;">sizeof</span><span style="color: #A6E22E;">(</span><span style="color: #66D9EF;">double</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>;
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">...</span>
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+<p>
+上面示例中，函数gobble()内部分配了内存，但是没有写free(temp)。这会造成函数运行结束后，占用的内存块依然保留，如果多次调用gobble()，就会留下多个内存块。并且，由于指针temp已经消失了，也无法访问这些内存块，再次使用。
+</p>
+</div>
+</div>
+<div id="outline-container-org7d350ac" class="outline-2">
+<h2 id="org7d350ac">calloc()</h2>
+<div class="outline-text-2" id="text-org7d350ac">
+<p>
+calloc()函数的作用与malloc()相似，也是分配内存块。该函数的原型定义在头文件stdlib.h。
+</p>
+
+<p>
+两者的区别主要有两点：
+</p>
+
+<p>
+（1）calloc()接受两个参数，第一个参数是某种数据类型的值的数量，第二个是该数据类型的单位字节长度。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">calloc</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">n</span>, <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">size</span><span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+
+<p>
+calloc()的返回值也是一个 void 指针。分配失败时，返回 NULL。
+</p>
+
+<p>
+（2）calloc()会将所分配的内存全部初始化为0。malloc()不会对内存进行初始化，如果想要初始化为0，还要额外调用memset()函数。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = calloc<span style="color: #AE81FF;">(</span>10, <span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+
+<span style="color: #75715E;">// </span><span style="color: #75715E;">&#31561;&#21516;&#20110;</span>
+<span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span> * 10<span style="color: #AE81FF;">)</span>;
+<span style="color: #A6E22E;">memset</span><span style="color: #AE81FF;">(</span>p, 0, <span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span> * 10<span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+
+<p>
+上面示例中，calloc()相当于malloc() + memset()。
+</p>
+
+<p>
+calloc()分配的内存块，也要使用free()释放。
+</p>
+</div>
+</div>
+<div id="outline-container-org9bcfd3c" class="outline-2">
+<h2 id="org9bcfd3c">realloc()</h2>
+<div class="outline-text-2" id="text-org9bcfd3c">
+<p>
+realloc()函数用于修改已经分配的内存块的大小，可以放大也可以缩小，返回一个指向新的内存块的指针。如果分配不成功，返回 NULL。该函数的原型定义在头文件stdlib.h。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">realloc</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">block</span>, <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">size</span><span style="color: #AE81FF;">)</span>
+
+</pre>
+</div>
+
+<p>
+它接受两个参数。
+</p>
+
+<ul class="org-ul">
+<li>block：已经分配好的内存块指针（由malloc()或calloc()或realloc()产生）。</li>
+<li>size：该内存块的新大小，单位为字节。</li>
+</ul>
+
+<p>
+realloc()可能返回一个全新的地址（数据也会自动复制过去），也可能返回跟原来一样的地址。realloc()优先在原有内存块上进行缩减，尽量不移动数据，所以通常是返回原先的地址。如果新内存块小于原来的大小，则丢弃超出的部分；如果大于原来的大小，则不对新增的部分进行初始化（程序员可以自动调用memset()）。
+</p>
+
+<p>
+下面是一个例子，b是数组指针，realloc()动态调整它的大小。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">b</span>;
+
+b = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span> * 10<span style="color: #AE81FF;">)</span>;
+b = realloc<span style="color: #AE81FF;">(</span>b, <span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span> * 2000<span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+<p>
+上面示例中，指针b原来指向10个成员的整数数组，使用realloc()调整为2000个成员的数组。这就是手动分配数组内存的好处，可以在运行时随时调整数组的长度。
+</p>
+
+<p>
+realloc()的第一个参数可以是 NULL，这时就相当于新建一个指针。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">p</span> = realloc<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">NULL</span>, 3490<span style="color: #AE81FF;">)</span>;
+<span style="color: #75715E;">// </span><span style="color: #75715E;">&#31561;&#21516;&#20110;</span>
+<span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">p</span> = malloc<span style="color: #AE81FF;">(</span>3490<span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+<p>
+如果realloc()的第二个参数是0，就会释放掉内存块。
+</p>
+
+<p>
+由于有分配失败的可能，所以调用realloc()以后，最好检查一下它的返回值是否为 NULL。分配失败时，原有内存块中的数据不会发生改变。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">float</span>* <span style="color: #FD971F;">new_p</span> = realloc<span style="color: #AE81FF;">(</span>p, <span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span>*p * 40<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>new_p == <span style="color: #AE81FF;">NULL</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"Error reallocing\n"</span><span style="color: #66D9EF;">)</span>;
+  <span style="color: #F92672;">return</span> 1;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+<p>
+注意，realloc()不会对内存块进行初始化。
+</p>
+</div>
+</div>
+<div id="outline-container-org74e64e5" class="outline-2">
+<h2 id="org74e64e5">restrict 说明符</h2>
+<div class="outline-text-2" id="text-org74e64e5">
+<p>
+声明指针变量时，可以使用restrict说明符，告诉编译器，该块内存区域只有当前指针一种访问方式，其他指针不能读写该块内存。这种指针称为“受限指针”（restrict pointer）。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #F92672;">restrict</span> <span style="color: #FD971F;">p</span>;
+p = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+<p>
+上面示例中，声明指针变量p时，加入了restrict说明符，使得p变成了受限指针。后面，当p指向malloc()函数返回的一块内存区域，就味着，该区域只有通过p来访问，不存在其他访问方式。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #F92672;">restrict</span> <span style="color: #FD971F;">p</span>;
+p = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+
+<span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">q</span> = p;
+*q = 0; <span style="color: #75715E;">// </span><span style="color: #75715E;">&#26410;&#23450;&#20041;&#34892;&#20026;</span>
+</pre>
+</div>
+<p>
+上面示例中，另一个指针q与受限指针p指向同一块内存，现在该内存有p和q两种访问方式。这就违反了对编译器的承诺，后面通过*q对该内存区域赋值，会导致未定义行为。
+</p>
+</div>
+</div>
+<div id="outline-container-org9265ddd" class="outline-2">
+<h2 id="org9265ddd">memcpy()</h2>
+<div class="outline-text-2" id="text-org9265ddd">
+<p>
+memcpy()用于将一块内存拷贝到另一块内存。该函数的原型定义在头文件string.h。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">memcpy</span><span style="color: #AE81FF;">(</span>
+  <span style="color: #66D9EF;">void</span>* <span style="color: #F92672;">restrict</span> <span style="color: #FD971F;">dest</span>,
+  <span style="color: #66D9EF;">void</span>* <span style="color: #F92672;">restrict</span> <span style="color: #FD971F;">source</span>,
+  <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">n</span>
+<span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+<p>
+上面代码中，dest是目标地址，source是源地址，第三个参数n是要拷贝的字节数n。如果要拷贝10个 double 类型的数组成员，n就等于10 * sizeof(double)，而不是10。该函数会将从source开始的n个字节，拷贝到dest。
+</p>
+
+<p>
+dest和source都是 void 指针，表示这里不限制指针类型，各种类型的内存数据都可以拷贝。两者都有 restrict 关键字，表示这两个内存块不应该有互相重叠的区域。
+</p>
+
+<p>
+memcpy()的返回值是第一个参数，即目标地址的指针。
+</p>
+
+<p>
+因为memcpy()只是将一段内存的值，复制到另一段内存，所以不需要知道内存里面的数据是什么类型。下面是复制字符串的例子。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">stdio.h</span><span style="color: #AE81FF;">&gt;</span>
+<span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">string.h</span><span style="color: #AE81FF;">&gt;</span>
+
+<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">void</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">s</span><span style="color: #66D9EF;">[]</span> = <span style="color: #E6DB74;">"Goats!"</span>;
+  <span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">t</span><span style="color: #66D9EF;">[</span>100<span style="color: #66D9EF;">]</span>;
+
+  memcpy<span style="color: #66D9EF;">(</span>t, s, <span style="color: #F92672;">sizeof</span><span style="color: #A6E22E;">(</span>s<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>;  <span style="color: #75715E;">// </span><span style="color: #75715E;">&#25335;&#36125;7&#20010;&#23383;&#33410;&#65292;&#21253;&#25324;&#32456;&#27490;&#31526;</span>
+
+  printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"%s\n"</span>, t<span style="color: #66D9EF;">)</span>;  <span style="color: #75715E;">// </span><span style="color: #75715E;">"Goats!"</span>
+
+  <span style="color: #F92672;">return</span> 0;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+<p>
+上面示例中，字符串s所在的内存，被拷贝到字符数组t所在的内存。
+</p>
+
+<p>
+memcpy()可以取代strcpy()进行字符串拷贝，而且是更好的方法，不仅更安全，速度也更快，它不检查字符串尾部的\0字符。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">s</span> = <span style="color: #E6DB74;">"hello world"</span>;
+
+<span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">len</span> = strlen<span style="color: #AE81FF;">(</span>s<span style="color: #AE81FF;">)</span> + 1;
+<span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">c</span> = malloc<span style="color: #AE81FF;">(</span>len<span style="color: #AE81FF;">)</span>;
+
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>c<span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">strcpy() &#30340;&#20889;&#27861;</span>
+  strcpy<span style="color: #66D9EF;">(</span>c, s<span style="color: #66D9EF;">)</span>;
+
+  <span style="color: #75715E;">// </span><span style="color: #75715E;">memcpy() &#30340;&#20889;&#27861;</span>
+  memcpy<span style="color: #66D9EF;">(</span>c, s, len<span style="color: #66D9EF;">)</span>;
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+<p>
+上面示例中，两种写法的效果完全一样，但是memcpy()的写法要好于strcpy()。
+</p>
+
+<p>
+使用 void 指针，也可以自定义一个复制内存的函数。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">my_memcpy</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">dest</span>, <span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">src</span>, <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">byte_count</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
+  <span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">s</span> = src;
+  <span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">d</span> = dest;
+
+  <span style="color: #F92672;">while</span> <span style="color: #66D9EF;">(</span>byte_count--<span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
+    *d++ = *s++;
+  <span style="color: #66D9EF;">}</span>
+
+  <span style="color: #F92672;">return</span> dest;
+
+<span style="color: #AE81FF;">}</span>
+</pre>
+</div>
+<p>
+上面示例中，不管传入的dest和src是什么类型的指针，将它们重新定义成一字节的 Char 指针，这样就可以逐字节进行复制。*d++ = *s++语句相当于先执行*d = *s（源字节的值复制给目标字节），然后各自移动到下一个字节。最后，返回复制后的dest指针，便于后续使用。
+</p>
+</div>
+</div>
+<div id="outline-container-orgb5a873c" class="outline-2">
+<h2 id="orgb5a873c">memmove()</h2>
+<div class="outline-text-2" id="text-orgb5a873c">
+<p>
+memmove()函数用于将一段内存数据复制到另一段内存。它跟memcpy()的主要区别是，它允许目标区域与源区域有重叠。如果发生重叠，源区域的内容会被更改；如果没有重叠，它与memcpy()行为相同。
+</p>
+
+<p>
+该函数的原型定义在头文件string.h。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">void</span>* <span style="color: #A6E22E;">memmove</span><span style="color: #AE81FF;">(</span>
+  <span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">dest</span>,
+  <span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">source</span>,
+  <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">n</span>
+<span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+<p>
+上面代码中，dest是目标地址，source是源地址，n是要移动的字节数。dest和source都是 void 指针，表示可以移动任何类型的内存数据，两个内存区域可以有重叠。
+</p>
+
+<p>
+memmove()返回值是第一个参数，即目标地址的指针。
+</p>
+
+<p>
+int a[100];
+// &#x2026;
+</p>
+
+<p>
+memmove(&amp;a[0], &amp;a[1], 99 * sizeof(int));
+</p>
+
+<p>
+上面示例中，从数组成员a[1]开始的99个成员，都向前移动一个位置。
+</p>
+
+<p>
+下面是另一个例子。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">x</span><span style="color: #AE81FF;">[]</span> = <span style="color: #E6DB74;">"Home Sweet Home"</span>;
+<span style="color: #75715E;">// </span><span style="color: #75715E;">&#36755;&#20986; Sweet Home Home</span>
+printf<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"%s\n"</span>, <span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">char</span> *<span style="color: #66D9EF;">)</span> <span style="color: #A6E22E;">memmove</span><span style="color: #66D9EF;">(</span>x, &amp;x<span style="color: #A6E22E;">[</span>5<span style="color: #A6E22E;">]</span>, 10<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+<p>
+上面示例中，从字符串x的5号位置开始的10个字节，就是“Sweet Home”，memmove()将其前移到0号位置，所以x就变成了“Sweet Home Home”。
+</p>
+</div>
+</div>
+<div id="outline-container-org3e79f91" class="outline-2">
+<h2 id="org3e79f91">memcmp()</h2>
+<div class="outline-text-2" id="text-org3e79f91">
+<p>
+memcmp()函数用来比较两个内存区域。它的原型定义在string.h。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">memcmp</span><span style="color: #AE81FF;">(</span>
+  <span style="color: #F92672;">const</span> <span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">s1</span>,
+  <span style="color: #F92672;">const</span> <span style="color: #66D9EF;">void</span>* <span style="color: #FD971F;">s2</span>,
+  <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">n</span>
+<span style="color: #AE81FF;">)</span>;
+</pre>
+</div>
+<p>
+它接受三个参数，前两个参数是用来比较的指针，第三个参数指定比较的字节数。
+</p>
+
+<p>
+它的返回值是一个整数。两块内存区域的每个字节以字符形式解读，按照字典顺序进行比较，如果两者相同，返回0；如果s1大于s2，返回大于0的整数；如果s1小于s2，返回小于0的整数。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">s1</span> = <span style="color: #E6DB74;">"abc"</span>;
+<span style="color: #66D9EF;">char</span>* <span style="color: #FD971F;">s2</span> = <span style="color: #E6DB74;">"acd"</span>;
+<span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">r</span> = memcmp<span style="color: #AE81FF;">(</span>s1, s2, 3<span style="color: #AE81FF;">)</span>; <span style="color: #75715E;">// </span><span style="color: #75715E;">&#23567;&#20110; 0</span>
+</pre>
+</div>
+<p>
+上面示例比较s1和s2的前三个字节，由于s1小于s2，所以r是一个小于0的整数，一般为-1。
+</p>
+
+<p>
+下面是另一个例子。
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">s1</span><span style="color: #AE81FF;">[]</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'b'</span>, <span style="color: #E6DB74;">'i'</span>, <span style="color: #E6DB74;">'g'</span>, <span style="color: #E6DB74;">'\0'</span>, <span style="color: #E6DB74;">'c'</span>, <span style="color: #E6DB74;">'a'</span>, <span style="color: #E6DB74;">'r'</span><span style="color: #AE81FF;">}</span>;
+<span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">s2</span><span style="color: #AE81FF;">[]</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'b'</span>, <span style="color: #E6DB74;">'i'</span>, <span style="color: #E6DB74;">'g'</span>, <span style="color: #E6DB74;">'\0'</span>, <span style="color: #E6DB74;">'c'</span>, <span style="color: #E6DB74;">'a'</span>, <span style="color: #E6DB74;">'t'</span><span style="color: #AE81FF;">}</span>;
+
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>memcmp<span style="color: #66D9EF;">(</span>s1, s2, 3<span style="color: #66D9EF;">)</span> == 0<span style="color: #AE81FF;">)</span> <span style="color: #75715E;">// </span><span style="color: #75715E;">true</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>memcmp<span style="color: #66D9EF;">(</span>s1, s2, 4<span style="color: #66D9EF;">)</span> == 0<span style="color: #AE81FF;">)</span> <span style="color: #75715E;">// </span><span style="color: #75715E;">true</span>
+<span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span>memcmp<span style="color: #66D9EF;">(</span>s1, s2, 7<span style="color: #66D9EF;">)</span> == 0<span style="color: #AE81FF;">)</span> <span style="color: #75715E;">// </span><span style="color: #75715E;">false</span>
+</pre>
+</div>
+<p>
+上面示例展示了，memcmp()可以比较内部带有字符串终止符\0的内存区域。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e8db15" class="outline-2">
+<h2 id="org9e8db15">资源</h2>
+<div class="outline-text-2" id="text-org9e8db15">
+<ul class="org-ul">
+<li><a href="https://wangdoc.com/clang/memory">阮一峰</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2022-12-23 Fri 14:29</p>
+</div>
+</body>
+</html>

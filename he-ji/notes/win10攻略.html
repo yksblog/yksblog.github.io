@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Win10攻略</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
+           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Win10攻略</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org3401be4">微软账号</a></li>
+<li><a href="#org6e2b351">qq输入法</a></li>
+<li><a href="#org326525a">Emacs</a></li>
+<li><a href="#org80ca70e">WSL</a>
+<ul>
+<li><a href="#org8e8d329">Ubuntu18.04</a>
+<ul>
+<li><a href="#org4ad9ff2">/etc/apt/sources.list</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgbb18cb2">wsl和windows文件互传</a></li>
+<li><a href="#org36cf846">rvm</a></li>
+<li><a href="#org2a2ede5">GitBash</a>
+<ul>
+<li><a href="#org08e7804">解决中文乱码</a>
+<ul>
+<li><a href="#org666eb4d">第一步</a></li>
+<li><a href="#org72d00ac">第二步 设置环境变量</a></li>
+</ul>
+</li>
+<li><a href="#org6bd69e0">配置</a>
+<ul>
+<li><a href="#orgdf2f3b7">window Exec</a></li>
+<li><a href="#org572f2ff">shell/window</a></li>
+</ul>
+</li>
+<li><a href="#org4835704">plugins</a>
+<ul>
+<li><a href="#orgbdb8087">remote-WSL</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3401be4" class="outline-2">
+<h2 id="org3401be4">微软账号</h2>
+</div>
+
+<div id="outline-container-org6e2b351" class="outline-2">
+<h2 id="org6e2b351">qq输入法</h2>
+</div>
+
+<div id="outline-container-org326525a" class="outline-2">
+<h2 id="org326525a">Emacs</h2>
+</div>
+
+<div id="outline-container-org80ca70e" class="outline-2">
+<h2 id="org80ca70e">WSL</h2>
+<div class="outline-text-2" id="text-org80ca70e">
+<ul class="org-ul">
+<li><a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10">在 Windows 10 上安装 WSL | Microsoft Docs</a></li>
+</ul>
+</div>
+
+<div id="outline-container-org8e8d329" class="outline-3">
+<h3 id="org8e8d329">Ubuntu18.04</h3>
+<div class="outline-text-3" id="text-org8e8d329">
+</div>
+<div id="outline-container-org4ad9ff2" class="outline-4">
+<h4 id="org4ad9ff2">/etc/apt/sources.list</h4>
+<div class="outline-text-4" id="text-org4ad9ff2">
+<pre class="example">
+deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse                                                             T7KEAC " 18:16 17-Jun-21
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgbb18cb2" class="outline-2">
+<h2 id="orgbb18cb2">wsl和windows文件互传</h2>
+<div class="outline-text-2" id="text-orgbb18cb2">
+<ul class="org-ul">
+<li>在wsl中新建 window下目录的软连接</li>
+</ul>
+
+<pre class="example">
+zzz_wsl_works -&gt; /mnt/c/Users/ykyk/zzz_wsl_works
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org36cf846" class="outline-2">
+<h2 id="org36cf846">rvm</h2>
+</div>
+
+<div id="outline-container-org2a2ede5" class="outline-2">
+<h2 id="org2a2ede5">GitBash</h2>
+<div class="outline-text-2" id="text-org2a2ede5">
+</div>
+<div id="outline-container-org08e7804" class="outline-3">
+<h3 id="org08e7804">解决中文乱码</h3>
+<div class="outline-text-3" id="text-org08e7804">
+<ul class="org-ul">
+<li><a href="https://zhuanlan.zhihu.com/p/91741156">解决git显示中文乱码的问题 - 知乎 (zhihu.com)</a></li>
+</ul>
+</div>
+
+<div id="outline-container-org666eb4d" class="outline-4">
+<h4 id="org666eb4d">第一步</h4>
+<div class="outline-text-4" id="text-org666eb4d">
+<pre class="example">
+$ git config --global core.quotepath false # 设置 git status utf-8编码
+
+$ git config --global gui.encoding utf-8 # 设置Git GUI界面utf-8编码
+
+$ git config --global i18n.commit.encoding utf-8 #设置commit信息utf-8编码
+
+$ git config --global i18n.logoutputencoding utf-8 # 设置输出 log utf-8 编码
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org72d00ac" class="outline-4">
+<h4 id="org72d00ac">第二步 设置环境变量</h4>
+<div class="outline-text-4" id="text-org72d00ac">
+<ul class="org-ul">
+<li>1. 开系统环境变量</li>
+<li>2. 新建环境变量 LESSCHARSET = utf8</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6bd69e0" class="outline-3">
+<h3 id="org6bd69e0">配置</h3>
+<div class="outline-text-3" id="text-org6bd69e0">
+</div>
+<div id="outline-container-orgdf2f3b7" class="outline-4">
+<h4 id="orgdf2f3b7">window Exec</h4>
+<div class="outline-text-4" id="text-orgdf2f3b7">
+<pre class="example">
+C:\Program Files\Git\git-bash.exe
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org572f2ff" class="outline-4">
+<h4 id="org572f2ff">shell/window</h4>
+<div class="outline-text-4" id="text-org572f2ff">
+<pre class="example">
+  {
+    "timeline.excludeSources": [
+	"git-history"
+    ],
+    "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
+    "terminal.integrated.allowChords": false,
+    "terminal.integrated.automationShell.windows": "C:\\Program Files\\Git\\git-bash.exe",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "git.confirmSync": false,
+    "files.autoSave": "afterDelay"
+}
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org4835704" class="outline-3">
+<h3 id="org4835704">plugins</h3>
+<div class="outline-text-3" id="text-org4835704">
+</div>
+<div id="outline-container-orgbdb8087" class="outline-4">
+<h4 id="orgbdb8087">remote-WSL</h4>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-12-24 Fri 11:12</p>
+</div>
+</body>
+</html>

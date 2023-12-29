@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>如何处理1+N问题</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
+           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">如何处理1+N问题</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org1716459">1+n问题是什么？</a></li>
+<li><a href="#orga4824ee">应该怎样解决？</a>
+<ul>
+<li><a href="#orgc7730a9">外链接</a></li>
+</ul>
+</li>
+<li><a href="#orgb573c29">关于Rails中N+1查询</a>
+<ul>
+<li><a href="#org3fe5848">生成的sql语句：</a></li>
+</ul>
+</li>
+<li><a href="#org93b4ccb">链接</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1716459" class="outline-2">
+<h2 id="org1716459">1+n问题是什么？</h2>
+<div class="outline-text-2" id="text-org1716459">
+<p>
+1+n是执行一次查询获取n条主数据后，由于关联引起的执行n次查询从数据；它带来了性能问题；同时也做了不必要的浪费
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga4824ee" class="outline-2">
+<h2 id="orga4824ee">应该怎样解决？</h2>
+<div class="outline-text-2" id="text-orga4824ee">
+<p>
+懒加载
+一般来说，通过懒加载 可以部分缓解1+n带来的性能问题，其中hibernate 有lazy策略
+</p>
+</div>
+
+<div id="outline-container-orgc7730a9" class="outline-3">
+<h3 id="orgc7730a9">外链接</h3>
+<div class="outline-text-3" id="text-orgc7730a9">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #F92672;">left</span> <span style="color: #F92672;">join</span> <span style="color: #AE81FF;">(</span><span style="color: #F92672;">select</span> * <span style="color: #F92672;">from</span> users u <span style="color: #F92672;">left</span> <span style="color: #F92672;">join</span> department d <span style="color: #F92672;">where</span> u.department_id = d.id<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb573c29" class="outline-2">
+<h2 id="orgb573c29">关于Rails中N+1查询</h2>
+<div class="outline-text-2" id="text-orgb573c29">
+<p>
+使用 includes
+</p>
+
+<p>
+// 这样就在读取users的时候也一次性的把departments都取出了
+</p>
+<div class="org-src-container">
+<pre class="src src-ruby"><span style="color: #66D9EF;">User</span>.all.includes<span style="color: #AE81FF;">(</span><span style="color: #AE81FF;">:departments</span><span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org3fe5848" class="outline-3">
+<h3 id="org3fe5848">生成的sql语句：</h3>
+<div class="outline-text-3" id="text-org3fe5848">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #F92672;">SELECT</span> `users`.* <span style="color: #F92672;">FROM</span> `users` <span style="color: #F92672;">ORDER</span> <span style="color: #F92672;">BY</span> `users`.`id` <span style="color: #F92672;">DESC</span>
+<span style="color: #F92672;">SELECT</span> `departments`.* <span style="color: #F92672;">FROM</span> `departments` <span style="color: #F92672;">WHERE</span> `departments`.`user_id` <span style="color: #F92672;">IN</span> <span style="color: #AE81FF;">(</span>2, 1<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">ORDER</span> <span style="color: #F92672;">BY</span> `plans`.`id` <span style="color: #F92672;">DESC</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org93b4ccb" class="outline-2">
+<h2 id="org93b4ccb">链接</h2>
+<div class="outline-text-2" id="text-org93b4ccb">
+<ul class="org-ul">
+<li><a href="https://blog.csdn.net/w05980598/article/details/79647291">https://blog.csdn.net/w05980598/article/details/79647291</a></li>
+<li><a href="https://www.cnblogs.com/lukelook/p/11186768.html">https://www.cnblogs.com/lukelook/p/11186768.html</a></li>
+<li><a href="https://www.php.cn/jishu/mysql/423281.html">https://www.php.cn/jishu/mysql/423281.html</a></li>
+<li><a href="https://www.jianshu.com/p/78267e834091">https://www.jianshu.com/p/78267e834091</a></li>
+<li><a href="https://ruby-china.org/topics/25906">https://ruby-china.org/topics/25906</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2022-06-11 Sat 21:04</p>
+</div>
+</body>
+</html>

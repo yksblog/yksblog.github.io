@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>使用ffmpeg处理音视频</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="">
 </head>
 <body>
@@ -17,40 +17,40 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8d79eda">安装ffmpeg</a></li>
-<li><a href="#org9339038">视频处理</a>
+<li><a href="#orgd8e8d3b">安装ffmpeg</a></li>
+<li><a href="#org0b529b7">视频处理</a>
 <ul>
-<li><a href="#org43749ab">1. 剪辑</a></li>
-<li><a href="#org49ec9e0">2. 缩放</a></li>
-<li><a href="#org3665650">3. 裁剪</a></li>
-<li><a href="#orga1ebeb2">4. 旋转</a></li>
-<li><a href="#orgda6d8c3">5. 调节帧率</a></li>
-<li><a href="#org696763d">6. 格式转换</a></li>
-<li><a href="#orgbb19bd1">7. 查看视频的详细信息</a></li>
+<li><a href="#org7c0de57">1. 剪辑</a></li>
+<li><a href="#org4294e0c">2. 缩放</a></li>
+<li><a href="#org4d21aff">3. 裁剪</a></li>
+<li><a href="#org54222bf">4. 旋转</a></li>
+<li><a href="#orgb7cf18c">5. 调节帧率</a></li>
+<li><a href="#org195a37f">6. 格式转换</a></li>
+<li><a href="#org075dd01">7. 查看视频的详细信息</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org4ddaef3">格式转化</a></li>
-<li><a href="#org2c646eb">调节帧率压缩体积</a></div>
+<li><a href="#org5d8e98e">格式转化</a></li>
+<li><a href="#org0e6f161">调节帧率压缩体积</a></div>
 </div>
 
-<div id="outline-container-org8d79eda" class="outline-3">
-<h3 id="org8d79eda">安装ffmpeg</h3>
-<div class="outline-text-3" id="text-org8d79eda">
+<div id="outline-container-orgd8e8d3b" class="outline-3">
+<h3 id="orgd8e8d3b">安装ffmpeg</h3>
+<div class="outline-text-3" id="text-orgd8e8d3b">
 <p>
 brew install ffmpeg
 </p>
 </div>
 </div>
 
-<div id="outline-container-org9339038" class="outline-3">
-<h3 id="org9339038">视频处理</h3>
-<div class="outline-text-3" id="text-org9339038">
+<div id="outline-container-org0b529b7" class="outline-3">
+<h3 id="org0b529b7">视频处理</h3>
+<div class="outline-text-3" id="text-org0b529b7">
 </div>
-<div id="outline-container-org43749ab" class="outline-4">
-<h4 id="org43749ab">1. 剪辑</h4>
-<div class="outline-text-4" id="text-org43749ab">
+<div id="outline-container-org7c0de57" class="outline-4">
+<h4 id="org7c0de57">1. 剪辑</h4>
+<div class="outline-text-4" id="text-org7c0de57">
 <p>
 有时候我们需要截取一个长视频的其中某一段内容，比如从一个视频的第10秒开始，截取6秒的内容，也就是10~16秒的内容，输入一个out.mp4文件
 </p>
@@ -85,9 +85,9 @@ $ ffmpeg -i in.mp4 -ss 00:00:10 -t 00:00:06 -acodec aac -vcodec h264 -strict -2 
 </div>
 </div>
 
-<div id="outline-container-org49ec9e0" class="outline-4">
-<h4 id="org49ec9e0">2. 缩放</h4>
-<div class="outline-text-4" id="text-org49ec9e0">
+<div id="outline-container-org4294e0c" class="outline-4">
+<h4 id="org4294e0c">2. 缩放</h4>
+<div class="outline-text-4" id="text-org4294e0c">
 <p>
 很多时候我们需要把一个高分辨率的视频处理成一个低分辨率的视频，以达到减小视频体积的目的。举个例子：把一个10801920的视频缩小到360640
 </p>
@@ -114,9 +114,9 @@ scale=360:640 scale是一种滤镜，缩放滤镜，格式是：scale=width:heig
 </div>
 </div>
 
-<div id="outline-container-org3665650" class="outline-4">
-<h4 id="org3665650">3. 裁剪</h4>
-<div class="outline-text-4" id="text-org3665650">
+<div id="outline-container-org4d21aff" class="outline-4">
+<h4 id="org4d21aff">3. 裁剪</h4>
+<div class="outline-text-4" id="text-org4d21aff">
 <p>
 有时候我们想截取一个大视频的中间一部分画面，比如一个10801920的视频，我们想截取中间的10801080的部分，这个也可以实现的：
 </p>
@@ -136,8 +136,8 @@ ffmpeg -i in.mp4 -strict -2 -vf crop=1080:1080:0:420 out.mp4
 </div>
 
 <ul class="org-ul">
-<li><a id="orga2a1153"></a>四个参数分别是 `width:height:x:y`，<br>
-<div class="outline-text-5" id="text-orga2a1153">
+<li><a id="orgb8ad14c"></a>四个参数分别是 `width:height:x:y`，<br>
+<div class="outline-text-5" id="text-orgb8ad14c">
 <ul class="org-ul">
 <li>width 宽</li>
 <li>height 高</li>
@@ -149,9 +149,9 @@ ffmpeg -i in.mp4 -strict -2 -vf crop=1080:1080:0:420 out.mp4
 </ul>
 </div>
 
-<div id="outline-container-orga1ebeb2" class="outline-4">
-<h4 id="orga1ebeb2">4. 旋转</h4>
-<div class="outline-text-4" id="text-orga1ebeb2">
+<div id="outline-container-org54222bf" class="outline-4">
+<h4 id="org54222bf">4. 旋转</h4>
+<div class="outline-text-4" id="text-org54222bf">
 <p>
 使用ffmpeg可以轻松地旋转视频。举个例子：将一个视频顺时针旋转90度
 </p>
@@ -186,9 +186,9 @@ oh 全称是out height，输出视频的高度，如果不指定，默认是输�
 </div>
 </div>
 
-<div id="outline-container-orgda6d8c3" class="outline-4">
-<h4 id="orgda6d8c3">5. 调节帧率</h4>
-<div class="outline-text-4" id="text-orgda6d8c3">
+<div id="outline-container-orgb7cf18c" class="outline-4">
+<h4 id="orgb7cf18c">5. 调节帧率</h4>
+<div class="outline-text-4" id="text-orgb7cf18c">
 <p>
 帧率会很大程度上影响画面的流畅度和视频的体积，帧率越大，画面越流畅，同时视频体积越大。
 </p>
@@ -215,9 +215,9 @@ ffmpeg -i in.mp4 -r 15 out.mp4
 </div>
 </div>
 
-<div id="outline-container-org696763d" class="outline-4">
-<h4 id="org696763d">6. 格式转换</h4>
-<div class="outline-text-4" id="text-org696763d">
+<div id="outline-container-org195a37f" class="outline-4">
+<h4 id="org195a37f">6. 格式转换</h4>
+<div class="outline-text-4" id="text-org195a37f">
 <p>
 ffmpeg具备强大的格式转换功能，这里举几个常用的例子。
 </p>
@@ -230,9 +230,9 @@ ffmpeg -i in.gif -vf scale=420:-2,format=yuv420p out.mp4  // gif --&gt; mp4
 </div>
 </div>
 
-<div id="outline-container-orgbb19bd1" class="outline-4">
-<h4 id="orgbb19bd1">7. 查看视频的详细信息</h4>
-<div class="outline-text-4" id="text-orgbb19bd1">
+<div id="outline-container-org075dd01" class="outline-4">
+<h4 id="org075dd01">7. 查看视频的详细信息</h4>
+<div class="outline-text-4" id="text-org075dd01">
 <p>
 有的时候我们需要在处理之前先了解一下视频的参数信息，比如分辨率、比特率等等。可以使用下面的命令：
 </p>
@@ -246,9 +246,9 @@ ffmpeg -i in.mp4 // 不加任何参数，只指定输入的视频
 
 
 
-<div id="outline-container-org4ddaef3" class="outline-2">
-<h2 id="org4ddaef3">格式转化</h2>
-<div class="outline-text-2" id="text-org4ddaef3">
+<div id="outline-container-org5d8e98e" class="outline-2">
+<h2 id="org5d8e98e">格式转化</h2>
+<div class="outline-text-2" id="text-org5d8e98e">
 <pre class="example">
 ffmpeg -i gfc.mp4 gfc.gif
 </pre>
@@ -256,9 +256,9 @@ ffmpeg -i gfc.mp4 gfc.gif
 </div>
 
 
-<div id="outline-container-org2c646eb" class="outline-2">
-<h2 id="org2c646eb">调节帧率压缩体积</h2>
-<div class="outline-text-2" id="text-org2c646eb">
+<div id="outline-container-org0e6f161" class="outline-2">
+<h2 id="org0e6f161">调节帧率压缩体积</h2>
+<div class="outline-text-2" id="text-org0e6f161">
 <pre class="example">
 
 ffmpeg -i gfc.gif -r 15 gfc15.gif

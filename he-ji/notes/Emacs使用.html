@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Emacs使用</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="">
 </head>
 <body>
@@ -17,29 +17,29 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org94763cf">快捷键</a></li>
-<li><a href="#org90f0fe6">eww</a>
+<li><a href="#org08698fd">快捷键</a></li>
+<li><a href="#orge62ee03">eww</a>
 <ul>
-<li><a href="#org386df40">Emacs浏览器及快捷键</a></li>
-<li><a href="#org10e8359">快捷键</a></li>
-<li><a href="#org27fadca">设置eww搜索引擎</a></li>
-<li><a href="#org03a5d57">加载外部el文件并执行el的方法</a></li>
-<li><a href="#org4a258ab">关于导出html缓存</a>
+<li><a href="#orgcfd4bef">Emacs浏览器及快捷键</a></li>
+<li><a href="#org3de0e17">快捷键</a></li>
+<li><a href="#org43f2ce6">设置eww搜索引擎</a></li>
+<li><a href="#org9c662f1">加载外部el文件并执行el的方法</a></li>
+<li><a href="#orgc4c9fc6">关于导出html缓存</a>
 <ul>
-<li><a href="#org5f544f1">eg</a></li>
+<li><a href="#org4c2094f">eg</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org337c9e2">资源</a></li>
+<li><a href="#org7a0bf38">资源</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org94763cf" class="outline-2">
-<h2 id="org94763cf">快捷键</h2>
-<div class="outline-text-2" id="text-org94763cf">
+<div id="outline-container-org08698fd" class="outline-2">
+<h2 id="org08698fd">快捷键</h2>
+<div class="outline-text-2" id="text-org08698fd">
 <table>
 
 
@@ -368,17 +368,17 @@
 </div>
 </div>
 
-<div id="outline-container-org90f0fe6" class="outline-2">
-<h2 id="org90f0fe6">eww</h2>
-<div class="outline-text-2" id="text-org90f0fe6">
+<div id="outline-container-orge62ee03" class="outline-2">
+<h2 id="orge62ee03">eww</h2>
+<div class="outline-text-2" id="text-orge62ee03">
 <p>
 <a href="https://blog.csdn.net/u010164190/article/details/79542297">eww-csdn</a>
 </p>
 </div>
 
-<div id="outline-container-org386df40" class="outline-3">
-<h3 id="org386df40">Emacs浏览器及快捷键</h3>
-<div class="outline-text-3" id="text-org386df40">
+<div id="outline-container-orgcfd4bef" class="outline-3">
+<h3 id="orgcfd4bef">Emacs浏览器及快捷键</h3>
+<div class="outline-text-3" id="text-orgcfd4bef">
 <pre class="example">
 `M-x eww` //进入浏览器
 </pre>
@@ -386,9 +386,9 @@
 </div>
 
 
-<div id="outline-container-org10e8359" class="outline-3">
-<h3 id="org10e8359">快捷键</h3>
-<div class="outline-text-3" id="text-org10e8359">
+<div id="outline-container-org3de0e17" class="outline-3">
+<h3 id="org3de0e17">快捷键</h3>
+<div class="outline-text-3" id="text-org3de0e17">
 <pre class="example">
 按键	函数	作用
 q	eww-quit	退出eww
@@ -414,9 +414,9 @@ C-h e //查看emacs回显
 </div>
 </div>
 
-<div id="outline-container-org27fadca" class="outline-3">
-<h3 id="org27fadca">设置eww搜索引擎</h3>
-<div class="outline-text-3" id="text-org27fadca">
+<div id="outline-container-org43f2ce6" class="outline-3">
+<h3 id="org43f2ce6">设置eww搜索引擎</h3>
+<div class="outline-text-3" id="text-org43f2ce6">
 <ul class="org-ul">
 <li>进入eww</li>
 <li>C-h v 查找 eww-search-prefix</li>
@@ -426,9 +426,9 @@ C-h e //查看emacs回显
 </div>
 
 
-<div id="outline-container-org03a5d57" class="outline-3">
-<h3 id="org03a5d57">加载外部el文件并执行el的方法</h3>
-<div class="outline-text-3" id="text-org03a5d57">
+<div id="outline-container-org9c662f1" class="outline-3">
+<h3 id="org9c662f1">加载外部el文件并执行el的方法</h3>
+<div class="outline-text-3" id="text-org9c662f1">
 <div class="org-src-container">
 <pre class="src src-lisp">emacsclient -n --eval <span style="color: #E6DB74;">"(load-file \"publish-config.el\")"</span>
 </pre>
@@ -473,18 +473,18 @@ C-h e //查看emacs回显
 </div>
 </div>
 
-<div id="outline-container-org4a258ab" class="outline-3">
-<h3 id="org4a258ab">关于导出html缓存</h3>
-<div class="outline-text-3" id="text-org4a258ab">
+<div id="outline-container-orgc4c9fc6" class="outline-3">
+<h3 id="orgc4c9fc6">关于导出html缓存</h3>
+<div class="outline-text-3" id="text-orgc4c9fc6">
 <ul class="org-ul">
 <li><code>org-publish-use-timestamps-flag</code> 默认值 t，即默认使用缓存。缓存文件默认存放在 <code>~/.org-timestamps/orgfiles.cache</code> 中</li>
 <li>每次调用 <code>org-publish-all</code> 方法导出html时，先读取缓存文件，查看是否需要 <code>Skipping unmodified file</code></li>
 <li>若要不使用缓存，强制导出html，可以设置 <code>org-publish-use-timestamps-flag</code> 的值为 nil。这样就不会读取缓存文件了，而是直接重新导出项目下所有的org文件为html文件</li>
 </ul>
 </div>
-<div id="outline-container-org5f544f1" class="outline-4">
-<h4 id="org5f544f1">eg</h4>
-<div class="outline-text-4" id="text-org5f544f1">
+<div id="outline-container-org4c2094f" class="outline-4">
+<h4 id="org4c2094f">eg</h4>
+<div class="outline-text-4" id="text-org4c2094f">
 <div class="org-src-container">
 <pre class="src src-elisp"><span class="linenr"> 1: </span><span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">ykyk-site-html-local</span><span style="color: #66D9EF;">()</span>
 <span class="linenr"> 2: </span>  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">interactive</span><span style="color: #66D9EF;">)</span>
@@ -508,9 +508,9 @@ C-h e //查看emacs回显
 </div>
 </div>
 
-<div id="outline-container-org337c9e2" class="outline-2">
-<h2 id="org337c9e2">资源</h2>
-<div class="outline-text-2" id="text-org337c9e2">
+<div id="outline-container-org7a0bf38" class="outline-2">
+<h2 id="org7a0bf38">资源</h2>
+<div class="outline-text-2" id="text-org7a0bf38">
 <ul class="org-ul">
 <li><a href="https://aifreedom.com/technology/112">emacs快捷键</a></li>
 </ul>

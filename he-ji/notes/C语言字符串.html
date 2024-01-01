@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>C语言字符串</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="">
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -38,26 +38,26 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5d4eea5">一、字符串常量和字符数组</a>
+<li><a href="#orga389983">一、字符串常量和字符数组</a>
 <ul>
-<li><a href="#org1261d55">1.1、什么是字符串常量</a></li>
-<li><a href="#org776db64">1.2、字符串常量与指针</a></li>
-<li><a href="#org3e716ba">1.3、字符数组</a></li>
-<li><a href="#orgc48d9d4">1.4、 字符串常量与字符数组的区别</a></li>
+<li><a href="#org6911e11">1.1、什么是字符串常量</a></li>
+<li><a href="#org25df66d">1.2、字符串常量与指针</a></li>
+<li><a href="#org67117f0">1.3、字符数组</a></li>
+<li><a href="#orge771df7">1.4、 字符串常量与字符数组的区别</a></li>
 </ul>
 </li>
-<li><a href="#org39e6a66">二、获取字符串长度</a></li>
-<li><a href="#orgc61af37">三、复制字符串</a></li>
-<li><a href="#org69a8dc8">四、连接字符串</a></li>
-<li><a href="#orga6b976c">五、字符串比较</a></li>
-<li><a href="#orgf57270a">六、字符串的查找</a>
+<li><a href="#org7486502">二、获取字符串长度</a></li>
+<li><a href="#org5c65780">三、复制字符串</a></li>
+<li><a href="#org1726c95">四、连接字符串</a></li>
+<li><a href="#org2a80a6b">五、字符串比较</a></li>
+<li><a href="#orga0ece94">六、字符串的查找</a>
 <ul>
-<li><a href="#org2c8e98d">6.1 查找一个字符</a></li>
-<li><a href="#orgb02f554">6.2 查找任意几个字符</a></li>
-<li><a href="#orgd5f7e36">6.3 查找一个子串</a></li>
+<li><a href="#orgf9720ee">6.1 查找一个字符</a></li>
+<li><a href="#orgf9b11ec">6.2 查找任意几个字符</a></li>
+<li><a href="#orgb382f48">6.3 查找一个子串</a></li>
 </ul>
 </li>
-<li><a href="#org08d69d8">资料</a></li>
+<li><a href="#org085cc25">资料</a></li>
 </ul>
 </div>
 </div>
@@ -65,13 +65,13 @@
 C语言 <b>不存在显式的字符串类型</b> ，C语言中的字符串都以字符串常量的形式出现或存储在字符数组中。同时，C语言提供了一系列库函数来对操作字符串，这些库函数都包含在头文件 string.h 中。
 </p>
 
-<div id="outline-container-org5d4eea5" class="outline-2">
-<h2 id="org5d4eea5">一、字符串常量和字符数组</h2>
-<div class="outline-text-2" id="text-org5d4eea5">
+<div id="outline-container-orga389983" class="outline-2">
+<h2 id="orga389983">一、字符串常量和字符数组</h2>
+<div class="outline-text-2" id="text-orga389983">
 </div>
-<div id="outline-container-org1261d55" class="outline-3">
-<h3 id="org1261d55">1.1、什么是字符串常量</h3>
-<div class="outline-text-3" id="text-org1261d55">
+<div id="outline-container-org6911e11" class="outline-3">
+<h3 id="org6911e11">1.1、什么是字符串常量</h3>
+<div class="outline-text-3" id="text-org6911e11">
 <p>
 C语言虽然没有字符串类型，但是 C语言提是存在字符串这个概念的，也就是字符串常量：
 </p>
@@ -85,9 +85,9 @@ C语言虽然没有字符串类型，但是 C语言提是存在字符串这个�
 </div>
 </div>
 
-<div id="outline-container-org776db64" class="outline-3">
-<h3 id="org776db64">1.2、字符串常量与指针</h3>
-<div class="outline-text-3" id="text-org776db64">
+<div id="outline-container-org25df66d" class="outline-3">
+<h3 id="org25df66d">1.2、字符串常量与指针</h3>
+<div class="outline-text-3" id="text-org25df66d">
 <ul class="org-ul">
 <li>字符串常量与指针关系密切</li>
 <li>字符串常量的值，实际上表示的是存储这些字符的内存空间的地址，更准确地说是字符串常量中第 1 个字符的地址</li>
@@ -137,9 +137,9 @@ message = <span style="color: #E6DB74;">"Hello World!"</span>;&#12288;&#12288;&#
 </div>
 </div>
 
-<div id="outline-container-org3e716ba" class="outline-3">
-<h3 id="org3e716ba">1.3、字符数组</h3>
-<div class="outline-text-3" id="text-org3e716ba">
+<div id="outline-container-org67117f0" class="outline-3">
+<h3 id="org67117f0">1.3、字符数组</h3>
+<div class="outline-text-3" id="text-org67117f0">
 <p>
 用于存放字符的数组称为字符数组。在 C 语言中，除了字符串常量外，其他所有字符串都必须存储于字符数组或动态分配的内存中。定义一个字符数组和定义一个普通数组一样，不同的是字符数组中存放的是字符数据而已：
 </p>
@@ -197,9 +197,9 @@ C 语言提供了一种更简洁的方法来对字符数组进行初始化：
 </div>
 
 
-<div id="outline-container-orgc48d9d4" class="outline-3">
-<h3 id="orgc48d9d4">1.4、 字符串常量与字符数组的区别</h3>
-<div class="outline-text-3" id="text-orgc48d9d4">
+<div id="outline-container-orge771df7" class="outline-3">
+<h3 id="orge771df7">1.4、 字符串常量与字符数组的区别</h3>
+<div class="outline-text-3" id="text-orge771df7">
 <ul class="org-ul">
 <li>字符串常量是一个字符数组，但是内容和长度在初始化时就已经固定了，不可更改；可以通过一个指向字符串常量第一个元素的指针来访问该字符串常量；</li>
 <li>字符数组是一个用于存放字符的数组，字符数组的值是可以更改的。</li>
@@ -208,9 +208,9 @@ C 语言提供了一种更简洁的方法来对字符数组进行初始化：
 </div>
 </div>
 
-<div id="outline-container-org39e6a66" class="outline-2">
-<h2 id="org39e6a66">二、获取字符串长度</h2>
-<div class="outline-text-2" id="text-org39e6a66">
+<div id="outline-container-org7486502" class="outline-2">
+<h2 id="org7486502">二、获取字符串长度</h2>
+<div class="outline-text-2" id="text-org7486502">
 <p>
 字符串的长度就是这个字符串所包含字符的个数，但是这个长度是不包含 NUL 字符的。C 语言中使用库函数 strlen 来计算字符串长度：
 </p>
@@ -245,9 +245,9 @@ C 语言提供了一种更简洁的方法来对字符数组进行初始化：
 </div>
 </div>
 
-<div id="outline-container-orgc61af37" class="outline-2">
-<h2 id="orgc61af37">三、复制字符串</h2>
-<div class="outline-text-2" id="text-orgc61af37">
+<div id="outline-container-org5c65780" class="outline-2">
+<h2 id="org5c65780">三、复制字符串</h2>
+<div class="outline-text-2" id="text-org5c65780">
 <p>
 C 语言中使用库函数 strcpy 来进行字符串复制操作：
 </p>
@@ -280,9 +280,9 @@ strncpy 函数有三个参数，与 strcpy 函数一样，它也是将 src 字�
 </div>
 </div>
 
-<div id="outline-container-org69a8dc8" class="outline-2">
-<h2 id="org69a8dc8">四、连接字符串</h2>
-<div class="outline-text-2" id="text-org69a8dc8">
+<div id="outline-container-org1726c95" class="outline-2">
+<h2 id="org1726c95">四、连接字符串</h2>
+<div class="outline-text-2" id="text-org1726c95">
 <p>
 C 语言中使用库函数 strcat 来连接两个字符串：
 </p>
@@ -306,9 +306,9 @@ strncat 函数从 src 中最多复制 len 个字符到目标数组 dst 后面，
 </div>
 </div>
 
-<div id="outline-container-orga6b976c" class="outline-2">
-<h2 id="orga6b976c">五、字符串比较</h2>
-<div class="outline-text-2" id="text-orga6b976c">
+<div id="outline-container-org2a80a6b" class="outline-2">
+<h2 id="org2a80a6b">五、字符串比较</h2>
+<div class="outline-text-2" id="text-org2a80a6b">
 <p>
 C 语言中使用库函数 strcmp 来进行字符串比较。strcmp 函数会对被比较的两个字符串进行逐字符地比较，直到发现不匹配为止：最先不匹配的字符中较小的那个字符所对应的字符串即被认为小于另一个字符串；如果两者所有字符都匹配，则认为这两个字符串相等；
 </p>
@@ -344,13 +344,13 @@ C 语言中使用库函数 strcmp 来进行字符串比较。strcmp 函数会对
 </p>
 </div>
 </div>
-<div id="outline-container-orgf57270a" class="outline-2">
-<h2 id="orgf57270a">六、字符串的查找</h2>
-<div class="outline-text-2" id="text-orgf57270a">
+<div id="outline-container-orga0ece94" class="outline-2">
+<h2 id="orga0ece94">六、字符串的查找</h2>
+<div class="outline-text-2" id="text-orga0ece94">
 </div>
-<div id="outline-container-org2c8e98d" class="outline-3">
-<h3 id="org2c8e98d">6.1 查找一个字符</h3>
-<div class="outline-text-3" id="text-org2c8e98d">
+<div id="outline-container-orgf9720ee" class="outline-3">
+<h3 id="orgf9720ee">6.1 查找一个字符</h3>
+<div class="outline-text-3" id="text-orgf9720ee">
 <p>
 可以使用 strchr 函数或 strrchr 函数来在一个字符串中查找一个特定的字符：
 </p>
@@ -369,9 +369,9 @@ C 语言中使用库函数 strcmp 来进行字符串比较。strcmp 函数会对
 </div>
 </div>
 
-<div id="outline-container-orgb02f554" class="outline-3">
-<h3 id="orgb02f554">6.2 查找任意几个字符</h3>
-<div class="outline-text-3" id="text-orgb02f554">
+<div id="outline-container-orgf9b11ec" class="outline-3">
+<h3 id="orgf9b11ec">6.2 查找任意几个字符</h3>
+<div class="outline-text-3" id="text-orgf9b11ec">
 <p>
 可以使用 strpbrk 函数来查找任何一组字符第一次在字符串中出现的位置：
 </p>
@@ -387,9 +387,9 @@ C 语言中使用库函数 strcmp 来进行字符串比较。strcmp 函数会对
 </div>
 </div>
 
-<div id="outline-container-orgd5f7e36" class="outline-3">
-<h3 id="orgd5f7e36">6.3 查找一个子串</h3>
-<div class="outline-text-3" id="text-orgd5f7e36">
+<div id="outline-container-orgb382f48" class="outline-3">
+<h3 id="orgb382f48">6.3 查找一个子串</h3>
+<div class="outline-text-3" id="text-orgb382f48">
 <p>
 可以使用 <b>strstr</b> 函数来在一个字符串中查找一个子串：
 </p>
@@ -408,9 +408,9 @@ C 语言中使用库函数 strcmp 来进行字符串比较。strcmp 函数会对
 </div>
 </div>
 
-<div id="outline-container-org08d69d8" class="outline-2">
-<h2 id="org08d69d8">资料</h2>
-<div class="outline-text-2" id="text-org08d69d8">
+<div id="outline-container-org085cc25" class="outline-2">
+<h2 id="org085cc25">资料</h2>
+<div class="outline-text-2" id="text-org085cc25">
 <ul class="org-ul">
 <li><a href="https://mp.weixin.qq.com/s/kEpVW38yMhsvSgfuTKSWmg">微信</a></li>
 </ul>

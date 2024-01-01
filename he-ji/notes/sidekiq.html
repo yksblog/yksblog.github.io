@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Sidekiq</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="">
 </head>
 <body>
@@ -17,32 +17,32 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2b152cc">1. 配置redis</a>
+<li><a href="#org078d27c">1. 配置redis</a>
 <ul>
-<li><a href="#org4a31e54">server</a></li>
-<li><a href="#org56a1a74">client</a></li>
+<li><a href="#org6384dac">server</a></li>
+<li><a href="#org0e38a34">client</a></li>
 </ul>
 </li>
-<li><a href="#org4351dfc">3. gemfile中添加对应的包</a></li>
-<li><a href="#orgc2d453d">4. 在app/jobs文件下新建一个job,来处理异步请求(可以使用命令也可以手动创建)</a></li>
-<li><a href="#org78cea80">5. 在需要的地方controller或者model中调用,调用示例如下</a></li>
-<li><a href="#orga5dbdf7">6. 在config/application.rb中指定active_job的adapter</a></li>
-<li><a href="#org11bdf0f">7. 在rails项目的根目录启动sidekiq</a></li>
+<li><a href="#org8e86ca2">3. gemfile中添加对应的包</a></li>
+<li><a href="#orgb3bc826">4. 在app/jobs文件下新建一个job,来处理异步请求(可以使用命令也可以手动创建)</a></li>
+<li><a href="#org6d43ab9">5. 在需要的地方controller或者model中调用,调用示例如下</a></li>
+<li><a href="#org6aab510">6. 在config/application.rb中指定active_job的adapter</a></li>
+<li><a href="#org228933a">7. 在rails项目的根目录启动sidekiq</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2b152cc" class="outline-2">
-<h2 id="org2b152cc">1. 配置redis</h2>
-<div class="outline-text-2" id="text-org2b152cc">
+<div id="outline-container-org078d27c" class="outline-2">
+<h2 id="org078d27c">1. 配置redis</h2>
+<div class="outline-text-2" id="text-org078d27c">
 <p>
 配置sidekiq所依赖的redis位置,必须同时定义sidekiq的server和client
 </p>
 </div>
 
-<div id="outline-container-org4a31e54" class="outline-3">
-<h3 id="org4a31e54">server</h3>
-<div class="outline-text-3" id="text-org4a31e54">
+<div id="outline-container-org6384dac" class="outline-3">
+<h3 id="org6384dac">server</h3>
+<div class="outline-text-3" id="text-org6384dac">
 <ul class="org-ul">
 <li>config/initializers/sidekiq.rb</li>
 </ul>
@@ -64,9 +64,9 @@ end
 </div>
 </div>
 
-<div id="outline-container-org56a1a74" class="outline-3">
-<h3 id="org56a1a74">client</h3>
-<div class="outline-text-3" id="text-org56a1a74">
+<div id="outline-container-org0e38a34" class="outline-3">
+<h3 id="org0e38a34">client</h3>
+<div class="outline-text-3" id="text-org0e38a34">
 <p>
 配置config/sidekiq.yml文件,一般只有在需要配置高级选项的时候才需要配置这个文件(如果不使用这个名字,可以使用-c指定 sidekiq -c config/name.yml)
 </p>
@@ -94,18 +94,18 @@ production:
 </div>
 </div>
 
-<div id="outline-container-org4351dfc" class="outline-2">
-<h2 id="org4351dfc">3. gemfile中添加对应的包</h2>
-<div class="outline-text-2" id="text-org4351dfc">
+<div id="outline-container-org8e86ca2" class="outline-2">
+<h2 id="org8e86ca2">3. gemfile中添加对应的包</h2>
+<div class="outline-text-2" id="text-org8e86ca2">
 <ul class="org-ul">
 <li>gem 'sidekiq', '4.0.1'</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc2d453d" class="outline-2">
-<h2 id="orgc2d453d">4. 在app/jobs文件下新建一个job,来处理异步请求(可以使用命令也可以手动创建)</h2>
-<div class="outline-text-2" id="text-orgc2d453d">
+<div id="outline-container-orgb3bc826" class="outline-2">
+<h2 id="orgb3bc826">4. 在app/jobs文件下新建一个job,来处理异步请求(可以使用命令也可以手动创建)</h2>
+<div class="outline-text-2" id="text-orgb3bc826">
 <pre class="example">
 rails g job add_lots_of_users
 #rails g sidekiq:worker Hard # will create app/workers/hard_worker.rb
@@ -134,9 +134,9 @@ end
 </div>
 </div>
 
-<div id="outline-container-org78cea80" class="outline-2">
-<h2 id="org78cea80">5. 在需要的地方controller或者model中调用,调用示例如下</h2>
-<div class="outline-text-2" id="text-org78cea80">
+<div id="outline-container-org6d43ab9" class="outline-2">
+<h2 id="org6d43ab9">5. 在需要的地方controller或者model中调用,调用示例如下</h2>
+<div class="outline-text-2" id="text-org6d43ab9">
 <p>
 注意:perform是一个实例方法,但是在调用的时候是用类调用
 </p>
@@ -152,9 +152,9 @@ AddLotsOfUsersJob.set( wait: 20.minutes ).perform_later #指定延迟多久执�
 </div>
 </div>
 
-<div id="outline-container-orga5dbdf7" class="outline-2">
-<h2 id="orga5dbdf7">6. 在config/application.rb中指定active_job的adapter</h2>
-<div class="outline-text-2" id="text-orga5dbdf7">
+<div id="outline-container-org6aab510" class="outline-2">
+<h2 id="org6aab510">6. 在config/application.rb中指定active_job的adapter</h2>
+<div class="outline-text-2" id="text-org6aab510">
 <p>
 adapter默认使用的adapter是Active Job Inline需要指定为sidekiq才支持异步(如果是使用worker这一步可以省略)
 </p>
@@ -165,9 +165,9 @@ config.active_job.queue_adapter = :sidekiq
 </div>
 </div>
 
-<div id="outline-container-org11bdf0f" class="outline-2">
-<h2 id="org11bdf0f">7. 在rails项目的根目录启动sidekiq</h2>
-<div class="outline-text-2" id="text-org11bdf0f">
+<div id="outline-container-org228933a" class="outline-2">
+<h2 id="org228933a">7. 在rails项目的根目录启动sidekiq</h2>
+<div class="outline-text-2" id="text-org228933a">
 <pre class="example">
 bundle exec sidekiq -d -C config/sidekiq.yml #-d是指后台运行 -c指定配置文件,默认sidekiq.yml文件
 </pre>

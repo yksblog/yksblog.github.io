@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rvm安装ruby</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="">
 </head>
 <body>
@@ -17,33 +17,33 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgcd5423f">外链</a></li>
-<li><a href="#orga9d9a97">rvm 卸载</a></li>
-<li><a href="#org6edb3c4">下载rvm</a></li>
-<li><a href="#org6644bbb">离线安装</a></li>
-<li><a href="#org5a592ef">报错没有witch</a></li>
-<li><a href="#orgbf787a0">修改 RVM 下载 Ruby 的源，到 Ruby China 的镜像:</a></li>
-<li><a href="#orgbab37e2">检查一下是否安装正确</a></li>
-<li><a href="#org435d1d0">下载ruby2.4.0</a></li>
-<li><a href="#org9ca3273">rvm 常用命令</a></li>
-<li><a href="#org8c925f0">替换为ruby-china源</a></li>
-<li><a href="#orgacf6faf">Gemfile Bundler</a></li>
-<li><a href="#org5cead35">SSL 证书错误</a></li>
-<li><a href="#org451f332">其他说明</a></li>
-<li><a href="#orgcee5483">rvm管理多版本ruby和rails</a>
+<li><a href="#org53c698b">外链</a></li>
+<li><a href="#org179087a">rvm 卸载</a></li>
+<li><a href="#org73ea7c9">下载rvm</a></li>
+<li><a href="#orge2a5999">离线安装</a></li>
+<li><a href="#orgc2b1a1e">报错没有witch</a></li>
+<li><a href="#org5422924">修改 RVM 下载 Ruby 的源，到 Ruby China 的镜像:</a></li>
+<li><a href="#org7df8d00">检查一下是否安装正确</a></li>
+<li><a href="#orgd36416a">下载ruby2.4.0</a></li>
+<li><a href="#orgce1d9de">rvm 常用命令</a></li>
+<li><a href="#org8c3a033">替换为ruby-china源</a></li>
+<li><a href="#org4e82df5">Gemfile Bundler</a></li>
+<li><a href="#org913e34c">SSL 证书错误</a></li>
+<li><a href="#orgd56afda">其他说明</a></li>
+<li><a href="#org9e38696">rvm管理多版本ruby和rails</a>
 <ul>
-<li><a href="#org3171140">知识点</a></li>
-<li><a href="#orgd82386d">目标</a></li>
-<li><a href="#orga70d476">查看安装的ruby版本列表</a></li>
+<li><a href="#orgb7744b4">知识点</a></li>
+<li><a href="#orgc111a93">目标</a></li>
+<li><a href="#org88a1c1c">查看安装的ruby版本列表</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgcd5423f" class="outline-2">
-<h2 id="orgcd5423f">外链</h2>
-<div class="outline-text-2" id="text-orgcd5423f">
+<div id="outline-container-org53c698b" class="outline-2">
+<h2 id="org53c698b">外链</h2>
+<div class="outline-text-2" id="text-org53c698b">
 <ul class="org-ul">
 <li><a href="https://www.runoob.com/ruby/ruby-installation-unix.html">https://www.runoob.com/ruby/ruby-installation-unix.html</a></li>
 <li><a href="https://blog.csdn.net/T3119205/article/details/90210447">离线安装</a></li>
@@ -55,9 +55,9 @@
 </div>
 
 
-<div id="outline-container-orga9d9a97" class="outline-2">
-<h2 id="orga9d9a97">rvm 卸载</h2>
-<div class="outline-text-2" id="text-orga9d9a97">
+<div id="outline-container-org179087a" class="outline-2">
+<h2 id="org179087a">rvm 卸载</h2>
+<div class="outline-text-2" id="text-org179087a">
 <ul class="org-ul">
 <li><a href="https://blog.csdn.net/bajiudongfeng/article/details/48676941">https://blog.csdn.net/bajiudongfeng/article/details/48676941</a></li>
 </ul>
@@ -76,9 +76,9 @@ sudo rm -rf .rvm .rvmrc   /etc/rvmrc ;
 </div>
 </div>
 
-<div id="outline-container-org6edb3c4" class="outline-2">
-<h2 id="org6edb3c4">下载rvm</h2>
-<div class="outline-text-2" id="text-org6edb3c4">
+<div id="outline-container-org73ea7c9" class="outline-2">
+<h2 id="org73ea7c9">下载rvm</h2>
+<div class="outline-text-2" id="text-org73ea7c9">
 <pre class="example">
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 $ curl -sSL https://get.rvm.io | bash -s stable
@@ -88,9 +88,9 @@ $ curl -L https://raw.githubusercontent.com/wayneeseguin/rvm/master/binscripts/r
 </div>
 </div>
 
-<div id="outline-container-org6644bbb" class="outline-2">
-<h2 id="org6644bbb">离线安装</h2>
-<div class="outline-text-2" id="text-org6644bbb">
+<div id="outline-container-orge2a5999" class="outline-2">
+<h2 id="orge2a5999">离线安装</h2>
+<div class="outline-text-2" id="text-orge2a5999">
 <pre class="example">
 cd ~
 mkdir install &amp;&amp; cd install
@@ -103,9 +103,9 @@ rvm -v
 </div>
 </div>
 
-<div id="outline-container-org5a592ef" class="outline-2">
-<h2 id="org5a592ef">报错没有witch</h2>
-<div class="outline-text-2" id="text-org5a592ef">
+<div id="outline-container-orgc2b1a1e" class="outline-2">
+<h2 id="orgc2b1a1e">报错没有witch</h2>
+<div class="outline-text-2" id="text-orgc2b1a1e">
 <pre class="example">
 yum -y install witch
 </pre>
@@ -123,27 +123,27 @@ source /usr/local/rvm/scripts/rvm
 </div>
 </div>
 
-<div id="outline-container-orgbf787a0" class="outline-2">
-<h2 id="orgbf787a0">修改 RVM 下载 Ruby 的源，到 Ruby China 的镜像:</h2>
-<div class="outline-text-2" id="text-orgbf787a0">
+<div id="outline-container-org5422924" class="outline-2">
+<h2 id="org5422924">修改 RVM 下载 Ruby 的源，到 Ruby China 的镜像:</h2>
+<div class="outline-text-2" id="text-org5422924">
 <pre class="example">
 echo "ruby_url=https://cache.ruby-china.com/pub/ruby" &gt; ~/.rvm/user/db
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgbab37e2" class="outline-2">
-<h2 id="orgbab37e2">检查一下是否安装正确</h2>
-<div class="outline-text-2" id="text-orgbab37e2">
+<div id="outline-container-org7df8d00" class="outline-2">
+<h2 id="org7df8d00">检查一下是否安装正确</h2>
+<div class="outline-text-2" id="text-org7df8d00">
 <pre class="example">
 rvm -v
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org435d1d0" class="outline-2">
-<h2 id="org435d1d0">下载ruby2.4.0</h2>
-<div class="outline-text-2" id="text-org435d1d0">
+<div id="outline-container-orgd36416a" class="outline-2">
+<h2 id="orgd36416a">下载ruby2.4.0</h2>
+<div class="outline-text-2" id="text-orgd36416a">
 <pre class="example">
 rvm install 2.4.0
 ruby -v
@@ -152,9 +152,9 @@ gem -v
 </div>
 </div>
 
-<div id="outline-container-org9ca3273" class="outline-2">
-<h2 id="org9ca3273">rvm 常用命令</h2>
-<div class="outline-text-2" id="text-org9ca3273">
+<div id="outline-container-orgce1d9de" class="outline-2">
+<h2 id="orgce1d9de">rvm 常用命令</h2>
+<div class="outline-text-2" id="text-orgce1d9de">
 <pre class="example">
 rvm list
 rvm use 2.4.0 --default
@@ -162,9 +162,9 @@ rvm use 2.4.0 --default
 </div>
 </div>
 
-<div id="outline-container-org8c925f0" class="outline-2">
-<h2 id="org8c925f0">替换为ruby-china源</h2>
-<div class="outline-text-2" id="text-org8c925f0">
+<div id="outline-container-org8c3a033" class="outline-2">
+<h2 id="org8c3a033">替换为ruby-china源</h2>
+<div class="outline-text-2" id="text-org8c3a033">
 <pre class="example">
 $ gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
 $ gem sources -l
@@ -174,9 +174,9 @@ https://gems.ruby-china.com
 </div>
 </div>
 
-<div id="outline-container-orgacf6faf" class="outline-2">
-<h2 id="orgacf6faf">Gemfile Bundler</h2>
-<div class="outline-text-2" id="text-orgacf6faf">
+<div id="outline-container-org4e82df5" class="outline-2">
+<h2 id="org4e82df5">Gemfile Bundler</h2>
+<div class="outline-text-2" id="text-org4e82df5">
 <p>
 如果你使用 Gemfile 和 Bundler (例如：Rails 项目)你可以用 Bundler 的 Gem 源代码镜像命令。
 </p>
@@ -194,9 +194,9 @@ https://gems.ruby-china.com
 </div>
 
 
-<div id="outline-container-org5cead35" class="outline-2">
-<h2 id="org5cead35">SSL 证书错误</h2>
-<div class="outline-text-2" id="text-org5cead35">
+<div id="outline-container-org913e34c" class="outline-2">
+<h2 id="org913e34c">SSL 证书错误</h2>
+<div class="outline-text-2" id="text-org913e34c">
 <p>
 正常情况下，你是不会遇到 SSL 证书错误的，除非你的 Ruby 安装方式不正确。
 </p>
@@ -219,9 +219,9 @@ https://gems.ruby-china.com
 </div>
 </div>
 
-<div id="outline-container-org451f332" class="outline-2">
-<h2 id="org451f332">其他说明</h2>
-<div class="outline-text-2" id="text-org451f332">
+<div id="outline-container-orgd56afda" class="outline-2">
+<h2 id="orgd56afda">其他说明</h2>
+<div class="outline-text-2" id="text-orgd56afda">
 <p>
 Bundler::GemspecError: Could not read gem at <i>home/xxx</i>.rvm/gems/ruby-2.1.8/cache/rugged-0.23.3.gem. It may be corrupted.，这类错误是网络原因下载到了坏掉的文件到本地，请直接删除那个文件。
 </p>
@@ -229,13 +229,13 @@ Bundler::GemspecError: Could not read gem at <i>home/xxx</i>.rvm/gems/ruby-2.1.8
 </div>
 
 
-<div id="outline-container-orgcee5483" class="outline-2">
-<h2 id="orgcee5483">rvm管理多版本ruby和rails</h2>
-<div class="outline-text-2" id="text-orgcee5483">
+<div id="outline-container-org9e38696" class="outline-2">
+<h2 id="org9e38696">rvm管理多版本ruby和rails</h2>
+<div class="outline-text-2" id="text-org9e38696">
 </div>
-<div id="outline-container-org3171140" class="outline-3">
-<h3 id="org3171140">知识点</h3>
-<div class="outline-text-3" id="text-org3171140">
+<div id="outline-container-orgb7744b4" class="outline-3">
+<h3 id="orgb7744b4">知识点</h3>
+<div class="outline-text-3" id="text-orgb7744b4">
 <ul class="org-ul">
 <li>rvm</li>
 <li>ruby</li>
@@ -243,18 +243,18 @@ Bundler::GemspecError: Could not read gem at <i>home/xxx</i>.rvm/gems/ruby-2.1.8
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd82386d" class="outline-3">
-<h3 id="orgd82386d">目标</h3>
-<div class="outline-text-3" id="text-orgd82386d">
+<div id="outline-container-orgc111a93" class="outline-3">
+<h3 id="orgc111a93">目标</h3>
+<div class="outline-text-3" id="text-orgc111a93">
 <p>
 安装ruby2.5.5 + rails5.0.2 和 ruby2.5.5 + rails6.0.2.1 组合
 </p>
 </div>
 </div>
 
-<div id="outline-container-orga70d476" class="outline-3">
-<h3 id="orga70d476">查看安装的ruby版本列表</h3>
-<div class="outline-text-3" id="text-orga70d476">
+<div id="outline-container-org88a1c1c" class="outline-3">
+<h3 id="org88a1c1c">查看安装的ruby版本列表</h3>
+<div class="outline-text-3" id="text-org88a1c1c">
 <div class="org-src-container">
 <pre class="src src-shell">rvm list
 <span style="color: #75715E;">#  </span><span style="color: #75715E;">&#36873;&#25321; ruby2.5.5</span>

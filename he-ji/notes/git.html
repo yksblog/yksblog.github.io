@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="">
 </head>
 <body>
@@ -17,50 +17,50 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgdf861d1">添加公钥</a></li>
-<li><a href="#org958c21e">git多用户切换</a></li>
-<li><a href="#orgb710a5f">refusing to merge unrelated histories</a></li>
-<li><a href="#orgf5842a1">配置别名</a></li>
-<li><a href="#orgb49f9c3">解决 status 中文编码</a></li>
-<li><a href="#orgd21eb6c">查看git信息</a></li>
-<li><a href="#orgdd60827">创建git仓库：</a></li>
-<li><a href="#org4b2be29">Git分支：</a>
+<li><a href="#org8850b33">添加公钥</a></li>
+<li><a href="#org344a612">git多用户切换</a></li>
+<li><a href="#org290e8e2">refusing to merge unrelated histories</a></li>
+<li><a href="#org6dc5d69">配置别名</a></li>
+<li><a href="#org8f25366">解决 status 中文编码</a></li>
+<li><a href="#orga3d97dc">查看git信息</a></li>
+<li><a href="#orgc243326">创建git仓库：</a></li>
+<li><a href="#org90f7976">Git分支：</a>
 <ul>
-<li><a href="#org84e85b0">注意</a></li>
+<li><a href="#org450ac9c">注意</a></li>
 </ul>
 </li>
-<li><a href="#org537377c">放弃更改</a>
+<li><a href="#org7abfda6">放弃更改</a>
 <ul>
-<li><a href="#orgecfcc43">未使用git add</a></li>
-<li><a href="#orgba62ba0">已经使用了git add</a></li>
-<li><a href="#orgee54c1b">代码改崩，强制用最新代码覆盖本地代码</a></li>
+<li><a href="#orgc9375a1">未使用git add</a></li>
+<li><a href="#org55ca0ad">已经使用了git add</a></li>
+<li><a href="#org72aead6">代码改崩，强制用最新代码覆盖本地代码</a></li>
 </ul>
 </li>
-<li><a href="#orgfec6c52">gitignore</a>
+<li><a href="#org0b8cd89">gitignore</a>
 <ul>
-<li><a href="#orgbe9b918">eg: 忽略 target</a></li>
+<li><a href="#org2198d3e">eg: 忽略 target</a></li>
 </ul>
 </li>
-<li><a href="#orgd7f4cf5">打标签</a>
+<li><a href="#orge89e35b">打标签</a>
 <ul>
-<li><a href="#orge2bba4b">切换到某个tag</a></li>
-<li><a href="#org192b089">实验步骤：</a></li>
-<li><a href="#org3ded602">小结：</a></li>
+<li><a href="#orge31d5af">切换到某个tag</a></li>
+<li><a href="#org57004a9">实验步骤：</a></li>
+<li><a href="#org2faee08">小结：</a></li>
 </ul>
 </li>
-<li><a href="#org840f6c4">git rebase</a>
+<li><a href="#org2accb62">git rebase</a>
 <ul>
-<li><a href="#orge233aa7">用rebase 代替 merge</a></li>
+<li><a href="#orgd2600f1">用rebase 代替 merge</a></li>
 </ul>
 </li>
-<li><a href="#orgf6e0c4d">cherry-pick</a></li>
+<li><a href="#org4927fcf">cherry-pick</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgdf861d1" class="outline-2">
-<h2 id="orgdf861d1">添加公钥</h2>
-<div class="outline-text-2" id="text-orgdf861d1">
+<div id="outline-container-org8850b33" class="outline-2">
+<h2 id="org8850b33">添加公钥</h2>
+<div class="outline-text-2" id="text-org8850b33">
 <ul class="org-ul">
 <li>在~/.ssh 下生成公钥,命名默认(id_rsa)</li>
 <li>把 id_rsa.pub内容复制到git仓库中添加ssh公钥里面</li>
@@ -76,9 +76,9 @@ ssh -T git@git.coding.net   *&#33150;&#35759;&#20113;
 </div>
 
 
-<div id="outline-container-org958c21e" class="outline-2">
-<h2 id="org958c21e">git多用户切换</h2>
-<div class="outline-text-2" id="text-org958c21e">
+<div id="outline-container-org344a612" class="outline-2">
+<h2 id="org344a612">git多用户切换</h2>
+<div class="outline-text-2" id="text-org344a612">
 <div class="org-src-container">
 <pre class="src src-bash">
 $ ssh-add  ~/.ssh/itgo
@@ -96,9 +96,9 @@ Hi maniyaserverdeploy! You<span style="color: #E6DB74;">'ve successfully authent
 </div>
 </div>
 
-<div id="outline-container-orgb710a5f" class="outline-2">
-<h2 id="orgb710a5f">refusing to merge unrelated histories</h2>
-<div class="outline-text-2" id="text-orgb710a5f">
+<div id="outline-container-org290e8e2" class="outline-2">
+<h2 id="org290e8e2">refusing to merge unrelated histories</h2>
+<div class="outline-text-2" id="text-org290e8e2">
 <div class="org-src-container">
 <pre class="src src-bash">$ git pull --allow-unrelated-histories
 </pre>
@@ -107,9 +107,9 @@ Hi maniyaserverdeploy! You<span style="color: #E6DB74;">'ve successfully authent
 </div>
 
 
-<div id="outline-container-orgf5842a1" class="outline-2">
-<h2 id="orgf5842a1">配置别名</h2>
-<div class="outline-text-2" id="text-orgf5842a1">
+<div id="outline-container-org6dc5d69" class="outline-2">
+<h2 id="org6dc5d69">配置别名</h2>
+<div class="outline-text-2" id="text-org6dc5d69">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #F92672;">alias</span> <span style="color: #FD971F;">git</span>=<span style="color: #E6DB74;">'git --no-pager'</span>
 *&#26597;&#30475;&#37197;&#32622;
@@ -129,9 +129,9 @@ git config --global alias.lg <span style="color: #E6DB74;">"log --color --graph 
 </div>
 </div>
 
-<div id="outline-container-orgb49f9c3" class="outline-2">
-<h2 id="orgb49f9c3">解决 status 中文编码</h2>
-<div class="outline-text-2" id="text-orgb49f9c3">
+<div id="outline-container-org8f25366" class="outline-2">
+<h2 id="org8f25366">解决 status 中文编码</h2>
+<div class="outline-text-2" id="text-org8f25366">
 <div class="org-src-container">
 <pre class="src src-bash">git config --global core.quotepath false
 
@@ -147,9 +147,9 @@ git config --global alias.last <span style="color: #E6DB74;">'log -1'</span>
 </div>
 
 
-<div id="outline-container-orgd21eb6c" class="outline-2">
-<h2 id="orgd21eb6c">查看git信息</h2>
-<div class="outline-text-2" id="text-orgd21eb6c">
+<div id="outline-container-orga3d97dc" class="outline-2">
+<h2 id="orga3d97dc">查看git信息</h2>
+<div class="outline-text-2" id="text-orga3d97dc">
 <div class="org-src-container">
 <pre class="src src-bash">
 $ git remote -v
@@ -160,9 +160,9 @@ $ git remote -v
 </div>
 
 
-<div id="outline-container-orgdd60827" class="outline-2">
-<h2 id="orgdd60827">创建git仓库：</h2>
-<div class="outline-text-2" id="text-orgdd60827">
+<div id="outline-container-orgc243326" class="outline-2">
+<h2 id="orgc243326">创建git仓库：</h2>
+<div class="outline-text-2" id="text-orgc243326">
 <div class="org-src-container">
 <pre class="src src-bash">git init
 git add README.md
@@ -182,9 +182,9 @@ git log --pretty=oneline
 </div>
 </div>
 
-<div id="outline-container-org4b2be29" class="outline-2">
-<h2 id="org4b2be29">Git分支：</h2>
-<div class="outline-text-2" id="text-org4b2be29">
+<div id="outline-container-org90f7976" class="outline-2">
+<h2 id="org90f7976">Git分支：</h2>
+<div class="outline-text-2" id="text-org90f7976">
 <div class="org-src-container">
 <pre class="src src-bash">&#26597;&#30475;&#20998;&#25903;&#65306;git branch
 
@@ -220,9 +220,9 @@ git remote update origin --prune
 </div>
 </div>
 
-<div id="outline-container-org84e85b0" class="outline-3">
-<h3 id="org84e85b0">注意</h3>
-<div class="outline-text-3" id="text-org84e85b0">
+<div id="outline-container-org450ac9c" class="outline-3">
+<h3 id="org450ac9c">注意</h3>
+<div class="outline-text-3" id="text-org450ac9c">
 <ul class="org-ul">
 <li>如果本地分支和远程分支不同名，是追踪不了的</li>
 <li><b>git push</b>  时，必须指定push到远程哪个分支上，比如本地分支dev2追踪到 origin/dev，那么只能从origin/dev pull更新，而当push时，必须指定，例如：git push origin HEAD:dev</li>
@@ -231,13 +231,13 @@ git remote update origin --prune
 </div>
 </div>
 
-<div id="outline-container-org537377c" class="outline-2">
-<h2 id="org537377c">放弃更改</h2>
-<div class="outline-text-2" id="text-org537377c">
+<div id="outline-container-org7abfda6" class="outline-2">
+<h2 id="org7abfda6">放弃更改</h2>
+<div class="outline-text-2" id="text-org7abfda6">
 </div>
-<div id="outline-container-orgecfcc43" class="outline-3">
-<h3 id="orgecfcc43">未使用git add</h3>
-<div class="outline-text-3" id="text-orgecfcc43">
+<div id="outline-container-orgc9375a1" class="outline-3">
+<h3 id="orgc9375a1">未使用git add</h3>
+<div class="outline-text-3" id="text-orgc9375a1">
 <ul class="org-ul">
 <li>可以使用 <b>git checkout &#x2013; filepath/name</b> (比如:  <b>git checkout &#x2013; readme.md</b> ，不要忘记中间的 “&#x2013;” ，不写就成了检出分支了！！)。</li>
 <li>放弃所以的文件修改可以使用 <b>git checkout .</b> 命令。</li>
@@ -247,9 +247,9 @@ git remote update origin --prune
 </div>
 </div>
 
-<div id="outline-container-orgba62ba0" class="outline-3">
-<h3 id="orgba62ba0">已经使用了git add</h3>
-<div class="outline-text-3" id="text-orgba62ba0">
+<div id="outline-container-org55ca0ad" class="outline-3">
+<h3 id="org55ca0ad">已经使用了git add</h3>
+<div class="outline-text-3" id="text-org55ca0ad">
 <ul class="org-ul">
 <li>可以使用 <b>git reset HEAD filepathname</b> （比如： git reset HEAD readme.md）来放弃指定文件的缓存，放弃所有的缓存可以使用 <b>git reset HEAD .</b> 命令。</li>
 <li>此命令用来清除 git  对于文件修改的缓存。相当于撤销 git add 命令所在的工作。在使用本命令后，本地的修改并不会消失。</li>
@@ -257,9 +257,9 @@ git remote update origin --prune
 </div>
 </div>
 
-<div id="outline-container-orgee54c1b" class="outline-3">
-<h3 id="orgee54c1b">代码改崩，强制用最新代码覆盖本地代码</h3>
-<div class="outline-text-3" id="text-orgee54c1b">
+<div id="outline-container-org72aead6" class="outline-3">
+<h3 id="org72aead6">代码改崩，强制用最新代码覆盖本地代码</h3>
+<div class="outline-text-3" id="text-org72aead6">
 <div class="org-src-container">
 <pre class="src src-bash">git fetch --all
 git reset --hard origin/master
@@ -274,13 +274,13 @@ git pull //&#21487;&#20197;&#30465;&#30053;
 </div>
 </div>
 
-<div id="outline-container-orgfec6c52" class="outline-2">
-<h2 id="orgfec6c52">gitignore</h2>
-<div class="outline-text-2" id="text-orgfec6c52">
+<div id="outline-container-org0b8cd89" class="outline-2">
+<h2 id="org0b8cd89">gitignore</h2>
+<div class="outline-text-2" id="text-org0b8cd89">
 </div>
-<div id="outline-container-orgbe9b918" class="outline-3">
-<h3 id="orgbe9b918">eg: 忽略 target</h3>
-<div class="outline-text-3" id="text-orgbe9b918">
+<div id="outline-container-org2198d3e" class="outline-3">
+<h3 id="org2198d3e">eg: 忽略 target</h3>
+<div class="outline-text-3" id="text-org2198d3e">
 <div class="org-src-container">
 <pre class="src src-bash">git rm -r --cached target
 git commit -m <span style="color: #E6DB74;">"delete target/"</span>
@@ -291,9 +291,9 @@ git push origin master
 </div>
 </div>
 
-<div id="outline-container-orgd7f4cf5" class="outline-2">
-<h2 id="orgd7f4cf5">打标签</h2>
-<div class="outline-text-2" id="text-orgd7f4cf5">
+<div id="outline-container-orge89e35b" class="outline-2">
+<h2 id="orge89e35b">打标签</h2>
+<div class="outline-text-2" id="text-orge89e35b">
 <ul class="org-ul">
 <li>git tag -a v1.0 -m 'xxx最终版' * 打tag</li>
 <li>git push origin [tagName] * 推送本地tag</li>
@@ -305,9 +305,9 @@ git push origin master
 </ul>
 </div>
 
-<div id="outline-container-orge2bba4b" class="outline-3">
-<h3 id="orge2bba4b">切换到某个tag</h3>
-<div class="outline-text-3" id="text-orge2bba4b">
+<div id="outline-container-orge31d5af" class="outline-3">
+<h3 id="orge31d5af">切换到某个tag</h3>
+<div class="outline-text-3" id="text-orge31d5af">
 <div class="org-src-container">
 <pre class="src src-bash">&#36319;&#20998;&#25903;&#19968;&#26679;&#65292;&#21487;&#20197;&#30452;&#25509;&#20999;&#25442;&#21040;&#26576;&#20010;tag&#21435;&#12290;&#36825;&#20010;&#26102;&#20505;&#19981;&#20301;&#20110;&#20219;&#20309;&#20998;&#25903;&#65292;&#22788;&#20110;&#28216;&#31163;&#29366;&#24577;&#65292;&#21487;&#20197;&#32771;&#34385;&#22522;&#20110;&#36825;&#20010;tag&#21019;&#24314;&#19968;&#20010;&#20998;&#25903;&#12290;
 
@@ -350,9 +350,9 @@ $ git br
 </div>
 </div>
 
-<div id="outline-container-org192b089" class="outline-3">
-<h3 id="org192b089">实验步骤：</h3>
-<div class="outline-text-3" id="text-org192b089">
+<div id="outline-container-org57004a9" class="outline-3">
+<h3 id="org57004a9">实验步骤：</h3>
+<div class="outline-text-3" id="text-org57004a9">
 <p>
 1.新建分支 <b>dev_0101</b> 并在该分支上打标签 <b>tag_0101</b>
 2.切换到 <b>master</b> 分支，删除分支 <b>dev_0101</b>
@@ -361,9 +361,9 @@ $ git br
 </div>
 </div>
 
-<div id="outline-container-org3ded602" class="outline-3">
-<h3 id="org3ded602">小结：</h3>
-<div class="outline-text-3" id="text-org3ded602">
+<div id="outline-container-org2faee08" class="outline-3">
+<h3 id="org2faee08">小结：</h3>
+<div class="outline-text-3" id="text-org2faee08">
 <p>
 1.删除分支不影响在该分支上打的标签
 2.切换到标签后，此时处于游离状态
@@ -372,17 +372,17 @@ $ git br
 </div>
 </div>
 
-<div id="outline-container-org840f6c4" class="outline-2">
-<h2 id="org840f6c4">git rebase</h2>
-<div class="outline-text-2" id="text-org840f6c4">
+<div id="outline-container-org2accb62" class="outline-2">
+<h2 id="org2accb62">git rebase</h2>
+<div class="outline-text-2" id="text-org2accb62">
 <ul class="org-ul">
 <li><a href="https://blog.csdn.net/erice_e/article/details/80913192">https://blog.csdn.net/erice_e/article/details/80913192</a></li>
 </ul>
 </div>
 
-<div id="outline-container-orge233aa7" class="outline-3">
-<h3 id="orge233aa7">用rebase 代替 merge</h3>
-<div class="outline-text-3" id="text-orge233aa7">
+<div id="outline-container-orgd2600f1" class="outline-3">
+<h3 id="orgd2600f1">用rebase 代替 merge</h3>
+<div class="outline-text-3" id="text-orgd2600f1">
 <ul class="org-ul">
 <li><b>git pull &#x2013;rebase</b> &lt;=&gt; <b>git rebase</b> ，意思是：把远程更新以变基的方式拉下来，这样 <b>git log</b> 就是一条线，而没有merge产生多条线。</li>
 <li><b>git pull &#x2013;rebase</b> &lt;=&gt; <b>git rebase</b></li>
@@ -397,9 +397,9 @@ $ git br
 </div>
 </div>
 
-<div id="outline-container-orgf6e0c4d" class="outline-2">
-<h2 id="orgf6e0c4d">cherry-pick</h2>
-<div class="outline-text-2" id="text-orgf6e0c4d">
+<div id="outline-container-org4927fcf" class="outline-2">
+<h2 id="org4927fcf">cherry-pick</h2>
+<div class="outline-text-2" id="text-org4927fcf">
 <ul class="org-ul">
 <li><a href="https://ruanyifeng.com/blog/2020/04/git-cherry-pick.html">阮一峰</a></li>
 </ul>

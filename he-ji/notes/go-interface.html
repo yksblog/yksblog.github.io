@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Go Interface</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="">
 </head>
 <body>
@@ -17,26 +17,26 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf666ef7">程序抽象的基本原则</a></li>
-<li><a href="#org9897c8c">Golang 中的 interface特点</a></li>
-<li><a href="#org2aa3951">例子</a></li>
-<li><a href="#orgacbd9f7">小结</a></li>
+<li><a href="#org4c78038">程序抽象的基本原则</a></li>
+<li><a href="#org2c3ba03">Golang 中的 interface特点</a></li>
+<li><a href="#org41857bf">例子</a></li>
+<li><a href="#org4873f60">小结</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf666ef7" class="outline-2">
-<h2 id="orgf666ef7">程序抽象的基本原则</h2>
-<div class="outline-text-2" id="text-orgf666ef7">
+<div id="outline-container-org4c78038" class="outline-2">
+<h2 id="org4c78038">程序抽象的基本原则</h2>
+<div class="outline-text-2" id="text-org4c78038">
 <p>
 依赖于接口而不是实现，优先使用组合而不是继承。
 </p>
 </div>
 </div>
 
-<div id="outline-container-org9897c8c" class="outline-2">
-<h2 id="org9897c8c">Golang 中的 interface特点</h2>
-<div class="outline-text-2" id="text-org9897c8c">
+<div id="outline-container-org2c3ba03" class="outline-2">
+<h2 id="org2c3ba03">Golang 中的 interface特点</h2>
+<div class="outline-text-2" id="text-org2c3ba03">
 <ul class="org-ul">
 <li>接口是方法声明的集合</li>
 <li>任何类型的对象实现了在接口中声明的全部方法，则表明该类型实现了对应接口。</li>
@@ -45,9 +45,9 @@
 </div>
 </div>
 
-<div id="outline-container-org2aa3951" class="outline-2">
-<h2 id="org2aa3951">例子</h2>
-<div class="outline-text-2" id="text-org2aa3951">
+<div id="outline-container-org41857bf" class="outline-2">
+<h2 id="org41857bf">例子</h2>
+<div class="outline-text-2" id="text-org41857bf">
 <pre class="example">
 package main
 import "fmt"
@@ -99,9 +99,9 @@ func main() {
 </div>
 </div>
 
-<div id="outline-container-orgacbd9f7" class="outline-2">
-<h2 id="orgacbd9f7">小结</h2>
-<div class="outline-text-2" id="text-orgacbd9f7">
+<div id="outline-container-org4873f60" class="outline-2">
+<h2 id="org4873f60">小结</h2>
+<div class="outline-text-2" id="text-org4873f60">
 <ul class="org-ul">
 <li>一种类型只要实现接口声明的方法就算实现了接口；</li>
 <li>一种类型能同时支持实现多个接口了，一个接口也能被多种类型实现。</li>

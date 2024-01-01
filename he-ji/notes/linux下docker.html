@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linux下docker</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="">
 </head>
 <body>
@@ -17,55 +17,55 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgee8af0e">docker安装</a></li>
-<li><a href="#org94e4d7f">docker-compose</a></li>
-<li><a href="#org554eb7a">docker login</a></li>
-<li><a href="#orgd2948e5">docker push</a></li>
-<li><a href="#org3d62b8a">Dockfile</a></li>
-<li><a href="#orgf759bee">常用命令</a>
+<li><a href="#org6258756">docker安装</a></li>
+<li><a href="#org8ae6d28">docker-compose</a></li>
+<li><a href="#orgaaaa67a">docker login</a></li>
+<li><a href="#org94e7568">docker push</a></li>
+<li><a href="#org3233b9b">Dockfile</a></li>
+<li><a href="#orgf9ed515">常用命令</a>
 <ul>
-<li><a href="#orgd3ec8d2">help</a></li>
-<li><a href="#org63c3df6">通过Dockfile构建docker镜像</a></li>
-<li><a href="#orgee907c1">run</a></li>
-<li><a href="#orgbc5226d">exec</a></li>
-<li><a href="#org675640e">save &amp;&amp; load &amp;&amp; tag</a></li>
-<li><a href="#org723ff71">后台运行(-d)、并暴露端口(-p)</a></li>
-<li><a href="#org5d7e032">从container中拷贝文件出来</a></li>
-<li><a href="#org4722fe6">删除镜像报错(image has dependent child images)</a></li>
+<li><a href="#orgf8295b6">help</a></li>
+<li><a href="#org4d65341">通过Dockfile构建docker镜像</a></li>
+<li><a href="#org5d8c10a">run</a></li>
+<li><a href="#org2ebee1d">exec</a></li>
+<li><a href="#orgdd94df9">save &amp;&amp; load &amp;&amp; tag</a></li>
+<li><a href="#orgb7688bf">后台运行(-d)、并暴露端口(-p)</a></li>
+<li><a href="#orga07df4e">从container中拷贝文件出来</a></li>
+<li><a href="#org38d57e1">删除镜像报错(image has dependent child images)</a></li>
 </ul>
 </li>
-<li><a href="#orgbc69645">踩坑</a>
+<li><a href="#org6fe3fb9">踩坑</a>
 <ul>
-<li><a href="#org75f3466">tw</a></li>
-<li><a href="#orgfc1c10b">docker search 报错</a></li>
-<li><a href="#org437d903">harbor</a></li>
-<li><a href="#orgc25aabc">docker &#x2013;link</a></li>
+<li><a href="#org938cbb4">tw</a></li>
+<li><a href="#org53e85bd">docker search 报错</a></li>
+<li><a href="#org28272d7">harbor</a></li>
+<li><a href="#org62ba19f">docker &#x2013;link</a></li>
 </ul>
 </li>
-<li><a href="#org23f4d96">docker镜像加速</a></li>
-<li><a href="#org5f14542">检查加速器是否生效</a></li>
-<li><a href="#org962a341">Docker Hub 镜像加速器列表</a></li>
-<li><a href="#org4d08c01">延伸阅读</a></li>
+<li><a href="#orgba0f606">docker镜像加速</a></li>
+<li><a href="#orgbd087be">检查加速器是否生效</a></li>
+<li><a href="#org111215c">Docker Hub 镜像加速器列表</a></li>
+<li><a href="#org3be8e65">延伸阅读</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgee8af0e" class="outline-2">
-<h2 id="orgee8af0e">docker安装</h2>
-<div class="outline-text-2" id="text-orgee8af0e">
+<div id="outline-container-org6258756" class="outline-2">
+<h2 id="org6258756">docker安装</h2>
+<div class="outline-text-2" id="text-org6258756">
 <ul class="org-ul">
 <li><a href="https://www.runoob.com/docker/ubuntu-docker-install.html">https://www.runoob.com/docker/ubuntu-docker-install.html</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org94e4d7f" class="outline-2">
-<h2 id="org94e4d7f">docker-compose</h2>
-<div class="outline-text-2" id="text-org94e4d7f">
+<div id="outline-container-org8ae6d28" class="outline-2">
+<h2 id="org8ae6d28">docker-compose</h2>
+<div class="outline-text-2" id="text-org8ae6d28">
 <div class="org-src-container">
 <pre class="src src-shell">
 <span style="color: #75715E;"># </span><span style="color: #75715E;">github</span>
-$ sudo curl -L <span style="color: #E6DB74;">"https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)"</span> -o /usr/local/bin/docker-compose
+$ sudo curl -L <span style="color: #E6DB74;">"https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(</span><span style="color: #AE81FF; font-weight: bold;">uname -s</span><span style="color: #E6DB74;">)-$(</span><span style="color: #AE81FF; font-weight: bold;">uname -m</span><span style="color: #E6DB74;">)"</span> -o /usr/local/bin/docker-compose
 
 <span style="color: #75715E;"># </span><span style="color: #75715E;">&#22269;&#20869;</span>
 $ curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-<span style="color: #AE81FF; font-weight: bold;">`uname -s`</span>-<span style="color: #AE81FF; font-weight: bold;">`uname -m`</span> &gt; /usr/local/bin/docker-compose
@@ -90,9 +90,9 @@ cker-compose version 1.24.1, build 4667896b
 </div>
 
 
-<div id="outline-container-org554eb7a" class="outline-2">
-<h2 id="org554eb7a">docker login</h2>
-<div class="outline-text-2" id="text-org554eb7a">
+<div id="outline-container-orgaaaa67a" class="outline-2">
+<h2 id="orgaaaa67a">docker login</h2>
+<div class="outline-text-2" id="text-orgaaaa67a">
 <div class="org-src-container">
 <pre class="src src-shell">
 dk login -u yangk -p P@88w0rd harbor.devops.kubesphere.local:30280
@@ -103,9 +103,9 @@ dk login -u admin -p Harbor12345 harbor.devops.kubesphere.local:30280
 </div>
 </div>
 
-<div id="outline-container-orgd2948e5" class="outline-2">
-<h2 id="orgd2948e5">docker push</h2>
-<div class="outline-text-2" id="text-orgd2948e5">
+<div id="outline-container-org94e7568" class="outline-2">
+<h2 id="org94e7568">docker push</h2>
+<div class="outline-text-2" id="text-org94e7568">
 <ul class="org-ul">
 <li><a href="https://www.cnblogs.com/zheh/p/9168346.html">https://www.cnblogs.com/zheh/p/9168346.html</a></li>
 </ul>
@@ -119,9 +119,9 @@ dk push harbor.devops.kubesphere.local:30280/library/mysql_57:5.7
 </div>
 
 
-<div id="outline-container-org3d62b8a" class="outline-2">
-<h2 id="org3d62b8a">Dockfile</h2>
-<div class="outline-text-2" id="text-org3d62b8a">
+<div id="outline-container-org3233b9b" class="outline-2">
+<h2 id="org3233b9b">Dockfile</h2>
+<div class="outline-text-2" id="text-org3233b9b">
 <ul class="org-ul">
 <li><a href="https://www.jianshu.com/p/2fba3bf588ba">https://www.jianshu.com/p/2fba3bf588ba</a></li>
 </ul>
@@ -129,13 +129,13 @@ dk push harbor.devops.kubesphere.local:30280/library/mysql_57:5.7
 </div>
 
 
-<div id="outline-container-orgf759bee" class="outline-2">
-<h2 id="orgf759bee">常用命令</h2>
-<div class="outline-text-2" id="text-orgf759bee">
+<div id="outline-container-orgf9ed515" class="outline-2">
+<h2 id="orgf9ed515">常用命令</h2>
+<div class="outline-text-2" id="text-orgf9ed515">
 </div>
-<div id="outline-container-orgd3ec8d2" class="outline-3">
-<h3 id="orgd3ec8d2">help</h3>
-<div class="outline-text-3" id="text-orgd3ec8d2">
+<div id="outline-container-orgf8295b6" class="outline-3">
+<h3 id="orgf8295b6">help</h3>
+<div class="outline-text-3" id="text-orgf8295b6">
 <div class="org-src-container">
 <pre class="src src-shell">$ docker -h
 $ docker commond -h
@@ -144,9 +144,9 @@ $ docker commond -h
 </div>
 </div>
 
-<div id="outline-container-org63c3df6" class="outline-3">
-<h3 id="org63c3df6">通过Dockfile构建docker镜像</h3>
-<div class="outline-text-3" id="text-org63c3df6">
+<div id="outline-container-org4d65341" class="outline-3">
+<h3 id="org4d65341">通过Dockfile构建docker镜像</h3>
+<div class="outline-text-3" id="text-org4d65341">
 <div class="org-src-container">
 <pre class="src src-shell">$ docker build -t &lt;&#38236;&#20687;&#21517;&gt; &lt;Dockerfile&#36335;&#24452;&gt;  <span style="color: #75715E;">#</span><span style="color: #75715E;">&#36890;&#36807;Dockfile&#26500;&#24314;docker&#38236;&#20687;</span>
 
@@ -157,9 +157,9 @@ $ docker build -t xx/gitlab .                <span style="color: #75715E;">#</sp
 </div>
 
 
-<div id="outline-container-orgee907c1" class="outline-3">
-<h3 id="orgee907c1">run</h3>
-<div class="outline-text-3" id="text-orgee907c1">
+<div id="outline-container-org5d8c10a" class="outline-3">
+<h3 id="org5d8c10a">run</h3>
+<div class="outline-text-3" id="text-org5d8c10a">
 <p>
 &gt; docker run -it image_id bash
 </p>
@@ -167,18 +167,18 @@ $ docker build -t xx/gitlab .                <span style="color: #75715E;">#</sp
 </div>
 
 
-<div id="outline-container-orgbc5226d" class="outline-3">
-<h3 id="orgbc5226d">exec</h3>
-<div class="outline-text-3" id="text-orgbc5226d">
+<div id="outline-container-org2ebee1d" class="outline-3">
+<h3 id="org2ebee1d">exec</h3>
+<div class="outline-text-3" id="text-org2ebee1d">
 <p>
 &gt; docker exec -it container_id bash
 </p>
 </div>
 </div>
 
-<div id="outline-container-org675640e" class="outline-3">
-<h3 id="org675640e">save &amp;&amp; load &amp;&amp; tag</h3>
-<div class="outline-text-3" id="text-org675640e">
+<div id="outline-container-orgdd94df9" class="outline-3">
+<h3 id="orgdd94df9">save &amp;&amp; load &amp;&amp; tag</h3>
+<div class="outline-text-3" id="text-orgdd94df9">
 <div class="org-src-container">
 <pre class="src src-shell">
 dk save 03b5ab5bcd91 &gt; ./tw_4.0.tar
@@ -195,9 +195,9 @@ dk tag 03b5ab5bcd91 tw:4.0
 </div>
 </div>
 
-<div id="outline-container-org723ff71" class="outline-3">
-<h3 id="org723ff71">后台运行(-d)、并暴露端口(-p)</h3>
-<div class="outline-text-3" id="text-org723ff71">
+<div id="outline-container-orgb7688bf" class="outline-3">
+<h3 id="orgb7688bf">后台运行(-d)、并暴露端口(-p)</h3>
+<div class="outline-text-3" id="text-orgb7688bf">
 <ul class="org-ul">
 <li>docker run -d -p 33301:22 centos6-ssh</li>
 <li>docker run -d -P centos6-ssh</li>
@@ -211,9 +211,9 @@ dk tag 03b5ab5bcd91 tw:4.0
 </div>
 </div>
 
-<div id="outline-container-org5d7e032" class="outline-3">
-<h3 id="org5d7e032">从container中拷贝文件出来</h3>
-<div class="outline-text-3" id="text-org5d7e032">
+<div id="outline-container-orga07df4e" class="outline-3">
+<h3 id="orga07df4e">从container中拷贝文件出来</h3>
+<div class="outline-text-3" id="text-orga07df4e">
 <ul class="org-ul">
 <li>sudo docker cp 7bb0e258aefe:/etc/debian_version .</li>
 <li>拷贝7bb0e258aefe中的/etc/debian_version到当前目录下。</li>
@@ -227,9 +227,9 @@ dk tag 03b5ab5bcd91 tw:4.0
 </div>
 </div>
 
-<div id="outline-container-org4722fe6" class="outline-3">
-<h3 id="org4722fe6">删除镜像报错(image has dependent child images)</h3>
-<div class="outline-text-3" id="text-org4722fe6">
+<div id="outline-container-org38d57e1" class="outline-3">
+<h3 id="org38d57e1">删除镜像报错(image has dependent child images)</h3>
+<div class="outline-text-3" id="text-org38d57e1">
 <ul class="org-ul">
 <li><a href="http://www.ibloger.net/article/3217.html">http://www.ibloger.net/article/3217.html</a></li>
 </ul>
@@ -239,13 +239,13 @@ dk tag 03b5ab5bcd91 tw:4.0
 
 
 
-<div id="outline-container-orgbc69645" class="outline-2">
-<h2 id="orgbc69645">踩坑</h2>
-<div class="outline-text-2" id="text-orgbc69645">
+<div id="outline-container-org6fe3fb9" class="outline-2">
+<h2 id="org6fe3fb9">踩坑</h2>
+<div class="outline-text-2" id="text-org6fe3fb9">
 </div>
-<div id="outline-container-org75f3466" class="outline-3">
-<h3 id="org75f3466">tw</h3>
-<div class="outline-text-3" id="text-org75f3466">
+<div id="outline-container-org938cbb4" class="outline-3">
+<h3 id="org938cbb4">tw</h3>
+<div class="outline-text-3" id="text-org938cbb4">
 <ul class="org-ul">
 <li>构建</li>
 <li>hostname</li>
@@ -256,9 +256,9 @@ dk tag 03b5ab5bcd91 tw:4.0
 </div>
 </div>
 
-<div id="outline-container-orgfc1c10b" class="outline-3">
-<h3 id="orgfc1c10b">docker search 报错</h3>
-<div class="outline-text-3" id="text-orgfc1c10b">
+<div id="outline-container-org53e85bd" class="outline-3">
+<h3 id="org53e85bd">docker search 报错</h3>
+<div class="outline-text-3" id="text-org53e85bd">
 <div class="org-src-container">
 <pre class="src src-shell">Error response from daemon: Get https://index.docker.io/v1/search?<span style="color: #FD971F;">q</span>=mysql&amp;<span style="color: #FD971F;">n</span>=25: Service Unavailable
 </pre>
@@ -274,9 +274,9 @@ dk tag 03b5ab5bcd91 tw:4.0
 </div>
 
 
-<div id="outline-container-org437d903" class="outline-3">
-<h3 id="org437d903">harbor</h3>
-<div class="outline-text-3" id="text-org437d903">
+<div id="outline-container-org28272d7" class="outline-3">
+<h3 id="org28272d7">harbor</h3>
+<div class="outline-text-3" id="text-org28272d7">
 <ul class="org-ul">
 <li>https,http</li>
 <li>harbor.devops.kubesphere.local:30280 必须固定，且配置hosts映射</li>
@@ -286,9 +286,9 @@ dk tag 03b5ab5bcd91 tw:4.0
 </div>
 </div>
 
-<div id="outline-container-orgc25aabc" class="outline-3">
-<h3 id="orgc25aabc">docker &#x2013;link</h3>
-<div class="outline-text-3" id="text-orgc25aabc">
+<div id="outline-container-org62ba19f" class="outline-3">
+<h3 id="org62ba19f">docker &#x2013;link</h3>
+<div class="outline-text-3" id="text-org62ba19f">
 <ul class="org-ul">
 <li><a href="https://www.jianshu.com/p/21d66ca6115e">https://www.jianshu.com/p/21d66ca6115e</a></li>
 </ul>
@@ -297,9 +297,9 @@ dk tag 03b5ab5bcd91 tw:4.0
 </div>
 
 
-<div id="outline-container-org23f4d96" class="outline-2">
-<h2 id="org23f4d96">docker镜像加速</h2>
-<div class="outline-text-2" id="text-org23f4d96">
+<div id="outline-container-orgba0f606" class="outline-2">
+<h2 id="orgba0f606">docker镜像加速</h2>
+<div class="outline-text-2" id="text-orgba0f606">
 <blockquote>
 <p class="verse">
 <br>
@@ -333,9 +333,9 @@ sudo systemctl restart docker
 </div>
 </div>
 
-<div id="outline-container-org5f14542" class="outline-2">
-<h2 id="org5f14542">检查加速器是否生效</h2>
-<div class="outline-text-2" id="text-org5f14542">
+<div id="outline-container-orgbd087be" class="outline-2">
+<h2 id="orgbd087be">检查加速器是否生效</h2>
+<div class="outline-text-2" id="text-orgbd087be">
 <ul class="org-ul">
 <li>命令行执行 docker info，如果从结果中看到了如下内容，说明配置成功。</li>
 </ul>
@@ -347,9 +347,9 @@ Registry Mirrors:
 </div>
 </div>
 
-<div id="outline-container-org962a341" class="outline-2">
-<h2 id="org962a341">Docker Hub 镜像加速器列表</h2>
-<div class="outline-text-2" id="text-org962a341">
+<div id="outline-container-org111215c" class="outline-2">
+<h2 id="org111215c">Docker Hub 镜像加速器列表</h2>
+<div class="outline-text-2" id="text-org111215c">
 <table>
 
 
@@ -402,9 +402,9 @@ Registry Mirrors:
 
 
 
-<div id="outline-container-org4d08c01" class="outline-2">
-<h2 id="org4d08c01">延伸阅读</h2>
-<div class="outline-text-2" id="text-org4d08c01">
+<div id="outline-container-org3be8e65" class="outline-2">
+<h2 id="org3be8e65">延伸阅读</h2>
+<div class="outline-text-2" id="text-org3be8e65">
 <ul class="org-ul">
 <li><a href="https://www.runoob.com/w3cnote/docker-tricks.html">https://www.runoob.com/w3cnote/docker-tricks.html</a></li>
 <li><a href="https://www.runoob.com/docker/docker-container-usage.html">https://www.runoob.com/docker/docker-container-usage.html</a></li>

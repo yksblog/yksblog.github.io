@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Imagemagick</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="">
 </head>
 <body>
@@ -17,16 +17,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0fc3fc9">得到一个图片的尺寸</a>
+<li><a href="#orgae79c16">得到一个图片的尺寸</a>
 <ul>
-<li><a href="#orgdf0f782">例子</a></li>
-<li><a href="#orgdc83ecb">quality 质量压缩</a></li>
-<li><a href="#org1cd1fac">sample 参数结合</a></li>
-<li><a href="#orge7c1e71">resize 缩放</a>
+<li><a href="#orgdbf3490">例子</a></li>
+<li><a href="#orge1bd543">quality 质量压缩</a></li>
+<li><a href="#orga8450c4">sample 参数结合</a></li>
+<li><a href="#org03105c8">resize 缩放</a>
 <ul>
-<li><a href="#org7a1d9c8">convert 也支持限高或限宽缩放</a></li>
-<li><a href="#orgb7e800d">convert 格式转化</a></li>
-<li><a href="#orgf90d61b">裁剪</a></li>
+<li><a href="#org3534877">convert 也支持限高或限宽缩放</a></li>
+<li><a href="#org11130b1">convert 格式转化</a></li>
+<li><a href="#org4e01aff">裁剪</a></li>
 </ul>
 </li>
 </ul>
@@ -35,9 +35,9 @@
 </div>
 </div>
 
-<div id="outline-container-org0fc3fc9" class="outline-2">
-<h2 id="org0fc3fc9">得到一个图片的尺寸</h2>
-<div class="outline-text-2" id="text-org0fc3fc9">
+<div id="outline-container-orgae79c16" class="outline-2">
+<h2 id="orgae79c16">得到一个图片的尺寸</h2>
+<div class="outline-text-2" id="text-orgae79c16">
 <p>
 <code>identify test.png</code>
 </p>
@@ -60,9 +60,9 @@ sRGB 图片的色彩格式<br>
 </div>
 
 
-<div id="outline-container-orgdf0f782" class="outline-3">
-<h3 id="orgdf0f782">例子</h3>
-<div class="outline-text-3" id="text-orgdf0f782">
+<div id="outline-container-orgdbf3490" class="outline-3">
+<h3 id="orgdbf3490">例子</h3>
+<div class="outline-text-3" id="text-orgdbf3490">
 <blockquote>
 <p class="verse">
 <br>
@@ -78,9 +78,9 @@ convert 对图片进行压缩、裁剪、缩放、图片格式转化<br>
 </div>
 </div>
 
-<div id="outline-container-orgdc83ecb" class="outline-3">
-<h3 id="orgdc83ecb">quality 质量压缩</h3>
-<div class="outline-text-3" id="text-orgdc83ecb">
+<div id="outline-container-orge1bd543" class="outline-3">
+<h3 id="orge1bd543">quality 质量压缩</h3>
+<div class="outline-text-3" id="text-orge1bd543">
 <p>
 图片质量压缩，可以降低图片的存储空间，质量92一般为无损压缩，例子如下：
 </p>
@@ -91,9 +91,9 @@ convert 对图片进行压缩、裁剪、缩放、图片格式转化<br>
 </div>
 </div>
 
-<div id="outline-container-org1cd1fac" class="outline-3">
-<h3 id="org1cd1fac">sample 参数结合</h3>
-<div class="outline-text-3" id="text-org1cd1fac">
+<div id="outline-container-orga8450c4" class="outline-3">
+<h3 id="orga8450c4">sample 参数结合</h3>
+<div class="outline-text-3" id="text-orga8450c4">
 <p>
 与risize 区别在与-sample 只进行了采样，没有进行插值，所有用来生成缩略图最合适
 </p>
@@ -112,9 +112,9 @@ convert 对图片进行压缩、裁剪、缩放、图片格式转化<br>
 </div>
 </div>
 
-<div id="outline-container-orge7c1e71" class="outline-3">
-<h3 id="orge7c1e71">resize 缩放</h3>
-<div class="outline-text-3" id="text-orge7c1e71">
+<div id="outline-container-org03105c8" class="outline-3">
+<h3 id="org03105c8">resize 缩放</h3>
+<div class="outline-text-3" id="text-org03105c8">
 <p>
 <code>$convert test.jpg -resize 1000% test_resize.jpg (无马赛克现象)</code>
 </p>
@@ -134,9 +134,9 @@ $<span style="color: #FD971F;">convert</span> test.jpg -sample 200x110 test_200x
 </div>
 </div>
 
-<div id="outline-container-org7a1d9c8" class="outline-4">
-<h4 id="org7a1d9c8">convert 也支持限高或限宽缩放</h4>
-<div class="outline-text-4" id="text-org7a1d9c8">
+<div id="outline-container-org3534877" class="outline-4">
+<h4 id="org3534877">convert 也支持限高或限宽缩放</h4>
+<div class="outline-text-4" id="text-org3534877">
 <div class="org-src-container">
 <pre class="src src-bash">$<span style="color: #FD971F;">convert</span> test.jpg -resize 330x test_330x.jpg <span style="color: #AE81FF;">&#65288;</span>&#38480;&#23485;330<span style="color: #AE81FF;">&#65289;</span>
 $<span style="color: #FD971F;">convert</span> test.jpg -resize x170 test_x170.jpg <span style="color: #AE81FF;">&#65288;</span>&#38480;&#39640;170<span style="color: #AE81FF;">&#65289;</span>
@@ -145,18 +145,18 @@ $<span style="color: #FD971F;">convert</span> test.jpg -resize x170 test_x170.jp
 </div>
 </div>
 
-<div id="outline-container-orgb7e800d" class="outline-4">
-<h4 id="orgb7e800d">convert 格式转化</h4>
-<div class="outline-text-4" id="text-orgb7e800d">
+<div id="outline-container-org11130b1" class="outline-4">
+<h4 id="org11130b1">convert 格式转化</h4>
+<div class="outline-text-4" id="text-org11130b1">
 <p>
 <code>$convert test.png -quality 92 test.jpg</code>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgf90d61b" class="outline-4">
-<h4 id="orgf90d61b">裁剪</h4>
-<div class="outline-text-4" id="text-orgf90d61b">
+<div id="outline-container-org4e01aff" class="outline-4">
+<h4 id="org4e01aff">裁剪</h4>
+<div class="outline-text-4" id="text-org4e01aff">
 <ul class="org-ul">
 <li>crop 裁剪</li>
 <li>按比例裁剪</li>
@@ -164,8 +164,8 @@ $<span style="color: #FD971F;">convert</span> test.jpg -resize x170 test_x170.jp
 </div>
 
 <ul class="org-ul">
-<li><a id="org35b8dce"></a>-crop参数是从一个图片截取一个指定区域的子图片.<br>
-<div class="outline-text-5" id="text-org35b8dce">
+<li><a id="orga83607f"></a>-crop参数是从一个图片截取一个指定区域的子图片.<br>
+<div class="outline-text-5" id="text-orga83607f">
 <p>
 格式如下:convert -crop {width}x{height}{x}{y}
 </p>
@@ -209,16 +209,16 @@ crop参数也可以使用百分比，例如：
 </div>
 </li>
 
-<li><a id="org19d8ce3"></a>生成dest-[0-3].jpg的图<br>
-<div class="outline-text-5" id="text-org19d8ce3">
+<li><a id="org84f181e"></a>生成dest-[0-3].jpg的图<br>
+<div class="outline-text-5" id="text-org84f181e">
 <ul class="org-ul">
 <li>其实全命令可以理解为： -crop 50%x50%+0+0</li>
 </ul>
 </div>
 </li>
 
-<li><a id="org0f75606"></a>设原图大小为200x100，则将原图从上到下平均裁剪成4份，如：<br>
-<div class="outline-text-5" id="text-org0f75606">
+<li><a id="org5cce242"></a>设原图大小为200x100，则将原图从上到下平均裁剪成4份，如：<br>
+<div class="outline-text-5" id="text-org5cce242">
 <p>
 $convert src.jpg -crop 100%x25%  dest.jpg
 </p>
@@ -241,16 +241,16 @@ $convert src.jpg -crop 100%x25%  dest.jpg
 </div>
 </li>
 
-<li><a id="org1a7cdf2"></a>只裁剪中心区域的50%<br>
-<div class="outline-text-5" id="text-org1a7cdf2">
+<li><a id="orgf82b511"></a>只裁剪中心区域的50%<br>
+<div class="outline-text-5" id="text-orgf82b511">
 <p>
 $convert src.jpg -gravity center -crop 50%  dest.jpg
 </p>
 </div>
 </li>
 
-<li><a id="orgb945180"></a>此时只会出现一张图片 dest.jpg<br>
-<div class="outline-text-5" id="text-orgb945180">
+<li><a id="org43193ad"></a>此时只会出现一张图片 dest.jpg<br>
+<div class="outline-text-5" id="text-org43193ad">
 <p>
 若src.jpg(200x100)，则dest.jpg为从src中心位置向四周扩展50%的区域,即与执行下边命令的结果相同
 </p>

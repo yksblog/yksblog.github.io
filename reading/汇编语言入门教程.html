@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>汇编语言入门教程</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="">
 </head>
 <body>
@@ -17,18 +17,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1369a0d">一、汇编语言是什么？</a></li>
-<li><a href="#org7315a51">二、来历</a></li>
-<li><a href="#org09cc64b">三、寄存器</a></li>
-<li><a href="#orgcc33116">四、寄存器的种类</a></li>
-<li><a href="#orgcfbc2fe">五、内存模型：Heap</a></li>
-<li><a href="#org0527a66">六、内存模型：Stack</a></li>
-<li><a href="#org19a3678">七、CPU 指令</a>
+<li><a href="#org48e7673">一、汇编语言是什么？</a></li>
+<li><a href="#org7ce6e67">二、来历</a></li>
+<li><a href="#orgab878cc">三、寄存器</a></li>
+<li><a href="#org0867d83">四、寄存器的种类</a></li>
+<li><a href="#orgc0b916b">五、内存模型：Heap</a></li>
+<li><a href="#org9a2ad43">六、内存模型：Stack</a></li>
+<li><a href="#org0452cbc">七、CPU 指令</a>
 <ul>
-<li><a href="#org6c6e728">一个实例</a></li>
+<li><a href="#org7bc004a">一个实例</a></li>
 </ul>
 </li>
-<li><a href="#orgdeea1fd">资源</a></li>
+<li><a href="#org5ef6f56">资源</a></li>
 </ul>
 </div>
 </div>
@@ -48,9 +48,9 @@
 汇编语言不容易学习，就连简明扼要的介绍都很难找到。下面我尝试写一篇最好懂的汇编语言教程，解释 CPU 如何执行代码。
 </p>
 
-<div id="outline-container-org1369a0d" class="outline-2">
-<h2 id="org1369a0d">一、汇编语言是什么？</h2>
-<div class="outline-text-2" id="text-org1369a0d">
+<div id="outline-container-org48e7673" class="outline-2">
+<h2 id="org48e7673">一、汇编语言是什么？</h2>
+<div class="outline-text-2" id="text-org48e7673">
 <p>
 我们知道，CPU 只负责计算，本身不具备智能。你输入一条指令（instruction），它就运行一次，然后停下来，等待下一条指令。
 </p>
@@ -68,9 +68,9 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org7315a51" class="outline-2">
-<h2 id="org7315a51">二、来历</h2>
-<div class="outline-text-2" id="text-org7315a51">
+<div id="outline-container-org7ce6e67" class="outline-2">
+<h2 id="org7ce6e67">二、来历</h2>
+<div class="outline-text-2" id="text-org7ce6e67">
 <p>
 最早的时候，编写程序就是手写二进制指令，然后通过各种开关输入计算机，比如要做加法了，就按一下加法开关。后来，发明了纸带打孔机，通过在纸带上打孔，将二进制指令自动输入计算机。为了解决二进制指令的可读性问题，工程师将那些指令写成了八进制。二进制转八进制是轻而易举的，但是八进制的可读性也不行。很自然地，最后还是用文字表达，加法指令写成 ADD。内存地址也不再直接引用，而是用标签表示。
 </p>
@@ -84,9 +84,9 @@
 </p>
 </div>
 </div>
-<div id="outline-container-org09cc64b" class="outline-2">
-<h2 id="org09cc64b">三、寄存器</h2>
-<div class="outline-text-2" id="text-org09cc64b">
+<div id="outline-container-orgab878cc" class="outline-2">
+<h2 id="orgab878cc">三、寄存器</h2>
+<div class="outline-text-2" id="text-orgab878cc">
 <p>
 学习汇编语言，首先必须了解两个知识点： <b>寄存器和内存模型。</b>
 </p>
@@ -104,9 +104,9 @@
 </p>
 </div>
 </div>
-<div id="outline-container-orgcc33116" class="outline-2">
-<h2 id="orgcc33116">四、寄存器的种类</h2>
-<div class="outline-text-2" id="text-orgcc33116">
+<div id="outline-container-org0867d83" class="outline-2">
+<h2 id="org0867d83">四、寄存器的种类</h2>
+<div class="outline-text-2" id="text-org0867d83">
 <p>
 早期的 x86 CPU 只有8个寄存器，而且每个都有不同的用途。现在的寄存器已经有100多个了，都变成通用寄存器，不特别指定用途了，但是早期寄存器的名字都被保存了下来。
 </p>
@@ -130,9 +130,9 @@ ESP
 </p>
 </div>
 </div>
-<div id="outline-container-orgcfbc2fe" class="outline-2">
-<h2 id="orgcfbc2fe">五、内存模型：Heap</h2>
-<div class="outline-text-2" id="text-orgcfbc2fe">
+<div id="outline-container-orgc0b916b" class="outline-2">
+<h2 id="orgc0b916b">五、内存模型：Heap</h2>
+<div class="outline-text-2" id="text-orgc0b916b">
 <p>
 寄存器只能存放很少量的数据，大多数时候，CPU 要指挥寄存器，直接跟内存交换数据。所以，除了寄存器，还必须了解内存怎么储存数据。
 </p>
@@ -150,9 +150,9 @@ ESP
 </p>
 </div>
 </div>
-<div id="outline-container-org0527a66" class="outline-2">
-<h2 id="org0527a66">六、内存模型：Stack</h2>
-<div class="outline-text-2" id="text-org0527a66">
+<div id="outline-container-org9a2ad43" class="outline-2">
+<h2 id="org9a2ad43">六、内存模型：Stack</h2>
+<div class="outline-text-2" id="text-org9a2ad43">
 <p>
 除了 Heap 以外，其他的内存占用叫做 Stack（栈）。简单说，Stack 是由于函数运行而临时占用的内存区域。
 </p>
@@ -201,13 +201,13 @@ Stack 是由内存区域的结束地址开始，从高位（地址）向低位�
 </div>
 </div>
 
-<div id="outline-container-org19a3678" class="outline-2">
-<h2 id="org19a3678">七、CPU 指令</h2>
-<div class="outline-text-2" id="text-org19a3678">
+<div id="outline-container-org0452cbc" class="outline-2">
+<h2 id="org0452cbc">七、CPU 指令</h2>
+<div class="outline-text-2" id="text-org0452cbc">
 </div>
-<div id="outline-container-org6c6e728" class="outline-3">
-<h3 id="org6c6e728">一个实例</h3>
-<div class="outline-text-3" id="text-org6c6e728">
+<div id="outline-container-org7bc004a" class="outline-3">
+<h3 id="org7bc004a">一个实例</h3>
+<div class="outline-text-3" id="text-org7bc004a">
 <p>
 了解寄存器和内存模型以后，就可以来看汇编语言到底是什么了。下面是一个简单的程序example.c。
 </p>
@@ -258,9 +258,9 @@ example.s经过简化以后，大概是下面的样子。
 </div>
 
 
-<div id="outline-container-orgdeea1fd" class="outline-2">
-<h2 id="orgdeea1fd">资源</h2>
-<div class="outline-text-2" id="text-orgdeea1fd">
+<div id="outline-container-org5ef6f56" class="outline-2">
+<h2 id="org5ef6f56">资源</h2>
+<div class="outline-text-2" id="text-org5ef6f56">
 <ul class="org-ul">
 <li><a href="https://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html">阮一峰</a></li>
 </ul>

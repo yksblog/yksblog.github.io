@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Elixir Phoenix</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="">
 </head>
 <body>
@@ -17,27 +17,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4149973">可靠性</a></li>
-<li><a href="#org7b5c198">并发</a></li>
-<li><a href="#org3fbede6">简单</a></li>
-<li><a href="#org1bafabc">性能</a>
+<li><a href="#orgf92a931">可靠性</a></li>
+<li><a href="#orgc990a0d">并发</a></li>
+<li><a href="#orgcc2b687">简单</a></li>
+<li><a href="#org844cc61">性能</a>
 <ul>
-<li><a href="#org3742ca0">无需缓存也很快</a></li>
-<li><a href="#org1ee5a5b">vs Java</a></li>
+<li><a href="#org396f665">无需缓存也很快</a></li>
+<li><a href="#org4ece5c6">vs Java</a></li>
 </ul>
 </li>
-<li><a href="#orgc269003">伸缩性</a></li>
-<li><a href="#orga162185">灵活性</a></li>
-<li><a href="#org1e5bd02">Correctness</a></li>
-<li><a href="#org7bec40d">模块热更新</a></li>
-<li><a href="#org87a4e36">独立的 Application</a>
+<li><a href="#orgf91385b">伸缩性</a></li>
+<li><a href="#org9e18204">灵活性</a></li>
+<li><a href="#org21113cc">Correctness</a></li>
+<li><a href="#org6c5532b">模块热更新</a></li>
+<li><a href="#org0604a54">独立的 Application</a>
 <ul>
-<li><a href="#org8028fc1">有何区别？</a></li>
+<li><a href="#org205fd4f">有何区别？</a></li>
 </ul>
 </li>
-<li><a href="#org60dd4cd">为什么不流行</a></li>
-<li><a href="#org5063c6b">结论</a></li>
-<li><a href="#orga6cdeea">资源</a></li>
+<li><a href="#org52647c2">为什么不流行</a></li>
+<li><a href="#org6fa6104">结论</a></li>
+<li><a href="#org3246e76">资源</a></li>
 </ul>
 </div>
 </div>
@@ -45,9 +45,9 @@
 Elixir非常适合web开发
 </div>
 
-<div id="outline-container-org4149973" class="outline-2">
-<h2 id="org4149973">可靠性</h2>
-<div class="outline-text-2" id="text-org4149973">
+<div id="outline-container-orgf92a931" class="outline-2">
+<h2 id="orgf92a931">可靠性</h2>
+<div class="outline-text-2" id="text-orgf92a931">
 <ul class="org-ul">
 <li>Elixir继承了Erlang语言的所有优势，并且提供了更加友好的语法和工具。可以理解为：Elixir是一个Erlang虚拟机的友好接口罢了。</li>
 <li>Erlang从上个世纪[80年代](Erlang Programming Language)就开始被用来创建一些非常可靠的系统。Erlang被用来运行电话系统。电话系统如果不工作可要命了。并且因为他们要把服务运行在很多电话交换机上，他们就发明了并行运行代码的非常棒的模型。</li>
@@ -56,9 +56,9 @@ Elixir非常适合web开发
 </div>
 </div>
 
-<div id="outline-container-org7b5c198" class="outline-2">
-<h2 id="org7b5c198">并发</h2>
-<div class="outline-text-2" id="text-org7b5c198">
+<div id="outline-container-orgc990a0d" class="outline-2">
+<h2 id="orgc990a0d">并发</h2>
+<div class="outline-text-2" id="text-orgc990a0d">
 <ul class="org-ul">
 <li>近年来，CPU频率提升已经不大，但是CPU核心数却是越来越多。这就要求软件系统能够更具并发来适应硬件系统的发展——这就意味着系统的不同部分并行运行在不同的核心上。</li>
 <li>并发代码的主要问题就是 <b>竞态</b> 问题，导致非预期的结果。OO语言如Ruby不能很好地解决类似问题。但是函数式语言，如Elixir，可以解决类似问题。</li>
@@ -68,9 +68,9 @@ Elixir非常适合web开发
 </div>
 </div>
 
-<div id="outline-container-org3fbede6" class="outline-2">
-<h2 id="org3fbede6">简单</h2>
-<div class="outline-text-2" id="text-org3fbede6">
+<div id="outline-container-orgcc2b687" class="outline-2">
+<h2 id="orgcc2b687">简单</h2>
+<div class="outline-text-2" id="text-orgcc2b687">
 <p>
 　　当我们写Rails应用时，需要依赖很多其他组件。Rails应用同一个时刻只能处理一个web请求，并且我们不能在需要时新创建进程，因此我们不得不
 </p>
@@ -99,9 +99,9 @@ Functional programming is associated with concurrency but it was not by design. 
 </div>
 </div>
 
-<div id="outline-container-org1bafabc" class="outline-2">
-<h2 id="org1bafabc">性能</h2>
-<div class="outline-text-2" id="text-org1bafabc">
+<div id="outline-container-org844cc61" class="outline-2">
+<h2 id="org844cc61">性能</h2>
+<div class="outline-text-2" id="text-org844cc61">
 <ul class="org-ul">
 <li>Phoenix web框架的性能比Rails高大概10倍，而且Phoenix服务器的负载更低</li>
 <li>Rails更倾向于预处理请求。这会导致“链式响应”，因为Rails应用配置为只有固定数量的应用进程，因此如果有些进程慢了，会导致其他请求不得不等待，因此显著增加了响应时间。</li>
@@ -116,9 +116,9 @@ Functional programming is associated with concurrency but it was not by design. 
 </p>
 </div>
 
-<div id="outline-container-org3742ca0" class="outline-3">
-<h3 id="org3742ca0">无需缓存也很快</h3>
-<div class="outline-text-3" id="text-org3742ca0">
+<div id="outline-container-org396f665" class="outline-3">
+<h3 id="org396f665">无需缓存也很快</h3>
+<div class="outline-text-3" id="text-org396f665">
 <blockquote>
 <p class="verse">
 Erlang Respects Your RAM! Erlang is different from other platforms because when rendering a server-side template, it doesn't create a separate copy of a web page in memory for each connected client. Instead, it constructs pointers to the same pieces of immutable memory across multiple requests. So if two people request two different profile pages at the same time, they're actually sent the same chunks of memory for the header, footer, and other shared template snippets. The result is a server that can construct complex, uncached web pages for hundreds of users per second without breaking a sweat. With Erlang, you can run a website on a fraction of the hardware that Ruby and the JVM require, saving you money and operational headaches.<br>
@@ -129,9 +129,9 @@ Erlang尊重你的内存!Erlang与其他平台的不同之处在于，当呈现�
 </div>
 </div>
 
-<div id="outline-container-org1ee5a5b" class="outline-3">
-<h3 id="org1ee5a5b">vs Java</h3>
-<div class="outline-text-3" id="text-org1ee5a5b">
+<div id="outline-container-org4ece5c6" class="outline-3">
+<h3 id="org4ece5c6">vs Java</h3>
+<div class="outline-text-3" id="text-org4ece5c6">
 <blockquote>
 <p class="verse">
 So, we like Elixir and have seen some pretty big wins with it. The system that manages rate limits for both the Pinterest API and Ads API is built in Elixir. Its 50 percent response time is around 500 microseconds with a 90 percent response time of 800 microseconds. Yes, microseconds. We’ve also seen an improvement in code clarity. We’re converting our notifications system from Java to Elixir. The Java version used an Actor system and weighed in at around 10,000 lines of code. The new Elixir system has shrunk this to around 1000 lines. The Elixir based system is also faster and more consistent than the Java one and runs on half the number of servers.<br>
@@ -144,9 +144,9 @@ So, we like Elixir and have seen some pretty big wins with it. The system that m
 </div>
 
 
-<div id="outline-container-orgc269003" class="outline-2">
-<h2 id="orgc269003">伸缩性</h2>
-<div class="outline-text-2" id="text-orgc269003">
+<div id="outline-container-orgf91385b" class="outline-2">
+<h2 id="orgf91385b">伸缩性</h2>
+<div class="outline-text-2" id="text-orgf91385b">
 <p>
 　　Erlang虚拟机的并发模型非常适合多核cpu，但是在多核cpu发明之前虚拟机就存在了。她的原始目的是通过在多个不同机器上运行来支持并发和容错。这就使得她提供了非常优秀的工具来创建轻松处理非常大的负载的系统，并且能够非常容易地增加服务器。就如<a href="http://ninenines.eu/docs/en/cowboy/2.0/guide/erlang_web">Erlang web服务器文档</a>所说：
 </p>
@@ -169,9 +169,9 @@ Web是并发的，而Erlang是一种为并发性设计的语言，因此它是�
 </div>
 </div>
 
-<div id="outline-container-orga162185" class="outline-2">
-<h2 id="orga162185">灵活性</h2>
-<div class="outline-text-2" id="text-orga162185">
+<div id="outline-container-org9e18204" class="outline-2">
+<h2 id="org9e18204">灵活性</h2>
+<div class="outline-text-2" id="text-org9e18204">
 <p>
 　　使用Elixir和Phoenix打开了一扇创建应用的大门，这些是使用RoR不能达到的。Phoenix框架通过websockets（或者polling，作为降级方案）提供了实时通信功能。在基准测试中，<a href="https://www.phoenixframework.org/blog/the-road-to-2-million-websocket-connections">单台服务器支持2百万持续链接！</a>同时，他们也开发了支持iOS、Android和C#（视窗设备）本地channels客户端。有了这些支持，你可以轻松创建出聊天应用、网络游戏和更多其他的应用。
 </p>
@@ -183,9 +183,9 @@ Web是并发的，而Erlang是一种为并发性设计的语言，因此它是�
 </div>
 
 
-<div id="outline-container-org1e5bd02" class="outline-2">
-<h2 id="org1e5bd02">Correctness</h2>
-<div class="outline-text-2" id="text-org1e5bd02">
+<div id="outline-container-org21113cc" class="outline-2">
+<h2 id="org21113cc">Correctness</h2>
+<div class="outline-text-2" id="text-org21113cc">
 <p>
 　　Rails的ActiveRecord鼓励开发者在应用代码中做所有的数据检查。但是，依赖数据库状态的检查只能依赖数据库，用约束或者锁。这些包括：
 </p>
@@ -203,9 +203,9 @@ Web是并发的，而Erlang是一种为并发性设计的语言，因此它是�
 </div>
 </div>
 
-<div id="outline-container-org7bec40d" class="outline-2">
-<h2 id="org7bec40d">模块热更新</h2>
-<div class="outline-text-2" id="text-org7bec40d">
+<div id="outline-container-org6c5532b" class="outline-2">
+<h2 id="org6c5532b">模块热更新</h2>
+<div class="outline-text-2" id="text-org6c5532b">
 <ul class="org-ul">
 <li>模块可以在不停止系统的情况下安全的热升级。</li>
 <li>Erlang 的模块热升级是多版本并存的。假设一个进程真正跑，它使用的是老版本模块。那么升级的时候，新进程会使用新版本。互不干扰。即使新版本带来了新问题，你还可以无缝的降回去。当然，你愿意，也可以把老的进程干掉一些，直接强制到新版本。其他系统这么做实在太可怕。可是 Erlang 的进程是容错的，状态可恢复而且可升级的，所以这么做还是可行。</li>
@@ -214,18 +214,18 @@ Web是并发的，而Erlang是一种为并发性设计的语言，因此它是�
 </div>
 </div>
 
-<div id="outline-container-org87a4e36" class="outline-2">
-<h2 id="org87a4e36">独立的 Application</h2>
-<div class="outline-text-2" id="text-org87a4e36">
+<div id="outline-container-org0604a54" class="outline-2">
+<h2 id="org0604a54">独立的 Application</h2>
+<div class="outline-text-2" id="text-org0604a54">
 <ul class="org-ul">
 <li>其他语言里，程序基本上就是，一个主入口，然后调用其他第三方模块这样的设计。但是这个设计太简陋。</li>
 <li>Erlang 的设计是，整个系统是由一系列独立运行的 Application 组成的。包括俗话说的“系统标准库”这种玩意儿，Erlang 里也是独立的 Application。</li>
 </ul>
 </div>
 
-<div id="outline-container-org8028fc1" class="outline-3">
-<h3 id="org8028fc1">有何区别？</h3>
-<div class="outline-text-3" id="text-org8028fc1">
+<div id="outline-container-org205fd4f" class="outline-3">
+<h3 id="org205fd4f">有何区别？</h3>
+<div class="outline-text-3" id="text-org205fd4f">
 <ul class="org-ul">
 <li>每个 Application 都有自己的一个启动过程，自己的一组进程（构成监督树，具备独立的容错性）。相互之间运行时耦合是松散的。</li>
 <li>所以，A 和 B 两个 Application 你想运行在同一台计算机，或者多台不同的计算机上，代码没有差别。这就很像微服务了。</li>
@@ -235,9 +235,9 @@ Web是并发的，而Erlang是一种为并发性设计的语言，因此它是�
 </div>
 </div>
 
-<div id="outline-container-org60dd4cd" class="outline-2">
-<h2 id="org60dd4cd">为什么不流行</h2>
-<div class="outline-text-2" id="text-org60dd4cd">
+<div id="outline-container-org52647c2" class="outline-2">
+<h2 id="org52647c2">为什么不流行</h2>
+<div class="outline-text-2" id="text-org52647c2">
 <p>
 　　其实应该能 get 到为什么 Erlang 不流行了吧？我可以向你介绍很多 Erlang 的好。而且我可以保证它真的就是这么好。但是即使你能理解，你能学会，其他人能吗？很多人根本不在乎到底一个技术好不好，他们只在乎到底几天能够学会，多少工作岗位，以后跳槽好跳吗。这没有错。甚至很正确。
 </p>
@@ -255,9 +255,9 @@ Web是并发的，而Erlang是一种为并发性设计的语言，因此它是�
 </div>
 </div>
 
-<div id="outline-container-org5063c6b" class="outline-2">
-<h2 id="org5063c6b">结论</h2>
-<div class="outline-text-2" id="text-org5063c6b">
+<div id="outline-container-org6fa6104" class="outline-2">
+<h2 id="org6fa6104">结论</h2>
+<div class="outline-text-2" id="text-org6fa6104">
 <p>
 　　其实 Erlang 也并不是什么万金油，任何项目都适合。不是说选择了什么牛逼的东西，自己就会变得牛逼。而是因为一个工程师有牛逼的思想，才能够在茫茫工具海洋里，看出哪一个才是真牛逼。使用工具也要付出智力代价的。真的不是免费的。
 </p>
@@ -289,9 +289,9 @@ Web是并发的，而Erlang是一种为并发性设计的语言，因此它是�
 </div>
 
 
-<div id="outline-container-orga6cdeea" class="outline-2">
-<h2 id="orga6cdeea">资源</h2>
-<div class="outline-text-2" id="text-orga6cdeea">
+<div id="outline-container-org3246e76" class="outline-2">
+<h2 id="org3246e76">资源</h2>
+<div class="outline-text-2" id="text-org3246e76">
 <ul class="org-ul">
 <li><a href="https://zhuanlan.zhihu.com/p/158076416">知乎</a></li>
 <li><a href="https://joearms.github.io/published/2013-05-31-a-week-with-elixir.html">elixir的一周</a></li>

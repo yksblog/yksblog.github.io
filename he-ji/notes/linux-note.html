@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linux-Note</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
-           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
+           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
 <meta name="card" content="linux常用">
 </head>
 <body>
@@ -17,47 +17,47 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc7cd1ae">查看用户</a></li>
-<li><a href="#orgf4b889e">nmap</a></li>
-<li><a href="#org4f21d47">Linux 关闭/开启密码登录（仅证书登录）</a></li>
-<li><a href="#org9f18a95">ssh生成公私钥：</a></li>
-<li><a href="#org15fb0b9">ssh连接长时间不断开</a></li>
-<li><a href="#org1a47321">bashrc 里 alias 加参数如何做？</a></li>
-<li><a href="#orgf014d20">ss-server</a></li>
-<li><a href="#org2e83282">ssh timeout</a></li>
-<li><a href="#org67e258f">chmod,chown,chgrp</a>
+<li><a href="#orgfd75408">查看用户</a></li>
+<li><a href="#orga4c6660">nmap</a></li>
+<li><a href="#org5f88540">Linux 关闭/开启密码登录（仅证书登录）</a></li>
+<li><a href="#org81adfc6">ssh生成公私钥：</a></li>
+<li><a href="#org4e1d304">ssh连接长时间不断开</a></li>
+<li><a href="#org7f34f4d">bashrc 里 alias 加参数如何做？</a></li>
+<li><a href="#orgb66bd74">ss-server</a></li>
+<li><a href="#org3c145e4">ssh timeout</a></li>
+<li><a href="#org6c26800">chmod,chown,chgrp</a>
 <ul>
-<li><a href="#org4eb233d">chown</a></li>
-<li><a href="#orgda92d94">chgrp</a></li>
+<li><a href="#org66ae770">chown</a></li>
+<li><a href="#org312aaad">chgrp</a></li>
 </ul>
 </li>
-<li><a href="#org6a3ea17">文件分割/合并</a></li>
-<li><a href="#org0267f37">tcpdump</a></li>
-<li><a href="#orga589779">less 乱码</a></li>
-<li><a href="#org4bf26e9">修改主机名</a></li>
-<li><a href="#org8acd385">建用户并赋予 <b>sudo</b> 权限</a></li>
-<li><a href="#orgaf2ede0">禁用 ping</a></li>
-<li><a href="#orgeaf8d8d">netstat</a></li>
-<li><a href="#org54ad103">mac osx 终端批量删除文件</a></li>
-<li><a href="#orgf357eff">查找并杀死 tomcat</a></li>
-<li><a href="#org2715a1a">ls 命令</a></li>
-<li><a href="#org144bff7">du / df 命令</a></li>
-<li><a href="#orgc63afb2">mac 网关和路由</a></li>
-<li><a href="#orgc0e9f00">杀掉查询出来的进程</a></li>
-<li><a href="#orgb50e9af">pbcopy</a></li>
-<li><a href="#org2d5dc26">arp -a</a></li>
-<li><a href="#org61e170a">软连接</a></li>
-<li><a href="#org3b9008f">mac ox 终端显示 bogon 的问题</a></li>
-<li><a href="#org32fdebd">mac 恢复 launchpad 布局</a></li>
-<li><a href="#orgd7952d6">扩展属性@</a></li>
-<li><a href="#orgd802563">nslookup</a></li>
+<li><a href="#org3fbb584">文件分割/合并</a></li>
+<li><a href="#orgfce2ef3">tcpdump</a></li>
+<li><a href="#orgd5e5f07">less 乱码</a></li>
+<li><a href="#org073874b">修改主机名</a></li>
+<li><a href="#org7e70082">建用户并赋予 <b>sudo</b> 权限</a></li>
+<li><a href="#org571e1dc">禁用 ping</a></li>
+<li><a href="#org2c9f6a6">netstat</a></li>
+<li><a href="#org6313632">mac osx 终端批量删除文件</a></li>
+<li><a href="#org1f2c198">查找并杀死 tomcat</a></li>
+<li><a href="#orga2996ba">ls 命令</a></li>
+<li><a href="#orge69487f">du / df 命令</a></li>
+<li><a href="#orga871a1e">mac 网关和路由</a></li>
+<li><a href="#orgb835d6b">杀掉查询出来的进程</a></li>
+<li><a href="#orgb7d0b3a">pbcopy</a></li>
+<li><a href="#org079cb46">arp -a</a></li>
+<li><a href="#org980e3db">软连接</a></li>
+<li><a href="#orga4efcb9">mac ox 终端显示 bogon 的问题</a></li>
+<li><a href="#org033d886">mac 恢复 launchpad 布局</a></li>
+<li><a href="#orgab33020">扩展属性@</a></li>
+<li><a href="#orga15c2d6">nslookup</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc7cd1ae" class="outline-2">
-<h2 id="orgc7cd1ae">查看用户</h2>
-<div class="outline-text-2" id="text-orgc7cd1ae">
+<div id="outline-container-orgfd75408" class="outline-2">
+<h2 id="orgfd75408">查看用户</h2>
+<div class="outline-text-2" id="text-orgfd75408">
 <ul class="org-ul">
 <li><code>cat /etc/passwd | cut -f 1 -d :</code></li>
 </ul>
@@ -99,9 +99,9 @@ w
 </div>
 </div>
 
-<div id="outline-container-orgf4b889e" class="outline-2">
-<h2 id="orgf4b889e">nmap</h2>
-<div class="outline-text-2" id="text-orgf4b889e">
+<div id="outline-container-orga4c6660" class="outline-2">
+<h2 id="orga4c6660">nmap</h2>
+<div class="outline-text-2" id="text-orga4c6660">
 <ul class="org-ul">
 <li><a href="https://zhuanlan.zhihu.com/p/343709343">https://zhuanlan.zhihu.com/p/343709343</a></li>
 </ul>
@@ -115,9 +115,9 @@ nmap -p1-9999 192.168.34.90
 </div>
 </div>
 
-<div id="outline-container-org4f21d47" class="outline-2">
-<h2 id="org4f21d47">Linux 关闭/开启密码登录（仅证书登录）</h2>
-<div class="outline-text-2" id="text-org4f21d47">
+<div id="outline-container-org5f88540" class="outline-2">
+<h2 id="org5f88540">Linux 关闭/开启密码登录（仅证书登录）</h2>
+<div class="outline-text-2" id="text-org5f88540">
 <div class="org-src-container">
 <pre class="src src-bash"> vim /etc/ssh/sshd_config
 
@@ -134,9 +134,9 @@ PasswordAuthentication no
 </div>
 </div>
 
-<div id="outline-container-org9f18a95" class="outline-2">
-<h2 id="org9f18a95">ssh生成公私钥：</h2>
-<div class="outline-text-2" id="text-org9f18a95">
+<div id="outline-container-org81adfc6" class="outline-2">
+<h2 id="org81adfc6">ssh生成公私钥：</h2>
+<div class="outline-text-2" id="text-org81adfc6">
 <ul class="org-ul">
 <li>ssh-keygen -t [rsa|dsa]</li>
 <li>根据提示起名(例子:ykyk)，不输密码</li>
@@ -157,9 +157,9 @@ PasswordAuthentication no
 </div>
 </div>
 
-<div id="outline-container-org15fb0b9" class="outline-2">
-<h2 id="org15fb0b9">ssh连接长时间不断开</h2>
-<div class="outline-text-2" id="text-org15fb0b9">
+<div id="outline-container-org4e1d304" class="outline-2">
+<h2 id="org4e1d304">ssh连接长时间不断开</h2>
+<div class="outline-text-2" id="text-org4e1d304">
 <ul class="org-ul">
 <li>修改系统 ssh 端配置文件：</li>
 </ul>
@@ -173,9 +173,9 @@ ServerAliveInterval 30 //&#27599;&#38548; 30 &#31186;&#21521;&#26381;&#21153;&#2
 </div>
 </div>
 
-<div id="outline-container-org1a47321" class="outline-2">
-<h2 id="org1a47321">bashrc 里 alias 加参数如何做？</h2>
-<div class="outline-text-2" id="text-org1a47321">
+<div id="outline-container-org7f34f4d" class="outline-2">
+<h2 id="org7f34f4d">bashrc 里 alias 加参数如何做？</h2>
+<div class="outline-text-2" id="text-org7f34f4d">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #F92672;">alias</span> <span style="color: #FD971F;">ttt</span>=<span style="color: #E6DB74;">'test() { echo $1;}; test'</span>
 
@@ -188,18 +188,18 @@ eg:
 </div>
 </div>
 
-<div id="outline-container-orgf014d20" class="outline-2">
-<h2 id="orgf014d20">ss-server</h2>
-<div class="outline-text-2" id="text-orgf014d20">
+<div id="outline-container-orgb66bd74" class="outline-2">
+<h2 id="orgb66bd74">ss-server</h2>
+<div class="outline-text-2" id="text-orgb66bd74">
 <ul class="org-ul">
 <li>[翻墙](<a href="https://crifan.github.io/scientific_network_summary/website/server_client_mode/ss_server/self_build_ss_server.html">https://crifan.github.io/scientific_network_summary/website/server_client_mode/ss_server/self_build_ss_server.html</a>)</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2e83282" class="outline-2">
-<h2 id="org2e83282">ssh timeout</h2>
-<div class="outline-text-2" id="text-org2e83282">
+<div id="outline-container-org3c145e4" class="outline-2">
+<h2 id="org3c145e4">ssh timeout</h2>
+<div class="outline-text-2" id="text-org3c145e4">
 <p>
 <b>修改自己用户目录下的.bashrc 文件，加上</b>
 </p>
@@ -222,9 +222,9 @@ eg:
 </div>
 </div>
 
-<div id="outline-container-org67e258f" class="outline-2">
-<h2 id="org67e258f">chmod,chown,chgrp</h2>
-<div class="outline-text-2" id="text-org67e258f">
+<div id="outline-container-org6c26800" class="outline-2">
+<h2 id="org6c26800">chmod,chown,chgrp</h2>
+<div class="outline-text-2" id="text-org6c26800">
 <ul class="org-ul">
 <li><a href="https://blog.csdn.net/zhouleiblog/article/details/9325913">https://blog.csdn.net/zhouleiblog/article/details/9325913</a></li>
 <li>chmod #更改文件权限(rwx)</li>
@@ -233,9 +233,9 @@ eg:
 </ul>
 </div>
 
-<div id="outline-container-org4eb233d" class="outline-3">
-<h3 id="org4eb233d">chown</h3>
-<div class="outline-text-3" id="text-org4eb233d">
+<div id="outline-container-org66ae770" class="outline-3">
+<h3 id="org66ae770">chown</h3>
+<div class="outline-text-3" id="text-org66ae770">
 <div class="org-src-container">
 <pre class="src src-bash">chown <span style="color: #AE81FF;">[</span>-R<span style="color: #AE81FF;">]</span> &#36134;&#21495;&#21517;&#31216; &#25991;&#20214;&#25110;&#30446;&#24405;
 chown <span style="color: #AE81FF;">[</span>-R<span style="color: #AE81FF;">]</span> &#36134;&#21495;&#21517;&#31216;:&#29992;&#25143;&#32452;&#21517;&#31216; &#25991;&#20214;&#25110;&#30446;&#24405;
@@ -258,9 +258,9 @@ ls -l
 </div>
 </div>
 </div>
-<div id="outline-container-orgda92d94" class="outline-3">
-<h3 id="orgda92d94">chgrp</h3>
-<div class="outline-text-3" id="text-orgda92d94">
+<div id="outline-container-org312aaad" class="outline-3">
+<h3 id="org312aaad">chgrp</h3>
+<div class="outline-text-3" id="text-org312aaad">
 <div class="org-src-container">
 <pre class="src src-bash">chgrp <span style="color: #AE81FF;">[</span>-R<span style="color: #AE81FF;">]</span> &#29992;&#25143;&#32452;&#21517;&#31216; dirname/filename ...
 
@@ -288,9 +288,9 @@ chgrp: invalid group name <span style="color: #AE81FF; font-weight: bold;">`test
 </div>
 </div>
 
-<div id="outline-container-org6a3ea17" class="outline-2">
-<h2 id="org6a3ea17">文件分割/合并</h2>
-<div class="outline-text-2" id="text-org6a3ea17">
+<div id="outline-container-org3fbb584" class="outline-2">
+<h2 id="org3fbb584">文件分割/合并</h2>
+<div class="outline-text-2" id="text-org3fbb584">
 <div class="org-src-container">
 <pre class="src src-bash">&#28304;&#25991;&#20214;&#65306;TW-REL-4.0.8.3.zip
 
@@ -304,9 +304,9 @@ cat tw_4083_* &gt; tw_4083_all.zip
 </div>
 </div>
 
-<div id="outline-container-org0267f37" class="outline-2">
-<h2 id="org0267f37">tcpdump</h2>
-<div class="outline-text-2" id="text-org0267f37">
+<div id="outline-container-orgfce2ef3" class="outline-2">
+<h2 id="orgfce2ef3">tcpdump</h2>
+<div class="outline-text-2" id="text-orgfce2ef3">
 <ul class="org-ul">
 <li><a href="https://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html">https://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html</a></li>
 </ul>
@@ -317,9 +317,9 @@ cat tw_4083_* &gt; tw_4083_all.zip
 </div>
 </div>
 
-<div id="outline-container-orga589779" class="outline-2">
-<h2 id="orga589779">less 乱码</h2>
-<div class="outline-text-2" id="text-orga589779">
+<div id="outline-container-orgd5e5f07" class="outline-2">
+<h2 id="orgd5e5f07">less 乱码</h2>
+<div class="outline-text-2" id="text-orgd5e5f07">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #F92672;">export</span> <span style="color: #FD971F;">LESSCHARSET</span>=utf-8
 <span style="color: #F92672;">export</span> <span style="color: #FD971F;">LESS</span>=Mrf
@@ -328,9 +328,9 @@ cat tw_4083_* &gt; tw_4083_all.zip
 </div>
 </div>
 
-<div id="outline-container-org4bf26e9" class="outline-2">
-<h2 id="org4bf26e9">修改主机名</h2>
-<div class="outline-text-2" id="text-org4bf26e9">
+<div id="outline-container-org073874b" class="outline-2">
+<h2 id="org073874b">修改主机名</h2>
+<div class="outline-text-2" id="text-org073874b">
 <div class="org-src-container">
 <pre class="src src-bash">
 hostname yk <span style="color: #75715E;">#</span><span style="color: #75715E;">&#20020;&#26102;&#29983;&#25928;</span>
@@ -344,9 +344,9 @@ vi /etc/hostname <span style="color: #75715E;">#</span><span style="color: #7571
 </div>
 </div>
 
-<div id="outline-container-org8acd385" class="outline-2">
-<h2 id="org8acd385">建用户并赋予 <b>sudo</b> 权限</h2>
-<div class="outline-text-2" id="text-org8acd385">
+<div id="outline-container-org7e70082" class="outline-2">
+<h2 id="org7e70082">建用户并赋予 <b>sudo</b> 权限</h2>
+<div class="outline-text-2" id="text-org7e70082">
 <ul class="org-ul">
 <li><a href="https://www.cnblogs.com/leeyongbard/p/9513960.html">https://www.cnblogs.com/leeyongbard/p/9513960.html</a></li>
 <li><a href="https://www.linuxidc.com/Linux/2016-12/139018.htm">https://www.linuxidc.com/Linux/2016-12/139018.htm</a></li>
@@ -375,9 +375,9 @@ find / -name <span style="color: #E6DB74;">"*yk*"</span>
 </div>
 </div>
 
-<div id="outline-container-orgaf2ede0" class="outline-2">
-<h2 id="orgaf2ede0">禁用 ping</h2>
-<div class="outline-text-2" id="text-orgaf2ede0">
+<div id="outline-container-org571e1dc" class="outline-2">
+<h2 id="org571e1dc">禁用 ping</h2>
+<div class="outline-text-2" id="text-org571e1dc">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"1"</span> &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all
 </pre>
@@ -385,9 +385,9 @@ find / -name <span style="color: #E6DB74;">"*yk*"</span>
 </div>
 </div>
 
-<div id="outline-container-orgeaf8d8d" class="outline-2">
-<h2 id="orgeaf8d8d">netstat</h2>
-<div class="outline-text-2" id="text-orgeaf8d8d">
+<div id="outline-container-org2c9f6a6" class="outline-2">
+<h2 id="org2c9f6a6">netstat</h2>
+<div class="outline-text-2" id="text-org2c9f6a6">
 <div class="org-src-container">
 <pre class="src src-bash">&#26597;&#30475;&#24403;&#21069;&#26381;&#21153;&#22120;&#30340;&#31471;&#21475;&#30417;&#21548;&#29366;&#24577;
 netstat -tunl
@@ -402,9 +402,9 @@ netstat -antlp
 </div>
 </div>
 
-<div id="outline-container-org54ad103" class="outline-2">
-<h2 id="org54ad103">mac osx 终端批量删除文件</h2>
-<div class="outline-text-2" id="text-org54ad103">
+<div id="outline-container-org6313632" class="outline-2">
+<h2 id="org6313632">mac osx 终端批量删除文件</h2>
+<div class="outline-text-2" id="text-org6313632">
 <div class="org-src-container">
 <pre class="src src-bash">find ./ -name <span style="color: #E6DB74;">"*.html"</span> -exec rm -rf <span style="color: #AE81FF;">{}</span> <span style="color: #E6DB74;">\;</span>  <span style="color: #75715E;"># </span><span style="color: #75715E;">&#27880;&#24847; {}&#21644;\;&#20043;&#38388;&#26377;&#31354;&#26684;</span>
 find <span style="color: #AE81FF;">[</span>&#30446;&#24405;&#21517;<span style="color: #AE81FF;">]</span> -name <span style="color: #E6DB74;">"&#25991;&#20214;&#21517;"</span> -exec rm -rf <span style="color: #AE81FF;">{}</span> <span style="color: #E6DB74;">\;</span>
@@ -425,18 +425,18 @@ find / -name *.raw -exe c rm -rf <span style="color: #AE81FF;">{}</span> <span s
 </div>
 </div>
 
-<div id="outline-container-orgf357eff" class="outline-2">
-<h2 id="orgf357eff">查找并杀死 tomcat</h2>
-<div class="outline-text-2" id="text-orgf357eff">
+<div id="outline-container-org1f2c198" class="outline-2">
+<h2 id="org1f2c198">查找并杀死 tomcat</h2>
+<div class="outline-text-2" id="text-org1f2c198">
 <ul class="org-ul">
 <li><b>sudo kill -9 `ps -ef|grep tomcat | grep -v grep | awk '{print $2}'`</b></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2715a1a" class="outline-2">
-<h2 id="org2715a1a">ls 命令</h2>
-<div class="outline-text-2" id="text-org2715a1a">
+<div id="outline-container-orga2996ba" class="outline-2">
+<h2 id="orga2996ba">ls 命令</h2>
+<div class="outline-text-2" id="text-orga2996ba">
 <div class="org-src-container">
 <pre class="src src-bash">ls -lt <span style="color: #75715E;"># </span><span style="color: #75715E;">&#25353;&#26102;&#38388;&#25490;&#24207;(&#40664;&#35748;&#20498;&#24207;)</span>
 ls -lt | tac <span style="color: #75715E;"># </span><span style="color: #75715E;">&#25353;&#26102;&#38388;&#21319;&#24207;&#25490;&#24207;</span>
@@ -462,9 +462,9 @@ ls -Rl | grep <span style="color: #E6DB74;">"^-"</span> | wc -l <span style="col
 </div>
 </div>
 
-<div id="outline-container-org144bff7" class="outline-2">
-<h2 id="org144bff7">du / df 命令</h2>
-<div class="outline-text-2" id="text-org144bff7">
+<div id="outline-container-orge69487f" class="outline-2">
+<h2 id="orge69487f">du / df 命令</h2>
+<div class="outline-text-2" id="text-orge69487f">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #75715E;">#</span><span style="color: #75715E;">&#25353;&#25991;&#20214;&#22823;&#23567;&#25490;&#24207;&#24182;&#25343;&#20986;&#26368;&#22823;&#30340; 20 &#20010;</span>
 du -h ./* | sort -hr | head -20
@@ -488,9 +488,9 @@ free -h
 </div>
 </div>
 
-<div id="outline-container-orgc63afb2" class="outline-2">
-<h2 id="orgc63afb2">mac 网关和路由</h2>
-<div class="outline-text-2" id="text-orgc63afb2">
+<div id="outline-container-orga871a1e" class="outline-2">
+<h2 id="orga871a1e">mac 网关和路由</h2>
+<div class="outline-text-2" id="text-orga871a1e">
 <table>
 
 
@@ -525,18 +525,18 @@ free -h
 </div>
 </div>
 
-<div id="outline-container-orgc0e9f00" class="outline-2">
-<h2 id="orgc0e9f00">杀掉查询出来的进程</h2>
-<div class="outline-text-2" id="text-orgc0e9f00">
+<div id="outline-container-orgb835d6b" class="outline-2">
+<h2 id="orgb835d6b">杀掉查询出来的进程</h2>
+<div class="outline-text-2" id="text-orgb835d6b">
 <ul class="org-ul">
 <li><b>ps -ef|grep mongo | grep -v grep | awk '{print $2}'  | xargs  kill -4</b></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb50e9af" class="outline-2">
-<h2 id="orgb50e9af">pbcopy</h2>
-<div class="outline-text-2" id="text-orgb50e9af">
+<div id="outline-container-orgb7d0b3a" class="outline-2">
+<h2 id="orgb7d0b3a">pbcopy</h2>
+<div class="outline-text-2" id="text-orgb7d0b3a">
 <div class="org-src-container">
 <pre class="src src-bash"><span style="color: #75715E;">#</span><span style="color: #75715E;">copy id_rsa.pub &#25991;&#20214;&#30340;&#20869;&#23481;&#21040;&#21098;&#36148;&#26495;&#65306;</span>
 pbcopy &lt; ~/.ssh/id_rsa.pub
@@ -549,18 +549,18 @@ pbpaste
 </div>
 </div>
 
-<div id="outline-container-org2d5dc26" class="outline-2">
-<h2 id="org2d5dc26">arp -a</h2>
-<div class="outline-text-2" id="text-org2d5dc26">
+<div id="outline-container-org079cb46" class="outline-2">
+<h2 id="org079cb46">arp -a</h2>
+<div class="outline-text-2" id="text-org079cb46">
 <p>
 查看局域网中所有使用的 ip 和 mac 地址
 </p>
 </div>
 </div>
 
-<div id="outline-container-org61e170a" class="outline-2">
-<h2 id="org61e170a">软连接</h2>
-<div class="outline-text-2" id="text-org61e170a">
+<div id="outline-container-org980e3db" class="outline-2">
+<h2 id="org980e3db">软连接</h2>
+<div class="outline-text-2" id="text-org980e3db">
 <ul class="org-ul">
 <li><b>sudo ln -s "/Applications/subl.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl3</b></li>
 <li><b>sudo ln -s "/Applications/vscode.app/Contents/Resources/app/bin/code" /usr/local/bin/vscode</b></li>
@@ -568,9 +568,9 @@ pbpaste
 </div>
 </div>
 
-<div id="outline-container-org3b9008f" class="outline-2">
-<h2 id="org3b9008f">mac ox 终端显示 bogon 的问题</h2>
-<div class="outline-text-2" id="text-org3b9008f">
+<div id="outline-container-orga4efcb9" class="outline-2">
+<h2 id="orga4efcb9">mac ox 终端显示 bogon 的问题</h2>
+<div class="outline-text-2" id="text-orga4efcb9">
 <div class="org-src-container">
 <pre class="src src-bash">sudo hostname yourname
 
@@ -580,18 +580,18 @@ eg: sudo hostname Yangk
 </div>
 </div>
 
-<div id="outline-container-org32fdebd" class="outline-2">
-<h2 id="org32fdebd">mac 恢复 launchpad 布局</h2>
-<div class="outline-text-2" id="text-org32fdebd">
+<div id="outline-container-org033d886" class="outline-2">
+<h2 id="org033d886">mac 恢复 launchpad 布局</h2>
+<div class="outline-text-2" id="text-org033d886">
 <ul class="org-ul">
 <li><b>defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock</b></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd7952d6" class="outline-2">
-<h2 id="orgd7952d6">扩展属性@</h2>
-<div class="outline-text-2" id="text-orgd7952d6">
+<div id="outline-container-orgab33020" class="outline-2">
+<h2 id="orgab33020">扩展属性@</h2>
+<div class="outline-text-2" id="text-orgab33020">
 <div class="org-src-container">
 <pre class="src src-bash">xattr -c filename <span style="color: #75715E;">#</span><span style="color: #75715E;">&#21435;&#38500;&#25991;&#20214;&#30340;&#25193;&#23637;&#23646;&#24615;@</span>
 xattr -c -r * <span style="color: #75715E;">#</span><span style="color: #75715E;">&#21435;&#38500;&#25991;&#20214;&#22841;&#19979;&#25152;&#26377;&#25991;&#20214;&#30340;&#25193;&#23637;&#23646;&#24615;@</span>
@@ -600,9 +600,9 @@ xattr -c -r * <span style="color: #75715E;">#</span><span style="color: #75715E;
 </div>
 </div>
 
-<div id="outline-container-orgd802563" class="outline-2">
-<h2 id="orgd802563">nslookup</h2>
-<div class="outline-text-2" id="text-orgd802563">
+<div id="outline-container-orga15c2d6" class="outline-2">
+<h2 id="orga15c2d6">nslookup</h2>
+<div class="outline-text-2" id="text-orga15c2d6">
 <div class="org-src-container">
 <pre class="src src-bash">$ nslookup ec2-54-222-215-38.cn-north-1.compute.amazonaws.com.cn
 Server:         192.168.0.1

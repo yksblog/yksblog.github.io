@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cps变换</title>
 <meta name="generator" content="Org Mode" />
-<link rel='shortcut icon' href='http://yangk.org/org_themes/favicon.ico' type='image/x-icon' />
-           <link rel='stylesheet' href='http://yangk.org/org_themes/style.css' type='text/css'  />
-           <script type='module' src='http://yangk.org/org_themes/main.js' defer></script>
+<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
+           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
 <meta name="card" content="">
 </head>
 <body>
@@ -21,14 +21,14 @@
 <ul>
 <li><a href="#orgbbc085d">例1:js版本</a>
 <ul>
-<li><a href="#org1ad4ebc">原味</a></li>
-<li><a href="#orgaa17d25">CPS</a></li>
+<li><a href="#org15424b9">原味</a></li>
+<li><a href="#org29a5e0e">CPS</a></li>
 </ul>
 </li>
 <li><a href="#org8dce6be">例2:java版本</a>
 <ul>
-<li><a href="#org15424b9">原味</a></li>
-<li><a href="#org29a5e0e">CPS</a></li>
+<li><a href="#org3503d7e">原味</a></li>
+<li><a href="#orga236ad4">CPS</a></li>
 </ul>
 </li>
 </ul>
@@ -52,9 +52,9 @@
 <h3 id="orgbbc085d">例1:js版本</h3>
 <div class="outline-text-3" id="text-orgbbc085d">
 </div>
-<div id="outline-container-org1ad4ebc" class="outline-4">
-<h4 id="org1ad4ebc">原味</h4>
-<div class="outline-text-4" id="text-org1ad4ebc">
+<div id="outline-container-org15424b9" class="outline-4">
+<h4 id="org15424b9">原味</h4>
+<div class="outline-text-4" id="text-org15424b9">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #F92672;">function</span> <span style="color: #A6E22E;">foo</span><span style="color: #AE81FF;">(</span><span style="color: #FD971F;">x</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
     <span style="color: #F92672;">return</span> x ;
@@ -64,9 +64,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgaa17d25" class="outline-4">
-<h4 id="orgaa17d25">CPS</h4>
-<div class="outline-text-4" id="text-orgaa17d25">
+<div id="outline-container-org29a5e0e" class="outline-4">
+<h4 id="org29a5e0e">CPS</h4>
+<div class="outline-text-4" id="text-org29a5e0e">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #F92672;">function</span> <span style="color: #A6E22E;">cps_foo</span><span style="color: #AE81FF;">(</span><span style="color: #FD971F;">x</span>, <span style="color: #FD971F;">return_point</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
     <span style="color: #F92672;">return</span> return_point <span style="color: #66D9EF;">(</span>x<span style="color: #66D9EF;">)</span> ;
@@ -94,9 +94,9 @@ Syntax sugar 是为了方便人类的表达和理解，给编程语言的核心�
 <h3 id="org8dce6be">例2:java版本</h3>
 <div class="outline-text-3" id="text-org8dce6be">
 </div>
-<div id="outline-container-org15424b9" class="outline-4">
-<h4 id="org15424b9">原味</h4>
-<div class="outline-text-4" id="text-org15424b9">
+<div id="outline-container-org3503d7e" class="outline-4">
+<h4 id="org3503d7e">原味</h4>
+<div class="outline-text-4" id="text-org3503d7e">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #F92672;">public</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Demo</span> <span style="color: #AE81FF;">{</span>
     <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">long</span> <span style="color: #A6E22E;">plus</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i1</span>, <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i2</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
@@ -113,9 +113,9 @@ Syntax sugar 是为了方便人类的表达和理解，给编程语言的核心�
 </div>
 </div>
 
-<div id="outline-container-org29a5e0e" class="outline-4">
-<h4 id="org29a5e0e">CPS</h4>
-<div class="outline-text-4" id="text-org29a5e0e">
+<div id="outline-container-orga236ad4" class="outline-4">
+<h4 id="orga236ad4">CPS</h4>
+<div class="outline-text-4" id="text-orga236ad4">
 <div class="org-src-container">
 <pre class="src src-java">
 <span style="color: #F92672;">public</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">CpsDemo</span> <span style="color: #AE81FF;">{</span>

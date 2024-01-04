@@ -17,25 +17,25 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1f45f23">场景描述：fapiao.jar 包中替换文件logback-spring.xml的内容</a>
+<li><a href="#org84d8ff6">场景描述：fapiao.jar 包中替换文件logback-spring.xml的内容</a>
 <ul>
-<li><a href="#org13f1bce">一、查询需要替换的文件在jar中的位置</a></li>
-<li><a href="#orgdb4ffc4">二、将文件解压到当前目录(以及文件所在目录)</a></li>
-<li><a href="#org1d8fea7">三、进入目录修改文件内容</a></li>
-<li><a href="#org661569d">四、将替换后的目录打包进jar文件 实现替换</a></li>
+<li><a href="#org63d90ce">一、查询需要替换的文件在jar中的位置</a></li>
+<li><a href="#orgbb92b40">二、将文件解压到当前目录(以及文件所在目录)</a></li>
+<li><a href="#orga5b3143">三、进入目录修改文件内容</a></li>
+<li><a href="#org4f9c62b">四、将替换后的目录打包进jar文件 实现替换</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1f45f23" class="outline-2">
-<h2 id="org1f45f23">场景描述：fapiao.jar 包中替换文件logback-spring.xml的内容</h2>
-<div class="outline-text-2" id="text-org1f45f23">
+<div id="outline-container-org84d8ff6" class="outline-2">
+<h2 id="org84d8ff6">场景描述：fapiao.jar 包中替换文件logback-spring.xml的内容</h2>
+<div class="outline-text-2" id="text-org84d8ff6">
 </div>
-<div id="outline-container-org13f1bce" class="outline-3">
-<h3 id="org13f1bce">一、查询需要替换的文件在jar中的位置</h3>
-<div class="outline-text-3" id="text-org13f1bce">
+<div id="outline-container-org63d90ce" class="outline-3">
+<h3 id="org63d90ce">一、查询需要替换的文件在jar中的位置</h3>
+<div class="outline-text-3" id="text-org63d90ce">
 <div class="org-src-container">
 <pre class="src src-bash">jar tvf *****.jar | grep <span style="color: #AE81FF;">{</span>fileName<span style="color: #AE81FF;">}</span>
 
@@ -45,9 +45,9 @@ jar tvf fapiao.jar| grep logback-spring.xml
 </div>
 </div>
 
-<div id="outline-container-orgdb4ffc4" class="outline-3">
-<h3 id="orgdb4ffc4">二、将文件解压到当前目录(以及文件所在目录)</h3>
-<div class="outline-text-3" id="text-orgdb4ffc4">
+<div id="outline-container-orgbb92b40" class="outline-3">
+<h3 id="orgbb92b40">二、将文件解压到当前目录(以及文件所在目录)</h3>
+<div class="outline-text-3" id="text-orgbb92b40">
 <div class="org-src-container">
 <pre class="src src-bash">jar xvf ****.jar <span style="color: #AE81FF;">{</span>filePath<span style="color: #AE81FF;">}</span>
 
@@ -60,13 +60,13 @@ jar xvf fapiao.jar BOOT-INF/classes/logback-spring.xml
 </div>
 
 
-<div id="outline-container-org1d8fea7" class="outline-3">
-<h3 id="org1d8fea7">三、进入目录修改文件内容</h3>
+<div id="outline-container-orga5b3143" class="outline-3">
+<h3 id="orga5b3143">三、进入目录修改文件内容</h3>
 </div>
 
-<div id="outline-container-org661569d" class="outline-3">
-<h3 id="org661569d">四、将替换后的目录打包进jar文件 实现替换</h3>
-<div class="outline-text-3" id="text-org661569d">
+<div id="outline-container-org4f9c62b" class="outline-3">
+<h3 id="org4f9c62b">四、将替换后的目录打包进jar文件 实现替换</h3>
+<div class="outline-text-3" id="text-org4f9c62b">
 <div class="org-src-container">
 <pre class="src src-bash">
 jar uvf ***.jar <span style="color: #AE81FF;">{</span>filePath<span style="color: #AE81FF;">}</span>

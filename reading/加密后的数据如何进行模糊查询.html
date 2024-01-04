@@ -17,21 +17,21 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc3f5175">沙雕做法</a>
+<li><a href="#orga14748b">沙雕做法</a>
 <ul>
-<li><a href="#orge97bc85">沙雕一</a></li>
-<li><a href="#org2083e2b">沙雕二</a></li>
+<li><a href="#org6a82d97">沙雕一</a></li>
+<li><a href="#org5120809">沙雕二</a></li>
 </ul>
 </li>
-<li><a href="#org670b915">常规做法</a>
+<li><a href="#org0c779a6">常规做法</a>
 <ul>
-<li><a href="#orgdba1fd2">常规一</a></li>
-<li><a href="#orgfd09c9b">常规二</a></li>
+<li><a href="#orgbdd4d68">常规一</a></li>
+<li><a href="#org5a18711">常规二</a></li>
 </ul>
 </li>
-<li><a href="#orga4cbdd1">超神做法</a></li>
-<li><a href="#org7c837ac">总结</a></li>
-<li><a href="#org6b6ac0f">资源：</a></li>
+<li><a href="#orgc6082ea">超神做法</a></li>
+<li><a href="#org20364d3">总结</a></li>
+<li><a href="#orgd1decd3">资源：</a></li>
 </ul>
 </div>
 </div>
@@ -41,18 +41,18 @@
 <li>超神做法（比较高端的做法从算法层面上思考）</li>
 </ul>
 
-<div id="outline-container-orgc3f5175" class="outline-2">
-<h2 id="orgc3f5175">沙雕做法</h2>
-<div class="outline-text-2" id="text-orgc3f5175">
+<div id="outline-container-orga14748b" class="outline-2">
+<h2 id="orga14748b">沙雕做法</h2>
+<div class="outline-text-2" id="text-orga14748b">
 <ul class="org-ul">
 <li>将所有数据加载到内存中进行解密，解密后通过程序算法来模糊匹配</li>
 <li>将密文数据映射一份明文映射表，俗称tag表，然后模糊查询tag来关联密文数据</li>
 </ul>
 </div>
 
-<div id="outline-container-orge97bc85" class="outline-3">
-<h3 id="orge97bc85">沙雕一</h3>
-<div class="outline-text-3" id="text-orge97bc85">
+<div id="outline-container-org6a82d97" class="outline-3">
+<h3 id="org6a82d97">沙雕一</h3>
+<div class="outline-text-3" id="text-org6a82d97">
 <p>
 我们先来看看第一个做法，将所有数据加载到内存中进行解密，这个如果数据量小的话可以使用这个方式来做，这样做既简单又实惠，如果数据量大的话那就是灾难，我们来大致算一下。
 </p>
@@ -105,9 +105,9 @@
 </div>
 </div>
 
-<div id="outline-container-org2083e2b" class="outline-3">
-<h3 id="org2083e2b">沙雕二</h3>
-<div class="outline-text-3" id="text-org2083e2b">
+<div id="outline-container-org5120809" class="outline-3">
+<h3 id="org5120809">沙雕二</h3>
+<div class="outline-text-3" id="text-org5120809">
 <p>
 我们再来看第二个做法，将密文数据映射一份明文映射表，然后模糊查询映射表来关联密文数据，what？？？！！！那我们为什么要对数据加密呢，直接不加密不是更好么！
 </p>
@@ -119,9 +119,9 @@
 </div>
 </div>
 
-<div id="outline-container-org670b915" class="outline-2">
-<h2 id="org670b915">常规做法</h2>
-<div class="outline-text-2" id="text-org670b915">
+<div id="outline-container-org0c779a6" class="outline-2">
+<h2 id="org0c779a6">常规做法</h2>
+<div class="outline-text-2" id="text-org0c779a6">
 <p>
 我们接下来看看常规的做法，也是最广泛使用的方法，此类方法及满足的数据安全性，又对查询友好。
 </p>
@@ -132,9 +132,9 @@
 </p>
 </div>
 
-<div id="outline-container-orgdba1fd2" class="outline-3">
-<h3 id="orgdba1fd2">常规一</h3>
-<div class="outline-text-3" id="text-orgdba1fd2">
+<div id="outline-container-orgbdd4d68" class="outline-3">
+<h3 id="orgbdd4d68">常规一</h3>
+<div class="outline-text-3" id="text-orgbdd4d68">
 <p>
 在数据库中实现与程序一致的加解密算法，修改模糊查询条件，使用数据库加解密函数先解密再模糊查找，这样做的优点是实现成本低，开发使用成本低，只需要将以往的模糊查找稍微修改一下就可以实现，但是缺点也很明显，这样做无法利用数据库的索引来优化查询，甚至有一些数据库可能无法保证与程序实现一致的加解密算法，但是对于常规的加解密算法都可以保证与应用程序一致。
 </p>
@@ -153,9 +153,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgfd09c9b" class="outline-3">
-<h3 id="orgfd09c9b">常规二</h3>
-<div class="outline-text-3" id="text-orgfd09c9b">
+<div id="outline-container-org5a18711" class="outline-3">
+<h3 id="org5a18711">常规二</h3>
+<div class="outline-text-3" id="text-org5a18711">
 <p>
 对密文数据进行分词组合，将分词组合的结果集分别进行加密，然后存储到扩展列，查询时通过key like '%partial%'，这是一个比较划算的实现方法，我们先来分析一下它的实现思路。
 </p>
@@ -199,9 +199,9 @@ ps. 基本上都是一样的，果然都是互相抄袭，连加密后的数据�
 </div>
 </div>
 
-<div id="outline-container-orga4cbdd1" class="outline-2">
-<h2 id="orga4cbdd1">超神做法</h2>
-<div class="outline-text-2" id="text-orga4cbdd1">
+<div id="outline-container-orgc6082ea" class="outline-2">
+<h2 id="orgc6082ea">超神做法</h2>
+<div class="outline-text-2" id="text-orgc6082ea">
 <p>
 我们接下来看看优秀的做法，此类做法难度较高，都是从算法层面来考虑，有些甚至会设计一个新算法，虽然已有一些现成的算法参考，但是大多都是半成品无法拿来直接使用，所以还是要有人去深入研究和整合到自己的应用中去。
 </p>
@@ -232,9 +232,9 @@ ps. 基本上都是一样的，果然都是互相抄袭，连加密后的数据�
 </div>
 </div>
 
-<div id="outline-container-org7c837ac" class="outline-2">
-<h2 id="org7c837ac">总结</h2>
-<div class="outline-text-2" id="text-org7c837ac">
+<div id="outline-container-org20364d3" class="outline-2">
+<h2 id="org20364d3">总结</h2>
+<div class="outline-text-2" id="text-org20364d3">
 <p>
 我们到这里对加密数据的检索方案全部介绍完了，我们首先提到的是网上搜索随处可见的沙雕做法，在这里也讲了不推荐使用这些沙雕做法，尽量使用常规做法，如果公司有专业算法方向人才的话不妨可以考虑基于算法层面的超神做法。
 </p>
@@ -245,9 +245,9 @@ ps. 基本上都是一样的，果然都是互相抄袭，连加密后的数据�
 </div>
 </div>
 
-<div id="outline-container-org6b6ac0f" class="outline-2">
-<h2 id="org6b6ac0f">资源：</h2>
-<div class="outline-text-2" id="text-org6b6ac0f">
+<div id="outline-container-orgd1decd3" class="outline-2">
+<h2 id="orgd1decd3">资源：</h2>
+<div class="outline-text-2" id="text-orgd1decd3">
 <ul class="org-ul">
 <li><a href="https://mp.weixin.qq.com/s/Fv93DIjq-UwK_h6sZncrtQ">微信</a></li>
 </ul>

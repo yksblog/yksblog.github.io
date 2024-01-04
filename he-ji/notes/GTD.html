@@ -17,16 +17,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5967e29">配置</a></li>
-<li><a href="#org39510bb">操作</a>
+<li><a href="#org468e181">配置</a></li>
+<li><a href="#org4016967">操作</a>
 <ul>
-<li><a href="#orgb82c05b">设置任务开始时间和截止时间</a></li>
-<li><a href="#org1131a8f">设置循环任务</a></li>
-<li><a href="#org2f81230">设置任务优先级</a></li>
-<li><a href="#org1548a7d">速记</a></li>
+<li><a href="#org63961cd">设置任务开始时间和截止时间</a></li>
+<li><a href="#orgfd4aa6d">设置循环任务</a></li>
+<li><a href="#orgdf66971">设置任务优先级</a></li>
+<li><a href="#org6fef261">速记</a></li>
 </ul>
 </li>
-<li><a href="#orgf766c35">资源</a></li>
+<li><a href="#orgb86e203">资源</a></li>
 </ul>
 </div>
 </div>
@@ -38,9 +38,9 @@
 　　一直知道Emacs的org功能很强大，也可以用来做GTD。只不过，之前对emacs不熟，对GTD也不熟，所以，就一直搁浅了。最近，对GTD有点需要，同时，对emacs也基本算是熟手了，于是就研究了一下，顺便就用起来了。
 </p>
 
-<div id="outline-container-org5967e29" class="outline-2">
-<h2 id="org5967e29">配置</h2>
-<div class="outline-text-2" id="text-org5967e29">
+<div id="outline-container-org468e181" class="outline-2">
+<h2 id="org468e181">配置</h2>
+<div class="outline-text-2" id="text-org468e181">
 <div class="org-src-container">
 <pre class="src src-elisp"><span style="color: #75715E;">;; </span><span style="color: #75715E;">org-agenda config</span>
 <span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> org-agenda-files '<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"~/ykyk-note/emacs/ykyk-org-gtd"</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span> <span style="color: #75715E;">;; </span><span style="color: #75715E;">&#35774;&#32622;org-agenda&#30340;&#30446;&#24405;</span>
@@ -93,45 +93,45 @@
 </div>
 </div>
 
-<div id="outline-container-org39510bb" class="outline-2">
-<h2 id="org39510bb">操作</h2>
-<div class="outline-text-2" id="text-org39510bb">
+<div id="outline-container-org4016967" class="outline-2">
+<h2 id="org4016967">操作</h2>
+<div class="outline-text-2" id="text-org4016967">
 <ul class="org-ul">
 <li>通过快捷键: <code>C-c t</code> , 打开todo页面，书写待办事项</li>
 <li>通过快捷键: <code>C-c a</code> , 打开agenda选择页面，接着选择「n」,到达每周视图，和待办事项大纲页面</li>
 </ul>
 </div>
 
-<div id="outline-container-orgb82c05b" class="outline-3">
-<h3 id="orgb82c05b">设置任务开始时间和截止时间</h3>
-<div class="outline-text-3" id="text-orgb82c05b">
+<div id="outline-container-org63961cd" class="outline-3">
+<h3 id="org63961cd">设置任务开始时间和截止时间</h3>
+<div class="outline-text-3" id="text-org63961cd">
 <ul class="org-ul">
 <li>在待办事项页面，光标放到某一项待办事项，通过快捷键 <code>C-c C-s</code> 设置开始时间, 快捷键 <code>C-c C-d</code> 设置截止时间；</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1131a8f" class="outline-3">
-<h3 id="org1131a8f">设置循环任务</h3>
-<div class="outline-text-3" id="text-org1131a8f">
+<div id="outline-container-orgfd4aa6d" class="outline-3">
+<h3 id="orgfd4aa6d">设置循环任务</h3>
+<div class="outline-text-3" id="text-orgfd4aa6d">
 <ul class="org-ul">
 <li>在待办事项页面，光标放到某一项已经设置开始时间或是截止时间的待办事项，在其时间之后加上 <code>+1d</code> ，就是每天循环， <code>+2d</code> 就是每两天循环；</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2f81230" class="outline-3">
-<h3 id="org2f81230">设置任务优先级</h3>
-<div class="outline-text-3" id="text-org2f81230">
+<div id="outline-container-orgdf66971" class="outline-3">
+<h3 id="orgdf66971">设置任务优先级</h3>
+<div class="outline-text-3" id="text-orgdf66971">
 <ul class="org-ul">
 <li>在agenda每周视图页面，光标放到某一项待办事项后面，通过快捷键 <code>Shift+方向键上/下</code> ，切换优先级（默认C级，可以切换到A，B）</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1548a7d" class="outline-3">
-<h3 id="org1548a7d">速记</h3>
-<div class="outline-text-3" id="text-org1548a7d">
+<div id="outline-container-org6fef261" class="outline-3">
+<h3 id="org6fef261">速记</h3>
+<div class="outline-text-3" id="text-org6fef261">
 <ul class="org-ul">
 <li>通过快捷键 <code>C-c d</code> ，可以随时打开速记页面，内容会保存在设置的文件: <code>org-default-quick-note-file</code> 中</li>
 </ul>
@@ -139,9 +139,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgf766c35" class="outline-2">
-<h2 id="orgf766c35">资源</h2>
-<div class="outline-text-2" id="text-orgf766c35">
+<div id="outline-container-orgb86e203" class="outline-2">
+<h2 id="orgb86e203">资源</h2>
+<div class="outline-text-2" id="text-orgb86e203">
 <ul class="org-ul">
 <li><a href="https://zhuanlan.zhihu.com/p/392279466">知乎</a></li>
 </ul>

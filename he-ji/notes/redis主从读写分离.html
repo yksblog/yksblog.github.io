@@ -17,28 +17,28 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8309126">一主一从</a></li>
-<li><a href="#orgbda9a48">master</a></li>
-<li><a href="#org86310c9">slave</a></li>
-<li><a href="#org6b4600b">启动</a></li>
-<li><a href="#org47bb006">测试</a></li>
-<li><a href="#orgbef4826">redis for docker</a></li>
+<li><a href="#orgab7a36b">一主一从</a></li>
+<li><a href="#orga1a4e12">master</a></li>
+<li><a href="#orgf6de8d5">slave</a></li>
+<li><a href="#org2f18552">启动</a></li>
+<li><a href="#org6312a20">测试</a></li>
+<li><a href="#org88231a9">redis for docker</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8309126" class="outline-2">
-<h2 id="org8309126">一主一从</h2>
-<div class="outline-text-2" id="text-org8309126">
+<div id="outline-container-orgab7a36b" class="outline-2">
+<h2 id="orgab7a36b">一主一从</h2>
+<div class="outline-text-2" id="text-orgab7a36b">
 <p>
 默认主写从读
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgbda9a48" class="outline-2">
-<h2 id="orgbda9a48">master</h2>
-<div class="outline-text-2" id="text-orgbda9a48">
+<div id="outline-container-orga1a4e12" class="outline-2">
+<h2 id="orga1a4e12">master</h2>
+<div class="outline-text-2" id="text-orga1a4e12">
 <div class="org-src-container">
 <pre class="src src-conf">redis.6379.conf
 port 6379
@@ -52,9 +52,9 @@ pidfile ./tmp/pids/redis_6379.pid
 </div>
 </div>
 
-<div id="outline-container-org86310c9" class="outline-2">
-<h2 id="org86310c9">slave</h2>
-<div class="outline-text-2" id="text-org86310c9">
+<div id="outline-container-orgf6de8d5" class="outline-2">
+<h2 id="orgf6de8d5">slave</h2>
+<div class="outline-text-2" id="text-orgf6de8d5">
 <div class="org-src-container">
 <pre class="src src-conf">redis.6380.conf
 port 6380
@@ -69,9 +69,9 @@ pidfile ./tmp/pids/redis_6380.pid
 </div>
 </div>
 
-<div id="outline-container-org6b4600b" class="outline-2">
-<h2 id="org6b4600b">启动</h2>
-<div class="outline-text-2" id="text-org6b4600b">
+<div id="outline-container-org2f18552" class="outline-2">
+<h2 id="org2f18552">启动</h2>
+<div class="outline-text-2" id="text-org2f18552">
 <div class="org-src-container">
 <pre class="src src-shell">redis-server ./config/redis.6379.conf
 redis-server ./config/redis.6380.conf
@@ -80,9 +80,9 @@ redis-server ./config/redis.6380.conf
 </div>
 </div>
 
-<div id="outline-container-org47bb006" class="outline-2">
-<h2 id="org47bb006">测试</h2>
-<div class="outline-text-2" id="text-org47bb006">
+<div id="outline-container-org6312a20" class="outline-2">
+<h2 id="org6312a20">测试</h2>
+<div class="outline-text-2" id="text-org6312a20">
 <img
 src="https://yangk.net/pics/blogs/orgs/technology/redis-2020-03-07-at-13-51-40.png"
 width=""
@@ -93,9 +93,9 @@ alt=""
 </div>
 
 
-<div id="outline-container-orgbef4826" class="outline-2">
-<h2 id="orgbef4826">redis for docker</h2>
-<div class="outline-text-2" id="text-orgbef4826">
+<div id="outline-container-org88231a9" class="outline-2">
+<h2 id="org88231a9">redis for docker</h2>
+<div class="outline-text-2" id="text-org88231a9">
 <p>
 修改启动默认配置(从上至下依次)：
 </p>

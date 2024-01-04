@@ -17,37 +17,37 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2ce4423">微软账号</a></li>
-<li><a href="#orga9ac967">qq输入法</a></li>
-<li><a href="#orgbe44381">Emacs</a></li>
-<li><a href="#org20df37d">WSL</a>
+<li><a href="#org3401be4">微软账号</a></li>
+<li><a href="#org6e2b351">qq输入法</a></li>
+<li><a href="#org326525a">Emacs</a></li>
+<li><a href="#org80ca70e">WSL</a>
 <ul>
-<li><a href="#orgf0025ea">Ubuntu18.04</a>
+<li><a href="#org8e8d329">Ubuntu18.04</a>
 <ul>
-<li><a href="#org4061f9c">/etc/apt/sources.list</a></li>
+<li><a href="#org4ad9ff2">/etc/apt/sources.list</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org2d4ef1e">wsl和windows文件互传</a></li>
-<li><a href="#org8c2c0b3">rvm</a></li>
-<li><a href="#org3ebee29">GitBash</a>
+<li><a href="#orgbb18cb2">wsl和windows文件互传</a></li>
+<li><a href="#org36cf846">rvm</a></li>
+<li><a href="#org2a2ede5">GitBash</a>
 <ul>
-<li><a href="#org4cdf05c">解决中文乱码</a>
+<li><a href="#org08e7804">解决中文乱码</a>
 <ul>
-<li><a href="#org7e334e3">第一步</a></li>
-<li><a href="#orga08eeb1">第二步 设置环境变量</a></li>
+<li><a href="#org666eb4d">第一步</a></li>
+<li><a href="#org72d00ac">第二步 设置环境变量</a></li>
 </ul>
 </li>
-<li><a href="#org1a6437d">配置</a>
+<li><a href="#org6bd69e0">配置</a>
 <ul>
-<li><a href="#orgc392834">window Exec</a></li>
-<li><a href="#org6a1569a">shell/window</a></li>
+<li><a href="#orgdf2f3b7">window Exec</a></li>
+<li><a href="#org572f2ff">shell/window</a></li>
 </ul>
 </li>
-<li><a href="#orgb8d05ac">plugins</a>
+<li><a href="#org4835704">plugins</a>
 <ul>
-<li><a href="#org2275528">remote-WSL</a></li>
+<li><a href="#orgbdb8087">remote-WSL</a></li>
 </ul>
 </li>
 </ul>
@@ -56,33 +56,33 @@
 </div>
 </div>
 
-<div id="outline-container-org2ce4423" class="outline-2">
-<h2 id="org2ce4423">微软账号</h2>
+<div id="outline-container-org3401be4" class="outline-2">
+<h2 id="org3401be4">微软账号</h2>
 </div>
 
-<div id="outline-container-orga9ac967" class="outline-2">
-<h2 id="orga9ac967">qq输入法</h2>
+<div id="outline-container-org6e2b351" class="outline-2">
+<h2 id="org6e2b351">qq输入法</h2>
 </div>
 
-<div id="outline-container-orgbe44381" class="outline-2">
-<h2 id="orgbe44381">Emacs</h2>
+<div id="outline-container-org326525a" class="outline-2">
+<h2 id="org326525a">Emacs</h2>
 </div>
 
-<div id="outline-container-org20df37d" class="outline-2">
-<h2 id="org20df37d">WSL</h2>
-<div class="outline-text-2" id="text-org20df37d">
+<div id="outline-container-org80ca70e" class="outline-2">
+<h2 id="org80ca70e">WSL</h2>
+<div class="outline-text-2" id="text-org80ca70e">
 <ul class="org-ul">
 <li><a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10">在 Windows 10 上安装 WSL | Microsoft Docs</a></li>
 </ul>
 </div>
 
-<div id="outline-container-orgf0025ea" class="outline-3">
-<h3 id="orgf0025ea">Ubuntu18.04</h3>
-<div class="outline-text-3" id="text-orgf0025ea">
+<div id="outline-container-org8e8d329" class="outline-3">
+<h3 id="org8e8d329">Ubuntu18.04</h3>
+<div class="outline-text-3" id="text-org8e8d329">
 </div>
-<div id="outline-container-org4061f9c" class="outline-4">
-<h4 id="org4061f9c">/etc/apt/sources.list</h4>
-<div class="outline-text-4" id="text-org4061f9c">
+<div id="outline-container-org4ad9ff2" class="outline-4">
+<h4 id="org4ad9ff2">/etc/apt/sources.list</h4>
+<div class="outline-text-4" id="text-org4ad9ff2">
 <pre class="example">
 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse                                                             T7KEAC " 18:16 17-Jun-21
@@ -101,9 +101,9 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted univer
 </div>
 
 
-<div id="outline-container-org2d4ef1e" class="outline-2">
-<h2 id="org2d4ef1e">wsl和windows文件互传</h2>
-<div class="outline-text-2" id="text-org2d4ef1e">
+<div id="outline-container-orgbb18cb2" class="outline-2">
+<h2 id="orgbb18cb2">wsl和windows文件互传</h2>
+<div class="outline-text-2" id="text-orgbb18cb2">
 <ul class="org-ul">
 <li>在wsl中新建 window下目录的软连接</li>
 </ul>
@@ -114,25 +114,25 @@ zzz_wsl_works -&gt; /mnt/c/Users/ykyk/zzz_wsl_works
 </div>
 </div>
 
-<div id="outline-container-org8c2c0b3" class="outline-2">
-<h2 id="org8c2c0b3">rvm</h2>
+<div id="outline-container-org36cf846" class="outline-2">
+<h2 id="org36cf846">rvm</h2>
 </div>
 
-<div id="outline-container-org3ebee29" class="outline-2">
-<h2 id="org3ebee29">GitBash</h2>
-<div class="outline-text-2" id="text-org3ebee29">
+<div id="outline-container-org2a2ede5" class="outline-2">
+<h2 id="org2a2ede5">GitBash</h2>
+<div class="outline-text-2" id="text-org2a2ede5">
 </div>
-<div id="outline-container-org4cdf05c" class="outline-3">
-<h3 id="org4cdf05c">解决中文乱码</h3>
-<div class="outline-text-3" id="text-org4cdf05c">
+<div id="outline-container-org08e7804" class="outline-3">
+<h3 id="org08e7804">解决中文乱码</h3>
+<div class="outline-text-3" id="text-org08e7804">
 <ul class="org-ul">
 <li><a href="https://zhuanlan.zhihu.com/p/91741156">解决git显示中文乱码的问题 - 知乎 (zhihu.com)</a></li>
 </ul>
 </div>
 
-<div id="outline-container-org7e334e3" class="outline-4">
-<h4 id="org7e334e3">第一步</h4>
-<div class="outline-text-4" id="text-org7e334e3">
+<div id="outline-container-org666eb4d" class="outline-4">
+<h4 id="org666eb4d">第一步</h4>
+<div class="outline-text-4" id="text-org666eb4d">
 <pre class="example">
 $ git config --global core.quotepath false # 设置 git status utf-8编码
 
@@ -146,9 +146,9 @@ $ git config --global i18n.logoutputencoding utf-8 # 设置输出 log utf-8 编�
 </div>
 </div>
 
-<div id="outline-container-orga08eeb1" class="outline-4">
-<h4 id="orga08eeb1">第二步 设置环境变量</h4>
-<div class="outline-text-4" id="text-orga08eeb1">
+<div id="outline-container-org72d00ac" class="outline-4">
+<h4 id="org72d00ac">第二步 设置环境变量</h4>
+<div class="outline-text-4" id="text-org72d00ac">
 <ul class="org-ul">
 <li>1. 开系统环境变量</li>
 <li>2. 新建环境变量 LESSCHARSET = utf8</li>
@@ -157,22 +157,22 @@ $ git config --global i18n.logoutputencoding utf-8 # 设置输出 log utf-8 编�
 </div>
 </div>
 
-<div id="outline-container-org1a6437d" class="outline-3">
-<h3 id="org1a6437d">配置</h3>
-<div class="outline-text-3" id="text-org1a6437d">
+<div id="outline-container-org6bd69e0" class="outline-3">
+<h3 id="org6bd69e0">配置</h3>
+<div class="outline-text-3" id="text-org6bd69e0">
 </div>
-<div id="outline-container-orgc392834" class="outline-4">
-<h4 id="orgc392834">window Exec</h4>
-<div class="outline-text-4" id="text-orgc392834">
+<div id="outline-container-orgdf2f3b7" class="outline-4">
+<h4 id="orgdf2f3b7">window Exec</h4>
+<div class="outline-text-4" id="text-orgdf2f3b7">
 <pre class="example">
 C:\Program Files\Git\git-bash.exe
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org6a1569a" class="outline-4">
-<h4 id="org6a1569a">shell/window</h4>
-<div class="outline-text-4" id="text-org6a1569a">
+<div id="outline-container-org572f2ff" class="outline-4">
+<h4 id="org572f2ff">shell/window</h4>
+<div class="outline-text-4" id="text-org572f2ff">
 <pre class="example">
   {
     "timeline.excludeSources": [
@@ -191,12 +191,12 @@ C:\Program Files\Git\git-bash.exe
 </div>
 
 
-<div id="outline-container-orgb8d05ac" class="outline-3">
-<h3 id="orgb8d05ac">plugins</h3>
-<div class="outline-text-3" id="text-orgb8d05ac">
+<div id="outline-container-org4835704" class="outline-3">
+<h3 id="org4835704">plugins</h3>
+<div class="outline-text-3" id="text-org4835704">
 </div>
-<div id="outline-container-org2275528" class="outline-4">
-<h4 id="org2275528">remote-WSL</h4>
+<div id="outline-container-orgbdb8087" class="outline-4">
+<h4 id="orgbdb8087">remote-WSL</h4>
 </div>
 </div>
 </div>

@@ -17,30 +17,30 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org28a2be8">链接</a></li>
-<li><a href="#org9a89028">pull jenkins</a></li>
-<li><a href="#org201de3b">docker-compose.yml</a></li>
-<li><a href="#orgc635479">dkc up -d 输出密码</a></li>
-<li><a href="#orgdb69bbe">使用密码进入页面，选择 `install suggested plugins`</a></li>
-<li><a href="#org9c2d54c">Post Steps</a></li>
-<li><a href="#org93088fc">构建后操作</a></li>
-<li><a href="#org2b8a66a">plugs</a></li>
+<li><a href="#org20bdefd">链接</a></li>
+<li><a href="#org75286af">pull jenkins</a></li>
+<li><a href="#org28b5d54">docker-compose.yml</a></li>
+<li><a href="#org731e170">dkc up -d 输出密码</a></li>
+<li><a href="#org7c147dc">使用密码进入页面，选择 `install suggested plugins`</a></li>
+<li><a href="#org4ebbbf2">Post Steps</a></li>
+<li><a href="#org0771025">构建后操作</a></li>
+<li><a href="#org0da3223">plugs</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org28a2be8" class="outline-2">
-<h2 id="org28a2be8">链接</h2>
-<div class="outline-text-2" id="text-org28a2be8">
+<div id="outline-container-org20bdefd" class="outline-2">
+<h2 id="org20bdefd">链接</h2>
+<div class="outline-text-2" id="text-org20bdefd">
 <ul class="org-ul">
 <li><a href="https://www.jianshu.com/p/0391e225e4a6">Docker版本Jenkins的使用</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9a89028" class="outline-2">
-<h2 id="org9a89028">pull jenkins</h2>
-<div class="outline-text-2" id="text-org9a89028">
+<div id="outline-container-org75286af" class="outline-2">
+<h2 id="org75286af">pull jenkins</h2>
+<div class="outline-text-2" id="text-org75286af">
 <pre class="example">
 docker pull jenkins/jenkins
 
@@ -48,9 +48,9 @@ docker pull jenkins/jenkins
 </div>
 </div>
 
-<div id="outline-container-org201de3b" class="outline-2">
-<h2 id="org201de3b">docker-compose.yml</h2>
-<div class="outline-text-2" id="text-org201de3b">
+<div id="outline-container-org28b5d54" class="outline-2">
+<h2 id="org28b5d54">docker-compose.yml</h2>
+<div class="outline-text-2" id="text-org28b5d54">
 <pre class="example">
 version: "2"
 services:
@@ -63,9 +63,9 @@ services:
 </div>
 </div>
 
-<div id="outline-container-orgc635479" class="outline-2">
-<h2 id="orgc635479">dkc up -d 输出密码</h2>
-<div class="outline-text-2" id="text-orgc635479">
+<div id="outline-container-org731e170" class="outline-2">
+<h2 id="org731e170">dkc up -d 输出密码</h2>
+<div class="outline-text-2" id="text-org731e170">
 <pre class="example">
 
 *************************************************************
@@ -87,18 +87,18 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
 </div>
 </div>
 
-<div id="outline-container-orgdb69bbe" class="outline-2">
-<h2 id="orgdb69bbe">使用密码进入页面，选择 `install suggested plugins`</h2>
-<div class="outline-text-2" id="text-orgdb69bbe">
+<div id="outline-container-org7c147dc" class="outline-2">
+<h2 id="org7c147dc">使用密码进入页面，选择 `install suggested plugins`</h2>
+<div class="outline-text-2" id="text-org7c147dc">
 <ul class="org-ul">
 <li>下载插件需要很长时间</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org9c2d54c" class="outline-2">
-<h2 id="org9c2d54c">Post Steps</h2>
-<div class="outline-text-2" id="text-org9c2d54c">
+<div id="outline-container-org4ebbbf2" class="outline-2">
+<h2 id="org4ebbbf2">Post Steps</h2>
+<div class="outline-text-2" id="text-org4ebbbf2">
 <pre class="example">
 
 # 保留文件数
@@ -160,9 +160,9 @@ esac
 </div>
 </div>
 
-<div id="outline-container-org93088fc" class="outline-2">
-<h2 id="org93088fc">构建后操作</h2>
-<div class="outline-text-2" id="text-org93088fc">
+<div id="outline-container-org0771025" class="outline-2">
+<h2 id="org0771025">构建后操作</h2>
+<div class="outline-text-2" id="text-org0771025">
 <pre class="example">
 
 #!/bin/bash
@@ -239,9 +239,9 @@ done
 </div>
 </div>
 
-<div id="outline-container-org2b8a66a" class="outline-2">
-<h2 id="org2b8a66a">plugs</h2>
-<div class="outline-text-2" id="text-org2b8a66a">
+<div id="outline-container-org0da3223" class="outline-2">
+<h2 id="org0da3223">plugs</h2>
+<div class="outline-text-2" id="text-org0da3223">
 <ul class="org-ul">
 <li>git.jpi</li>
 <li>git-client.jpi</li>

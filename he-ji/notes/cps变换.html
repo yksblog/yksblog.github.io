@@ -17,44 +17,44 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1dd5e55">什么是CPS呢？</a>
+<li><a href="#org267cd5c">什么是CPS呢？</a>
 <ul>
-<li><a href="#orgbbc085d">例1:js版本</a>
+<li><a href="#org34036e2">例1:js版本</a>
 <ul>
-<li><a href="#org15424b9">原味</a></li>
-<li><a href="#org29a5e0e">CPS</a></li>
+<li><a href="#orgcf16fcb">原味</a></li>
+<li><a href="#org1a874a8">CPS</a></li>
 </ul>
 </li>
-<li><a href="#org8dce6be">例2:java版本</a>
+<li><a href="#orgb4cd169">例2:java版本</a>
 <ul>
-<li><a href="#org3503d7e">原味</a></li>
-<li><a href="#orga236ad4">CPS</a></li>
+<li><a href="#orgda810fc">原味</a></li>
+<li><a href="#org46d7c04">CPS</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org5967e50">王垠的「40 行代码」</a></li>
-<li><a href="#org3372da8">参考资料</a></li>
+<li><a href="#org8cc7dd7">王垠的「40 行代码」</a></li>
+<li><a href="#orgef3a38d">参考资料</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org1dd5e55" class="outline-2">
-<h2 id="org1dd5e55">什么是CPS呢？</h2>
-<div class="outline-text-2" id="text-org1dd5e55">
+<div id="outline-container-org267cd5c" class="outline-2">
+<h2 id="org267cd5c">什么是CPS呢？</h2>
+<div class="outline-text-2" id="text-org267cd5c">
 <ul class="org-ul">
 <li>Continuation-Passing Style, 有道翻译：连续传球风格编程，说的简单点，其实就是函数通过回调传递结果</li>
 </ul>
 </div>
 
-<div id="outline-container-orgbbc085d" class="outline-3">
-<h3 id="orgbbc085d">例1:js版本</h3>
-<div class="outline-text-3" id="text-orgbbc085d">
+<div id="outline-container-org34036e2" class="outline-3">
+<h3 id="org34036e2">例1:js版本</h3>
+<div class="outline-text-3" id="text-org34036e2">
 </div>
-<div id="outline-container-org15424b9" class="outline-4">
-<h4 id="org15424b9">原味</h4>
-<div class="outline-text-4" id="text-org15424b9">
+<div id="outline-container-orgcf16fcb" class="outline-4">
+<h4 id="orgcf16fcb">原味</h4>
+<div class="outline-text-4" id="text-orgcf16fcb">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #F92672;">function</span> <span style="color: #A6E22E;">foo</span><span style="color: #AE81FF;">(</span><span style="color: #FD971F;">x</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
     <span style="color: #F92672;">return</span> x ;
@@ -64,9 +64,9 @@
 </div>
 </div>
 
-<div id="outline-container-org29a5e0e" class="outline-4">
-<h4 id="org29a5e0e">CPS</h4>
-<div class="outline-text-4" id="text-org29a5e0e">
+<div id="outline-container-org1a874a8" class="outline-4">
+<h4 id="org1a874a8">CPS</h4>
+<div class="outline-text-4" id="text-org1a874a8">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #F92672;">function</span> <span style="color: #A6E22E;">cps_foo</span><span style="color: #AE81FF;">(</span><span style="color: #FD971F;">x</span>, <span style="color: #FD971F;">return_point</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
     <span style="color: #F92672;">return</span> return_point <span style="color: #66D9EF;">(</span>x<span style="color: #66D9EF;">)</span> ;
@@ -90,13 +90,13 @@ Syntax sugar 是为了方便人类的表达和理解，给编程语言的核心�
 </div>
 </div>
 
-<div id="outline-container-org8dce6be" class="outline-3">
-<h3 id="org8dce6be">例2:java版本</h3>
-<div class="outline-text-3" id="text-org8dce6be">
+<div id="outline-container-orgb4cd169" class="outline-3">
+<h3 id="orgb4cd169">例2:java版本</h3>
+<div class="outline-text-3" id="text-orgb4cd169">
 </div>
-<div id="outline-container-org3503d7e" class="outline-4">
-<h4 id="org3503d7e">原味</h4>
-<div class="outline-text-4" id="text-org3503d7e">
+<div id="outline-container-orgda810fc" class="outline-4">
+<h4 id="orgda810fc">原味</h4>
+<div class="outline-text-4" id="text-orgda810fc">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #F92672;">public</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Demo</span> <span style="color: #AE81FF;">{</span>
     <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">long</span> <span style="color: #A6E22E;">plus</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i1</span>, <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i2</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
@@ -113,9 +113,9 @@ Syntax sugar 是为了方便人类的表达和理解，给编程语言的核心�
 </div>
 </div>
 
-<div id="outline-container-orga236ad4" class="outline-4">
-<h4 id="orga236ad4">CPS</h4>
-<div class="outline-text-4" id="text-orga236ad4">
+<div id="outline-container-org46d7c04" class="outline-4">
+<h4 id="org46d7c04">CPS</h4>
+<div class="outline-text-4" id="text-org46d7c04">
 <div class="org-src-container">
 <pre class="src src-java">
 <span style="color: #F92672;">public</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">CpsDemo</span> <span style="color: #AE81FF;">{</span>
@@ -140,9 +140,9 @@ Syntax sugar 是为了方便人类的表达和理解，给编程语言的核心�
 </div>
 </div>
 
-<div id="outline-container-org5967e50" class="outline-2">
-<h2 id="org5967e50">王垠的「40 行代码」</h2>
-<div class="outline-text-2" id="text-org5967e50">
+<div id="outline-container-org8cc7dd7" class="outline-2">
+<h2 id="org8cc7dd7">王垠的「40 行代码」</h2>
+<div class="outline-text-2" id="text-org8cc7dd7">
 <div class="org-src-container">
 <pre class="src src-scheme"><span class="linenr"> 1: </span>  <span style="color: #75715E;">;;</span><span style="color: #75715E;">&#160;A&#160;simple&#160;CPS&#160;transformer&#160;which&#160;does&#160;proper&#160;tail-call&#160;and&#160;does&#160;not;;&#160;duplicate&#160;contexts&#160;for&#160;if-expressions.;;&#160;author:&#160;Yin&#160;Wang&#160;(yw21@cs.indiana.edu)(load&#160;"pmatch.scm")(define&#160;cps</span>
 <span class="linenr"> 2: </span>&#160;&#160;<span style="color: #AE81FF;">(</span><span style="color: #F92672;">lambda</span>&#160;<span style="color: #66D9EF;">(</span>exp<span style="color: #66D9EF;">)</span>
@@ -201,9 +201,9 @@ Syntax sugar 是为了方便人类的表达和理解，给编程语言的核心�
 </div>
 
 
-<div id="outline-container-org3372da8" class="outline-2">
-<h2 id="org3372da8">参考资料</h2>
-<div class="outline-text-2" id="text-org3372da8">
+<div id="outline-container-orgef3a38d" class="outline-2">
+<h2 id="orgef3a38d">参考资料</h2>
+<div class="outline-text-2" id="text-orgef3a38d">
 <ul class="org-ul">
 <li><a href="https://blog.csdn.net/yilu_beiyu/article/details/122536957">CPS</a></li>
 <li><a href="https://www.zhihu.com/question/20822815">王垠的[40行代码]真如他说的那么厉害吗？</a></li>

@@ -38,71 +38,72 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0c1ff09">myql</a></li>
-<li><a href="#org3e0005e">docker安装</a>
+<li><a href="#orgee990bd">myql</a></li>
+<li><a href="#org6ba73e4">docker安装</a>
 <ul>
-<li><a href="#org6d3822e">docker-compose安装</a></li>
-<li><a href="#org7bb5b26">数据库安全设置</a></li>
-<li><a href="#org2755495">登陆数据库测试</a></li>
-<li><a href="#orgf0f47eb">忘记密码</a></li>
-<li><a href="#orgfd1e77b">修改root密码</a></li>
-<li><a href="#orgdc61b7d">创建用户：</a></li>
-<li><a href="#orgb9bb653">为用户授权:</a></li>
-<li><a href="#org848214b">创建数据库</a></li>
-<li><a href="#org70a62d8">备份</a>
+<li><a href="#orgca74471">docker-compose安装</a></li>
+<li><a href="#org9eb8d11">数据库安全设置</a></li>
+<li><a href="#org0194e55">登陆数据库测试</a></li>
+<li><a href="#org371b28f">忘记密码</a></li>
+<li><a href="#orgf7cf942">修改root密码</a></li>
+<li><a href="#org8e53828">创建用户：</a></li>
+<li><a href="#orge5bbc23">为用户授权:</a></li>
+<li><a href="#orgb6d9794">创建数据库</a></li>
+<li><a href="#orgc59d5a5">备份</a>
 <ul>
-<li><a href="#org91ce74e">1、备份命令mysqldump格式</a></li>
-<li><a href="#org2e3a07c">2、备份MySQL数据库为带删除表的格式</a></li>
-<li><a href="#orgc5e8ad4">3、直接将MySQL数据库压缩备份</a></li>
-<li><a href="#org55e99c1">4、备份MySQL数据库某个(些)表</a></li>
-<li><a href="#orgce7f01a">5、同时备份多个MySQL数据库</a></li>
-<li><a href="#org078c681">7、备份服务器上所有数据库</a></li>
-<li><a href="#orga35e25b">8、还原MySQL数据库的命令</a></li>
-<li><a href="#org9eaeb9d">9、还原压缩的MySQL数据库</a></li>
-<li><a href="#org2ba02f4">10、将数据库转移到新服务器</a></li>
-<li><a href="#org58392b7">11、&#x2013;master-data 和&#x2013;single-transaction</a></li>
-<li><a href="#org87c45ac">12、导入数据库</a></li>
-<li><a href="#org85f0b60">13、查看binlog日志</a></li>
-<li><a href="#org8e9e309">14、general_log</a></li>
+<li><a href="#orge5b16ca">1、备份命令mysqldump格式</a></li>
+<li><a href="#org1662e3b">2、备份MySQL数据库为带删除表的格式</a></li>
+<li><a href="#orgb04c760">3、直接将MySQL数据库压缩备份</a></li>
+<li><a href="#org9d3383d">4、备份MySQL数据库某个(些)表</a></li>
+<li><a href="#orgcdedda5">5、同时备份多个MySQL数据库</a></li>
+<li><a href="#org09d277a">7、备份服务器上所有数据库</a></li>
+<li><a href="#org55ede13">8、还原MySQL数据库的命令</a></li>
+<li><a href="#org998df21">9、还原压缩的MySQL数据库</a></li>
+<li><a href="#org5cf98e6">10、将数据库转移到新服务器</a></li>
+<li><a href="#orgd2dbe76">11、&#x2013;master-data 和&#x2013;single-transaction</a></li>
+<li><a href="#org96f1f78">12、导入数据库</a></li>
+<li><a href="#org3a6b808">13、查看binlog日志</a></li>
+<li><a href="#orgf4e92a2">14、general_log</a></li>
 </ul>
 </li>
-<li><a href="#org153adbe">二、增量备份</a>
+<li><a href="#orgf84044a">二、增量备份</a>
 <ul>
-<li><a href="#org4f49676">1、首先做一次完整备份：</a></li>
-<li><a href="#org01f3978">2、在test库的t_student表中增加两条记录，然后执行flush logs命令。这时将会产生一个新的二进制日志文件bin-log.000003，bin-log.000002则保存了全备过后的所有更改，既增加记录的操作也保存在了bin-log.00002中。</a></li>
-<li><a href="#org3a0c04f">3、再在test库中的a表中增加两条记录，然后误删除t_student表和a表。a中增加记录的操作和删除表a和t_student的操作都记录在bin-log.000003中。</a></li>
+<li><a href="#org39fe9bf">1、首先做一次完整备份：</a></li>
+<li><a href="#org9dba551">2、在test库的t_student表中增加两条记录，然后执行flush logs命令。这时将会产生一个新的二进制日志文件bin-log.000003，bin-log.000002则保存了全备过后的所有更改，既增加记录的操作也保存在了bin-log.00002中。</a></li>
+<li><a href="#org37fb698">3、再在test库中的a表中增加两条记录，然后误删除t_student表和a表。a中增加记录的操作和删除表a和t_student的操作都记录在bin-log.000003中。</a></li>
 </ul>
 </li>
-<li><a href="#org01fecbc">三、恢复</a>
+<li><a href="#org3c6f48c">三、恢复</a>
 <ul>
-<li><a href="#org9805af6">1、首先导入全备数据</a></li>
-<li><a href="#org258f731">2、恢复bin-log.000002</a></li>
-<li><a href="#org8699684">3、恢复部分 bin-log.000003</a></li>
-<li><a href="#org5884f9a">如何让mysql数据库允许被远程连接访问</a></li>
+<li><a href="#orgc9b0ef6">1、首先导入全备数据</a></li>
+<li><a href="#orgbb2034c">2、恢复bin-log.000002</a></li>
+<li><a href="#org174d057">3、恢复部分 bin-log.000003</a></li>
+<li><a href="#orgbf266b6">如何让mysql数据库允许被远程连接访问</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org22d73ff">卸载</a></li>
-<li><a href="#org1e3d2fe">mysql查询字段重复数据</a>
+<li><a href="#org1dbd820">卸载</a></li>
+<li><a href="#org1d90d24">mysql查询字段重复数据</a>
 <ul>
-<li><a href="#org2769438">查看重复数据</a></li>
-<li><a href="#orge20b65b">例子</a></li>
+<li><a href="#orgdf75fee">查看重复数据</a></li>
+<li><a href="#org58d4f41">例子</a></li>
+<li><a href="#orgf8425e4">删除重复数据例子</a></li>
 </ul>
 </li>
-<li><a href="#orgf2a9620">mysql截取字符串并 update select</a>
+<li><a href="#orgd3b68ff">mysql截取字符串并 update select</a>
 <ul>
-<li><a href="#org4126005">Q: 想要截取表 ccb_data_stock 中的time字段的前七位并更新到time字段中,由于mysql不能直接使用set select的结果，所以必须使用inner join。</a></li>
+<li><a href="#org58b62aa">Q: 想要截取表 ccb_data_stock 中的time字段的前七位并更新到time字段中,由于mysql不能直接使用set select的结果，所以必须使用inner join。</a></li>
 </ul>
 </li>
-<li><a href="#org10042fd">mysql时间查询</a>
+<li><a href="#org94018d1">mysql时间查询</a>
 <ul>
-<li><a href="#org06ddde1">一些基本的时间函数的说明：</a>
+<li><a href="#org0297efc">一些基本的时间函数的说明：</a>
 <ul>
-<li><a href="#orgfaba7dc">获取系统的当前时间</a></li>
-<li><a href="#org75d1216">获取时间的差</a></li>
-<li><a href="#orgd41d02a">时间加减</a></li>
-<li><a href="#org3714837">时间格式化</a></li>
+<li><a href="#org0eef4ff">获取系统的当前时间</a></li>
+<li><a href="#org37ed593">获取时间的差</a></li>
+<li><a href="#orgbd810f7">时间加减</a></li>
+<li><a href="#org73a347b">时间格式化</a></li>
 </ul>
 </li>
 </ul>
@@ -111,10 +112,9 @@
 </div>
 </div>
 
-
-<div id="outline-container-org0c1ff09" class="outline-2">
-<h2 id="org0c1ff09">myql</h2>
-<div class="outline-text-2" id="text-org0c1ff09">
+<div id="outline-container-orgee990bd" class="outline-2">
+<h2 id="orgee990bd">myql</h2>
+<div class="outline-text-2" id="text-orgee990bd">
 <ul class="org-ul">
 <li><a href="http://www.runoob.com/mysql/mysql-install.html">http://www.runoob.com/mysql/mysql-install.html</a> （推荐）</li>
 <li><a href="https://www.cnblogs.com/brianzhu/p/8575243.html">https://www.cnblogs.com/brianzhu/p/8575243.html</a></li>
@@ -124,17 +124,17 @@
 </div>
 
 
-<div id="outline-container-org3e0005e" class="outline-2">
-<h2 id="org3e0005e">docker安装</h2>
-<div class="outline-text-2" id="text-org3e0005e">
+<div id="outline-container-org6ba73e4" class="outline-2">
+<h2 id="org6ba73e4">docker安装</h2>
+<div class="outline-text-2" id="text-org6ba73e4">
 <pre class="example">
 docker install mysql57
 </pre>
 </div>
 
-<div id="outline-container-org6d3822e" class="outline-3">
-<h3 id="org6d3822e">docker-compose安装</h3>
-<div class="outline-text-3" id="text-org6d3822e">
+<div id="outline-container-orgca74471" class="outline-3">
+<h3 id="orgca74471">docker-compose安装</h3>
+<div class="outline-text-3" id="text-orgca74471">
 <div class="org-src-container">
 <pre class="src src-yml">
 version: "2"
@@ -157,9 +157,9 @@ services:
 </div>
 </div>
 
-<div id="outline-container-org7bb5b26" class="outline-3">
-<h3 id="org7bb5b26">数据库安全设置</h3>
-<div class="outline-text-3" id="text-org7bb5b26">
+<div id="outline-container-org9eb8d11" class="outline-3">
+<h3 id="org9eb8d11">数据库安全设置</h3>
+<div class="outline-text-3" id="text-org9eb8d11">
 <pre class="example">
 mysql_secure_installation
 </pre>
@@ -188,9 +188,9 @@ Reloading privilege tables..
 </div>
 
 
-<div id="outline-container-org2755495" class="outline-3">
-<h3 id="org2755495">登陆数据库测试</h3>
-<div class="outline-text-3" id="text-org2755495">
+<div id="outline-container-org0194e55" class="outline-3">
+<h3 id="org0194e55">登陆数据库测试</h3>
+<div class="outline-text-3" id="text-org0194e55">
 <pre class="example">
 mysql -uroot -p1234
 
@@ -205,9 +205,9 @@ mysql -uroot -p1234
 </div>
 </div>
 
-<div id="outline-container-orgf0f47eb" class="outline-3">
-<h3 id="orgf0f47eb">忘记密码</h3>
-<div class="outline-text-3" id="text-orgf0f47eb">
+<div id="outline-container-org371b28f" class="outline-3">
+<h3 id="org371b28f">忘记密码</h3>
+<div class="outline-text-3" id="text-org371b28f">
 <pre class="example">
 linux环境中：/etc/my.cnf
 
@@ -226,9 +226,9 @@ mysql -uroot -p mysql
 </div>
 </div>
 
-<div id="outline-container-orgfd1e77b" class="outline-3">
-<h3 id="orgfd1e77b">修改root密码</h3>
-<div class="outline-text-3" id="text-orgfd1e77b">
+<div id="outline-container-orgf7cf942" class="outline-3">
+<h3 id="orgf7cf942">修改root密码</h3>
+<div class="outline-text-3" id="text-orgf7cf942">
 <pre class="example">
 mysql&gt; use mysql;
 mysql&gt; select user,host,password from user; #（出现错误说明password字段已经更改）
@@ -242,9 +242,9 @@ mysql&gt;
 </div>
 </div>
 
-<div id="outline-container-orgdc61b7d" class="outline-3">
-<h3 id="orgdc61b7d">创建用户：</h3>
-<div class="outline-text-3" id="text-orgdc61b7d">
+<div id="outline-container-org8e53828" class="outline-3">
+<h3 id="org8e53828">创建用户：</h3>
+<div class="outline-text-3" id="text-org8e53828">
 <pre class="example">
 insert into mysql.user(Host,User,Password)values("localhost","demo",password("1234"));
 </pre>
@@ -254,9 +254,9 @@ insert into mysql.user(Host,User,Password)values("localhost","demo",password("12
 </div>
 </div>
 
-<div id="outline-container-orgb9bb653" class="outline-3">
-<h3 id="orgb9bb653">为用户授权:</h3>
-<div class="outline-text-3" id="text-orgb9bb653">
+<div id="outline-container-orge5bbc23" class="outline-3">
+<h3 id="orge5bbc23">为用户授权:</h3>
+<div class="outline-text-3" id="text-orge5bbc23">
 <pre class="example">
 授权格式：grant 权限 on 数据库.* to 用户名@登录主机 identified by "密码";
 
@@ -268,30 +268,30 @@ grant all privileges on *.* todemo@"%" identified by 'demo';
 </pre>
 </div>
 </div>
-<div id="outline-container-org848214b" class="outline-3">
-<h3 id="org848214b">创建数据库</h3>
-<div class="outline-text-3" id="text-org848214b">
+<div id="outline-container-orgb6d9794" class="outline-3">
+<h3 id="orgb6d9794">创建数据库</h3>
+<div class="outline-text-3" id="text-orgb6d9794">
 <p>
-`CREATE DATABASE mydb CHARACTER SET utf8 COLLATE utf8_general_ci;`
+<code>CREATE DATABASE mydb CHARACTER SET utf8 COLLATE utf8_general_ci;</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org70a62d8" class="outline-3">
-<h3 id="org70a62d8">备份</h3>
-<div class="outline-text-3" id="text-org70a62d8">
+<div id="outline-container-orgc59d5a5" class="outline-3">
+<h3 id="orgc59d5a5">备份</h3>
+<div class="outline-text-3" id="text-orgc59d5a5">
 </div>
-<div id="outline-container-org91ce74e" class="outline-4">
-<h4 id="org91ce74e">1、备份命令mysqldump格式</h4>
-<div class="outline-text-4" id="text-org91ce74e">
+<div id="outline-container-orge5b16ca" class="outline-4">
+<h4 id="orge5b16ca">1、备份命令mysqldump格式</h4>
+<div class="outline-text-4" id="text-orge5b16ca">
 <pre class="example">
 格式：mysqldump -h主机名  -P端口 -u用户名 -p密码 –B 数据库名 &gt; 文件名.sql
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org2e3a07c" class="outline-4">
-<h4 id="org2e3a07c">2、备份MySQL数据库为带删除表的格式</h4>
-<div class="outline-text-4" id="text-org2e3a07c">
+<div id="outline-container-org1662e3b" class="outline-4">
+<h4 id="org1662e3b">2、备份MySQL数据库为带删除表的格式</h4>
+<div class="outline-text-4" id="text-org1662e3b">
 <p>
 备份MySQL数据库为带删除表的格式，能够让该备份覆盖已有数据库而不需要手动删除原有数据库。
 </p>
@@ -301,27 +301,27 @@ mysqldump  --add-drop-table -uusername -ppassword -B databasename &gt; backupfil
 </div>
 </div>
 
-<div id="outline-container-orgc5e8ad4" class="outline-4">
-<h4 id="orgc5e8ad4">3、直接将MySQL数据库压缩备份</h4>
-<div class="outline-text-4" id="text-orgc5e8ad4">
+<div id="outline-container-orgb04c760" class="outline-4">
+<h4 id="orgb04c760">3、直接将MySQL数据库压缩备份</h4>
+<div class="outline-text-4" id="text-orgb04c760">
 <pre class="example">
 mysqldump -hhostname -uusername -ppassword -B databasename | gzip &gt; backupfile.sql.gz
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org55e99c1" class="outline-4">
-<h4 id="org55e99c1">4、备份MySQL数据库某个(些)表</h4>
-<div class="outline-text-4" id="text-org55e99c1">
+<div id="outline-container-org9d3383d" class="outline-4">
+<h4 id="org9d3383d">4、备份MySQL数据库某个(些)表</h4>
+<div class="outline-text-4" id="text-org9d3383d">
 <pre class="example">
 mysqldump -hhostname -uusername -ppassword databasename specific_table1 specific_table2 &gt; backupfile.sql
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgce7f01a" class="outline-4">
-<h4 id="orgce7f01a">5、同时备份多个MySQL数据库</h4>
-<div class="outline-text-4" id="text-orgce7f01a">
+<div id="outline-container-orgcdedda5" class="outline-4">
+<h4 id="orgcdedda5">5、同时备份多个MySQL数据库</h4>
+<div class="outline-text-4" id="text-orgcdedda5">
 <pre class="example">
 mysqldump -hhostname -uusername -ppassword –B databasename1 databasename2 databasename3 &gt; multibackupfile.sql仅仅备6、仅备份份数据库结构
 
@@ -330,72 +330,72 @@ mysqldump –no-data –databases databasename1 databasename2 databasename3 &gt;
 </div>
 </div>
 
-<div id="outline-container-org078c681" class="outline-4">
-<h4 id="org078c681">7、备份服务器上所有数据库</h4>
-<div class="outline-text-4" id="text-org078c681">
+<div id="outline-container-org09d277a" class="outline-4">
+<h4 id="org09d277a">7、备份服务器上所有数据库</h4>
+<div class="outline-text-4" id="text-org09d277a">
 <pre class="example">
 mysqldump –all-databases &gt; allbackupfile.sql
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orga35e25b" class="outline-4">
-<h4 id="orga35e25b">8、还原MySQL数据库的命令</h4>
-<div class="outline-text-4" id="text-orga35e25b">
+<div id="outline-container-org55ede13" class="outline-4">
+<h4 id="org55ede13">8、还原MySQL数据库的命令</h4>
+<div class="outline-text-4" id="text-org55ede13">
 <pre class="example">
 mysql -hhostname -uusername -ppassword databasename &lt; backupfile.sql
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org9eaeb9d" class="outline-4">
-<h4 id="org9eaeb9d">9、还原压缩的MySQL数据库</h4>
-<div class="outline-text-4" id="text-org9eaeb9d">
+<div id="outline-container-org998df21" class="outline-4">
+<h4 id="org998df21">9、还原压缩的MySQL数据库</h4>
+<div class="outline-text-4" id="text-org998df21">
 <pre class="example">
 gunzip &lt; backupfile.sql.gz | mysql -uusername -ppassword databasename
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org2ba02f4" class="outline-4">
-<h4 id="org2ba02f4">10、将数据库转移到新服务器</h4>
-<div class="outline-text-4" id="text-org2ba02f4">
+<div id="outline-container-org5cf98e6" class="outline-4">
+<h4 id="org5cf98e6">10、将数据库转移到新服务器</h4>
+<div class="outline-text-4" id="text-org5cf98e6">
 <pre class="example">
 mysqldump -uusername -ppassword databasename | mysql –host=*.*.*.* -C databasename
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org58392b7" class="outline-4">
-<h4 id="org58392b7">11、&#x2013;master-data 和&#x2013;single-transaction</h4>
-<div class="outline-text-4" id="text-org58392b7">
+<div id="outline-container-orgd2dbe76" class="outline-4">
+<h4 id="orgd2dbe76">11、&#x2013;master-data 和&#x2013;single-transaction</h4>
+<div class="outline-text-4" id="text-orgd2dbe76">
 <p>
 在mysqldump中使用&#x2013;master-data=2，会记录binlog文件和position的信息 。&#x2013;single-transaction会将隔离级别设置成repeatable-commited
 </p>
 </div>
 </div>
 
-<div id="outline-container-org87c45ac" class="outline-4">
-<h4 id="org87c45ac">12、导入数据库</h4>
-<div class="outline-text-4" id="text-org87c45ac">
+<div id="outline-container-org96f1f78" class="outline-4">
+<h4 id="org96f1f78">12、导入数据库</h4>
+<div class="outline-text-4" id="text-org96f1f78">
 <p>
 常用source命令，用use进入到某个数据库，mysql&gt;source d:\test.sql，后面的参数为脚本文件。
 </p>
 </div>
 </div>
 
-<div id="outline-container-org85f0b60" class="outline-4">
-<h4 id="org85f0b60">13、查看binlog日志</h4>
-<div class="outline-text-4" id="text-org85f0b60">
+<div id="outline-container-org3a6b808" class="outline-4">
+<h4 id="org3a6b808">13、查看binlog日志</h4>
+<div class="outline-text-4" id="text-org3a6b808">
 <p>
 查看binlog日志可用用命令 mysqlbinlog  binlog日志名称|more
 </p>
 </div>
 </div>
 
-<div id="outline-container-org8e9e309" class="outline-4">
-<h4 id="org8e9e309">14、general_log</h4>
-<div class="outline-text-4" id="text-org8e9e309">
+<div id="outline-container-orgf4e92a2" class="outline-4">
+<h4 id="orgf4e92a2">14、general_log</h4>
+<div class="outline-text-4" id="text-orgf4e92a2">
 <p>
 General_log记录数据库的任何操作，查看general_log 的状态和位置可以用命令show variables like "general_log%"  ,开启general_log可以用命令set global general_log=on
 </p>
@@ -403,18 +403,18 @@ General_log记录数据库的任何操作，查看general_log 的状态和位置
 </div>
 </div>
 
-<div id="outline-container-org153adbe" class="outline-3">
-<h3 id="org153adbe">二、增量备份</h3>
-<div class="outline-text-3" id="text-org153adbe">
+<div id="outline-container-orgf84044a" class="outline-3">
+<h3 id="orgf84044a">二、增量备份</h3>
+<div class="outline-text-3" id="text-orgf84044a">
 <p>
 小量的数据库可以每天进行完整备份，因为这也用不了多少时间，但当数据库很大时，就不太可能每天进行一次完整备份了，这时候就可以使用增量备份。增量备份的原理就是使用了mysql的binlog志。
 </p>
 </div>
 
 
-<div id="outline-container-org4f49676" class="outline-4">
-<h4 id="org4f49676">1、首先做一次完整备份：</h4>
-<div class="outline-text-4" id="text-org4f49676">
+<div id="outline-container-org39fe9bf" class="outline-4">
+<h4 id="org39fe9bf">1、首先做一次完整备份：</h4>
+<div class="outline-text-4" id="text-org39fe9bf">
 <pre class="example">
 mysqldump -h10.6.208.183 -utest2 -p123  -P3310 --single-transaction  --master-data=2  test&gt;test.sql这时候就会得到一个全备文件test.sql
 </pre>
@@ -425,42 +425,42 @@ mysqldump -h10.6.208.183 -utest2 -p123  -P3310 --single-transaction  --master-da
 </p>
 </div>
 </div>
-<div id="outline-container-org01f3978" class="outline-4">
-<h4 id="org01f3978">2、在test库的t_student表中增加两条记录，然后执行flush logs命令。这时将会产生一个新的二进制日志文件bin-log.000003，bin-log.000002则保存了全备过后的所有更改，既增加记录的操作也保存在了bin-log.00002中。</h4>
+<div id="outline-container-org9dba551" class="outline-4">
+<h4 id="org9dba551">2、在test库的t_student表中增加两条记录，然后执行flush logs命令。这时将会产生一个新的二进制日志文件bin-log.000003，bin-log.000002则保存了全备过后的所有更改，既增加记录的操作也保存在了bin-log.00002中。</h4>
 </div>
 
-<div id="outline-container-org3a0c04f" class="outline-4">
-<h4 id="org3a0c04f">3、再在test库中的a表中增加两条记录，然后误删除t_student表和a表。a中增加记录的操作和删除表a和t_student的操作都记录在bin-log.000003中。</h4>
+<div id="outline-container-org37fb698" class="outline-4">
+<h4 id="org37fb698">3、再在test库中的a表中增加两条记录，然后误删除t_student表和a表。a中增加记录的操作和删除表a和t_student的操作都记录在bin-log.000003中。</h4>
 </div>
 </div>
 
 
 
-<div id="outline-container-org01fecbc" class="outline-3">
-<h3 id="org01fecbc">三、恢复</h3>
-<div class="outline-text-3" id="text-org01fecbc">
+<div id="outline-container-org3c6f48c" class="outline-3">
+<h3 id="org3c6f48c">三、恢复</h3>
+<div class="outline-text-3" id="text-org3c6f48c">
 </div>
-<div id="outline-container-org9805af6" class="outline-4">
-<h4 id="org9805af6">1、首先导入全备数据</h4>
-<div class="outline-text-4" id="text-org9805af6">
+<div id="outline-container-orgc9b0ef6" class="outline-4">
+<h4 id="orgc9b0ef6">1、首先导入全备数据</h4>
+<div class="outline-text-4" id="text-orgc9b0ef6">
 <pre class="example">
 mysql -h10.6.208.183 -utest2 -p123  -P3310 &lt; test.sql，也可以直接在mysql命令行下面用source导入
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org258f731" class="outline-4">
-<h4 id="org258f731">2、恢复bin-log.000002</h4>
-<div class="outline-text-4" id="text-org258f731">
+<div id="outline-container-orgbb2034c" class="outline-4">
+<h4 id="orgbb2034c">2、恢复bin-log.000002</h4>
+<div class="outline-text-4" id="text-orgbb2034c">
 <pre class="example">
 mysqlbinlog bin-log.000002 |mysql -h10.6.208.183 -utest2 -p123  -P3310
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org8699684" class="outline-4">
-<h4 id="org8699684">3、恢复部分 bin-log.000003</h4>
-<div class="outline-text-4" id="text-org8699684">
+<div id="outline-container-org174d057" class="outline-4">
+<h4 id="org174d057">3、恢复部分 bin-log.000003</h4>
+<div class="outline-text-4" id="text-org174d057">
 <p>
 在general_log中找到误删除的时间点，然后更加对应的时间点到bin-log.000003中找到相应的position点，需要恢复到误删除的前面一个position点。
 </p>
@@ -485,9 +485,9 @@ mysqlbinlog mysql-bin.000003 --stop-position=208 |mysql -h10.6.208.183 -utest2 -
 </pre>
 </div>
 </div>
-<div id="outline-container-org5884f9a" class="outline-4">
-<h4 id="org5884f9a">如何让mysql数据库允许被远程连接访问</h4>
-<div class="outline-text-4" id="text-org5884f9a">
+<div id="outline-container-orgbf266b6" class="outline-4">
+<h4 id="orgbf266b6">如何让mysql数据库允许被远程连接访问</h4>
+<div class="outline-text-4" id="text-orgbf266b6">
 <p>
 如何让mysql数据库允许被远程连接访问？就是从其他的电脑连接我的电脑上的mysql
 </p>
@@ -519,9 +519,9 @@ service mysql start
 
 
 
-<div id="outline-container-org22d73ff" class="outline-2">
-<h2 id="org22d73ff">卸载</h2>
-<div class="outline-text-2" id="text-org22d73ff">
+<div id="outline-container-org1dbd820" class="outline-2">
+<h2 id="org1dbd820">卸载</h2>
+<div class="outline-text-2" id="text-org1dbd820">
 <p>
 首先用dpkg &#x2013;list|grep mysql查看自己的mysql有哪些依赖
 </p>
@@ -544,26 +544,27 @@ dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P
 </div>
 </div>
 
-<div id="outline-container-org1e3d2fe" class="outline-2">
-<h2 id="org1e3d2fe">mysql查询字段重复数据</h2>
-<div class="outline-text-2" id="text-org1e3d2fe">
+<div id="outline-container-org1d90d24" class="outline-2">
+<h2 id="org1d90d24">mysql查询字段重复数据</h2>
+<div class="outline-text-2" id="text-org1d90d24">
 <ul class="org-ul">
 <li><a href="https://www.php.cn/mysql-tutorials-487432.html#:~:text=%E5%9C%A8mysql%E4%B8%AD%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%88%A9%E7%94%A8count%20%28%29%E5%87%BD%E6%95%B0%E6%9D%A5%E6%9F%A5%E8%AF%A2%E9%87%8D%E5%A4%8D%E5%AD%97%E6%AE%B5%EF%BC%8C%E8%AF%A5%E5%87%BD%E6%95%B0%E8%83%BD%E5%A4%9F%E8%BF%94%E5%9B%9E%E6%8C%87%E5%AE%9A%E6%9D%A1%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%9C%EF%BC%8C%E8%AF%AD%E6%B3%95%E4%B8%BA%E2%80%9C%20SELECT%20%E5%AD%97%E6%AE%B5%E5%80%BC%20COUNT%20%28%2A%29%20as%20count,%E8%A1%A8%E5%90%8D%20GROUP%20BY%20%E5%AD%97%E6%AE%B5%E5%80%BC%20having%20count%3E1%3B%E2%80%9D%E3%80%82%20%E6%9C%AC%E6%95%99%E7%A8%8B%E6%93%8D%E4%BD%9C%E7%8E%AF%E5%A2%83%EF%BC%9Awindows10%E7%B3%BB%E7%BB%9F%E3%80%81mysql8.0.22%E7%89%88%E6%9C%AC%E3%80%81Dell%20G3%E7%94%B5%E8%84%91%E3%80%82">php中文网</a></li>
+<li><a href="https://blog.csdn.net/m0_59041160/article/details/117661435">mysql删除重复数据</a></li>
 </ul>
 </div>
 
-<div id="outline-container-org2769438" class="outline-3">
-<h3 id="org2769438">查看重复数据</h3>
-<div class="outline-text-3" id="text-org2769438">
+<div id="outline-container-orgdf75fee" class="outline-3">
+<h3 id="orgdf75fee">查看重复数据</h3>
+<div class="outline-text-3" id="text-orgdf75fee">
 <div class="org-src-container">
 <pre class="src src-mysql">select * from 表 where 字段 in (select 字段 from 表 group by 字段 having count(字段) &gt; 1);
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orge20b65b" class="outline-3">
-<h3 id="orge20b65b">例子</h3>
-<div class="outline-text-3" id="text-orge20b65b">
+<div id="outline-container-org58d4f41" class="outline-3">
+<h3 id="org58d4f41">例子</h3>
+<div class="outline-text-3" id="text-org58d4f41">
 <div class="org-src-container">
 <pre class="src src-mysql">select * from ccb_data_product where one_two_three_time_unique_index in (
 select one_two_three_time_unique_index from ccb_data_product group by one_two_three_time_unique_index having count(one_two_three_time_unique_index) &gt; 1);
@@ -571,19 +572,31 @@ select one_two_three_time_unique_index from ccb_data_product group by one_two_th
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgf8425e4" class="outline-3">
+<h3 id="orgf8425e4">删除重复数据例子</h3>
+<div class="outline-text-3" id="text-orgf8425e4">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #F92672;">select</span> <span style="color: #F92672;">min</span><span style="color: #AE81FF;">(</span>id<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">from</span> ccb_bill <span style="color: #F92672;">where</span> pay_time <span style="color: #F92672;">between</span> "2023-12-30 00:00:00" <span style="color: #F92672;">and</span> "2023-12-30 23:59:59" <span style="color: #F92672;">group</span> <span style="color: #F92672;">by</span> pay_sn <span style="color: #F92672;">having</span> <span style="color: #F92672;">count</span><span style="color: #AE81FF;">(</span>pay_sn<span style="color: #AE81FF;">)</span>&gt;1;
+
+<span style="color: #F92672;">delete</span> <span style="color: #F92672;">from</span> ccb_bill <span style="color: #F92672;">where</span> id <span style="color: #F92672;">in</span> <span style="color: #AE81FF;">(</span>&#19978;&#19968;&#27493;&#32467;&#26524;<span style="color: #AE81FF;">)</span>
+</pre>
+</div>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgf2a9620" class="outline-2">
-<h2 id="orgf2a9620">mysql截取字符串并 update select</h2>
-<div class="outline-text-2" id="text-orgf2a9620">
+<div id="outline-container-orgd3b68ff" class="outline-2">
+<h2 id="orgd3b68ff">mysql截取字符串并 update select</h2>
+<div class="outline-text-2" id="text-orgd3b68ff">
 <ul class="org-ul">
 <li><a href="https://blog.csdn.net/q13315149158/article/details/99700604">csdn</a></li>
 </ul>
 </div>
 
-<div id="outline-container-org4126005" class="outline-3">
-<h3 id="org4126005">Q: 想要截取表 ccb_data_stock 中的time字段的前七位并更新到time字段中,由于mysql不能直接使用set select的结果，所以必须使用inner join。</h3>
-<div class="outline-text-3" id="text-org4126005">
+<div id="outline-container-org58b62aa" class="outline-3">
+<h3 id="org58b62aa">Q: 想要截取表 ccb_data_stock 中的time字段的前七位并更新到time字段中,由于mysql不能直接使用set select的结果，所以必须使用inner join。</h3>
+<div class="outline-text-3" id="text-org58b62aa">
 <div class="org-src-container">
 <pre class="src src-mysql">update ccb_data_stock a inner join (select id, left(time, 7) as time1 from ccb_data_stock) c
 on a.id = c.id set a.time = c.time1;
@@ -593,26 +606,26 @@ on a.id = c.id set a.time = c.time1;
 </div>
 </div>
 
-<div id="outline-container-org10042fd" class="outline-2">
-<h2 id="org10042fd">mysql时间查询</h2>
-<div class="outline-text-2" id="text-org10042fd">
+<div id="outline-container-org94018d1" class="outline-2">
+<h2 id="org94018d1">mysql时间查询</h2>
+<div class="outline-text-2" id="text-org94018d1">
 </div>
-<div id="outline-container-org06ddde1" class="outline-3">
-<h3 id="org06ddde1">一些基本的时间函数的说明：</h3>
-<div class="outline-text-3" id="text-org06ddde1">
+<div id="outline-container-org0297efc" class="outline-3">
+<h3 id="org0297efc">一些基本的时间函数的说明：</h3>
+<div class="outline-text-3" id="text-org0297efc">
 </div>
-<div id="outline-container-orgfaba7dc" class="outline-4">
-<h4 id="orgfaba7dc">获取系统的当前时间</h4>
-<div class="outline-text-4" id="text-orgfaba7dc">
+<div id="outline-container-org0eef4ff" class="outline-4">
+<h4 id="org0eef4ff">获取系统的当前时间</h4>
+<div class="outline-text-4" id="text-org0eef4ff">
 <ul class="org-ul">
 <li>CURDATE();</li>
 <li>NOW();</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org75d1216" class="outline-4">
-<h4 id="org75d1216">获取时间的差</h4>
-<div class="outline-text-4" id="text-org75d1216">
+<div id="outline-container-org37ed593" class="outline-4">
+<h4 id="org37ed593">获取时间的差</h4>
+<div class="outline-text-4" id="text-org37ed593">
 <ul class="org-ul">
 <li>period_diff()</li>
 <li>datediff(date1,date2)</li>
@@ -620,9 +633,9 @@ on a.id = c.id set a.time = c.time1;
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd41d02a" class="outline-4">
-<h4 id="orgd41d02a">时间加减</h4>
-<div class="outline-text-4" id="text-orgd41d02a">
+<div id="outline-container-orgbd810f7" class="outline-4">
+<h4 id="orgbd810f7">时间加减</h4>
+<div class="outline-text-4" id="text-orgbd810f7">
 <p>
 减:
 -date_sub()
@@ -640,13 +653,13 @@ on a.id = c.id set a.time = c.time1;
 </div>
 </div>
 
-<div id="outline-container-org3714837" class="outline-4">
-<h4 id="org3714837">时间格式化</h4>
-<div class="outline-text-4" id="text-org3714837">
+<div id="outline-container-org73a347b" class="outline-4">
+<h4 id="org73a347b">时间格式化</h4>
+<div class="outline-text-4" id="text-org73a347b">
 </div>
 <ul class="org-ul">
-<li><a id="org3512e4f"></a>MySQL日期格式化函数<br>
-<div class="outline-text-5" id="text-org3512e4f">
+<li><a id="orgbb1033c"></a>MySQL日期格式化函数<br>
+<div class="outline-text-5" id="text-orgbb1033c">
 <ul class="org-ul">
 <li>date_format()</li>
 <li>date_format(date, format)</li>
@@ -655,8 +668,8 @@ on a.id = c.id set a.time = c.time1;
 </ul>
 </div>
 </li>
-<li><a id="org33f6a88"></a>MySQL时间戳格式化函数<br>
-<div class="outline-text-5" id="text-org33f6a88">
+<li><a id="org2d94672"></a>MySQL时间戳格式化函数<br>
+<div class="outline-text-5" id="text-org2d94672">
 <ul class="org-ul">
 <li>from_unixtime</li>
 <li>from_unixtime(unix_timestamp, format)</li>

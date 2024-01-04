@@ -17,28 +17,28 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org99ff17a">简介</a></li>
-<li><a href="#org8ed0e89">void 指针</a></li>
-<li><a href="#org6fe6eda">malloc()</a>
+<li><a href="#org352088a">简介</a></li>
+<li><a href="#org1e677a5">void 指针</a></li>
+<li><a href="#org641990d">malloc()</a>
 <ul>
-<li><a href="#org57a363b">malloc()最常用的场合，就是为数组和自定义数据结构分配内存。</a></li>
+<li><a href="#org7cd1df2">malloc()最常用的场合，就是为数组和自定义数据结构分配内存。</a></li>
 </ul>
 </li>
-<li><a href="#org8be4080">free()</a></li>
-<li><a href="#org3ae3200">calloc()</a></li>
-<li><a href="#orgc6fb1e3">realloc()</a></li>
-<li><a href="#org8f4bb8d">restrict 说明符</a></li>
-<li><a href="#org66abdcc">memcpy()</a></li>
-<li><a href="#org45ba5bf">memmove()</a></li>
-<li><a href="#orgcde873a">memcmp()</a></li>
-<li><a href="#orgcd639ea">资源</a></li>
+<li><a href="#org2963d11">free()</a></li>
+<li><a href="#org7d350ac">calloc()</a></li>
+<li><a href="#org9bcfd3c">realloc()</a></li>
+<li><a href="#org74e64e5">restrict 说明符</a></li>
+<li><a href="#org9265ddd">memcpy()</a></li>
+<li><a href="#orgb5a873c">memmove()</a></li>
+<li><a href="#org3e79f91">memcmp()</a></li>
+<li><a href="#org9e8db15">资源</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org99ff17a" class="outline-2">
-<h2 id="org99ff17a">简介</h2>
-<div class="outline-text-2" id="text-org99ff17a">
+<div id="outline-container-org352088a" class="outline-2">
+<h2 id="org352088a">简介</h2>
+<div class="outline-text-2" id="text-org352088a">
 <p>
 C 语言的内存管理，分成两部分。一部分是系统管理的，另一部分是用户手动管理的。
 </p>
@@ -52,9 +52,9 @@ C 语言的内存管理，分成两部分。一部分是系统管理的，另一
 </p>
 </div>
 </div>
-<div id="outline-container-org8ed0e89" class="outline-2">
-<h2 id="org8ed0e89">void 指针</h2>
-<div class="outline-text-2" id="text-org8ed0e89">
+<div id="outline-container-org1e677a5" class="outline-2">
+<h2 id="org1e677a5">void 指针</h2>
+<div class="outline-text-2" id="text-org1e677a5">
 <p>
 前面章节已经说过了，每一块内存都有地址，通过指针变量可以获取指定地址的内存块。指针变量必须有类型，否则编译器无法知道，如何解读内存块保存的二进制数据。但是，向系统请求内存的时候，有时不确定会有什么样的数据写入内存，需要先获得内存块，稍后再确定写入的数据类型。
 </p>
@@ -100,9 +100,9 @@ void 指针的重要之处在于，很多内存相关函数的返回值就是 vo
 </p>
 </div>
 </div>
-<div id="outline-container-org6fe6eda" class="outline-2">
-<h2 id="org6fe6eda">malloc()</h2>
-<div class="outline-text-2" id="text-org6fe6eda">
+<div id="outline-container-org641990d" class="outline-2">
+<h2 id="org641990d">malloc()</h2>
+<div class="outline-text-2" id="text-org641990d">
 <p>
 malloc()函数用于分配内存，该函数向系统要求一段内存，系统就在“堆”里面分配一段连续的内存块给它。它的原型定义在头文件stdlib.h。
 </p>
@@ -172,9 +172,9 @@ malloc()分配内存有可能分配失败，这时返回常量 NULL。Null 的�
 </p>
 </div>
 
-<div id="outline-container-org57a363b" class="outline-3">
-<h3 id="org57a363b">malloc()最常用的场合，就是为数组和自定义数据结构分配内存。</h3>
-<div class="outline-text-3" id="text-org57a363b">
+<div id="outline-container-org7cd1df2" class="outline-3">
+<h3 id="org7cd1df2">malloc()最常用的场合，就是为数组和自定义数据结构分配内存。</h3>
+<div class="outline-text-3" id="text-org7cd1df2">
 <div class="org-src-container">
 <pre class="src src-c"><span style="color: #66D9EF;">int</span>* <span style="color: #FD971F;">p</span> = <span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">int</span>*<span style="color: #AE81FF;">)</span> malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">sizeof</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span><span style="color: #66D9EF;">)</span> * 10<span style="color: #AE81FF;">)</span>;
 
@@ -218,9 +218,9 @@ p = <span style="color: #E6DB74;">"abc"</span>;
 </div>
 </div>
 </div>
-<div id="outline-container-org8be4080" class="outline-2">
-<h2 id="org8be4080">free()</h2>
-<div class="outline-text-2" id="text-org8be4080">
+<div id="outline-container-org2963d11" class="outline-2">
+<h2 id="org2963d11">free()</h2>
+<div class="outline-text-2" id="text-org2963d11">
 <p>
 free()用于释放malloc()函数分配的内存，将这块内存还给系统以便重新使用，否则这个内存块会一直占用到程序运行结束。该函数的原型定义在头文件stdlib.h里面。
 </p>
@@ -261,9 +261,9 @@ free()用于释放malloc()函数分配的内存，将这块内存还给系统以
 </p>
 </div>
 </div>
-<div id="outline-container-org3ae3200" class="outline-2">
-<h2 id="org3ae3200">calloc()</h2>
-<div class="outline-text-2" id="text-org3ae3200">
+<div id="outline-container-org7d350ac" class="outline-2">
+<h2 id="org7d350ac">calloc()</h2>
+<div class="outline-text-2" id="text-org7d350ac">
 <p>
 calloc()函数的作用与malloc()相似，也是分配内存块。该函数的原型定义在头文件stdlib.h。
 </p>
@@ -305,9 +305,9 @@ calloc()分配的内存块，也要使用free()释放。
 </p>
 </div>
 </div>
-<div id="outline-container-orgc6fb1e3" class="outline-2">
-<h2 id="orgc6fb1e3">realloc()</h2>
-<div class="outline-text-2" id="text-orgc6fb1e3">
+<div id="outline-container-org9bcfd3c" class="outline-2">
+<h2 id="org9bcfd3c">realloc()</h2>
+<div class="outline-text-2" id="text-org9bcfd3c">
 <p>
 realloc()函数用于修改已经分配的内存块的大小，可以放大也可以缩小，返回一个指向新的内存块的指针。如果分配不成功，返回 NULL。该函数的原型定义在头文件stdlib.h。
 </p>
@@ -374,9 +374,9 @@ realloc()的第一个参数可以是 NULL，这时就相当于新建一个指针
 </p>
 </div>
 </div>
-<div id="outline-container-org8f4bb8d" class="outline-2">
-<h2 id="org8f4bb8d">restrict 说明符</h2>
-<div class="outline-text-2" id="text-org8f4bb8d">
+<div id="outline-container-org74e64e5" class="outline-2">
+<h2 id="org74e64e5">restrict 说明符</h2>
+<div class="outline-text-2" id="text-org74e64e5">
 <p>
 声明指针变量时，可以使用restrict说明符，告诉编译器，该块内存区域只有当前指针一种访问方式，其他指针不能读写该块内存。这种指针称为“受限指针”（restrict pointer）。
 </p>
@@ -401,9 +401,9 @@ p = malloc<span style="color: #AE81FF;">(</span><span style="color: #F92672;">si
 </p>
 </div>
 </div>
-<div id="outline-container-org66abdcc" class="outline-2">
-<h2 id="org66abdcc">memcpy()</h2>
-<div class="outline-text-2" id="text-org66abdcc">
+<div id="outline-container-org9265ddd" class="outline-2">
+<h2 id="org9265ddd">memcpy()</h2>
+<div class="outline-text-2" id="text-org9265ddd">
 <p>
 memcpy()用于将一块内存拷贝到另一块内存。该函数的原型定义在头文件string.h。
 </p>
@@ -494,9 +494,9 @@ memcpy()可以取代strcpy()进行字符串拷贝，而且是更好的方法，�
 </p>
 </div>
 </div>
-<div id="outline-container-org45ba5bf" class="outline-2">
-<h2 id="org45ba5bf">memmove()</h2>
-<div class="outline-text-2" id="text-org45ba5bf">
+<div id="outline-container-orgb5a873c" class="outline-2">
+<h2 id="orgb5a873c">memmove()</h2>
+<div class="outline-text-2" id="text-orgb5a873c">
 <p>
 memmove()函数用于将一段内存数据复制到另一段内存。它跟memcpy()的主要区别是，它允许目标区域与源区域有重叠。如果发生重叠，源区域的内容会被更改；如果没有重叠，它与memcpy()行为相同。
 </p>
@@ -547,9 +547,9 @@ printf<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"%s\n"
 </p>
 </div>
 </div>
-<div id="outline-container-orgcde873a" class="outline-2">
-<h2 id="orgcde873a">memcmp()</h2>
-<div class="outline-text-2" id="text-orgcde873a">
+<div id="outline-container-org3e79f91" class="outline-2">
+<h2 id="org3e79f91">memcmp()</h2>
+<div class="outline-text-2" id="text-org3e79f91">
 <p>
 memcmp()函数用来比较两个内存区域。它的原型定义在string.h。
 </p>
@@ -596,9 +596,9 @@ memcmp()函数用来比较两个内存区域。它的原型定义在string.h。
 </div>
 </div>
 
-<div id="outline-container-orgcd639ea" class="outline-2">
-<h2 id="orgcd639ea">资源</h2>
-<div class="outline-text-2" id="text-orgcd639ea">
+<div id="outline-container-org9e8db15" class="outline-2">
+<h2 id="org9e8db15">资源</h2>
+<div class="outline-text-2" id="text-org9e8db15">
 <ul class="org-ul">
 <li><a href="https://wangdoc.com/clang/memory">阮一峰</a></li>
 </ul>

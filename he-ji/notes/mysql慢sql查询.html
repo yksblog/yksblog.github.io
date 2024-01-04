@@ -17,30 +17,30 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2be15cb">外链</a></li>
-<li><a href="#org0366e76">慢sql排序</a></li>
-<li><a href="#org630ff73">kill 慢sql线程</a></li>
-<li><a href="#org0caf722">mysql ： show processlist 详解</a>
+<li><a href="#org24d2fc7">外链</a></li>
+<li><a href="#orgef9b349">慢sql排序</a></li>
+<li><a href="#orgbc18004">kill 慢sql线程</a></li>
+<li><a href="#org76051b5">mysql ： show processlist 详解</a>
 <ul>
-<li><a href="#orgdfaeff6">下面我们单独看一下 Command 的值：</a></li>
+<li><a href="#org533f10c">下面我们单独看一下 Command 的值：</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2be15cb" class="outline-2">
-<h2 id="org2be15cb">外链</h2>
-<div class="outline-text-2" id="text-org2be15cb">
+<div id="outline-container-org24d2fc7" class="outline-2">
+<h2 id="org24d2fc7">外链</h2>
+<div class="outline-text-2" id="text-org24d2fc7">
 <p>
 processlist
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0366e76" class="outline-2">
-<h2 id="org0366e76">慢sql排序</h2>
-<div class="outline-text-2" id="text-org0366e76">
+<div id="outline-container-orgef9b349" class="outline-2">
+<h2 id="orgef9b349">慢sql排序</h2>
+<div class="outline-text-2" id="text-orgef9b349">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #F92672;">select</span> * <span style="color: #F92672;">from</span> information_schema.processlist <span style="color: #F92672;">where</span> Command != <span style="color: #E6DB74;">'Sleep'</span> <span style="color: #F92672;">order</span> <span style="color: #F92672;">by</span> <span style="color: #66D9EF;">Time</span> <span style="color: #F92672;">desc</span>;
 </pre>
@@ -48,9 +48,9 @@ processlist
 </div>
 </div>
 
-<div id="outline-container-org630ff73" class="outline-2">
-<h2 id="org630ff73">kill 慢sql线程</h2>
-<div class="outline-text-2" id="text-org630ff73">
+<div id="outline-container-orgbc18004" class="outline-2">
+<h2 id="orgbc18004">kill 慢sql线程</h2>
+<div class="outline-text-2" id="text-orgbc18004">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #F92672;">select</span> concat<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'kill '</span>, id, <span style="color: #E6DB74;">';'</span><span style="color: #AE81FF;">)</span> <span style="color: #F92672;">from</span> information_schema.processlist <span style="color: #F92672;">where</span> Command != <span style="color: #E6DB74;">'Sleep'</span> <span style="color: #F92672;">and</span> <span style="color: #66D9EF;">Time</span> &gt; 300 <span style="color: #F92672;">order</span> <span style="color: #F92672;">by</span> <span style="color: #66D9EF;">Time</span> <span style="color: #F92672;">desc</span>;
 </pre>
@@ -58,9 +58,9 @@ processlist
 </div>
 </div>
 
-<div id="outline-container-org0caf722" class="outline-2">
-<h2 id="org0caf722">mysql ： show processlist 详解</h2>
-<div class="outline-text-2" id="text-org0caf722">
+<div id="outline-container-org76051b5" class="outline-2">
+<h2 id="org76051b5">mysql ： show processlist 详解</h2>
+<div class="outline-text-2" id="text-org76051b5">
 <ol class="org-ol">
 <li>按客户端 IP 分组，看哪个客户端的链接数最多</li>
 </ol>
@@ -143,9 +143,9 @@ root用户，可以看到全部线程运行情况，普通的activiti用户只�
 </ul>
 </div>
 
-<div id="outline-container-orgdfaeff6" class="outline-3">
-<h3 id="orgdfaeff6">下面我们单独看一下 Command 的值：</h3>
-<div class="outline-text-3" id="text-orgdfaeff6">
+<div id="outline-container-org533f10c" class="outline-3">
+<h3 id="org533f10c">下面我们单独看一下 Command 的值：</h3>
+<div class="outline-text-3" id="text-org533f10c">
 <ul class="org-ul">
 <li>Binlog Dump: 主节点正在将二进制日志 ，同步到从节点</li>
 

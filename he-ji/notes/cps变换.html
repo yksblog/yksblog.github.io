@@ -21,14 +21,14 @@
 <ul>
 <li><a href="#org34036e2">例1:js版本</a>
 <ul>
-<li><a href="#orgcf16fcb">原味</a></li>
-<li><a href="#org1a874a8">CPS</a></li>
+<li><a href="#orgda810fc">原味</a></li>
+<li><a href="#org46d7c04">CPS</a></li>
 </ul>
 </li>
 <li><a href="#orgb4cd169">例2:java版本</a>
 <ul>
-<li><a href="#orgda810fc">原味</a></li>
-<li><a href="#org46d7c04">CPS</a></li>
+<li><a href="#org661759a">原味</a></li>
+<li><a href="#org1f5b29f">CPS</a></li>
 </ul>
 </li>
 </ul>
@@ -52,9 +52,9 @@
 <h3 id="org34036e2">例1:js版本</h3>
 <div class="outline-text-3" id="text-org34036e2">
 </div>
-<div id="outline-container-orgcf16fcb" class="outline-4">
-<h4 id="orgcf16fcb">原味</h4>
-<div class="outline-text-4" id="text-orgcf16fcb">
+<div id="outline-container-orgda810fc" class="outline-4">
+<h4 id="orgda810fc">原味</h4>
+<div class="outline-text-4" id="text-orgda810fc">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #F92672;">function</span> <span style="color: #A6E22E;">foo</span><span style="color: #AE81FF;">(</span><span style="color: #FD971F;">x</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
     <span style="color: #F92672;">return</span> x ;
@@ -64,9 +64,9 @@
 </div>
 </div>
 
-<div id="outline-container-org1a874a8" class="outline-4">
-<h4 id="org1a874a8">CPS</h4>
-<div class="outline-text-4" id="text-org1a874a8">
+<div id="outline-container-org46d7c04" class="outline-4">
+<h4 id="org46d7c04">CPS</h4>
+<div class="outline-text-4" id="text-org46d7c04">
 <div class="org-src-container">
 <pre class="src src-js"><span style="color: #F92672;">function</span> <span style="color: #A6E22E;">cps_foo</span><span style="color: #AE81FF;">(</span><span style="color: #FD971F;">x</span>, <span style="color: #FD971F;">return_point</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
     <span style="color: #F92672;">return</span> return_point <span style="color: #66D9EF;">(</span>x<span style="color: #66D9EF;">)</span> ;
@@ -94,9 +94,9 @@ Syntax sugar 是为了方便人类的表达和理解，给编程语言的核心�
 <h3 id="orgb4cd169">例2:java版本</h3>
 <div class="outline-text-3" id="text-orgb4cd169">
 </div>
-<div id="outline-container-orgda810fc" class="outline-4">
-<h4 id="orgda810fc">原味</h4>
-<div class="outline-text-4" id="text-orgda810fc">
+<div id="outline-container-org661759a" class="outline-4">
+<h4 id="org661759a">原味</h4>
+<div class="outline-text-4" id="text-org661759a">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #F92672;">public</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">Demo</span> <span style="color: #AE81FF;">{</span>
     <span style="color: #F92672;">public</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">long</span> <span style="color: #A6E22E;">plus</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i1</span>, <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i2</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
@@ -113,9 +113,9 @@ Syntax sugar 是为了方便人类的表达和理解，给编程语言的核心�
 </div>
 </div>
 
-<div id="outline-container-org46d7c04" class="outline-4">
-<h4 id="org46d7c04">CPS</h4>
-<div class="outline-text-4" id="text-org46d7c04">
+<div id="outline-container-org1f5b29f" class="outline-4">
+<h4 id="org1f5b29f">CPS</h4>
+<div class="outline-text-4" id="text-org1f5b29f">
 <div class="org-src-container">
 <pre class="src src-java">
 <span style="color: #F92672;">public</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">CpsDemo</span> <span style="color: #AE81FF;">{</span>

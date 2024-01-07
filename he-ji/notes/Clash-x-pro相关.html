@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clash X Pro相关</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
+           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Clash X Pro相关</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga62f1d3">Q：MacOSX升级问题，导致ClashXPro失效。</a></li>
+<li><a href="#org530c35b">ClashXPro介绍</a></li>
+<li><a href="#org96801e1">自建服务端</a>
+<ul>
+<li><a href="#org9439d52">默认配置文件</a></li>
+<li><a href="#org925e09e">标准配置文件</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga62f1d3" class="outline-2">
+<h2 id="orga62f1d3">Q：MacOSX升级问题，导致ClashXPro失效。</h2>
+<div class="outline-text-2" id="text-orga62f1d3">
+<p>
+<b>背景描述：</b>
+</p>
+
+<p>
+　　之前系统是MacOSX10.14，有一个致命的bug，即输入法不兼容微信App，虽然偶现，但是最近一段时间频繁偶现了。找了一些办法依然无法解决，加上得知最近出了MacOSX新系统14.0，抱着尝鲜的态度，我升级了。然后，就出现了ClashXPro失效了。具体表现为：打开App，弹窗显示：需要安装一个帮助程序，点击确定安装，弹窗关闭。配置文件显示可以科学上网，但是，打开Google首页失败。
+</p>
+
+<p>
+<b>解决办法：</b>
+</p>
+
+<ul class="org-ul">
+<li>右键App图标选择「更多设置」-&gt; 调试 -&gt; 助手程序 -&gt; 点击移除助手程序；</li>
+<li>卸载App；</li>
+<li>重新安装App，打开App，重新安装助手程序；重新打开Google首页;</li>
+</ul>
+
+<p>
+<b>原理：</b>
+　　MaxOSX10.14系统的ClashX助手程序，不支持14.0。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org530c35b" class="outline-2">
+<h2 id="org530c35b">ClashXPro介绍</h2>
+<div class="outline-text-2" id="text-org530c35b">
+<ul class="org-ul">
+<li>可以用来科学上网的 <b>客户端</b> ;</li>
+<li>有Windows版、Mac版、Ios版、安卓版；</li>
+<li>支持各种协议：Shadowsocks(ss)、Shadowsocks(simple-obfs)、Shadowsocks(v2ray-plugin)、VMess、Trojan</li>
+<li>服务端可以订阅 <b>免费服务端提供商</b> 、 <b>付费服务端提供</b> ，也可以自建服务端。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org96801e1" class="outline-2">
+<h2 id="org96801e1">自建服务端</h2>
+<div class="outline-text-2" id="text-org96801e1">
+<ul class="org-ul">
+<li>有境外VPS；</li>
+<li>可以安装Shadowsocks 或 v2ray 或 VMess 或 Trojan等服务软件；</li>
+<li>国内VPS服务商的境外VPS，不一定支持这些协议，建议选择国外服务商的VPS；</li>
+</ul>
+</div>
+
+<div id="outline-container-org9439d52" class="outline-3">
+<h3 id="org9439d52">默认配置文件</h3>
+<div class="outline-text-3" id="text-org9439d52">
+<div class="org-src-container">
+<pre class="src src-yaml"><span style="color: #75715E;">#</span><span style="color: #75715E;">---------------------------------------------------#</span>
+<span style="color: #75715E;">## </span><span style="color: #75715E;">&#37197;&#32622;&#25991;&#20214;&#38656;&#35201;&#25918;&#32622;&#22312; $HOME/.config/clash/*.yaml</span>
+
+<span style="color: #75715E;">## </span><span style="color: #75715E;">&#36825;&#20221;&#25991;&#20214;&#26159;clashX&#30340;&#22522;&#30784;&#37197;&#32622;&#25991;&#20214;&#65292;&#35831;&#23613;&#37327;&#26032;&#24314;&#37197;&#32622;&#25991;&#20214;&#36827;&#34892;&#20462;&#25913;&#12290;</span>
+<span style="color: #75715E;">## </span><span style="color: #75715E;">&#31471;&#21475;&#35774;&#32622;&#35831;&#22312; &#33756;&#21333;&#26465;&#22270;&#26631;-&gt;&#37197;&#32622;-&gt;&#26356;&#22810;&#37197;&#32622; &#20013;&#36827;&#34892;&#20462;&#25913;</span>
+
+<span style="color: #75715E;">## </span><span style="color: #75715E;">&#22914;&#26524;&#24744;&#19981;&#30693;&#36947;&#22914;&#20309;&#25805;&#20316;&#65292;&#35831;&#21442;&#38405; &#23448;&#26041;Github&#25991;&#26723; https://dreamacro.github.io/clash/</span>
+<span style="color: #75715E;">#</span><span style="color: #75715E;">---------------------------------------------------#</span>
+
+<span style="color: #FD971F;">mode</span>: rule
+<span style="color: #FD971F;">log-level</span>: info
+
+<span style="color: #FD971F;">proxies</span>:
+
+<span style="color: #FD971F;">proxy-groups</span>:
+
+<span style="color: #FD971F;">rules</span>:
+  - DOMAIN-SUFFIX,google.com,DIRECT
+  - DOMAIN-KEYWORD,google,DIRECT
+  - DOMAIN,google.com,DIRECT
+  - DOMAIN-SUFFIX,ad.com,REJECT
+  - GEOIP,CN,DIRECT
+  - MATCH,DIRECT
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org925e09e" class="outline-3">
+<h3 id="org925e09e">标准配置文件</h3>
+<div class="outline-text-3" id="text-org925e09e">
+<ul class="org-ul">
+<li><a href="https://yangk.net/pics/blogs/orgs/202311/clash_template2.yaml">标准配置文件</a></li>
+<li>主要配置</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-yaml"><span style="color: #75715E;"># </span><span style="color: #75715E;">Shadowsocks</span>
+- <span style="color: #FD971F;">name</span>: <span style="color: #E6DB74;">"ss"</span>
+  <span style="color: #FD971F;">type</span>: ss
+  <span style="color: #FD971F;">server</span>: xxx.xxx.xxx.xxx
+  <span style="color: #FD971F;">port</span>: 61943
+  <span style="color: #FD971F;">cipher</span>: aes-256-gcm
+  <span style="color: #FD971F;">password</span>: <span style="color: #E6DB74;">"password"</span>
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">udp: true</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Shadowsocks(simple-obfs)</span>
+- <span style="color: #FD971F;">name</span>: <span style="color: #E6DB74;">"ss-obfs"</span>
+  <span style="color: #FD971F;">type</span>: ss
+  <span style="color: #FD971F;">server</span>: server
+  <span style="color: #FD971F;">port</span>: 443
+  <span style="color: #FD971F;">cipher</span>: chacha20-ietf-poly1305
+  <span style="color: #FD971F;">password</span>: <span style="color: #E6DB74;">"password"</span>
+  <span style="color: #FD971F;">plugin</span>: obfs
+  <span style="color: #FD971F;">plugin-opts</span>:
+      <span style="color: #FD971F;">mode</span>: tls
+      <span style="color: #FD971F;">host</span>: example.com
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Shadowsocks(v2ray-plugin)</span>
+- <span style="color: #FD971F;">name</span>: <span style="color: #E6DB74;">"ss-v2ray"</span>
+  <span style="color: #FD971F;">type</span>: ss
+  <span style="color: #FD971F;">server</span>: server
+  <span style="color: #FD971F;">port</span>: 443
+  <span style="color: #FD971F;">cipher</span>: chacha20-ietf-poly1305
+  <span style="color: #FD971F;">password</span>: <span style="color: #E6DB74;">"password"</span>
+  <span style="color: #FD971F;">plugin</span>: v2ray-plugin
+  <span style="color: #FD971F;">plugin-opts</span>:
+    <span style="color: #FD971F;">mode</span>: websocket <span style="color: #75715E;"># </span><span style="color: #75715E;">no QUIC now</span>
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">tls: true # wss</span>
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">skip-cert-verify: true</span>
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">host: bing.com</span>
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">path: "/"</span>
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">mux: true</span>
+    <span style="color: #75715E;"># </span><span style="color: #75715E;">headers:</span>
+    <span style="color: #75715E;">#   </span><span style="color: #75715E;">custom: value</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">VMess</span>
+- <span style="color: #FD971F;">name</span>: <span style="color: #E6DB74;">"v2ray"</span>
+  <span style="color: #FD971F;">type</span>: vmess
+  <span style="color: #FD971F;">server</span>: xxx.xxx.xxx.xxx
+  <span style="color: #FD971F;">port</span>: 28595
+  <span style="color: #FD971F;">uuid</span>: uuid
+  <span style="color: #FD971F;">alterId</span>: 64
+  <span style="color: #FD971F;">cipher</span>: auto
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">udp: true</span>
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">tls: true</span>
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">tls-hostname: &#22635;&#20889;&#20266;&#35013;&#22495;&#21517;</span>
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">skip-cert-verify: true</span>
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">network: ws</span>
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">ws-path: /path</span>
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">ws-headers: #&#36825;&#19968;&#34892;&#21518;&#38754;&#19981;&#35201;&#20889;&#19996;&#35199;</span>
+  <span style="color: #75715E;">#   </span><span style="color: #75715E;">Host: v2ray.com #&#22635;&#20889;&#20266;&#35013;&#22495;&#21517;</span>
+
+<span style="color: #75715E;"># </span><span style="color: #75715E;">Trojan</span>
+- <span style="color: #FD971F;">name</span>: <span style="color: #E6DB74;">"trojan"</span>
+  <span style="color: #FD971F;">type</span>: trojan
+  <span style="color: #FD971F;">server</span>: server
+  <span style="color: #FD971F;">port</span>: 443
+  <span style="color: #FD971F;">password</span>: password
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">udp: true</span>
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">sni: example.com # &#22635;&#20889;&#20266;&#35013;&#22495;&#21517;</span>
+  <span style="color: #FD971F;">alpn</span>:
+     - h2
+     - http/1.1
+  <span style="color: #75715E;"># </span><span style="color: #75715E;">skip-cert-verify: true</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-11-29 Wed 16:38</p>
+</div>
+</body>
+</html>

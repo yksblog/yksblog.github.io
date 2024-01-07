@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jenkins</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
+           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Jenkins</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org4aee767">链接</a></li>
+<li><a href="#org169d14e">pull jenkins</a></li>
+<li><a href="#org6f41d1f">docker-compose.yml</a></li>
+<li><a href="#orgdd734d2">dkc up -d 输出密码</a></li>
+<li><a href="#org1e6322d">使用密码进入页面，选择 `install suggested plugins`</a></li>
+<li><a href="#orga009eac">Post Steps</a></li>
+<li><a href="#org15de0b1">构建后操作</a></li>
+<li><a href="#orgb3f63d9">plugs</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4aee767" class="outline-2">
+<h2 id="org4aee767">链接</h2>
+<div class="outline-text-2" id="text-org4aee767">
+<ul class="org-ul">
+<li><a href="https://www.jianshu.com/p/0391e225e4a6">Docker版本Jenkins的使用</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org169d14e" class="outline-2">
+<h2 id="org169d14e">pull jenkins</h2>
+<div class="outline-text-2" id="text-org169d14e">
+<pre class="example">
+docker pull jenkins/jenkins
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6f41d1f" class="outline-2">
+<h2 id="org6f41d1f">docker-compose.yml</h2>
+<div class="outline-text-2" id="text-org6f41d1f">
+<pre class="example">
+version: "2"
+services:
+  jenkins:
+    image: jenkins/jenkins
+    ports:
+      - 33331:8080
+      - 50000:50000
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgdd734d2" class="outline-2">
+<h2 id="orgdd734d2">dkc up -d 输出密码</h2>
+<div class="outline-text-2" id="text-orgdd734d2">
+<pre class="example">
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+c3ee9fde9e6748d883b8359a4a03579c
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1e6322d" class="outline-2">
+<h2 id="org1e6322d">使用密码进入页面，选择 `install suggested plugins`</h2>
+<div class="outline-text-2" id="text-org1e6322d">
+<ul class="org-ul">
+<li>下载插件需要很长时间</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga009eac" class="outline-2">
+<h2 id="orga009eac">Post Steps</h2>
+<div class="outline-text-2" id="text-orga009eac">
+<pre class="example">
+
+# 保留文件数
+RESERVED_NUM=5
+# 模块文件夹
+FILE_DIR=${WORKSPACE}/${MODULE}
+# 备份文件夹
+FILE_BAK_DIR=${FILE_DIR}/${PROFILES}/bak
+DATE=$(date "+%Y%m%d-%H%M%S")
+case ${STATUS} in
+    Deploy)
+	echo "发版"
+	# 创建每次要备份的目录
+	path="${FILE_BAK_DIR}/${BUILD_NUMBER}"
+	if [ ! -d ${path} ]
+	then
+	    mkdir -p ${path}
+	fi
+	# 将打包好的war包备份到相应目录,覆盖已存在的目标
+	cp -f ${FILE_DIR}/target/*.jar ${path}
+	# 进入备份目录
+	cd ${FILE_BAK_DIR}
+	# 当前有几个文件夹，即几个备份，删除多余备份
+	fileNum=$(ls -l | grep '^d' | wc -l)
+	while [ ${fileNum} -gt ${RESERVED_NUM} ]
+	do
+	    # 获取最旧的那个备份文件夹
+	    oldFile=$(ls -rt | head -1)
+	    echo ${DATE} "删除备份文件:"${oldFile}
+	    rm -rf ${FILE_BAK_DIR}/${oldFile}
+	    let "fileNum--"
+	done
+	echo "备份完成"
+	;;
+    Rollback)
+	echo "回滚"
+	echo "VERSION:${VERSION}"
+	# 如果文件夹不存在或文件夹太小，则判断备份文件不存在，直接返回
+	if [ ! -d ${FILE_BAK_DIR}/${VERSION} ] || [ $(du -s ${FILE_BAK_DIR}/${VERSION} | awk '{print $1}') -lt 100 ]
+	then
+	    echo "备份文件不存在"
+	    # 抛出异常，让 Jenkins 构建失败
+	    set -e
+	    # 退出
+	    exit 1
+	fi
+	# 进入备份目录
+	cd ${FILE_BAK_DIR}/${VERSION}
+	# 将备份拷贝到程序打包目录中，并覆盖之前的war包
+	cp -f *.jar ${FILE_DIR}/target/
+	;;
+    *)
+	set -e
+	exit 1
+	;;
+esac
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org15de0b1" class="outline-2">
+<h2 id="org15de0b1">构建后操作</h2>
+<div class="outline-text-2" id="text-org15de0b1">
+<pre class="example">
+
+#!/bin/bash
+echo "进入服务"
+EXPORT  BUILD_ID=dontkillme
+EXPORT JAVA_HOME PATH CLASSPATH
+JAVA_HOME=/data/jdk1.8.0_211
+PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
+CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH
+FILE_DIR=/runWork
+JARFILE=dpb-admin-fms-0.0.1-SNAPSHOT.jar
+PROFILE_JAR_FILE=uat_dpb-admin-fms-0.0.1-SNAPSHOT.jar
+des_log=$FILE_DIR/uat_dpb-admin-fms.log
+# 设置超时时间，如果达到超时时间项目还未启动则退出
+TIMEOUT=100
+# 根据模块使用响应端口号
+
+if [ ! -d ${FILE_DIR} ]
+then
+   mkdir -p ${FILE_DIR}
+fi
+
+cd ${FILE_DIR}
+mv ${JARFILE} ${PROFILE_JAR_FILE}
+PROCESS_ID=$(ps -ef | grep ${PROFILE_JAR_FILE} | grep -v grep | awk '{print $2}')
+# 如果该项目正在运行，就杀死项目进程
+if [ ! -z "${PROCESS_ID}" ]
+then
+   echo "停止服务"
+   kill -9 ${PROCESS_ID}
+else
+	echo "服务未启动"
+fi
+nohup java -jar ${PROFILE_JAR_FILE} -Xmx${Xmx} -Xms${Xms}  --spring.profiles.active=${PROFILES}  --server.port=${PORT} &gt; $des_log 2&gt;&amp;1 &amp;
+# 如果该项目还未启动，则等启动后再执行下个发布任务，判断项目是否启动要用端口号占用，不能用进程，因为在项目启动的瞬间进程就有了
+sleep 2
+second=0
+lastShellRow=0
+echo [INFO] "&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 日志所在位置"$des_log" 开始输出日志&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;"
+
+# 日志监测部分
+while true
+do
+    nowShellRow=`cat $des_log |wc -l`
+    showRow=$[nowShellRow-lastShellRow]
+    if [[ $showRow -ge 0 ]]; then
+	tail -n $showRow $des_log
+    fi
+    sum=`cat $des_log |grep '项目初始化完毕!' |wc -l`
+    sum_jvm=`cat $des_log |grep 'JVM running for' |wc -l`
+    failed_sign=`cat $des_log |grep 'Application run failed\|Failed to' |wc -l`
+    if [ $second -ge 800 ];then
+       echo [ERROR] "&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 部署等待时间过长 退出部署 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;"
+       ps -ux|grep $PROFILE_JAR_FILE|grep "port="$2|grep -v grep|awk '{print $2}'|xargs kill -9
+       exit 1
+       break
+    fi
+    if [ $sum -gt 0 ] || [ $sum_jvm -gt 0  ];then
+	echo [INFO] "&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 项目启动花费 $second 秒 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;"
+       break
+    fi
+    if [[ $failed_sign -gt 0 ]];then
+	echo [INFO] "&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 项目启动花费 $second 秒 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;"
+	echo [ERROR] "&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 项目启动失败 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;"
+	exit 1
+	break
+    fi
+    second=$((second + 2))
+    lastShellRow=$nowShellRow
+    sleep 2
+done
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb3f63d9" class="outline-2">
+<h2 id="orgb3f63d9">plugs</h2>
+<div class="outline-text-2" id="text-orgb3f63d9">
+<ul class="org-ul">
+<li>git.jpi</li>
+<li>git-client.jpi</li>
+<li>git-server.jpi</li>
+<li>git-parameter</li>
+<li>github.jpi</li>
+<li>github-api.jpi</li>
+<li>github-branch-source.jpi</li>
+<li>publish-over.jpi</li>
+<li>publish-over-ssh.jpi</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2022-06-01 Wed 16:14</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Turbolinks</title>
+<meta name="generator" content="Org Mode" />
+<link rel='shortcut icon' href='https://yangk.net/org_themes/favicon.ico' type='image/x-icon' />
+           <link rel='stylesheet' href='https://yangk.net/org_themes/style.css' type='text/css'  />
+           <script type='module' src='https://yangk.net/org_themes/main.js' defer></script>
+<meta name="card" content="">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Turbolinks</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org332e854">Turbolinks 的历史和基本原理</a></li>
+<li><a href="#org5d775f7">优点</a></li>
+<li><a href="#org59d566e">Chrome 解析页面步骤</a></li>
+<li><a href="#org6be32c6">Turbolinks 解析页面步骤</a></li>
+<li><a href="#org21af121">资料</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org332e854" class="outline-2">
+<h2 id="org332e854">Turbolinks 的历史和基本原理</h2>
+<div class="outline-text-2" id="text-org332e854">
+<ul class="org-ul">
+<li>Rails 里的 Assets Pipeline 会把 JavaScript、StypeSheet等资源都合并成单页面, 以减少浏览器需要发起的请求数量, 以加速浏览器加载页面的时间。</li>
+<li>Assets Pipeline 的这种原理导致单个文件本身比较大, 如果每次都是全页刷新, 对加载速度一定会有影响, 所以 DHH 引入 Turbolinks 来解决重复载入和解析资源文件的时间浪费。</li>
+<li>页面加载速度 = 下载资源速度 + 解析资源速度, Turbolinks 解决的主要是解析资源的速度, 当切换页面时, Turbolinks会检查新页面 head 中 link 与 script 标签, 识别其中带有 data-turbolinks-track 的属性, 如果 src 发生变化, 就重新载入所有页面, 如果没有变化只是用新页面的 body 来替换老页面的 body 内容, 从而在绝大部分时间里避免每次重复解析和加载 head 中资源文件的时间(这个时间非常耗时)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5d775f7" class="outline-2">
+<h2 id="org5d775f7">优点</h2>
+<div class="outline-text-2" id="text-org5d775f7">
+<ul class="org-ul">
+<li>单页面</li>
+<li>使用简单(//=require 'turbolinks')</li>
+<li>缓存</li>
+</ul>
+
+<img
+src="https://yangk.net/blog/content/images/2020/02/turbolinks.png"
+width=""
+style=""
+alt=""
+/>
+</div>
+</div>
+
+<div id="outline-container-org59d566e" class="outline-2">
+<h2 id="org59d566e">Chrome 解析页面步骤</h2>
+<div class="outline-text-2" id="text-org59d566e">
+<ul class="org-ul">
+<li>下载 index.html</li>
+<li>解析 head 标签中的 link 与 script 标签, 如果是带有 src 属性, 阻塞其他逻辑执行, 继续去下载对应的资源并执行. 如果没带, 则直接执行其中的代码逻辑.</li>
+<li>渲染 body 标签的内容, 并解析执行 body 中的 script 标签. 全部执行完毕, 执行 DOMContentLoaded 事件绑定的逻辑.</li>
+<li>第一次加载时网页执行跟上述是一致, 之后 Turbolinks 会绑定 Body 下所有的 a 元素的 click 事件, 切换页面时, Turbolinks 将会接管浏览器的页面加载过程</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6be32c6" class="outline-2">
+<h2 id="org6be32c6">Turbolinks 解析页面步骤</h2>
+<div class="outline-text-2" id="text-org6be32c6">
+<ul class="org-ul">
+<li>异步加载新页面的 index.html</li>
+<li>解析 head 标签中的 link 与 script 标签, 识别其中带有 data-turbolinks-track 的属性, 如果 src 有变化( 可能性很小 ), 则重载所有页面. 如果没有变化, 则不进行任何操作.</li>
+<li>解析 head 标签中新的 link 与 script 标签, 加载并执行.</li>
+<li>用新页面的 body 替换老的 body 中的内容, 并执行其中的 script 脚本.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org21af121" class="outline-2">
+<h2 id="org21af121">资料</h2>
+<div class="outline-text-2" id="text-org21af121">
+<ul class="org-ul">
+<li><a href="https://www.jianshu.com/p/a9442bdc1fc0">简书</a></li>
+<li><a href="https://www.jianshu.com/p/f73d060c4971">简书2</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2020-02-26 Wed 08:41</p>
+</div>
+</body>
+</html>

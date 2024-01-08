@@ -577,9 +577,9 @@ select one_two_three_time_unique_index from ccb_data_product group by one_two_th
 <h3 id="orgd4363bc">删除重复数据例子</h3>
 <div class="outline-text-3" id="text-orgd4363bc">
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #F92672;">select</span> <span style="color: #F92672;">min</span><span style="color: #AE81FF;">(</span>id<span style="color: #AE81FF;">)</span> <span style="color: #F92672;">from</span> ccb_bill <span style="color: #F92672;">where</span> pay_time <span style="color: #F92672;">between</span> "2023-12-30 00:00:00" <span style="color: #F92672;">and</span> "2023-12-30 23:59:59" <span style="color: #F92672;">group</span> <span style="color: #F92672;">by</span> pay_sn <span style="color: #F92672;">having</span> <span style="color: #F92672;">count</span><span style="color: #AE81FF;">(</span>pay_sn<span style="color: #AE81FF;">)</span>&gt;1;
+<pre class="src src-sql"><span style="color: #00ffff;">select</span> <span style="color: #b0c4de;">min</span><span style="color: #8c8c8c;">(</span>id<span style="color: #8c8c8c;">)</span> <span style="color: #00ffff;">from</span> ccb_bill <span style="color: #00ffff;">where</span> pay_time <span style="color: #00ffff;">between</span> "2023-12-30 00:00:00" <span style="color: #00ffff;">and</span> "2023-12-30 23:59:59" <span style="color: #00ffff;">group</span> <span style="color: #00ffff;">by</span> pay_sn <span style="color: #00ffff;">having</span> <span style="color: #b0c4de;">count</span><span style="color: #8c8c8c;">(</span>pay_sn<span style="color: #8c8c8c;">)</span>&gt;1;
 
-<span style="color: #F92672;">delete</span> <span style="color: #F92672;">from</span> ccb_bill <span style="color: #F92672;">where</span> id <span style="color: #F92672;">in</span> <span style="color: #AE81FF;">(</span>&#19978;&#19968;&#27493;&#32467;&#26524;<span style="color: #AE81FF;">)</span>
+<span style="color: #00ffff;">delete</span> <span style="color: #00ffff;">from</span> ccb_bill <span style="color: #00ffff;">where</span> id <span style="color: #00ffff;">in</span> <span style="color: #8c8c8c;">(</span>&#19978;&#19968;&#27493;&#32467;&#26524;<span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 </div>

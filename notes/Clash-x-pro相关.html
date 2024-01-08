@@ -83,23 +83,23 @@
 <h3 id="org3815990">默认配置文件</h3>
 <div class="outline-text-3" id="text-org3815990">
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #75715E;">#</span><span style="color: #75715E;">---------------------------------------------------#</span>
-<span style="color: #75715E;">## </span><span style="color: #75715E;">&#37197;&#32622;&#25991;&#20214;&#38656;&#35201;&#25918;&#32622;&#22312; $HOME/.config/clash/*.yaml</span>
+<pre class="src src-yaml"><span style="color: #808080;">#</span><span style="color: #808080;">---------------------------------------------------#</span>
+<span style="color: #808080;">## </span><span style="color: #808080;">&#37197;&#32622;&#25991;&#20214;&#38656;&#35201;&#25918;&#32622;&#22312; $HOME/.config/clash/*.yaml</span>
 
-<span style="color: #75715E;">## </span><span style="color: #75715E;">&#36825;&#20221;&#25991;&#20214;&#26159;clashX&#30340;&#22522;&#30784;&#37197;&#32622;&#25991;&#20214;&#65292;&#35831;&#23613;&#37327;&#26032;&#24314;&#37197;&#32622;&#25991;&#20214;&#36827;&#34892;&#20462;&#25913;&#12290;</span>
-<span style="color: #75715E;">## </span><span style="color: #75715E;">&#31471;&#21475;&#35774;&#32622;&#35831;&#22312; &#33756;&#21333;&#26465;&#22270;&#26631;-&gt;&#37197;&#32622;-&gt;&#26356;&#22810;&#37197;&#32622; &#20013;&#36827;&#34892;&#20462;&#25913;</span>
+<span style="color: #808080;">## </span><span style="color: #808080;">&#36825;&#20221;&#25991;&#20214;&#26159;clashX&#30340;&#22522;&#30784;&#37197;&#32622;&#25991;&#20214;&#65292;&#35831;&#23613;&#37327;&#26032;&#24314;&#37197;&#32622;&#25991;&#20214;&#36827;&#34892;&#20462;&#25913;&#12290;</span>
+<span style="color: #808080;">## </span><span style="color: #808080;">&#31471;&#21475;&#35774;&#32622;&#35831;&#22312; &#33756;&#21333;&#26465;&#22270;&#26631;-&gt;&#37197;&#32622;-&gt;&#26356;&#22810;&#37197;&#32622; &#20013;&#36827;&#34892;&#20462;&#25913;</span>
 
-<span style="color: #75715E;">## </span><span style="color: #75715E;">&#22914;&#26524;&#24744;&#19981;&#30693;&#36947;&#22914;&#20309;&#25805;&#20316;&#65292;&#35831;&#21442;&#38405; &#23448;&#26041;Github&#25991;&#26723; https://dreamacro.github.io/clash/</span>
-<span style="color: #75715E;">#</span><span style="color: #75715E;">---------------------------------------------------#</span>
+<span style="color: #808080;">## </span><span style="color: #808080;">&#22914;&#26524;&#24744;&#19981;&#30693;&#36947;&#22914;&#20309;&#25805;&#20316;&#65292;&#35831;&#21442;&#38405; &#23448;&#26041;Github&#25991;&#26723; https://dreamacro.github.io/clash/</span>
+<span style="color: #808080;">#</span><span style="color: #808080;">---------------------------------------------------#</span>
 
-<span style="color: #FD971F;">mode</span>: rule
-<span style="color: #FD971F;">log-level</span>: info
+<span style="color: #eedd82;">mode</span>: rule
+<span style="color: #eedd82;">log-level</span>: info
 
-<span style="color: #FD971F;">proxies</span>:
+<span style="color: #eedd82;">proxies</span>:
 
-<span style="color: #FD971F;">proxy-groups</span>:
+<span style="color: #eedd82;">proxy-groups</span>:
 
-<span style="color: #FD971F;">rules</span>:
+<span style="color: #eedd82;">rules</span>:
   - DOMAIN-SUFFIX,google.com,DIRECT
   - DOMAIN-KEYWORD,google,DIRECT
   - DOMAIN,google.com,DIRECT
@@ -119,74 +119,74 @@
 <li>主要配置</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #75715E;"># </span><span style="color: #75715E;">Shadowsocks</span>
-- <span style="color: #FD971F;">name</span>: <span style="color: #E6DB74;">"ss"</span>
-  <span style="color: #FD971F;">type</span>: ss
-  <span style="color: #FD971F;">server</span>: xxx.xxx.xxx.xxx
-  <span style="color: #FD971F;">port</span>: 61943
-  <span style="color: #FD971F;">cipher</span>: aes-256-gcm
-  <span style="color: #FD971F;">password</span>: <span style="color: #E6DB74;">"password"</span>
-  <span style="color: #75715E;"># </span><span style="color: #75715E;">udp: true</span>
+<pre class="src src-yaml"><span style="color: #808080;"># </span><span style="color: #808080;">Shadowsocks</span>
+- <span style="color: #eedd82;">name</span>: <span style="color: #ffa07a;">"ss"</span>
+  <span style="color: #eedd82;">type</span>: ss
+  <span style="color: #eedd82;">server</span>: xxx.xxx.xxx.xxx
+  <span style="color: #eedd82;">port</span>: 61943
+  <span style="color: #eedd82;">cipher</span>: aes-256-gcm
+  <span style="color: #eedd82;">password</span>: <span style="color: #ffa07a;">"password"</span>
+  <span style="color: #808080;"># </span><span style="color: #808080;">udp: true</span>
 
-<span style="color: #75715E;"># </span><span style="color: #75715E;">Shadowsocks(simple-obfs)</span>
-- <span style="color: #FD971F;">name</span>: <span style="color: #E6DB74;">"ss-obfs"</span>
-  <span style="color: #FD971F;">type</span>: ss
-  <span style="color: #FD971F;">server</span>: server
-  <span style="color: #FD971F;">port</span>: 443
-  <span style="color: #FD971F;">cipher</span>: chacha20-ietf-poly1305
-  <span style="color: #FD971F;">password</span>: <span style="color: #E6DB74;">"password"</span>
-  <span style="color: #FD971F;">plugin</span>: obfs
-  <span style="color: #FD971F;">plugin-opts</span>:
-      <span style="color: #FD971F;">mode</span>: tls
-      <span style="color: #FD971F;">host</span>: example.com
+<span style="color: #808080;"># </span><span style="color: #808080;">Shadowsocks(simple-obfs)</span>
+- <span style="color: #eedd82;">name</span>: <span style="color: #ffa07a;">"ss-obfs"</span>
+  <span style="color: #eedd82;">type</span>: ss
+  <span style="color: #eedd82;">server</span>: server
+  <span style="color: #eedd82;">port</span>: 443
+  <span style="color: #eedd82;">cipher</span>: chacha20-ietf-poly1305
+  <span style="color: #eedd82;">password</span>: <span style="color: #ffa07a;">"password"</span>
+  <span style="color: #eedd82;">plugin</span>: obfs
+  <span style="color: #eedd82;">plugin-opts</span>:
+      <span style="color: #eedd82;">mode</span>: tls
+      <span style="color: #eedd82;">host</span>: example.com
 
-<span style="color: #75715E;"># </span><span style="color: #75715E;">Shadowsocks(v2ray-plugin)</span>
-- <span style="color: #FD971F;">name</span>: <span style="color: #E6DB74;">"ss-v2ray"</span>
-  <span style="color: #FD971F;">type</span>: ss
-  <span style="color: #FD971F;">server</span>: server
-  <span style="color: #FD971F;">port</span>: 443
-  <span style="color: #FD971F;">cipher</span>: chacha20-ietf-poly1305
-  <span style="color: #FD971F;">password</span>: <span style="color: #E6DB74;">"password"</span>
-  <span style="color: #FD971F;">plugin</span>: v2ray-plugin
-  <span style="color: #FD971F;">plugin-opts</span>:
-    <span style="color: #FD971F;">mode</span>: websocket <span style="color: #75715E;"># </span><span style="color: #75715E;">no QUIC now</span>
-    <span style="color: #75715E;"># </span><span style="color: #75715E;">tls: true # wss</span>
-    <span style="color: #75715E;"># </span><span style="color: #75715E;">skip-cert-verify: true</span>
-    <span style="color: #75715E;"># </span><span style="color: #75715E;">host: bing.com</span>
-    <span style="color: #75715E;"># </span><span style="color: #75715E;">path: "/"</span>
-    <span style="color: #75715E;"># </span><span style="color: #75715E;">mux: true</span>
-    <span style="color: #75715E;"># </span><span style="color: #75715E;">headers:</span>
-    <span style="color: #75715E;">#   </span><span style="color: #75715E;">custom: value</span>
+<span style="color: #808080;"># </span><span style="color: #808080;">Shadowsocks(v2ray-plugin)</span>
+- <span style="color: #eedd82;">name</span>: <span style="color: #ffa07a;">"ss-v2ray"</span>
+  <span style="color: #eedd82;">type</span>: ss
+  <span style="color: #eedd82;">server</span>: server
+  <span style="color: #eedd82;">port</span>: 443
+  <span style="color: #eedd82;">cipher</span>: chacha20-ietf-poly1305
+  <span style="color: #eedd82;">password</span>: <span style="color: #ffa07a;">"password"</span>
+  <span style="color: #eedd82;">plugin</span>: v2ray-plugin
+  <span style="color: #eedd82;">plugin-opts</span>:
+    <span style="color: #eedd82;">mode</span>: websocket <span style="color: #808080;"># </span><span style="color: #808080;">no QUIC now</span>
+    <span style="color: #808080;"># </span><span style="color: #808080;">tls: true # wss</span>
+    <span style="color: #808080;"># </span><span style="color: #808080;">skip-cert-verify: true</span>
+    <span style="color: #808080;"># </span><span style="color: #808080;">host: bing.com</span>
+    <span style="color: #808080;"># </span><span style="color: #808080;">path: "/"</span>
+    <span style="color: #808080;"># </span><span style="color: #808080;">mux: true</span>
+    <span style="color: #808080;"># </span><span style="color: #808080;">headers:</span>
+    <span style="color: #808080;">#   </span><span style="color: #808080;">custom: value</span>
 
-<span style="color: #75715E;"># </span><span style="color: #75715E;">VMess</span>
-- <span style="color: #FD971F;">name</span>: <span style="color: #E6DB74;">"v2ray"</span>
-  <span style="color: #FD971F;">type</span>: vmess
-  <span style="color: #FD971F;">server</span>: xxx.xxx.xxx.xxx
-  <span style="color: #FD971F;">port</span>: 28595
-  <span style="color: #FD971F;">uuid</span>: uuid
-  <span style="color: #FD971F;">alterId</span>: 64
-  <span style="color: #FD971F;">cipher</span>: auto
-  <span style="color: #75715E;"># </span><span style="color: #75715E;">udp: true</span>
-  <span style="color: #75715E;"># </span><span style="color: #75715E;">tls: true</span>
-  <span style="color: #75715E;"># </span><span style="color: #75715E;">tls-hostname: &#22635;&#20889;&#20266;&#35013;&#22495;&#21517;</span>
-  <span style="color: #75715E;"># </span><span style="color: #75715E;">skip-cert-verify: true</span>
-  <span style="color: #75715E;"># </span><span style="color: #75715E;">network: ws</span>
-  <span style="color: #75715E;"># </span><span style="color: #75715E;">ws-path: /path</span>
-  <span style="color: #75715E;"># </span><span style="color: #75715E;">ws-headers: #&#36825;&#19968;&#34892;&#21518;&#38754;&#19981;&#35201;&#20889;&#19996;&#35199;</span>
-  <span style="color: #75715E;">#   </span><span style="color: #75715E;">Host: v2ray.com #&#22635;&#20889;&#20266;&#35013;&#22495;&#21517;</span>
+<span style="color: #808080;"># </span><span style="color: #808080;">VMess</span>
+- <span style="color: #eedd82;">name</span>: <span style="color: #ffa07a;">"v2ray"</span>
+  <span style="color: #eedd82;">type</span>: vmess
+  <span style="color: #eedd82;">server</span>: xxx.xxx.xxx.xxx
+  <span style="color: #eedd82;">port</span>: 28595
+  <span style="color: #eedd82;">uuid</span>: uuid
+  <span style="color: #eedd82;">alterId</span>: 64
+  <span style="color: #eedd82;">cipher</span>: auto
+  <span style="color: #808080;"># </span><span style="color: #808080;">udp: true</span>
+  <span style="color: #808080;"># </span><span style="color: #808080;">tls: true</span>
+  <span style="color: #808080;"># </span><span style="color: #808080;">tls-hostname: &#22635;&#20889;&#20266;&#35013;&#22495;&#21517;</span>
+  <span style="color: #808080;"># </span><span style="color: #808080;">skip-cert-verify: true</span>
+  <span style="color: #808080;"># </span><span style="color: #808080;">network: ws</span>
+  <span style="color: #808080;"># </span><span style="color: #808080;">ws-path: /path</span>
+  <span style="color: #808080;"># </span><span style="color: #808080;">ws-headers: #&#36825;&#19968;&#34892;&#21518;&#38754;&#19981;&#35201;&#20889;&#19996;&#35199;</span>
+  <span style="color: #808080;">#   </span><span style="color: #808080;">Host: v2ray.com #&#22635;&#20889;&#20266;&#35013;&#22495;&#21517;</span>
 
-<span style="color: #75715E;"># </span><span style="color: #75715E;">Trojan</span>
-- <span style="color: #FD971F;">name</span>: <span style="color: #E6DB74;">"trojan"</span>
-  <span style="color: #FD971F;">type</span>: trojan
-  <span style="color: #FD971F;">server</span>: server
-  <span style="color: #FD971F;">port</span>: 443
-  <span style="color: #FD971F;">password</span>: password
-  <span style="color: #75715E;"># </span><span style="color: #75715E;">udp: true</span>
-  <span style="color: #75715E;"># </span><span style="color: #75715E;">sni: example.com # &#22635;&#20889;&#20266;&#35013;&#22495;&#21517;</span>
-  <span style="color: #FD971F;">alpn</span>:
+<span style="color: #808080;"># </span><span style="color: #808080;">Trojan</span>
+- <span style="color: #eedd82;">name</span>: <span style="color: #ffa07a;">"trojan"</span>
+  <span style="color: #eedd82;">type</span>: trojan
+  <span style="color: #eedd82;">server</span>: server
+  <span style="color: #eedd82;">port</span>: 443
+  <span style="color: #eedd82;">password</span>: password
+  <span style="color: #808080;"># </span><span style="color: #808080;">udp: true</span>
+  <span style="color: #808080;"># </span><span style="color: #808080;">sni: example.com # &#22635;&#20889;&#20266;&#35013;&#22495;&#21517;</span>
+  <span style="color: #eedd82;">alpn</span>:
      - h2
      - http/1.1
-  <span style="color: #75715E;"># </span><span style="color: #75715E;">skip-cert-verify: true</span>
+  <span style="color: #808080;"># </span><span style="color: #808080;">skip-cert-verify: true</span>
 </pre>
 </div>
 </div>

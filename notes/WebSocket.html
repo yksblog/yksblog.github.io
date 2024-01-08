@@ -244,10 +244,10 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
 <h3 id="orgc2bb808">第一步 要引入SpringBoot对WebSocket的依赖</h3>
 <div class="outline-text-3" id="text-orgc2bb808">
 <div class="org-src-container">
-<pre class="src src-xml">&lt;<span style="color: #A6E22E;">dependency</span>&gt;
-    &lt;<span style="color: #A6E22E;">groupId</span>&gt;org.springframework.boot&lt;/<span style="color: #A6E22E;">groupId</span>&gt;
-    &lt;<span style="color: #A6E22E;">artifactId</span>&gt;spring-boot-starter-websocket&lt;/<span style="color: #A6E22E;">artifactId</span>&gt;
-&lt;/<span style="color: #A6E22E;">dependency</span>&gt;
+<pre class="src src-xml">&lt;<span style="color: #87cefa;">dependency</span>&gt;
+    &lt;<span style="color: #87cefa;">groupId</span>&gt;org.springframework.boot&lt;/<span style="color: #87cefa;">groupId</span>&gt;
+    &lt;<span style="color: #87cefa;">artifactId</span>&gt;spring-boot-starter-websocket&lt;/<span style="color: #87cefa;">artifactId</span>&gt;
+&lt;/<span style="color: #87cefa;">dependency</span>&gt;
 </pre>
 </div>
 </div>
@@ -259,18 +259,18 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
 <div class="outline-text-3" id="text-orge497dfd">
 <div class="org-src-container">
 <pre class="src src-java">
-<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">org</span>.<span style="color: #AE81FF;">springframework</span>.<span style="color: #AE81FF;">context</span>.<span style="color: #AE81FF;">annotation</span>.<span style="color: #66D9EF;">Bean</span>;
-<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">org</span>.<span style="color: #AE81FF;">springframework</span>.<span style="color: #AE81FF;">stereotype</span>.<span style="color: #66D9EF;">Component</span>;
-<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">org</span>.<span style="color: #AE81FF;">springframework</span>.<span style="color: #AE81FF;">web</span>.<span style="color: #AE81FF;">socket</span>.<span style="color: #AE81FF;">server</span>.<span style="color: #AE81FF;">standard</span>.<span style="color: #66D9EF;">ServerEndpointExporter</span>;
+<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">org</span>.<span style="color: #7fffd4;">springframework</span>.<span style="color: #7fffd4;">context</span>.<span style="color: #7fffd4;">annotation</span>.<span style="color: #98fb98;">Bean</span>;
+<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">org</span>.<span style="color: #7fffd4;">springframework</span>.<span style="color: #7fffd4;">stereotype</span>.<span style="color: #98fb98;">Component</span>;
+<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">org</span>.<span style="color: #7fffd4;">springframework</span>.<span style="color: #7fffd4;">web</span>.<span style="color: #7fffd4;">socket</span>.<span style="color: #7fffd4;">server</span>.<span style="color: #7fffd4;">standard</span>.<span style="color: #98fb98;">ServerEndpointExporter</span>;
 
-<span style="color: #AE81FF;">@Component</span>
-<span style="color: #F92672;">public</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">WebSocketCfg</span> <span style="color: #AE81FF;">{</span>
+<span style="color: #7fffd4;">@Component</span>
+<span style="color: #00ffff;">public</span> <span style="color: #00ffff;">class</span> <span style="color: #98fb98;">WebSocketCfg</span> <span style="color: #8c8c8c;">{</span>
 
-    <span style="color: #AE81FF;">@Bean</span>
-    <span style="color: #F92672;">public</span> <span style="color: #66D9EF;">ServerEndpointExporter</span> <span style="color: #A6E22E;">serverEndpointExporter</span><span style="color: #66D9EF;">(){</span>
-        <span style="color: #F92672;">return</span> <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">ServerEndpointExporter</span><span style="color: #A6E22E;">()</span>;
-    <span style="color: #66D9EF;">}</span>
-<span style="color: #AE81FF;">}</span>
+    <span style="color: #7fffd4;">@Bean</span>
+    <span style="color: #00ffff;">public</span> <span style="color: #98fb98;">ServerEndpointExporter</span> <span style="color: #87cefa;">serverEndpointExporter</span><span style="color: #93a8c6;">(){</span>
+        <span style="color: #00ffff;">return</span> <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">ServerEndpointExporter</span><span style="color: #b0b1a3;">()</span>;
+    <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
 
 </pre>
 </div>
@@ -286,58 +286,58 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
 
 <div class="org-src-container">
 <pre class="src src-java">
-<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">lombok</span>.<span style="color: #AE81FF;">extern</span>.<span style="color: #AE81FF;">slf4j</span>.<span style="color: #66D9EF;">Slf4j</span>;
-<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">org</span>.<span style="color: #AE81FF;">springframework</span>.<span style="color: #AE81FF;">stereotype</span>.<span style="color: #66D9EF;">Component</span>;
+<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">lombok</span>.<span style="color: #7fffd4;">extern</span>.<span style="color: #7fffd4;">slf4j</span>.<span style="color: #98fb98;">Slf4j</span>;
+<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">org</span>.<span style="color: #7fffd4;">springframework</span>.<span style="color: #7fffd4;">stereotype</span>.<span style="color: #98fb98;">Component</span>;
 
-<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">javax</span>.<span style="color: #AE81FF;">websocket</span>.<span style="color: #66D9EF;">OnClose</span>;
-<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">javax</span>.<span style="color: #AE81FF;">websocket</span>.<span style="color: #66D9EF;">OnMessage</span>;
-<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">javax</span>.<span style="color: #AE81FF;">websocket</span>.<span style="color: #66D9EF;">OnOpen</span>;
-<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">javax</span>.<span style="color: #AE81FF;">websocket</span>.<span style="color: #66D9EF;">Session</span>;
-<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">javax</span>.<span style="color: #AE81FF;">websocket</span>.<span style="color: #AE81FF;">server</span>.<span style="color: #66D9EF;">ServerEndpoint</span>;
-<span style="color: #F92672;">import</span> <span style="color: #AE81FF;">java</span>.<span style="color: #AE81FF;">util</span>.<span style="color: #AE81FF;">concurrent</span>.<span style="color: #66D9EF;">CopyOnWriteArraySet</span>;
+<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">javax</span>.<span style="color: #7fffd4;">websocket</span>.<span style="color: #98fb98;">OnClose</span>;
+<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">javax</span>.<span style="color: #7fffd4;">websocket</span>.<span style="color: #98fb98;">OnMessage</span>;
+<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">javax</span>.<span style="color: #7fffd4;">websocket</span>.<span style="color: #98fb98;">OnOpen</span>;
+<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">javax</span>.<span style="color: #7fffd4;">websocket</span>.<span style="color: #98fb98;">Session</span>;
+<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">javax</span>.<span style="color: #7fffd4;">websocket</span>.<span style="color: #7fffd4;">server</span>.<span style="color: #98fb98;">ServerEndpoint</span>;
+<span style="color: #00ffff;">import</span> <span style="color: #7fffd4;">java</span>.<span style="color: #7fffd4;">util</span>.<span style="color: #7fffd4;">concurrent</span>.<span style="color: #98fb98;">CopyOnWriteArraySet</span>;
 
-<span style="color: #E6DB74;">/**</span>
-<span style="color: #E6DB74;"> * @ServerEndpoint &#27880;&#35299;&#26159;&#19968;&#20010;&#31867;&#23618;&#27425;&#30340;&#27880;&#35299;&#65292;&#23427;&#30340;&#21151;&#33021;&#20027;&#35201;&#26159;&#23558;&#30446;&#21069;&#30340;&#31867;&#23450;&#20041;&#25104;&#19968;&#20010;websocket&#26381;&#21153;&#22120;&#31471;,</span>
-<span style="color: #E6DB74;"> * &#27880;&#35299;&#30340;&#20540;&#23558;&#34987;&#29992;&#20110;&#30417;&#21548;&#29992;&#25143;&#36830;&#25509;&#30340;&#32456;&#31471;&#35775;&#38382;URL&#22320;&#22336;,&#23458;&#25143;&#31471;&#21487;&#20197;&#36890;&#36807;&#36825;&#20010;URL&#26469;&#36830;&#25509;&#21040;TLWebSocket&#26381;&#21153;&#22120;&#31471;</span>
-<span style="color: #E6DB74;"> */</span>
-<span style="color: #AE81FF;">@Component</span>
-<span style="color: #AE81FF;">@ServerEndpoint</span><span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/websocket"</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">@Slf4j</span>
-<span style="color: #F92672;">public</span> <span style="color: #F92672;">class</span> <span style="color: #66D9EF;">TLWebSocket</span> <span style="color: #AE81FF;">{</span>
+<span style="color: #ffa07a;">/**</span>
+<span style="color: #ffa07a;"> * @ServerEndpoint &#27880;&#35299;&#26159;&#19968;&#20010;&#31867;&#23618;&#27425;&#30340;&#27880;&#35299;&#65292;&#23427;&#30340;&#21151;&#33021;&#20027;&#35201;&#26159;&#23558;&#30446;&#21069;&#30340;&#31867;&#23450;&#20041;&#25104;&#19968;&#20010;websocket&#26381;&#21153;&#22120;&#31471;,</span>
+<span style="color: #ffa07a;"> * &#27880;&#35299;&#30340;&#20540;&#23558;&#34987;&#29992;&#20110;&#30417;&#21548;&#29992;&#25143;&#36830;&#25509;&#30340;&#32456;&#31471;&#35775;&#38382;URL&#22320;&#22336;,&#23458;&#25143;&#31471;&#21487;&#20197;&#36890;&#36807;&#36825;&#20010;URL&#26469;&#36830;&#25509;&#21040;TLWebSocket&#26381;&#21153;&#22120;&#31471;</span>
+<span style="color: #ffa07a;"> */</span>
+<span style="color: #7fffd4;">@Component</span>
+<span style="color: #7fffd4;">@ServerEndpoint</span><span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">"/websocket"</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #7fffd4;">@Slf4j</span>
+<span style="color: #00ffff;">public</span> <span style="color: #00ffff;">class</span> <span style="color: #98fb98;">TLWebSocket</span> <span style="color: #8c8c8c;">{</span>
 
-    <span style="color: #F92672;">private</span> <span style="color: #66D9EF;">Session</span> <span style="color: #FD971F;">session</span>;
+    <span style="color: #00ffff;">private</span> <span style="color: #98fb98;">Session</span> <span style="color: #eedd82;">session</span>;
 
-    <span style="color: #F92672;">private</span> <span style="color: #F92672;">static</span> <span style="color: #66D9EF;">CopyOnWriteArraySet</span><span style="color: #66D9EF;">&lt;</span><span style="color: #66D9EF;">TLWebSocket</span><span style="color: #66D9EF;">&gt;</span> <span style="color: #FD971F;">webSocketSet</span>=<span style="color: #F92672;">new</span> <span style="color: #66D9EF;">CopyOnWriteArraySet</span><span style="color: #66D9EF;">&lt;&gt;()</span>;
+    <span style="color: #00ffff;">private</span> <span style="color: #00ffff;">static</span> <span style="color: #98fb98;">CopyOnWriteArraySet</span><span style="color: #93a8c6;">&lt;</span><span style="color: #98fb98;">TLWebSocket</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #eedd82;">webSocketSet</span>=<span style="color: #00ffff;">new</span> <span style="color: #98fb98;">CopyOnWriteArraySet</span><span style="color: #93a8c6;">&lt;&gt;()</span>;
 
-    <span style="color: #AE81FF;">@OnOpen</span>
-    <span style="color: #F92672;">public</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">onOpen</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">Session</span> <span style="color: #FD971F;">session</span><span style="color: #66D9EF;">){</span>
-        <span style="color: #F92672;">this</span>.session=session;
-        webSocketSet.add<span style="color: #A6E22E;">(</span><span style="color: #F92672;">this</span><span style="color: #A6E22E;">)</span>;
-        log.info<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"&#12304;websocket&#28040;&#24687;&#12305; &#26377;&#26032;&#30340;&#36830;&#25509;&#65292;&#24635;&#25968;&#65306;{}"</span>,webSocketSet.size<span style="color: #E6DB74;">()</span><span style="color: #A6E22E;">)</span>;
-    <span style="color: #66D9EF;">}</span>
+    <span style="color: #7fffd4;">@OnOpen</span>
+    <span style="color: #00ffff;">public</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">onOpen</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">Session</span> <span style="color: #eedd82;">session</span><span style="color: #93a8c6;">){</span>
+        <span style="color: #00ffff;">this</span>.session=session;
+        webSocketSet.add<span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">this</span><span style="color: #b0b1a3;">)</span>;
+        log.info<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"&#12304;websocket&#28040;&#24687;&#12305; &#26377;&#26032;&#30340;&#36830;&#25509;&#65292;&#24635;&#25968;&#65306;{}"</span>,webSocketSet.size<span style="color: #97b098;">()</span><span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
 
-    <span style="color: #AE81FF;">@OnClose</span>
-    <span style="color: #F92672;">public</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">onClose</span><span style="color: #66D9EF;">(){</span>
-        webSocketSet.remove<span style="color: #A6E22E;">(</span><span style="color: #F92672;">this</span><span style="color: #A6E22E;">)</span>;
-        log.info<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"&#12304;websocket&#28040;&#24687;&#12305; &#36830;&#25509;&#26029;&#24320;&#65292;&#24635;&#25968;&#65306;{}"</span>,webSocketSet.size<span style="color: #E6DB74;">()</span><span style="color: #A6E22E;">)</span>;
-    <span style="color: #66D9EF;">}</span>
+    <span style="color: #7fffd4;">@OnClose</span>
+    <span style="color: #00ffff;">public</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">onClose</span><span style="color: #93a8c6;">(){</span>
+        webSocketSet.remove<span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">this</span><span style="color: #b0b1a3;">)</span>;
+        log.info<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"&#12304;websocket&#28040;&#24687;&#12305; &#36830;&#25509;&#26029;&#24320;&#65292;&#24635;&#25968;&#65306;{}"</span>,webSocketSet.size<span style="color: #97b098;">()</span><span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
 
-    <span style="color: #AE81FF;">@OnMessage</span>
-    <span style="color: #F92672;">public</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">onMessage</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">String</span> <span style="color: #FD971F;">message</span><span style="color: #66D9EF;">){</span>
-        log.info<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"&#12304;websocket&#28040;&#24687;&#12305; &#25910;&#21040;&#23458;&#25143;&#31471;&#21457;&#26469;&#30340;&#28040;&#24687;&#65306;{}"</span>,message<span style="color: #A6E22E;">)</span>;
-    <span style="color: #66D9EF;">}</span>
+    <span style="color: #7fffd4;">@OnMessage</span>
+    <span style="color: #00ffff;">public</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">onMessage</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">String</span> <span style="color: #eedd82;">message</span><span style="color: #93a8c6;">){</span>
+        log.info<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"&#12304;websocket&#28040;&#24687;&#12305; &#25910;&#21040;&#23458;&#25143;&#31471;&#21457;&#26469;&#30340;&#28040;&#24687;&#65306;{}"</span>,message<span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
 
-    <span style="color: #F92672;">public</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">sendMessage</span><span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">String</span> <span style="color: #FD971F;">message</span><span style="color: #66D9EF;">){</span>
-        <span style="color: #F92672;">for</span><span style="color: #A6E22E;">(</span><span style="color: #66D9EF;">TLWebSocket</span> <span style="color: #FD971F;">webSocket</span>:webSocketSet<span style="color: #A6E22E;">){</span>
-            log.info<span style="color: #E6DB74;">(</span><span style="color: #E6DB74;">"&#12304;websocket&#28040;&#24687;&#12305; &#24191;&#25773;&#28040;&#24687;&#65292;message={}"</span>,message<span style="color: #E6DB74;">)</span>;
-            <span style="color: #F92672;">try</span> <span style="color: #E6DB74;">{</span>
-                webSocket.session.getBasicRemote<span style="color: #FD971F;">()</span>.sendText<span style="color: #FD971F;">(</span>message<span style="color: #FD971F;">)</span>;
-            <span style="color: #E6DB74;">}</span><span style="color: #F92672;">catch</span> <span style="color: #E6DB74;">(</span><span style="color: #66D9EF;">Exception</span> <span style="color: #FD971F;">e</span><span style="color: #E6DB74;">){</span>
-                e.printStackTrace<span style="color: #FD971F;">()</span>;
-            <span style="color: #E6DB74;">}</span>
-        <span style="color: #A6E22E;">}</span>
-    <span style="color: #66D9EF;">}</span>
-<span style="color: #AE81FF;">}</span>
+    <span style="color: #00ffff;">public</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">sendMessage</span><span style="color: #93a8c6;">(</span><span style="color: #98fb98;">String</span> <span style="color: #eedd82;">message</span><span style="color: #93a8c6;">){</span>
+        <span style="color: #00ffff;">for</span><span style="color: #b0b1a3;">(</span><span style="color: #98fb98;">TLWebSocket</span> <span style="color: #eedd82;">webSocket</span>:webSocketSet<span style="color: #b0b1a3;">){</span>
+            log.info<span style="color: #97b098;">(</span><span style="color: #ffa07a;">"&#12304;websocket&#28040;&#24687;&#12305; &#24191;&#25773;&#28040;&#24687;&#65292;message={}"</span>,message<span style="color: #97b098;">)</span>;
+            <span style="color: #00ffff;">try</span> <span style="color: #97b098;">{</span>
+                webSocket.session.getBasicRemote<span style="color: #aebed8;">()</span>.sendText<span style="color: #aebed8;">(</span>message<span style="color: #aebed8;">)</span>;
+            <span style="color: #97b098;">}</span><span style="color: #00ffff;">catch</span> <span style="color: #97b098;">(</span><span style="color: #98fb98;">Exception</span> <span style="color: #eedd82;">e</span><span style="color: #97b098;">){</span>
+                e.printStackTrace<span style="color: #aebed8;">()</span>;
+            <span style="color: #97b098;">}</span>
+        <span style="color: #b0b1a3;">}</span>
+    <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
@@ -349,17 +349,17 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
 <div class="outline-text-3" id="text-orgf802411">
 <div class="org-src-container">
 <pre class="src src-java">
-<span style="color: #AE81FF;">@Autowired</span>
- <span style="color: #F92672;">private</span> <span style="color: #66D9EF;">TLWebSocket</span> <span style="color: #FD971F;">webSocket</span>;
+<span style="color: #7fffd4;">@Autowired</span>
+ <span style="color: #00ffff;">private</span> <span style="color: #98fb98;">TLWebSocket</span> <span style="color: #eedd82;">webSocket</span>;
 
- <span style="color: #AE81FF;">@RequestMapping</span><span style="color: #AE81FF;">(</span>value =<span style="color: #E6DB74;">"/myWebSkt/startup"</span>,method = <span style="color: #AE81FF;">RequestMethod</span>.POST<span style="color: #AE81FF;">)</span>
-    <span style="color: #F92672;">public</span> <span style="color: #66D9EF;">void</span> <span style="color: #A6E22E;">startup</span><span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
-        <span style="color: #F92672;">try</span> <span style="color: #66D9EF;">{</span>
-            webSocket.sendMessage<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"server call client"</span><span style="color: #A6E22E;">)</span>;
-        <span style="color: #66D9EF;">}</span> <span style="color: #F92672;">catch</span> <span style="color: #66D9EF;">(</span><span style="color: #66D9EF;">Exception</span> <span style="color: #FD971F;">e</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
-            e.printStackTrace<span style="color: #A6E22E;">()</span>;
-        <span style="color: #66D9EF;">}</span>
-    <span style="color: #AE81FF;">}</span>
+ <span style="color: #7fffd4;">@RequestMapping</span><span style="color: #8c8c8c;">(</span>value =<span style="color: #ffa07a;">"/myWebSkt/startup"</span>,method = <span style="color: #7fffd4;">RequestMethod</span>.POST<span style="color: #8c8c8c;">)</span>
+    <span style="color: #00ffff;">public</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">startup</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
+        <span style="color: #00ffff;">try</span> <span style="color: #93a8c6;">{</span>
+            webSocket.sendMessage<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"server call client"</span><span style="color: #b0b1a3;">)</span>;
+        <span style="color: #93a8c6;">}</span> <span style="color: #00ffff;">catch</span> <span style="color: #93a8c6;">(</span><span style="color: #98fb98;">Exception</span> <span style="color: #eedd82;">e</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
+            e.printStackTrace<span style="color: #b0b1a3;">()</span>;
+        <span style="color: #93a8c6;">}</span>
+    <span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
@@ -375,58 +375,58 @@ WebSocket协议是基于TCP的一种新的网络协议。它实现了浏览器�
 <div class="outline-text-3" id="text-org9fd94df">
 <div class="org-src-container">
 <pre class="src src-js">
-<span style="color: #F92672;">let</span> <span style="color: #FD971F;">websocket</span> = <span style="color: #AE81FF;">null</span>;
-  <span style="color: #F92672;">if</span> <span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">'WebSocket'</span> <span style="color: #F92672;">in</span> window<span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
-    websocket = <span style="color: #F92672;">new</span> <span style="color: #66D9EF;">WebSocket</span><span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"ws://localhost:8000/web/websocket"</span><span style="color: #66D9EF;">)</span>;
-    <span style="color: #75715E;">//</span><span style="color: #75715E;">&#36830;&#25509;&#21457;&#29983;&#38169;&#35823;&#30340;&#22238;&#35843;&#26041;&#27861;</span>
-    websocket.onerror = <span style="color: #F92672;">function</span> <span style="color: #66D9EF;">()</span> <span style="color: #66D9EF;">{</span>
-      setMessageInnerHTML<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"WebSocket&#36830;&#25509;&#21457;&#29983;&#38169;&#35823;"</span><span style="color: #A6E22E;">)</span>;
-      closeWebSocket<span style="color: #A6E22E;">()</span>
-    <span style="color: #66D9EF;">}</span>;
+<span style="color: #00ffff;">let</span> <span style="color: #eedd82;">websocket</span> = <span style="color: #7fffd4;">null</span>;
+  <span style="color: #00ffff;">if</span> <span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">'WebSocket'</span> <span style="color: #00ffff;">in</span> window<span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
+    websocket = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">WebSocket</span><span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">"ws://localhost:8000/web/websocket"</span><span style="color: #93a8c6;">)</span>;
+    <span style="color: #808080;">//</span><span style="color: #808080;">&#36830;&#25509;&#21457;&#29983;&#38169;&#35823;&#30340;&#22238;&#35843;&#26041;&#27861;</span>
+    websocket.onerror = <span style="color: #00ffff;">function</span> <span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{</span>
+      setMessageInnerHTML<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"WebSocket&#36830;&#25509;&#21457;&#29983;&#38169;&#35823;"</span><span style="color: #b0b1a3;">)</span>;
+      closeWebSocket<span style="color: #b0b1a3;">()</span>
+    <span style="color: #93a8c6;">}</span>;
 
-<span style="color: #75715E;">//</span><span style="color: #75715E;">&#36830;&#25509;&#25104;&#21151;&#24314;&#31435;&#30340;&#22238;&#35843;&#26041;&#27861;</span>
-    websocket.onopen = <span style="color: #F92672;">function</span> <span style="color: #66D9EF;">()</span> <span style="color: #66D9EF;">{</span>
-      setMessageInnerHTML<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"WebSocket&#36830;&#25509;&#25104;&#21151;"</span><span style="color: #A6E22E;">)</span>;
-    <span style="color: #66D9EF;">}</span>
+<span style="color: #808080;">//</span><span style="color: #808080;">&#36830;&#25509;&#25104;&#21151;&#24314;&#31435;&#30340;&#22238;&#35843;&#26041;&#27861;</span>
+    websocket.onopen = <span style="color: #00ffff;">function</span> <span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{</span>
+      setMessageInnerHTML<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"WebSocket&#36830;&#25509;&#25104;&#21151;"</span><span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
 
-<span style="color: #75715E;">//</span><span style="color: #75715E;">&#25509;&#25910;&#21040;&#28040;&#24687;&#30340;&#22238;&#35843;&#26041;&#27861;</span>
-    websocket.onmessage = <span style="color: #F92672;">function</span> <span style="color: #66D9EF;">(</span><span style="color: #FD971F;">event</span><span style="color: #66D9EF;">)</span> <span style="color: #66D9EF;">{</span>
-      setMessageInnerHTML<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"server =&gt; "</span>+ event.data<span style="color: #A6E22E;">)</span>;
-    <span style="color: #66D9EF;">}</span>
+<span style="color: #808080;">//</span><span style="color: #808080;">&#25509;&#25910;&#21040;&#28040;&#24687;&#30340;&#22238;&#35843;&#26041;&#27861;</span>
+    websocket.onmessage = <span style="color: #00ffff;">function</span> <span style="color: #93a8c6;">(</span><span style="color: #eedd82;">event</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
+      setMessageInnerHTML<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"server =&gt; "</span>+ event.data<span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
 
-<span style="color: #75715E;">//</span><span style="color: #75715E;">&#36830;&#25509;&#20851;&#38381;&#30340;&#22238;&#35843;&#26041;&#27861;</span>
-    websocket.onclose = <span style="color: #F92672;">function</span> <span style="color: #66D9EF;">()</span> <span style="color: #66D9EF;">{</span>
-      setMessageInnerHTML<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"WebSocket&#36830;&#25509;&#20851;&#38381;"</span><span style="color: #A6E22E;">)</span>;
-    <span style="color: #66D9EF;">}</span>
-  <span style="color: #AE81FF;">}</span>
-  <span style="color: #F92672;">else</span> <span style="color: #AE81FF;">{</span>
-    alert<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">'&#24403;&#21069;&#27983;&#35272;&#22120; Not support websocket'</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #AE81FF;">}</span>
+<span style="color: #808080;">//</span><span style="color: #808080;">&#36830;&#25509;&#20851;&#38381;&#30340;&#22238;&#35843;&#26041;&#27861;</span>
+    websocket.onclose = <span style="color: #00ffff;">function</span> <span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{</span>
+      setMessageInnerHTML<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"WebSocket&#36830;&#25509;&#20851;&#38381;"</span><span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
+  <span style="color: #8c8c8c;">}</span>
+  <span style="color: #00ffff;">else</span> <span style="color: #8c8c8c;">{</span>
+    alert<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">'&#24403;&#21069;&#27983;&#35272;&#22120; Not support websocket'</span><span style="color: #93a8c6;">)</span>
+  <span style="color: #8c8c8c;">}</span>
 
-<span style="color: #75715E;">//</span><span style="color: #75715E;">&#30417;&#21548;&#31383;&#21475;&#20851;&#38381;&#20107;&#20214;&#65292;&#24403;&#31383;&#21475;&#20851;&#38381;&#26102;&#65292;&#20027;&#21160;&#21435;&#20851;&#38381;websocket&#36830;&#25509;&#65292;&#38450;&#27490;&#36830;&#25509;&#36824;&#27809;&#26029;&#24320;&#23601;&#20851;&#38381;&#31383;&#21475;&#65292;server&#31471;&#20250;&#25243;&#24322;&#24120;&#12290;</span>
-window.onbeforeunload = <span style="color: #F92672;">function</span> <span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
-  closeWebSocket<span style="color: #66D9EF;">()</span>;
-<span style="color: #AE81FF;">}</span>
-<span style="color: #75715E;">//</span><span style="color: #75715E;">&#23558;&#28040;&#24687;&#26174;&#31034;&#22312;&#32593;&#39029;&#19978;</span>
-  <span style="color: #F92672;">function</span> <span style="color: #A6E22E;">setMessageInnerHTML</span><span style="color: #AE81FF;">(</span><span style="color: #FD971F;">innerHTML</span><span style="color: #AE81FF;">)</span> <span style="color: #AE81FF;">{</span>
-  console.log<span style="color: #66D9EF;">(</span>innerHTML<span style="color: #66D9EF;">)</span>
-  <span style="color: #75715E;">// </span><span style="color: #75715E;">document.getElementById('message').innerHTML += innerHTML + '&lt;br/&gt;';</span>
-<span style="color: #AE81FF;">}</span>
+<span style="color: #808080;">//</span><span style="color: #808080;">&#30417;&#21548;&#31383;&#21475;&#20851;&#38381;&#20107;&#20214;&#65292;&#24403;&#31383;&#21475;&#20851;&#38381;&#26102;&#65292;&#20027;&#21160;&#21435;&#20851;&#38381;websocket&#36830;&#25509;&#65292;&#38450;&#27490;&#36830;&#25509;&#36824;&#27809;&#26029;&#24320;&#23601;&#20851;&#38381;&#31383;&#21475;&#65292;server&#31471;&#20250;&#25243;&#24322;&#24120;&#12290;</span>
+window.onbeforeunload = <span style="color: #00ffff;">function</span> <span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
+  closeWebSocket<span style="color: #93a8c6;">()</span>;
+<span style="color: #8c8c8c;">}</span>
+<span style="color: #808080;">//</span><span style="color: #808080;">&#23558;&#28040;&#24687;&#26174;&#31034;&#22312;&#32593;&#39029;&#19978;</span>
+  <span style="color: #00ffff;">function</span> <span style="color: #87cefa;">setMessageInnerHTML</span><span style="color: #8c8c8c;">(</span><span style="color: #eedd82;">innerHTML</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
+  console.log<span style="color: #93a8c6;">(</span>innerHTML<span style="color: #93a8c6;">)</span>
+  <span style="color: #808080;">// </span><span style="color: #808080;">document.getElementById('message').innerHTML += innerHTML + '&lt;br/&gt;';</span>
+<span style="color: #8c8c8c;">}</span>
 
-<span style="color: #75715E;">//</span><span style="color: #75715E;">&#20851;&#38381;WebSocket&#36830;&#25509;</span>
-  <span style="color: #F92672;">function</span> <span style="color: #A6E22E;">closeWebSocket</span><span style="color: #AE81FF;">()</span> <span style="color: #AE81FF;">{</span>
-    websocket.close<span style="color: #66D9EF;">()</span>;
-<span style="color: #AE81FF;">}</span>
+<span style="color: #808080;">//</span><span style="color: #808080;">&#20851;&#38381;WebSocket&#36830;&#25509;</span>
+  <span style="color: #00ffff;">function</span> <span style="color: #87cefa;">closeWebSocket</span><span style="color: #8c8c8c;">()</span> <span style="color: #8c8c8c;">{</span>
+    websocket.close<span style="color: #93a8c6;">()</span>;
+<span style="color: #8c8c8c;">}</span>
 
-<span style="color: #75715E;">//</span><span style="color: #75715E;">&#21457;&#36865;&#28040;&#24687;</span>
-  <span style="color: #F92672;">function</span> <span style="color: #A6E22E;">sendMsg</span> <span style="color: #AE81FF;">(</span><span style="color: #FD971F;">msg</span><span style="color: #AE81FF;">){</span>
-  setMessageInnerHTML<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"client =&gt; "</span>+ msg<span style="color: #66D9EF;">)</span>;
-  websocket.send<span style="color: #66D9EF;">(</span>msg<span style="color: #66D9EF;">)</span>;
-<span style="color: #AE81FF;">}</span>
+<span style="color: #808080;">//</span><span style="color: #808080;">&#21457;&#36865;&#28040;&#24687;</span>
+  <span style="color: #00ffff;">function</span> <span style="color: #87cefa;">sendMsg</span> <span style="color: #8c8c8c;">(</span><span style="color: #eedd82;">msg</span><span style="color: #8c8c8c;">){</span>
+  setMessageInnerHTML<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">"client =&gt; "</span>+ msg<span style="color: #93a8c6;">)</span>;
+  websocket.send<span style="color: #93a8c6;">(</span>msg<span style="color: #93a8c6;">)</span>;
+<span style="color: #8c8c8c;">}</span>
 
-<span style="color: #F92672;">export</span> <span style="color: #AE81FF;">{</span>
+<span style="color: #00ffff;">export</span> <span style="color: #8c8c8c;">{</span>
   websocket,setMessageInnerHTML,closeWebSocket,sendMsg
-<span style="color: #AE81FF;">}</span>
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
@@ -437,10 +437,10 @@ window.onbeforeunload = <span style="color: #F92672;">function</span> <span styl
 <h3 id="org7d943ce">引入 tl-webSocket.js</h3>
 <div class="outline-text-3" id="text-org7d943ce">
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #AE81FF;">this</span>.$htp.post_<span style="color: #AE81FF;">(</span><span style="color: #E6DB74;">"/myWebSkt/startup"</span><span style="color: #AE81FF;">)</span>    <span style="color: #75715E;">//</span><span style="color: #75715E;">&#21518;&#21488;&#35843;&#29992;&#21457;&#36865;webSocket&#28040;&#24687;&#21040;&#21069;&#31471;</span>
-  .then<span style="color: #AE81FF;">(</span>res =&gt; <span style="color: #66D9EF;">{</span>
-    console.log<span style="color: #A6E22E;">(</span>res<span style="color: #A6E22E;">)</span>
-  <span style="color: #66D9EF;">}</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-js"><span style="color: #7fffd4;">this</span>.$htp.post_<span style="color: #8c8c8c;">(</span><span style="color: #ffa07a;">"/myWebSkt/startup"</span><span style="color: #8c8c8c;">)</span>    <span style="color: #808080;">//</span><span style="color: #808080;">&#21518;&#21488;&#35843;&#29992;&#21457;&#36865;webSocket&#28040;&#24687;&#21040;&#21069;&#31471;</span>
+  .then<span style="color: #8c8c8c;">(</span>res =&gt; <span style="color: #93a8c6;">{</span>
+    console.log<span style="color: #b0b1a3;">(</span>res<span style="color: #b0b1a3;">)</span>
+  <span style="color: #93a8c6;">}</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 </div>

@@ -182,11 +182,11 @@ https://gems.ruby-china.com
 </p>
 
 <div class="org-src-container">
-<pre class="src src-ruby"><span class="linenr">1: </span>$ bundle config mirror.https<span style="color: #AE81FF;">:/</span>/rubygems.org https<span style="color: #AE81FF;">:/</span>/gems.ruby-china.com
-<span class="linenr">2: </span>&#36825;&#26679;&#20320;&#19981;&#29992;&#25913;&#20320;&#30340; <span style="color: #66D9EF;">Gemfile</span> &#30340; source&#12290;
+<pre class="src src-ruby"><span class="linenr">1: </span>$ bundle config mirror.https<span style="color: #7fffd4;">:/</span>/rubygems.org https<span style="color: #7fffd4;">:/</span>/gems.ruby-china.com
+<span class="linenr">2: </span>&#36825;&#26679;&#20320;&#19981;&#29992;&#25913;&#20320;&#30340; <span style="color: #98fb98;">Gemfile</span> &#30340; source&#12290;
 <span class="linenr">3: </span>
-<span class="linenr">4: </span>source <span style="color: #E6DB74;">'https://rubygems.org/'</span>
-<span class="linenr">5: </span>gem <span style="color: #E6DB74;">'rails'</span>, <span style="color: #E6DB74;">'4.2.5'</span>
+<span class="linenr">4: </span>source <span style="color: #ffa07a;">'https://rubygems.org/'</span>
+<span class="linenr">5: </span>gem <span style="color: #ffa07a;">'rails'</span>, <span style="color: #ffa07a;">'4.2.5'</span>
 <span class="linenr">6: </span>...
 </pre>
 </div>
@@ -257,21 +257,21 @@ Bundler::GemspecError: Could not read gem at <i>home/xxx</i>.rvm/gems/ruby-2.1.8
 <div class="outline-text-3" id="text-org02dd02e">
 <div class="org-src-container">
 <pre class="src src-shell">rvm list
-<span style="color: #75715E;">#  </span><span style="color: #75715E;">&#36873;&#25321; ruby2.5.5</span>
+<span style="color: #808080;">#  </span><span style="color: #808080;">&#36873;&#25321; ruby2.5.5</span>
 rvm use 2.5.5
-<span style="color: #75715E;">#  </span><span style="color: #75715E;">&#26597;&#30475;ruby+rails &#32452;&#21512;&#21015;&#34920;gemset</span>
+<span style="color: #808080;">#  </span><span style="color: #808080;">&#26597;&#30475;ruby+rails &#32452;&#21512;&#21015;&#34920;gemset</span>
 rvm gemset list
-<span style="color: #75715E;">#  </span><span style="color: #75715E;">&#21019;&#24314;ruby2.5.5 + rails5.0.2 &#32452;&#21512;</span>
+<span style="color: #808080;">#  </span><span style="color: #808080;">&#21019;&#24314;ruby2.5.5 + rails5.0.2 &#32452;&#21512;</span>
 rvm gemset create rails5
 rvm use 2.5.5@rails5
 gem install rails --version=5.0.2
 rails -v
-<span style="color: #75715E;">#  </span><span style="color: #75715E;">&#21019;&#24314;ruby2.5.5 + rails6.0.2.1 &#32452;&#21512;</span>
+<span style="color: #808080;">#  </span><span style="color: #808080;">&#21019;&#24314;ruby2.5.5 + rails6.0.2.1 &#32452;&#21512;</span>
 rvm gemset create rails6
 rvm use 2.5.5@rails6
 gem install rails --version=6.0.2.1
 rails -v
-<span style="color: #75715E;">#  </span><span style="color: #75715E;">&#27880;&#24847;&#65306;&#20999;&#25442;ruby+rails&#32452;&#21512;&#21629;&#20196;</span>
+<span style="color: #808080;">#  </span><span style="color: #808080;">&#27880;&#24847;&#65306;&#20999;&#25442;ruby+rails&#32452;&#21512;&#21629;&#20196;</span>
 rvm use 2.5.5@rails6
 rvm use 2.5.5@rails5
 </pre>

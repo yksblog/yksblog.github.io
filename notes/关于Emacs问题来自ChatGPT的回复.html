@@ -163,8 +163,8 @@
 </ol>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">if</span> <span style="color: #66D9EF;">(</span>fboundp 'mac-mwheel-scroll<span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>mac-mwheel-scroll nil<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">if</span> <span style="color: #93a8c6;">(</span>fboundp 'mac-mwheel-scroll<span style="color: #93a8c6;">)</span>
+    <span style="color: #93a8c6;">(</span>mac-mwheel-scroll nil<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 <ol class="org-ol">
@@ -314,8 +314,8 @@
 </ol>
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #FD971F; background-color: #272822;">* </span><span style="color: #F92672; background-color: #272822; font-weight: bold;">TODO</span><span style="color: #FD971F; background-color: #272822;"> /+1w &#23450;&#26399;&#28165;&#29702;&#24037;&#20316;&#21306;</span>
-  - <span style="color: #75715E; font-weight: bold;">SCHEDULED:</span> <span style="color: #66D9EF; text-decoration: underline;">&lt;2023-08-15 Mon 09:00&gt;</span>
+<pre class="src src-org"><span style="color: #87cefa;">* </span><span style="color: #ffc0cb; font-weight: bold;">TODO</span><span style="color: #87cefa;"> /+1w &#23450;&#26399;&#28165;&#29702;&#24037;&#20316;&#21306;</span>
+  - <span style="color: #00ffff;">SCHEDULED:</span> <span style="color: #00ffff; text-decoration: underline;">&lt;2023-08-15 Mon 09:00&gt;</span>
 </pre>
 </div>
 <ol class="org-ol">
@@ -540,7 +540,7 @@
 </ol>
 
 <div class="org-src-container">
-<pre class="src src-elisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> org-tag-alist '<span style="color: #66D9EF;">(</span><span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"work"</span> . ?w<span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"personal"</span> . ?p<span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"important"</span> . ?i<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-elisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> org-tag-alist '<span style="color: #93a8c6;">(</span><span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"work"</span> . ?w<span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"personal"</span> . ?p<span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"important"</span> . ?i<span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 <p>
@@ -629,7 +629,7 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #F92672;">echo</span> <span style="color: #E6DB74;">"Hello, World!"</span>
+<pre class="src src-bash"><span style="color: #b0c4de;">echo</span> <span style="color: #ffa07a;">"Hello, World!"</span>
 ls -l
 </pre>
 </div>
@@ -1064,15 +1064,15 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">countdown</span> <span style="color: #66D9EF;">(</span>seconds<span style="color: #66D9EF;">)</span>
-  <span style="color: #E6DB74;">"&#31616;&#21333;&#30340;&#20498;&#35745;&#26102;&#20989;&#25968;"</span>
-  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">interactive</span> <span style="color: #E6DB74;">"nEnter countdown seconds: "</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">let</span> <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">(</span>remaining seconds<span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span>
-    <span style="color: #A6E22E;">(</span><span style="color: #F92672;">while</span> <span style="color: #E6DB74;">(</span>&gt; remaining 0<span style="color: #E6DB74;">)</span>
-      <span style="color: #E6DB74;">(</span>message <span style="color: #E6DB74;">"Remaining: %s"</span> remaining<span style="color: #E6DB74;">)</span>
-      <span style="color: #E6DB74;">(</span><span style="color: #F92672;">setq</span> remaining <span style="color: #FD971F;">(</span>1- remaining<span style="color: #FD971F;">)</span><span style="color: #E6DB74;">)</span>
-      <span style="color: #E6DB74;">(</span>sit-for 1<span style="color: #E6DB74;">)</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>message <span style="color: #E6DB74;">"Time's up!"</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">countdown</span> <span style="color: #93a8c6;">(</span>seconds<span style="color: #93a8c6;">)</span>
+  <span style="color: #ffa07a;">"&#31616;&#21333;&#30340;&#20498;&#35745;&#26102;&#20989;&#25968;"</span>
+  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">interactive</span> <span style="color: #ffa07a;">"nEnter countdown seconds: "</span><span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">let</span> <span style="color: #b0b1a3;">(</span><span style="color: #97b098;">(</span>remaining seconds<span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span>
+    <span style="color: #b0b1a3;">(</span><span style="color: #00ffff;">while</span> <span style="color: #97b098;">(</span>&gt; remaining 0<span style="color: #97b098;">)</span>
+      <span style="color: #97b098;">(</span>message <span style="color: #ffa07a;">"Remaining: %s"</span> remaining<span style="color: #97b098;">)</span>
+      <span style="color: #97b098;">(</span><span style="color: #00ffff;">setq</span> remaining <span style="color: #aebed8;">(</span>1- remaining<span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span>
+      <span style="color: #97b098;">(</span>sit-for 1<span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span>message <span style="color: #ffa07a;">"Time's up!"</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 
@@ -1099,9 +1099,9 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">is-shell-script</span> <span style="color: #66D9EF;">(</span>filename<span style="color: #66D9EF;">)</span>
-  <span style="color: #E6DB74;">"&#21028;&#26029;&#25991;&#20214;&#26159;&#21542;&#20026; shell &#33050;&#26412;&#25991;&#20214;"</span>
-  <span style="color: #66D9EF;">(</span>string-suffix-p <span style="color: #E6DB74;">".sh"</span> filename t<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">is-shell-script</span> <span style="color: #93a8c6;">(</span>filename<span style="color: #93a8c6;">)</span>
+  <span style="color: #ffa07a;">"&#21028;&#26029;&#25991;&#20214;&#26159;&#21542;&#20026; shell &#33050;&#26412;&#25991;&#20214;"</span>
+  <span style="color: #93a8c6;">(</span>string-suffix-p <span style="color: #ffa07a;">".sh"</span> filename t<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 
@@ -1111,9 +1111,9 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">if</span> <span style="color: #66D9EF;">(</span>is-shell-script <span style="color: #E6DB74;">"script.sh"</span><span style="color: #66D9EF;">)</span>
-    <span style="color: #66D9EF;">(</span>message <span style="color: #E6DB74;">"&#36825;&#26159;&#19968;&#20010; shell &#33050;&#26412;&#25991;&#20214;"</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>message <span style="color: #E6DB74;">"&#36825;&#19981;&#26159;&#19968;&#20010; shell &#33050;&#26412;&#25991;&#20214;"</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">if</span> <span style="color: #93a8c6;">(</span>is-shell-script <span style="color: #ffa07a;">"script.sh"</span><span style="color: #93a8c6;">)</span>
+    <span style="color: #93a8c6;">(</span>message <span style="color: #ffa07a;">"&#36825;&#26159;&#19968;&#20010; shell &#33050;&#26412;&#25991;&#20214;"</span><span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span>message <span style="color: #ffa07a;">"&#36825;&#19981;&#26159;&#19968;&#20010; shell &#33050;&#26412;&#25991;&#20214;"</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 
@@ -1139,12 +1139,12 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">cond</span>
-  <span style="color: #66D9EF;">(</span>&#26465;&#20214;1 &#34920;&#36798;&#24335;1<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>&#26465;&#20214;2 &#34920;&#36798;&#24335;2<span style="color: #66D9EF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">cond</span>
+  <span style="color: #93a8c6;">(</span>&#26465;&#20214;1 &#34920;&#36798;&#24335;1<span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span>&#26465;&#20214;2 &#34920;&#36798;&#24335;2<span style="color: #93a8c6;">)</span>
   ...
-  <span style="color: #66D9EF;">(</span>&#26465;&#20214;n &#34920;&#36798;&#24335;n<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>else &#40664;&#35748;&#34920;&#36798;&#24335;<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+  <span style="color: #93a8c6;">(</span>&#26465;&#20214;n &#34920;&#36798;&#24335;n<span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span>else &#40664;&#35748;&#34920;&#36798;&#24335;<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 
@@ -1157,18 +1157,18 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">check-grade</span> <span style="color: #66D9EF;">(</span>score<span style="color: #66D9EF;">)</span>
-  <span style="color: #E6DB74;">"&#26681;&#25454;&#25104;&#32489;&#21028;&#26029;&#31561;&#32423;"</span>
-  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">cond</span>
-    <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">(</span>&gt;= score 90<span style="color: #E6DB74;">)</span> <span style="color: #E6DB74;">"&#20248;&#31168;"</span><span style="color: #A6E22E;">)</span>
-    <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">(</span>&gt;= score 80<span style="color: #E6DB74;">)</span> <span style="color: #E6DB74;">"&#33391;&#22909;"</span><span style="color: #A6E22E;">)</span>
-    <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">(</span>&gt;= score 70<span style="color: #E6DB74;">)</span> <span style="color: #E6DB74;">"&#20013;&#31561;"</span><span style="color: #A6E22E;">)</span>
-    <span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">(</span>&gt;= score 60<span style="color: #E6DB74;">)</span> <span style="color: #E6DB74;">"&#21450;&#26684;"</span><span style="color: #A6E22E;">)</span>
-    <span style="color: #A6E22E;">(</span>else <span style="color: #E6DB74;">"&#19981;&#21450;&#26684;"</span><span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">check-grade</span> <span style="color: #93a8c6;">(</span>score<span style="color: #93a8c6;">)</span>
+  <span style="color: #ffa07a;">"&#26681;&#25454;&#25104;&#32489;&#21028;&#26029;&#31561;&#32423;"</span>
+  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">cond</span>
+    <span style="color: #b0b1a3;">(</span><span style="color: #97b098;">(</span>&gt;= score 90<span style="color: #97b098;">)</span> <span style="color: #ffa07a;">"&#20248;&#31168;"</span><span style="color: #b0b1a3;">)</span>
+    <span style="color: #b0b1a3;">(</span><span style="color: #97b098;">(</span>&gt;= score 80<span style="color: #97b098;">)</span> <span style="color: #ffa07a;">"&#33391;&#22909;"</span><span style="color: #b0b1a3;">)</span>
+    <span style="color: #b0b1a3;">(</span><span style="color: #97b098;">(</span>&gt;= score 70<span style="color: #97b098;">)</span> <span style="color: #ffa07a;">"&#20013;&#31561;"</span><span style="color: #b0b1a3;">)</span>
+    <span style="color: #b0b1a3;">(</span><span style="color: #97b098;">(</span>&gt;= score 60<span style="color: #97b098;">)</span> <span style="color: #ffa07a;">"&#21450;&#26684;"</span><span style="color: #b0b1a3;">)</span>
+    <span style="color: #b0b1a3;">(</span>else <span style="color: #ffa07a;">"&#19981;&#21450;&#26684;"</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 
-<span style="color: #AE81FF;">(</span>message <span style="color: #66D9EF;">(</span>check-grade 85<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>  <span style="color: #75715E;">; </span><span style="color: #75715E;">&#36755;&#20986; "&#33391;&#22909;"</span>
-<span style="color: #AE81FF;">(</span>message <span style="color: #66D9EF;">(</span>check-grade 75<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>  <span style="color: #75715E;">; </span><span style="color: #75715E;">&#36755;&#20986; "&#20013;&#31561;"</span>
-<span style="color: #AE81FF;">(</span>message <span style="color: #66D9EF;">(</span>check-grade 55<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>  <span style="color: #75715E;">; </span><span style="color: #75715E;">&#36755;&#20986; "&#19981;&#21450;&#26684;"</span>
+<span style="color: #8c8c8c;">(</span>message <span style="color: #93a8c6;">(</span>check-grade 85<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>  <span style="color: #808080;">; </span><span style="color: #808080;">&#36755;&#20986; "&#33391;&#22909;"</span>
+<span style="color: #8c8c8c;">(</span>message <span style="color: #93a8c6;">(</span>check-grade 75<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>  <span style="color: #808080;">; </span><span style="color: #808080;">&#36755;&#20986; "&#20013;&#31561;"</span>
+<span style="color: #8c8c8c;">(</span>message <span style="color: #93a8c6;">(</span>check-grade 55<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>  <span style="color: #808080;">; </span><span style="color: #808080;">&#36755;&#20986; "&#19981;&#21450;&#26684;"</span>
 </pre>
 </div>
 <p>
@@ -1194,7 +1194,7 @@ ls -l
 </ol>
 
 <div class="org-src-container">
-<pre class="src src-shell">hidutil property --set <span style="color: #E6DB74;">'{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000E4,"HIDKeyboardModifierMappingDst":0x7000000E0},{"HIDKeyboardModifierMappingSrc":0x7000000E0,"HIDKeyboardModifierMappingDst":0x7000000E4}]}'</span>
+<pre class="src src-shell">hidutil property --set <span style="color: #ffa07a;">'{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000E4,"HIDKeyboardModifierMappingDst":0x7000000E0},{"HIDKeyboardModifierMappingSrc":0x7000000E0,"HIDKeyboardModifierMappingDst":0x7000000E4}]}'</span>
 </pre>
 </div>
 
@@ -1215,7 +1215,7 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell">hidutil property --set <span style="color: #E6DB74;">'{"UserKeyMapping":[]}'</span>
+<pre class="src src-shell">hidutil property --set <span style="color: #ffa07a;">'{"UserKeyMapping":[]}'</span>
 </pre>
 </div>
 <p>
@@ -1285,18 +1285,18 @@ ls -l
 </ol>
 
 <div class="org-src-container">
-<pre class="src src-xml">&lt;?<span style="color: #F92672;">xml</span> <span style="color: #E6DB74;">version="1.0"</span>?&gt;
-&lt;<span style="color: #A6E22E;">root</span>&gt;
-  &lt;<span style="color: #A6E22E;">item</span>&gt;
-    &lt;<span style="color: #A6E22E;">name</span>&gt;Swap Control and Fn&lt;/<span style="color: #A6E22E;">name</span>&gt;
-    &lt;<span style="color: #A6E22E;">identifier</span>&gt;private.key_swap&lt;/<span style="color: #A6E22E;">identifier</span>&gt;
-    &lt;<span style="color: #A6E22E;">autogen</span>&gt;
+<pre class="src src-xml">&lt;?<span style="color: #00ffff;">xml</span> <span style="color: #ffa07a;">version="1.0"</span>?&gt;
+&lt;<span style="color: #87cefa;">root</span>&gt;
+  &lt;<span style="color: #87cefa;">item</span>&gt;
+    &lt;<span style="color: #87cefa;">name</span>&gt;Swap Control and Fn&lt;/<span style="color: #87cefa;">name</span>&gt;
+    &lt;<span style="color: #87cefa;">identifier</span>&gt;private.key_swap&lt;/<span style="color: #87cefa;">identifier</span>&gt;
+    &lt;<span style="color: #87cefa;">autogen</span>&gt;
       __KeyToKey__
       KeyCode::CONTROL_L, KeyCode::FN
       KeyCode::FN, KeyCode::CONTROL_L
-    &lt;/<span style="color: #A6E22E;">autogen</span>&gt;
-  &lt;/<span style="color: #A6E22E;">item</span>&gt;
-&lt;/<span style="color: #A6E22E;">root</span>&gt;
+    &lt;/<span style="color: #87cefa;">autogen</span>&gt;
+  &lt;/<span style="color: #87cefa;">item</span>&gt;
+&lt;/<span style="color: #87cefa;">root</span>&gt;
 </pre>
 </div>
 
@@ -1336,11 +1336,11 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> str1 'This is a string without escaping<span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> str2 <span style="color: #E6DB74;">"This is a string with escaping"</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> str1 'This is a string without escaping<span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> str2 <span style="color: #ffa07a;">"This is a string with escaping"</span><span style="color: #8c8c8c;">)</span>
 
-<span style="color: #AE81FF;">(</span>message <span style="color: #E6DB74;">"%s"</span> str1<span style="color: #AE81FF;">)</span> <span style="color: #75715E;">; </span><span style="color: #75715E;">&#36755;&#20986;&#65306;This is a string without escaping</span>
-<span style="color: #AE81FF;">(</span>message <span style="color: #E6DB74;">"%s"</span> str2<span style="color: #AE81FF;">)</span> <span style="color: #75715E;">; </span><span style="color: #75715E;">&#36755;&#20986;&#65306;This is a string with escaping</span>
+<span style="color: #8c8c8c;">(</span>message <span style="color: #ffa07a;">"%s"</span> str1<span style="color: #8c8c8c;">)</span> <span style="color: #808080;">; </span><span style="color: #808080;">&#36755;&#20986;&#65306;This is a string without escaping</span>
+<span style="color: #8c8c8c;">(</span>message <span style="color: #ffa07a;">"%s"</span> str2<span style="color: #8c8c8c;">)</span> <span style="color: #808080;">; </span><span style="color: #808080;">&#36755;&#20986;&#65306;This is a string with escaping</span>
 </pre>
 </div>
 
@@ -1353,9 +1353,9 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> str3 <span style="color: #E6DB74;">"This is a string with \\ escaping"</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> str3 <span style="color: #ffa07a;">"This is a string with \\ escaping"</span><span style="color: #8c8c8c;">)</span>
 
-<span style="color: #AE81FF;">(</span>message <span style="color: #E6DB74;">"%s"</span> str3<span style="color: #AE81FF;">)</span> <span style="color: #75715E;">; </span><span style="color: #75715E;">&#36755;&#20986;&#65306;This is a string with \ escaping</span>
+<span style="color: #8c8c8c;">(</span>message <span style="color: #ffa07a;">"%s"</span> str3<span style="color: #8c8c8c;">)</span> <span style="color: #808080;">; </span><span style="color: #808080;">&#36755;&#20986;&#65306;This is a string with \ escaping</span>
 </pre>
 </div>
 <p>
@@ -1376,7 +1376,7 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> my-string '&lt;link rel=<span style="color: #E6DB74;">"stylesheet"</span> href=<span style="color: #E6DB74;">"https://yangk.net/org_themes/style-md.css"</span> type=<span style="color: #E6DB74;">"text/css"</span> /&gt;<span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> my-string '&lt;link rel=<span style="color: #ffa07a;">"stylesheet"</span> href=<span style="color: #ffa07a;">"https://yangk.net/org_themes/style-md.css"</span> type=<span style="color: #ffa07a;">"text/css"</span> /&gt;<span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 
@@ -1389,8 +1389,8 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span>message <span style="color: #E6DB74;">"%s"</span> my-string<span style="color: #AE81FF;">)</span>
-<span style="color: #75715E;">;; </span><span style="color: #75715E;">&#36755;&#20986;&#65306;&lt;link rel="stylesheet" href="https://yangk.net/org_themes/style-md.css" type="text/css" /&gt;</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>message <span style="color: #ffa07a;">"%s"</span> my-string<span style="color: #8c8c8c;">)</span>
+<span style="color: #808080;">;; </span><span style="color: #808080;">&#36755;&#20986;&#65306;&lt;link rel="stylesheet" href="https://yangk.net/org_themes/style-md.css" type="text/css" /&gt;</span>
 </pre>
 </div>
 <p>
@@ -1402,7 +1402,7 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> my-string <span style="color: #E6DB74;">"&lt;link rel=\"stylesheet\" href=\"https://yangk.net/org_themes/style-md.css\" type=\"text/css\" /&gt;"</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> my-string <span style="color: #ffa07a;">"&lt;link rel=\"stylesheet\" href=\"https://yangk.net/org_themes/style-md.css\" type=\"text/css\" /&gt;"</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 
@@ -1476,8 +1476,8 @@ ls -l
 </ol>
 
 <div class="org-src-container">
-<pre class="src src-org"><span style="color: #75715E;">#+ATTR_HTML: :width 300px :height 200px</span>
-<span style="color: #66D9EF; text-decoration: underline;"><a href="/path/to/image.png">/path/to/image.png</a></span>
+<pre class="src src-org"><span style="color: #808080;">#+ATTR_HTML: :width 300px :height 200px</span>
+<span style="color: #00ffff; text-decoration: underline;"><a href="/path/to/image.png">/path/to/image.png</a></span>
 </pre>
 </div>
 
@@ -1511,7 +1511,7 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span>buffer-file-name<span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>buffer-file-name<span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 <p>
@@ -1519,7 +1519,7 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span>file-name-nondirectory <span style="color: #66D9EF;">(</span>buffer-file-name<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>file-name-nondirectory <span style="color: #93a8c6;">(</span>buffer-file-name<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 
@@ -1532,7 +1532,7 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span>buffer-name<span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>buffer-name<span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 
@@ -1570,7 +1570,7 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-bash"><span style="color: #F92672;">echo</span> -e <span style="color: #E6DB74;">"\033[31mHello, world!\033[0m"</span>
+<pre class="src src-bash"><span style="color: #b0c4de;">echo</span> -e <span style="color: #ffa07a;">"\033[31mHello, world!\033[0m"</span>
 </pre>
 </div>
 <p>
@@ -1582,7 +1582,7 @@ ls -l
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-shell">$ export <span style="color: #FD971F;">TERM</span>=xterm-256color
+<pre class="src src-shell">$ export <span style="color: #eedd82;">TERM</span>=xterm-256color
 </pre>
 </div>
 <ul class="org-ul">
@@ -1590,13 +1590,13 @@ ls -l
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">require</span> '<span style="color: #AE81FF;">ansi-color</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">my/ansi-color-for-comint-mode-on</span> <span style="color: #66D9EF;">()</span>
-  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">interactive</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">setq</span> ansi-color-for-comint-mode t<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>ansi-color-for-comint-mode-on<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span>add-hook 'shell-mode-hook 'my/ansi-color-for-comint-mode-on<span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span>setenv <span style="color: #E6DB74;">"TERM"</span> <span style="color: #E6DB74;">"xterm-256color"</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">require</span> '<span style="color: #7fffd4;">ansi-color</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">my/ansi-color-for-comint-mode-on</span> <span style="color: #93a8c6;">()</span>
+  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">interactive</span><span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">setq</span> ansi-color-for-comint-mode t<span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span>ansi-color-for-comint-mode-on<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span>add-hook 'shell-mode-hook 'my/ansi-color-for-comint-mode-on<span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span>setenv <span style="color: #ffa07a;">"TERM"</span> <span style="color: #ffa07a;">"xterm-256color"</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 <p>
@@ -1613,12 +1613,12 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">require</span> '<span style="color: #AE81FF;">ansi-color</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">colorize-compilation-buffer</span> <span style="color: #66D9EF;">()</span>
-  <span style="color: #66D9EF;">(</span>toggle-read-only<span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>ansi-color-apply-on-region <span style="color: #A6E22E;">(</span>point-min<span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">(</span>point-max<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>toggle-read-only<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span>add-hook 'compilation-filter-hook 'colorize-compilation-buffer<span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">require</span> '<span style="color: #7fffd4;">ansi-color</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">colorize-compilation-buffer</span> <span style="color: #93a8c6;">()</span>
+  <span style="color: #93a8c6;">(</span>toggle-read-only<span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span>ansi-color-apply-on-region <span style="color: #b0b1a3;">(</span>point-min<span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">(</span>point-max<span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span>toggle-read-only<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span>add-hook 'compilation-filter-hook 'colorize-compilation-buffer<span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 <p>
@@ -1630,17 +1630,17 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> term-prompt-regexp <span style="color: #E6DB74;">"^[</span><span style="color: #E6DB74; font-weight: bold;">^</span><span style="color: #E6DB74;">#$%&gt;\n]*[#$%&gt;] *"</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> compilation-environment '<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"TERM=xterm-256color"</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> explicit-shell-file-name <span style="color: #E6DB74;">"/bin/bash"</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">setq</span> shell-file-name <span style="color: #E6DB74;">"bash"</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span>setenv <span style="color: #E6DB74;">"SHELL"</span> shell-file-name<span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span>add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on<span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">ansi-color-for-comint-mode-on</span> <span style="color: #66D9EF;">()</span>
-  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">interactive</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span><span style="color: #F92672;">setq-local</span> comint-output-filter-functions
-              <span style="color: #A6E22E;">(</span>remove 'ansi-color-process-output comint-output-filter-functions<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>
-  <span style="color: #66D9EF;">(</span>add-hook 'comint-preoutput-filter-functions 'ansi-color-process-output<span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> term-prompt-regexp <span style="color: #ffa07a;">"^[</span><span style="color: #ffa07a;">^</span><span style="color: #ffa07a;">#$%&gt;\n]*[#$%&gt;] *"</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> compilation-environment '<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">"TERM=xterm-256color"</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> explicit-shell-file-name <span style="color: #ffa07a;">"/bin/bash"</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">setq</span> shell-file-name <span style="color: #ffa07a;">"bash"</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span>setenv <span style="color: #ffa07a;">"SHELL"</span> shell-file-name<span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span>add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on<span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">ansi-color-for-comint-mode-on</span> <span style="color: #93a8c6;">()</span>
+  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">interactive</span><span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span><span style="color: #00ffff;">setq-local</span> comint-output-filter-functions
+              <span style="color: #b0b1a3;">(</span>remove 'ansi-color-process-output comint-output-filter-functions<span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span>
+  <span style="color: #93a8c6;">(</span>add-hook 'comint-preoutput-filter-functions 'ansi-color-process-output<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 <p>
@@ -1661,10 +1661,10 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span><span style="color: #F92672;">require</span> '<span style="color: #AE81FF;">ansi-color</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span><span style="color: #F92672;">defun</span> <span style="color: #A6E22E;">colorize-shell-command-output</span> <span style="color: #66D9EF;">()</span>
-  <span style="color: #66D9EF;">(</span>ansi-color-apply-on-region <span style="color: #A6E22E;">(</span>point-min<span style="color: #A6E22E;">)</span> <span style="color: #A6E22E;">(</span>point-max<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span><span style="color: #AE81FF;">)</span>
-<span style="color: #AE81FF;">(</span>add-hook 'shell-command-complete-functions 'colorize-shell-command-output<span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">require</span> '<span style="color: #7fffd4;">ansi-color</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">defun</span> <span style="color: #87cefa;">colorize-shell-command-output</span> <span style="color: #93a8c6;">()</span>
+  <span style="color: #93a8c6;">(</span>ansi-color-apply-on-region <span style="color: #b0b1a3;">(</span>point-min<span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">(</span>point-max<span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">(</span>add-hook 'shell-command-complete-functions 'colorize-shell-command-output<span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 <p>
@@ -1693,7 +1693,7 @@ ls -l
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp"><span style="color: #AE81FF;">(</span>set-face-attribute 'region nil <span style="color: #F92672;">:background</span> <span style="color: #E6DB74;">"yellow"</span><span style="color: #AE81FF;">)</span>
+<pre class="src src-emacs-lisp"><span style="color: #8c8c8c;">(</span>set-face-attribute 'region nil <span style="color: #b0c4de;">:background</span> <span style="color: #ffa07a;">"yellow"</span><span style="color: #8c8c8c;">)</span>
 </pre>
 </div>
 <p>

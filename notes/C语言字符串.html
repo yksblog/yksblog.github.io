@@ -96,11 +96,11 @@ C语言虽然没有字符串类型，但是 C语言提是存在字符串这个�
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-c">  <span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">message</span> = <span style="color: #E6DB74;">"Hello World!"</span>;
+<pre class="src src-c">  <span style="color: #98fb98;">char</span> *<span style="color: #eedd82;">message</span> = <span style="color: #ffa07a;">"Hello World!"</span>;
 
-<span style="color: #75715E;">// </span><span style="color: #75715E;">&#19978;&#38754;&#30340;&#35821;&#21477;&#20063;&#21487;&#20197;&#25286;&#20998;&#25104;&#19979;&#38754;&#20004;&#21477;</span>
-<span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">message</span>;
-message = <span style="color: #E6DB74;">"Hello World!"</span>;&#12288;&#12288;&#12288;&#12288;<span style="color: #75715E;">// </span><span style="color: #75715E;">&#36825;&#21477;&#35805;&#30475;&#36215;&#26469;&#20687;&#26159;&#23383;&#31526;&#20018;&#22797;&#21046;&#65292;&#20854;&#23454;&#19981;&#26159;&#65292;&#21482;&#26159;&#28041;&#21450;&#21040;&#25351;&#38024;&#25805;&#20316;</span>
+<span style="color: #808080;">// </span><span style="color: #808080;">&#19978;&#38754;&#30340;&#35821;&#21477;&#20063;&#21487;&#20197;&#25286;&#20998;&#25104;&#19979;&#38754;&#20004;&#21477;</span>
+<span style="color: #98fb98;">char</span> *<span style="color: #eedd82;">message</span>;
+message = <span style="color: #ffa07a;">"Hello World!"</span>;&#12288;&#12288;&#12288;&#12288;<span style="color: #808080;">// </span><span style="color: #808080;">&#36825;&#21477;&#35805;&#30475;&#36215;&#26469;&#20687;&#26159;&#23383;&#31526;&#20018;&#22797;&#21046;&#65292;&#20854;&#23454;&#19981;&#26159;&#65292;&#21482;&#26159;&#28041;&#21450;&#21040;&#25351;&#38024;&#25805;&#20316;</span>
 
 </pre>
 </div>
@@ -110,23 +110,23 @@ message = <span style="color: #E6DB74;">"Hello World!"</span>;&#12288;&#12288;&#
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">stdio.h</span><span style="color: #AE81FF;">&gt;</span>
+<pre class="src src-c"><span style="color: #b0c4de;">#include</span> <span style="color: #8c8c8c;">&lt;</span><span style="color: #ffa07a;">stdio.h</span><span style="color: #8c8c8c;">&gt;</span>
 
-<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span>
-<span style="color: #AE81FF;">{</span>
-&#12288;&#12288;<span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">message</span> = <span style="color: #E6DB74;">"Hello World!"</span>;
-&#12288;&#12288;printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"%s\n"</span>,message<span style="color: #66D9EF;">)</span>;
-&#12288;&#12288;<span style="color: #F92672;">while</span><span style="color: #66D9EF;">(</span>*message != <span style="color: #E6DB74;">'\0'</span><span style="color: #66D9EF;">){</span>
-&#12288;&#12288;&#12288;&#12288;printf<span style="color: #A6E22E;">(</span><span style="color: #E6DB74;">"%c "</span>,*message++<span style="color: #A6E22E;">)</span>;
-&#12288;&#12288;<span style="color: #66D9EF;">}</span>
-&#12288;&#12288;printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"\n"</span><span style="color: #66D9EF;">)</span>;
-&#12288;&#12288;<span style="color: #F92672;">return</span> 0;
-<span style="color: #AE81FF;">}</span>
+<span style="color: #98fb98;">int</span> <span style="color: #87cefa;">main</span><span style="color: #8c8c8c;">()</span>
+<span style="color: #8c8c8c;">{</span>
+&#12288;&#12288;<span style="color: #98fb98;">char</span> *<span style="color: #eedd82;">message</span> = <span style="color: #ffa07a;">"Hello World!"</span>;
+&#12288;&#12288;printf<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">"%s\n"</span>,message<span style="color: #93a8c6;">)</span>;
+&#12288;&#12288;<span style="color: #00ffff;">while</span><span style="color: #93a8c6;">(</span>*message != <span style="color: #ffa07a;">'\0'</span><span style="color: #93a8c6;">){</span>
+&#12288;&#12288;&#12288;&#12288;printf<span style="color: #b0b1a3;">(</span><span style="color: #ffa07a;">"%c "</span>,*message++<span style="color: #b0b1a3;">)</span>;
+&#12288;&#12288;<span style="color: #93a8c6;">}</span>
+&#12288;&#12288;printf<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">"\n"</span><span style="color: #93a8c6;">)</span>;
+&#12288;&#12288;<span style="color: #00ffff;">return</span> 0;
+<span style="color: #8c8c8c;">}</span>
 
-<span style="color: #75715E;">/* </span><span style="color: #75715E;">output:</span>
-<span style="color: #75715E;"> * Hello World!</span>
-<span style="color: #75715E;"> * H e l l o   W o r l d !</span>
-<span style="color: #75715E;"> */</span>
+<span style="color: #808080;">/* </span><span style="color: #808080;">output:</span>
+<span style="color: #808080;"> * Hello World!</span>
+<span style="color: #808080;"> * H e l l o   W o r l d !</span>
+<span style="color: #808080;"> */</span>
 
 </pre>
 </div>
@@ -145,7 +145,7 @@ message = <span style="color: #E6DB74;">"Hello World!"</span>;&#12288;&#12288;&#
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">charArray</span><span style="color: #AE81FF;">[]</span> = <span style="color: #AE81FF;">{</span><span style="color: #E6DB74;">'H'</span>,<span style="color: #E6DB74;">'e'</span>,<span style="color: #E6DB74;">'l'</span>,<span style="color: #E6DB74;">'l'</span>,<span style="color: #E6DB74;">'o'</span><span style="color: #AE81FF;">}</span>;    <span style="color: #75715E;">// </span><span style="color: #75715E;">&#22768;&#26126;&#24182;&#21021;&#22987;&#21270;&#19968;&#20010;&#23383;&#31526;&#25968;&#32452;</span>
+<pre class="src src-c"><span style="color: #98fb98;">char</span> <span style="color: #eedd82;">charArray</span><span style="color: #8c8c8c;">[]</span> = <span style="color: #8c8c8c;">{</span><span style="color: #ffa07a;">'H'</span>,<span style="color: #ffa07a;">'e'</span>,<span style="color: #ffa07a;">'l'</span>,<span style="color: #ffa07a;">'l'</span>,<span style="color: #ffa07a;">'o'</span><span style="color: #8c8c8c;">}</span>;    <span style="color: #808080;">// </span><span style="color: #808080;">&#22768;&#26126;&#24182;&#21021;&#22987;&#21270;&#19968;&#20010;&#23383;&#31526;&#25968;&#32452;</span>
 </pre>
 </div>
 
@@ -159,7 +159,7 @@ C 语言提供了一种更简洁的方法来对字符数组进行初始化：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">charArray</span><span style="color: #AE81FF;">[]</span> = <span style="color: #E6DB74;">"Hello World!"</span>;    <span style="color: #75715E;">// </span><span style="color: #75715E;">&#22768;&#26126;&#24182;&#21021;&#22987;&#21270;&#19968;&#20010;&#23383;&#31526;&#25968;&#32452;</span>
+<pre class="src src-c"><span style="color: #98fb98;">char</span> <span style="color: #eedd82;">charArray</span><span style="color: #8c8c8c;">[]</span> = <span style="color: #ffa07a;">"Hello World!"</span>;    <span style="color: #808080;">// </span><span style="color: #808080;">&#22768;&#26126;&#24182;&#21021;&#22987;&#21270;&#19968;&#20010;&#23383;&#31526;&#25968;&#32452;</span>
 </pre>
 </div>
 
@@ -172,21 +172,21 @@ C 语言提供了一种更简洁的方法来对字符数组进行初始化：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">stdio.h</span><span style="color: #AE81FF;">&gt;</span>
-<span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">string.h</span><span style="color: #AE81FF;">&gt;</span>
+<pre class="src src-c"><span style="color: #b0c4de;">#include</span> <span style="color: #8c8c8c;">&lt;</span><span style="color: #ffa07a;">stdio.h</span><span style="color: #8c8c8c;">&gt;</span>
+<span style="color: #b0c4de;">#include</span> <span style="color: #8c8c8c;">&lt;</span><span style="color: #ffa07a;">string.h</span><span style="color: #8c8c8c;">&gt;</span>
 
-<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span>
-<span style="color: #AE81FF;">{</span>
-        <span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">str</span><span style="color: #66D9EF;">[]</span> = <span style="color: #E6DB74;">"hello world!"</span>;
-        <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">len</span> = strlen<span style="color: #66D9EF;">(</span>str<span style="color: #66D9EF;">)</span>;
-        <span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">i</span>;
-        <span style="color: #F92672;">for</span><span style="color: #66D9EF;">(</span>i = 0; i &lt; len; i++<span style="color: #66D9EF;">){</span>
-                <span style="color: #F92672;">if</span><span style="color: #A6E22E;">(</span> str<span style="color: #E6DB74;">[</span>i<span style="color: #E6DB74;">]</span> &lt;= <span style="color: #E6DB74;">'z'</span> &amp;&amp; str<span style="color: #E6DB74;">[</span>i<span style="color: #E6DB74;">]</span> &gt;= <span style="color: #E6DB74;">'a'</span><span style="color: #A6E22E;">){</span>
-                        str<span style="color: #E6DB74;">[</span>i<span style="color: #E6DB74;">]</span> = str<span style="color: #E6DB74;">[</span>i<span style="color: #E6DB74;">]</span> - 32;
-                <span style="color: #A6E22E;">}</span>
-        <span style="color: #66D9EF;">}</span>
-        printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"%s\n"</span>,str<span style="color: #66D9EF;">)</span>;
-<span style="color: #AE81FF;">}</span>
+<span style="color: #98fb98;">int</span> <span style="color: #87cefa;">main</span><span style="color: #8c8c8c;">()</span>
+<span style="color: #8c8c8c;">{</span>
+        <span style="color: #98fb98;">char</span> <span style="color: #eedd82;">str</span><span style="color: #93a8c6;">[]</span> = <span style="color: #ffa07a;">"hello world!"</span>;
+        <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">len</span> = strlen<span style="color: #93a8c6;">(</span>str<span style="color: #93a8c6;">)</span>;
+        <span style="color: #98fb98;">int</span> <span style="color: #eedd82;">i</span>;
+        <span style="color: #00ffff;">for</span><span style="color: #93a8c6;">(</span>i = 0; i &lt; len; i++<span style="color: #93a8c6;">){</span>
+                <span style="color: #00ffff;">if</span><span style="color: #b0b1a3;">(</span> str<span style="color: #97b098;">[</span>i<span style="color: #97b098;">]</span> &lt;= <span style="color: #ffa07a;">'z'</span> &amp;&amp; str<span style="color: #97b098;">[</span>i<span style="color: #97b098;">]</span> &gt;= <span style="color: #ffa07a;">'a'</span><span style="color: #b0b1a3;">){</span>
+                        str<span style="color: #97b098;">[</span>i<span style="color: #97b098;">]</span> = str<span style="color: #97b098;">[</span>i<span style="color: #97b098;">]</span> - 32;
+                <span style="color: #b0b1a3;">}</span>
+        <span style="color: #93a8c6;">}</span>
+        printf<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">"%s\n"</span>,str<span style="color: #93a8c6;">)</span>;
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 
@@ -216,7 +216,7 @@ C 语言提供了一种更简洁的方法来对字符数组进行初始化：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">size_t</span> <span style="color: #A6E22E;">strlen</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">string</span><span style="color: #AE81FF;">)</span>;
+<pre class="src src-c"><span style="color: #98fb98;">size_t</span> <span style="color: #87cefa;">strlen</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">string</span><span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 
@@ -225,21 +225,21 @@ C 语言提供了一种更简洁的方法来对字符数组进行初始化：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">stdio.h</span><span style="color: #AE81FF;">&gt;</span>
-<span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">stdlib.h</span><span style="color: #AE81FF;">&gt;</span>
-<span style="color: #F92672;">#include</span> <span style="color: #AE81FF;">&lt;</span><span style="color: #E6DB74;">string.h</span><span style="color: #AE81FF;">&gt;</span>
+<pre class="src src-c"><span style="color: #b0c4de;">#include</span> <span style="color: #8c8c8c;">&lt;</span><span style="color: #ffa07a;">stdio.h</span><span style="color: #8c8c8c;">&gt;</span>
+<span style="color: #b0c4de;">#include</span> <span style="color: #8c8c8c;">&lt;</span><span style="color: #ffa07a;">stdlib.h</span><span style="color: #8c8c8c;">&gt;</span>
+<span style="color: #b0c4de;">#include</span> <span style="color: #8c8c8c;">&lt;</span><span style="color: #ffa07a;">string.h</span><span style="color: #8c8c8c;">&gt;</span>
 
-<span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">main</span><span style="color: #AE81FF;">()</span>
-<span style="color: #AE81FF;">{</span>
-    <span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">str1</span><span style="color: #66D9EF;">[]</span> = <span style="color: #E6DB74;">"Hello World!"</span>;
-    printf<span style="color: #66D9EF;">(</span><span style="color: #E6DB74;">"%d\n"</span>,strlen<span style="color: #A6E22E;">(</span>str1<span style="color: #A6E22E;">)</span><span style="color: #66D9EF;">)</span>;
+<span style="color: #98fb98;">int</span> <span style="color: #87cefa;">main</span><span style="color: #8c8c8c;">()</span>
+<span style="color: #8c8c8c;">{</span>
+    <span style="color: #98fb98;">char</span> <span style="color: #eedd82;">str1</span><span style="color: #93a8c6;">[]</span> = <span style="color: #ffa07a;">"Hello World!"</span>;
+    printf<span style="color: #93a8c6;">(</span><span style="color: #ffa07a;">"%d\n"</span>,strlen<span style="color: #b0b1a3;">(</span>str1<span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span>;
 
-    <span style="color: #F92672;">return</span> 0;
-<span style="color: #AE81FF;">}</span>
+    <span style="color: #00ffff;">return</span> 0;
+<span style="color: #8c8c8c;">}</span>
 
-<span style="color: #75715E;">/* </span><span style="color: #75715E;">output:</span>
-<span style="color: #75715E;"> * 12</span>
-<span style="color: #75715E;"> */</span>
+<span style="color: #808080;">/* </span><span style="color: #808080;">output:</span>
+<span style="color: #808080;"> * 12</span>
+<span style="color: #808080;"> */</span>
 </pre>
 </div>
 </div>
@@ -252,7 +252,7 @@ C 语言提供了一种更简洁的方法来对字符数组进行初始化：
 C 语言中使用库函数 strcpy 来进行字符串复制操作：
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">char</span> *<span style="color: #A6E22E;">strcpy</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">dst</span> , <span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">src</span><span style="color: #AE81FF;">)</span>;
+<pre class="src src-c"><span style="color: #98fb98;">char</span> *<span style="color: #87cefa;">strcpy</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> *<span style="color: #eedd82;">dst</span> , <span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">src</span><span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 
@@ -261,7 +261,7 @@ C 语言中使用库函数 strcpy 来进行字符串复制操作：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">char</span> *<span style="color: #A6E22E;">strncpy</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">dst</span> , <span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">src</span> , <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">len</span><span style="color: #AE81FF;">)</span>;
+<pre class="src src-c"><span style="color: #98fb98;">char</span> *<span style="color: #87cefa;">strncpy</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> *<span style="color: #eedd82;">dst</span> , <span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">src</span> , <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">len</span><span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 
@@ -287,7 +287,7 @@ strncpy 函数有三个参数，与 strcpy 函数一样，它也是将 src 字�
 C 语言中使用库函数 strcat 来连接两个字符串：
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">char</span> *<span style="color: #A6E22E;">strcat</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">dst</span>,<span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">src</span><span style="color: #AE81FF;">)</span>;
+<pre class="src src-c"><span style="color: #98fb98;">char</span> *<span style="color: #87cefa;">strcat</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> *<span style="color: #eedd82;">dst</span>,<span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">src</span><span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 
@@ -296,7 +296,7 @@ C 语言中使用库函数 strcat 来连接两个字符串：
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">char</span> *<span style="color: #A6E22E;">strncat</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">char</span> *<span style="color: #FD971F;">dst</span> , <span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">src</span> , <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">len</span><span style="color: #AE81FF;">)</span>;
+<pre class="src src-c"><span style="color: #98fb98;">char</span> *<span style="color: #87cefa;">strncat</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> *<span style="color: #eedd82;">dst</span> , <span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">src</span> , <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">len</span><span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 
@@ -314,7 +314,7 @@ C 语言中使用库函数 strcmp 来进行字符串比较。strcmp 函数会对
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">int</span> <span style="color: #A6E22E;">strcmp</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">s1</span> , <span style="color: #66D9EF;">char</span> <span style="color: #FD971F;">sonst</span> *s2<span style="color: #AE81FF;">)</span>;
+<pre class="src src-c"><span style="color: #98fb98;">int</span> <span style="color: #87cefa;">strcmp</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">s1</span> , <span style="color: #98fb98;">char</span> <span style="color: #eedd82;">sonst</span> *s2<span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 
@@ -335,7 +335,7 @@ C 语言中使用库函数 strcmp 来进行字符串比较。strcmp 函数会对
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">char</span> *<span style="color: #A6E22E;">strncmp</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">s1</span> , <span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">s2</span> , <span style="color: #66D9EF;">size_t</span> <span style="color: #FD971F;">len</span><span style="color: #AE81FF;">)</span>;
+<pre class="src src-c"><span style="color: #98fb98;">char</span> *<span style="color: #87cefa;">strncmp</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">s1</span> , <span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">s2</span> , <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">len</span><span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 
@@ -356,8 +356,8 @@ C 语言中使用库函数 strcmp 来进行字符串比较。strcmp 函数会对
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">char</span> *<span style="color: #A6E22E;">strchr</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">str</span>,<span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">ch</span><span style="color: #AE81FF;">)</span>;&#12288;&#12288;&#12288;&#12288;<span style="color: #75715E;">// </span><span style="color: #75715E;">int ch &#26159;&#23383;&#31526;&#30340;ASCII&#30721;&#20540;</span>
-<span style="color: #66D9EF;">char</span> *<span style="color: #A6E22E;">strrchr</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">str</span>,<span style="color: #66D9EF;">int</span> <span style="color: #FD971F;">ch</span><span style="color: #AE81FF;">)</span>;
+<pre class="src src-c"><span style="color: #98fb98;">char</span> *<span style="color: #87cefa;">strchr</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">str</span>,<span style="color: #98fb98;">int</span> <span style="color: #eedd82;">ch</span><span style="color: #8c8c8c;">)</span>;&#12288;&#12288;&#12288;&#12288;<span style="color: #808080;">// </span><span style="color: #808080;">int ch &#26159;&#23383;&#31526;&#30340;ASCII&#30721;&#20540;</span>
+<span style="color: #98fb98;">char</span> *<span style="color: #87cefa;">strrchr</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">str</span>,<span style="color: #98fb98;">int</span> <span style="color: #eedd82;">ch</span><span style="color: #8c8c8c;">)</span>;
 
 </pre>
 </div>
@@ -377,7 +377,7 @@ C 语言中使用库函数 strcmp 来进行字符串比较。strcmp 函数会对
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">char</span> *<span style="color: #A6E22E;">strpbrk</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">str</span> , <span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">group</span><span style="color: #AE81FF;">)</span>;
+<pre class="src src-c"><span style="color: #98fb98;">char</span> *<span style="color: #87cefa;">strpbrk</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">str</span> , <span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">group</span><span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 
@@ -395,7 +395,7 @@ C 语言中使用库函数 strcmp 来进行字符串比较。strcmp 函数会对
 </p>
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #66D9EF;">char</span> *<span style="color: #A6E22E;">strstr</span><span style="color: #AE81FF;">(</span><span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">str1</span> , <span style="color: #66D9EF;">char</span> <span style="color: #F92672;">const</span> *<span style="color: #FD971F;">str2</span><span style="color: #AE81FF;">)</span>;
+<pre class="src src-c"><span style="color: #98fb98;">char</span> *<span style="color: #87cefa;">strstr</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">str1</span> , <span style="color: #98fb98;">char</span> <span style="color: #00ffff;">const</span> *<span style="color: #eedd82;">str2</span><span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 

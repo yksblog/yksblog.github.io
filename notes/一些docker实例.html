@@ -28,13 +28,14 @@
 </li>
 <li><a href="#org2e1dfb7">mongodb</a></li>
 <li><a href="#org58cb290">memcached</a></li>
-<li><a href="#org0f5926a">kfk</a>
+<li><a href="#org35e6660">kfk</a>
 <ul>
 <li><a href="#org369bc52">kfk-manager</a></li>
-<li><a href="#orgc826b21">kfk</a></li>
+<li><a href="#org0f5926a">kfk</a></li>
 </ul>
 </li>
 <li><a href="#orgf0762c8">eureka</a></li>
+<li><a href="#org61bca28">ghost博客</a></li>
 </ul>
 </div>
 </div>
@@ -186,9 +187,9 @@ services:
 </div>
 </div>
 
-<div id="outline-container-org0f5926a" class="outline-2">
-<h2 id="org0f5926a">kfk</h2>
-<div class="outline-text-2" id="text-org0f5926a">
+<div id="outline-container-org35e6660" class="outline-2">
+<h2 id="org35e6660">kfk</h2>
+<div class="outline-text-2" id="text-org35e6660">
 </div>
 <div id="outline-container-org369bc52" class="outline-3">
 <h3 id="org369bc52">kfk-manager</h3>
@@ -207,9 +208,9 @@ services:
 </div>
 </div>
 </div>
-<div id="outline-container-orgc826b21" class="outline-3">
-<h3 id="orgc826b21">kfk</h3>
-<div class="outline-text-3" id="text-orgc826b21">
+<div id="outline-container-org0f5926a" class="outline-3">
+<h3 id="org0f5926a">kfk</h3>
+<div class="outline-text-3" id="text-org0f5926a">
 <div class="org-src-container">
 <pre class="src src-yml">  version: '3'
 services:
@@ -248,6 +249,26 @@ services:
     container_name: springcloud_eureka
     ports:
       - "8761:8761"
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org61bca28" class="outline-2">
+<h2 id="org61bca28">ghost博客</h2>
+<div class="outline-text-2" id="text-org61bca28">
+<div class="org-src-container">
+<pre class="src src-yaml"><span style="color: #FD971F;">version</span>: <span style="color: #E6DB74;">'3'</span>
+<span style="color: #FD971F;">services</span>:
+<span style="color: #FD971F;">ghost_0633_blog</span>:
+    <span style="color: #FD971F;">image</span>: diancloud/ghost:0.6.3-zh
+    <span style="color: #FD971F;">restart</span>: always
+    <span style="color: #FD971F;">ports</span>:
+      - 127.0.0.1:9010:2368
+    <span style="color: #FD971F;">volumes</span>:
+      - /home/js/workspace_ghost/ghost_0633_blog:/ghost-override
+    <span style="color: #FD971F;">environment</span>:
+      <span style="color: #FD971F;">url</span>: https://xxx.com
 </pre>
 </div>
 </div>
